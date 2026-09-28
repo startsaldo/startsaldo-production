@@ -177,7 +177,7 @@ function Index() {
             <img src={startsaldoLogoUrl} alt="StartSaldo" className="h-auto w-[132px] sm:w-[148px]" />
           </a>
           <nav className="hidden justify-center gap-4 text-[13.5px] md:flex lg:gap-7 lg:text-[14px]">{nav.map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-muted-foreground transition-colors hover:text-primary">{label}</a>)}</nav>
-          <Button asChild className="hidden md:inline-flex"><a href="#kontakt">Erstgespräch</a></Button>
+          <Button asChild className="hidden md:inline-flex"><a href="#kontakt">Kontakt aufnehmen</a></Button>
           <button aria-label={menuOpen ? "Menü schliessen" : "Menü öffnen"} aria-expanded={menuOpen} className="grid size-10 shrink-0 place-items-center rounded-button border border-border bg-background text-foreground md:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X className="size-5"/> : <Menu className="size-5"/>}</button>
         </div>
         <div className={`absolute inset-x-0 top-full z-40 border-b border-border bg-background shadow-[0_24px_40px_-20px_rgba(23,32,28,0.25)] transition-all duration-300 ease-out md:hidden ${menuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`} aria-hidden={!menuOpen}>
