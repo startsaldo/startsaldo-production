@@ -4,7 +4,7 @@ import { ArrowRight, Check, CheckCircle2, ClipboardCheck, Cloud, Mail, Menu, Use
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import audeliaPhotoUrl from "@/assets/audelia.jpg";
-import startsaldoLogoUrl from "@/assets/startsaldo-logo.png";
+import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 // No head() here: the home route inherits title/description/og/twitter from
@@ -192,30 +192,30 @@ function Index() {
   const checks = (items: string[], light = false) => <ul className="mt-7 space-y-3.5">{items.map((item) => <li key={item} className="flex gap-3 text-[15px] leading-6"><Check className={`mt-1 size-4 shrink-0 ${light ? "text-sage" : "text-success"}`} />{item}</li>)}</ul>;
   return (
     <main className="bg-background text-foreground">
-      <header className={`sticky top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur-md transition-transform duration-300 ease-out ${headerHidden ? "-translate-y-full" : "translate-y-0"}`}>
+      <header className={`sticky top-0 z-50 border-b border-primary-foreground/15 bg-deep/95 text-primary-foreground backdrop-blur-md transition-transform duration-300 ease-out ${headerHidden ? "-translate-y-full" : "translate-y-0"}`}>
         <div className="section-shell grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 md:h-[78px] md:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-4">
           <a href="#top" className="block min-w-0" aria-label="StartSaldo – zum Seitenanfang">
-            <img src={startsaldoLogoUrl} alt="StartSaldo" className="h-auto w-[132px] sm:w-[148px]" />
+             <img src={startsaldoLogoDarkUrl} alt="StartSaldo" className="h-auto w-[132px] sm:w-[148px]" />
           </a>
-          <nav className="hidden justify-center gap-4 text-[13.5px] md:flex lg:gap-7 lg:text-[14px]">{nav.map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-muted-foreground transition-colors hover:text-primary">{label}</a>)}</nav>
-          <Button asChild className="hidden md:inline-flex"><a href="#kontakt">Kontakt aufnehmen</a></Button>
-          <button aria-label={menuOpen ? "Menü schliessen" : "Menü öffnen"} aria-expanded={menuOpen} className="grid size-10 shrink-0 place-items-center rounded-button border border-border bg-background text-foreground md:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X className="size-5"/> : <Menu className="size-5"/>}</button>
+           <nav className="hidden justify-center gap-4 text-[13.5px] md:flex lg:gap-7 lg:text-[14px]">{nav.map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-primary-foreground transition-colors hover:text-sage">{label}</a>)}</nav>
+           <Button asChild className="hidden bg-sage text-deep hover:bg-sage-soft md:inline-flex"><a href="#kontakt">Kontakt aufnehmen</a></Button>
+           <button aria-label={menuOpen ? "Menü schliessen" : "Menü öffnen"} aria-expanded={menuOpen} className="grid size-10 shrink-0 place-items-center rounded-button border border-primary-foreground/35 bg-transparent text-primary-foreground md:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X className="size-5"/> : <Menu className="size-5"/>}</button>
         </div>
-        <div className={`absolute inset-x-0 top-full z-40 border-b border-border bg-background shadow-[0_24px_40px_-20px_rgba(23,32,28,0.25)] transition-all duration-300 ease-out md:hidden ${menuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`} aria-hidden={!menuOpen}>
-          <nav className="section-shell flex flex-col py-2">{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="border-b border-border/70 py-3.5 text-base font-medium last:border-0">{label}</a>)}</nav>
+         <div className={`absolute inset-x-0 top-full z-40 border-b border-primary-foreground/15 bg-deep text-primary-foreground shadow-[0_24px_40px_-20px_rgba(23,32,28,0.25)] transition-all duration-300 ease-out md:hidden ${menuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`} aria-hidden={!menuOpen}>
+           <nav className="section-shell flex flex-col py-2">{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="border-b border-primary-foreground/15 py-3.5 text-base font-medium last:border-0">{label}</a>)}</nav>
         </div>
       </header>
 
       <section
         id="top"
-        className="overflow-hidden pb-14 pt-12 sm:py-16 lg:py-20"
+         className="overflow-hidden bg-deep pb-14 pt-12 text-primary-foreground sm:py-16 lg:py-20"
       >
         <div className="section-shell">
-          <p className="hero-reveal hero-reveal-1 eyebrow mx-auto max-w-[320px] text-center">Finanz- & Lohnbuchhaltung für Schweizer KMU</p>
-          <h1 className="hero-reveal hero-reveal-2 heading-xl mx-auto mt-5 max-w-[650px] text-center">Ihre Buchhaltung.<br/><span className="text-primary">Persönlich erledigt.</span></h1>
-          <p className="hero-reveal hero-reveal-3 mx-auto mt-6 max-w-[350px] text-center text-base leading-7 text-muted-foreground md:max-w-none md:text-[19px] md:leading-[1.65]">Wir übernehmen Ihre Finanz- und Lohnbuchhaltung zuverlässig und persönlich.</p>
+           <p className="hero-reveal hero-reveal-1 eyebrow mx-auto max-w-[320px] text-center text-sage">Finanz- & Lohnbuchhaltung für Schweizer KMU</p>
+           <h1 className="hero-reveal hero-reveal-2 heading-xl mx-auto mt-5 max-w-[650px] text-center">Ihre Buchhaltung.<br/><span className="text-sage">Persönlich erledigt.</span></h1>
+           <p className="hero-reveal hero-reveal-3 mx-auto mt-6 max-w-[350px] text-center text-base leading-7 text-primary-foreground/75 md:max-w-none md:text-[19px] md:leading-[1.65]">Wir übernehmen Ihre Finanz- und Lohnbuchhaltung zuverlässig und persönlich.</p>
         </div>
-        <div className="hero-reveal hero-reveal-4 section-shell mt-8 grid gap-3 sm:flex sm:items-center sm:justify-center"><Button asChild className="w-full sm:w-auto"><a href="#kontakt">Unverbindliches Erstgespräch</a></Button><Button variant="outline" asChild className="w-full sm:w-auto"><a href="#dienstleistungen">Dienstleistungen ansehen</a></Button></div>
+         <div className="hero-reveal hero-reveal-4 section-shell mt-8 grid gap-3 sm:flex sm:items-center sm:justify-center"><Button variant="outline" asChild className="w-full border-sage bg-transparent text-sage hover:bg-primary-foreground/10 sm:w-auto"><a href="#kontakt">Unverbindliches Erstgespräch</a></Button><Button asChild className="w-full bg-sage text-deep hover:bg-sage-soft sm:w-auto"><a href="#dienstleistungen">Dienstleistungen ansehen</a></Button></div>
         <div className="hero-reveal hero-reveal-5 mt-7 w-full" aria-label="Abstrakte Bilanz- und Erfolgsrechnungen in Bewegung">
           <StatementMarquee reverse />
         </div>
@@ -248,7 +248,7 @@ function Index() {
         <form className="rounded-[24px] border border-border bg-background p-6 md:p-10" onSubmit={handleContactSubmit}><div className="grid gap-5 sm:grid-cols-2">{[["Name","name"],["Firma","firma"],["E-Mail","email"],["Telefon","telefon"]].map(([label,field],i)=><label key={label} className="text-sm font-medium">{label}<input name={field} required={i===0||i===2} type={i===2?"email":i===3?"tel":"text"} className="mt-2 h-[52px] w-full rounded-[10px] border border-input bg-card px-4 outline-none transition-colors focus:border-primary"/></label>)}</div><label className="mt-6 block text-sm font-medium">Nachricht<textarea name="nachricht" required className="mt-2 min-h-[140px] w-full resize-y rounded-[10px] border border-input bg-card p-4 outline-none transition-colors focus:border-primary"/></label>{sendError && <p role="alert" className="mt-4 text-center text-sm font-medium text-destructive">{sendError}</p>}<Button type="submit" disabled={sending} className="mt-6 w-full">{sending ? "Wird gesendet…" : "Anfrage senden"}</Button><p className="mt-4 text-center text-xs leading-5 text-muted-foreground">Mit dem Absenden stimmen Sie der Bearbeitung Ihrer Angaben zur Kontaktaufnahme zu.</p></form>
         )}</Reveal></div></section>
 
-      <footer className="bg-foreground py-12 text-primary-foreground"><div className="section-shell"><div className="grid gap-10 md:grid-cols-3"><div><p className="text-xl font-semibold">StartSaldo</p><p className="mt-3 text-sm leading-6 text-primary-foreground/65">Finanz- & Lohnbuchhaltung für Schweizer KMU.</p></div><nav className="flex flex-col items-start gap-3 text-sm md:mx-auto md:w-fit">{nav.slice(0,4).map(([l,h])=><a key={h} href={h}>{l}</a>)}</nav><div className="text-sm leading-7 md:justify-self-end"><a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a><br/><a href="tel:+41766295056">076 629 50 56</a><br/>Rothenthurm SZ</div></div><div className="mt-10 flex flex-row items-center justify-between gap-4 border-t border-primary-foreground/15 pt-6 text-xs text-primary-foreground/60"><p>© 2026 Digital Trust Solutions GmbH</p><div className="flex gap-5"><a href="#" onClick={(e)=>e.preventDefault()}>Impressum</a><a href="#" onClick={(e)=>e.preventDefault()}>Datenschutz</a></div></div></div></footer>
+      <footer className="bg-foreground py-12 text-primary-foreground"><div className="section-shell"><div className="grid gap-10 md:grid-cols-3"><div><img src={startsaldoLogoDarkUrl} alt="StartSaldo" className="h-auto w-[148px]" /><p className="mt-3 whitespace-nowrap text-sm leading-6 text-primary-foreground/65">Finanz- & Lohnbuchhaltung für Schweizer KMU.</p></div><nav className="flex flex-col items-start gap-3 text-sm md:mx-auto md:w-fit">{nav.slice(0,4).map(([l,h])=><a key={h} href={h}>{l}</a>)}</nav><div className="text-sm leading-7 md:justify-self-end"><a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a><br/><a href="tel:+41766295056">076 629 50 56</a><br/>Rothenthurm SZ</div></div><div className="mt-10 flex flex-row items-center justify-between gap-4 border-t border-primary-foreground/15 pt-6 text-xs text-primary-foreground/60"><p>© 2026 Digital Trust Solutions GmbH</p><div className="flex gap-5"><a href="#" onClick={(e)=>e.preventDefault()}>Impressum</a><a href="#" onClick={(e)=>e.preventDefault()}>Datenschutz</a></div></div></div></footer>
     </main>
   );
 }
