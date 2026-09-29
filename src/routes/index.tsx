@@ -90,6 +90,27 @@ function StatementMarquee({ reverse = false }: { reverse?: boolean }) {
 // IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [headerHidden, setHeaderHidden] = useState(false);
+  const lastScrollY = useRef(0);
+
+  // Menü ausblenden beim Herunterscrollen, einblenden beim Hochscrollen.
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastScrollY.current;
+      lastScrollY.current = y;
+      if (y < 100) {
+        setHeaderHidden(false);
+      } else if (delta > 6) {
+        setHeaderHidden(true);
+        setMenuOpen(false);
+      } else if (delta < -6) {
+        setHeaderHidden(false);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
@@ -171,7 +192,7 @@ function Index() {
   const checks = (items: string[], light = false) => <ul className="mt-7 space-y-3.5">{items.map((item) => <li key={item} className="flex gap-3 text-[15px] leading-6"><Check className={`mt-1 size-4 shrink-0 ${light ? "text-sage" : "text-success"}`} />{item}</li>)}</ul>;
   return (
     <main className="bg-background text-foreground">
-      <header className="sticky top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur-md">
+      <header className={`sticky top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur-md transition-transform duration-300 ease-out ${headerHidden ? "-translate-y-full" : "translate-y-0"}`}>
         <div className="section-shell grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 md:h-[78px] md:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-4">
           <a href="#top" className="block min-w-0" aria-label="StartSaldo – zum Seitenanfang">
             <img src={startsaldoLogoUrl} alt="StartSaldo" className="h-auto w-[132px] sm:w-[148px]" />
