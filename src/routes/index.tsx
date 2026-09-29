@@ -4,7 +4,6 @@ import { ArrowRight, Check, CheckCircle2, ClipboardCheck, Cloud, Mail, Menu, Use
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import audeliaPhotoUrl from "@/assets/audelia.jpg";
-import startsaldoLogoUrl from "@/assets/startsaldo-logo.png";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
