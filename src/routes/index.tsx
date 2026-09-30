@@ -239,7 +239,7 @@ function Index() {
       <section id="kontakt" className="section-pad bg-deep text-primary-foreground"><div className="section-shell grid gap-14 lg:grid-cols-[.8fr_1.2fr]"><Reveal><div><div className="text-center"><p className="eyebrow text-sage">Kontakt</p><h2 className="heading-lg mt-4">Nehmen Sie Kontakt mit uns auf.</h2></div><dl className="mt-10 space-y-6"><div><dt className="text-sm text-primary-foreground/65">E-Mail</dt><dd className="mt-1 font-semibold"><a href="mailto:info@startsaldo.ch" className="transition-colors hover:text-sage">info@startsaldo.ch</a></dd></div><div><dt className="text-sm text-primary-foreground/65">Telefon</dt><dd className="mt-1 font-semibold"><a href="tel:+41766295056" className="transition-colors hover:text-sage">076 629 50 56</a></dd></div><div><dt className="text-sm text-primary-foreground/65">Standort</dt><dd className="mt-1 font-semibold">Rothenthurm SZ, Schweiz</dd></div></dl></div></Reveal>
         <Reveal delay={120}>
         {sent ? (
-          <div role="status" className="flex flex-col items-center rounded-[24px] border border-border bg-background px-6 py-16 text-center text-foreground md:px-10 md:py-20">
+          <div role="status" className="flex flex-col items-center px-6 py-10 text-center text-primary-foreground md:px-10">
             <span className="grid size-16 place-items-center rounded-full bg-sage-soft"><CheckCircle2 className="size-8 text-success" /></span>
             <h3 className="mt-7 max-w-[460px] text-[24px] font-semibold leading-snug">Ihre Nachricht wurde erfolgreich versendet und so schnell wie möglich bearbeitet.</h3>
             <Button variant="outline" className="mt-8" onClick={() => setSent(false)}>Neue Nachricht schreiben</Button>
