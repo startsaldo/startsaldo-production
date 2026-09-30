@@ -283,11 +283,37 @@
   }
 }
 
+@keyframes testi-marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@utility testi-rail {
+  width: 100%;
+  overflow: hidden;
+}
+
+@utility testi-track {
+  display: flex;
+  width: max-content;
+  animation: testi-marquee-right 50s linear infinite;
+  will-change: transform;
+}
+
+@utility testi-group {
+  display: flex;
+  gap: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.testi-rail:hover .testi-track { animation-play-state: paused; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero-reveal {
     opacity: 1;
     animation: none;
   }
-  .statement-track { animation-play-state: paused; }
+  .statement-track,
+  .testi-track { animation-play-state: paused; }
 }
