@@ -37,9 +37,9 @@ function StatementCard({ title, rows, highlighted = false }: { title: string; ro
       </div>
       <div className="mt-2 space-y-2">
         {rows.map((row, index) => (
-          <div key={row} className="flex min-w-0 items-center justify-between gap-2">
-            <span className="whitespace-nowrap text-[8px] leading-none text-primary-foreground/65">{row}</span>
-            <span className={`h-1 w-11 shrink rounded-full bg-primary-foreground/25 ${index % 2 ? "max-w-8" : "max-w-11"}`} />
+          <div key={row} className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-1.5 sm:gap-2">
+            <span className="truncate whitespace-nowrap text-[7.5px] leading-none text-primary-foreground/65 sm:text-[8px]">{row}</span>
+            <span className={`h-1 w-8 shrink-0 rounded-full bg-primary-foreground/25 sm:w-11 ${index % 2 ? "max-w-7 sm:max-w-8" : "max-w-8 sm:max-w-11"}`} />
           </div>
         ))}
       </div>
