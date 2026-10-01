@@ -276,10 +276,14 @@
 }
 
 @media (max-width: 767px) {
-  .statement-track { --statement-group: 31rem; }
+  .statement-track { --statement-group: 34rem; }
   .statement-card {
-    width: 7rem;
+    width: 7.75rem;
     height: 7.5rem;
+  }
+  .statement-card > div:first-child > span {
+    font-size: 0.5rem;
+    letter-spacing: 0.03em;
   }
 }
 
