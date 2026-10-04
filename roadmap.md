@@ -5,3 +5,4 @@
 - [x] Add accessible mobile navigation, FAQ accordion, and contact form interactions
 - [x] Verify desktop and mobile rendering
 - [x] Restyle the header and hero in dark green, swap hero button colours, and use the supplied dark-mode logo
+- [x] Point the «Unverbindliches Erstgespräch» button at the Proton booking page, opening in a new tab
