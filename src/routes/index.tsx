@@ -215,7 +215,7 @@ function Index() {
            <h1 className="hero-reveal hero-reveal-2 heading-xl mx-auto mt-5 max-w-[650px] text-center">Ihre Buchhaltung.<br/><span className="text-sage">Persönlich erledigt.</span></h1>
            <p className="hero-reveal hero-reveal-3 mx-auto mt-6 max-w-[350px] text-center text-base leading-7 text-primary-foreground/75 md:max-w-none md:text-[19px] md:leading-[1.65]">Wir übernehmen Ihre Finanz- und Lohnbuchhaltung zuverlässig und persönlich.</p>
         </div>
-         <div className="hero-reveal hero-reveal-4 section-shell mt-8 grid gap-3 sm:flex sm:items-center sm:justify-center"><Button variant="outline" asChild className="w-full border-sage bg-transparent text-sage hover:bg-primary-foreground/10 sm:w-auto"><a href="#kontakt">Unverbindliches Erstgespräch</a></Button><Button asChild className="w-full bg-sage text-deep hover:bg-sage-soft sm:w-auto"><a href="#dienstleistungen">Dienstleistungen ansehen</a></Button></div>
+         <div className="hero-reveal hero-reveal-4 section-shell mt-8 grid gap-3 sm:flex sm:items-center sm:justify-center"><Button variant="outline" asChild className="w-full border-sage bg-transparent text-sage hover:bg-primary-foreground/10 sm:w-auto"><a href="https://calendar.proton.me/bookings#aoKD9adzG08Fb5PKXT_boUZbBrowx2wglL7dlHh7oos=" target="_blank" rel="noopener noreferrer">Unverbindliches Erstgespräch</a></Button><Button asChild className="w-full bg-sage text-deep hover:bg-sage-soft sm:w-auto"><a href="#dienstleistungen">Dienstleistungen ansehen</a></Button></div>
         <div className="hero-reveal hero-reveal-5 mt-7 w-full" aria-label="Abstrakte Bilanz- und Erfolgsrechnungen in Bewegung">
           <StatementMarquee reverse />
         </div>
