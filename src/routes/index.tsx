@@ -148,16 +148,36 @@ function Index() {
   }
   const testiRef = useRef<HTMLDivElement>(null);
 
-  // Same edge fade as the hero statement marquee: cards fade purely via
-  // their own opacity near either edge — no mask, no colour veil.
+  // The feedback rail moves slowly on its own, pauses for direct interaction,
+  // and loops through its duplicated card group without a visible jump.
   useEffect(() => {
     const rail = testiRef.current;
     if (!rail) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const cardEls = Array.from(rail.querySelectorAll("[data-testi-card]")) as HTMLElement[];
     const fadeWidth = 400;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let paused = false;
+    let dragging = false;
+    let dragStartX = 0;
+    let dragStartScrollLeft = 0;
+    let resumeTimer = 0;
     let raf = 0;
-    const tick = () => {
+    let previousTime = performance.now();
+
+    const loopPosition = () => {
+      const groupWidth = rail.scrollWidth / 2;
+      if (!groupWidth) return;
+      if (rail.scrollLeft <= 0) rail.scrollLeft += groupWidth;
+      else if (rail.scrollLeft >= groupWidth) rail.scrollLeft -= groupWidth;
+    };
+    const pauseTemporarily = () => {
+      paused = true;
+      window.clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(() => {
+        if (!dragging && !rail.matches(":hover")) paused = false;
+      }, 1800);
+    };
+    const updateFade = () => {
       const railRect = rail.getBoundingClientRect();
       cardEls.forEach((el) => {
         const rect = el.getBoundingClientRect();
@@ -166,10 +186,79 @@ function Index() {
         const eased = t * t * (3 - 2 * t);
         el.style.opacity = eased.toFixed(3);
       });
+    };
+    const tick = (time: number) => {
+      const elapsed = Math.min(time - previousTime, 40);
+      previousTime = time;
+      if (!paused && !reducedMotion) {
+        rail.scrollLeft -= elapsed * 0.012;
+        loopPosition();
+      }
+      updateFade();
       raf = requestAnimationFrame(tick);
     };
+    const onMouseEnter = () => { paused = true; };
+    const onMouseLeave = () => {
+      if (!dragging) paused = false;
+    };
+    const onWheel = (event: WheelEvent) => {
+      event.preventDefault();
+      pauseTemporarily();
+      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+      rail.scrollLeft += delta;
+      loopPosition();
+    };
+    const onPointerDown = (event: PointerEvent) => {
+      if (event.pointerType !== "mouse") return;
+      dragging = true;
+      paused = true;
+      dragStartX = event.clientX;
+      dragStartScrollLeft = rail.scrollLeft;
+      rail.setPointerCapture(event.pointerId);
+      rail.dataset["dragging"] = "true";
+    };
+    const onPointerMove = (event: PointerEvent) => {
+      if (!dragging || event.pointerType !== "mouse") return;
+      rail.scrollLeft = dragStartScrollLeft - (event.clientX - dragStartX);
+      loopPosition();
+    };
+    const endPointerDrag = (event: PointerEvent) => {
+      if (!dragging || event.pointerType !== "mouse") return;
+      dragging = false;
+      delete rail.dataset["dragging"];
+      if (rail.hasPointerCapture(event.pointerId)) rail.releasePointerCapture(event.pointerId);
+      pauseTemporarily();
+    };
+    const onTouchStart = () => { paused = true; };
+    const onTouchEnd = () => {
+      loopPosition();
+      pauseTemporarily();
+    };
+
+    rail.scrollLeft = rail.scrollWidth / 2;
+    rail.addEventListener("mouseenter", onMouseEnter);
+    rail.addEventListener("mouseleave", onMouseLeave);
+    rail.addEventListener("wheel", onWheel, { passive: false });
+    rail.addEventListener("pointerdown", onPointerDown);
+    rail.addEventListener("pointermove", onPointerMove);
+    rail.addEventListener("pointerup", endPointerDrag);
+    rail.addEventListener("pointercancel", endPointerDrag);
+    rail.addEventListener("touchstart", onTouchStart, { passive: true });
+    rail.addEventListener("touchend", onTouchEnd, { passive: true });
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(resumeTimer);
+      rail.removeEventListener("mouseenter", onMouseEnter);
+      rail.removeEventListener("mouseleave", onMouseLeave);
+      rail.removeEventListener("wheel", onWheel);
+      rail.removeEventListener("pointerdown", onPointerDown);
+      rail.removeEventListener("pointermove", onPointerMove);
+      rail.removeEventListener("pointerup", endPointerDrag);
+      rail.removeEventListener("pointercancel", endPointerDrag);
+      rail.removeEventListener("touchstart", onTouchStart);
+      rail.removeEventListener("touchend", onTouchEnd);
+    };
   }, []);
   useEffect(() => {
     if (window.location.hash) {
@@ -232,7 +321,7 @@ function Index() {
 
       <section id="team" className="section-pad bg-sage-soft"><div className="section-shell"><Reveal><div className="text-center"><p className="eyebrow">Ihre Ansprechpartner</p><h2 className="heading-lg mt-4">Wer steht hinter den Zahlen?</h2><p className="mx-auto mt-4 max-w-[350px] text-base leading-7 text-muted-foreground md:mt-5 md:max-w-none md:text-[18px]">Ihre Buchhaltung wird persönlich von uns betreut. So wissen Sie jederzeit, an wen Sie sich wenden können.</p></div></Reveal><div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">{[["Sarah Mogel","Payroll Spezialistin | Sozialversicherungen","Sarah ist vor allem für die Lohnbuchhaltung und Sozialversicherungen zuständig. Sie begleitet unsere Kunden vom monatlichen Lohnlauf bis zu Ein- und Austritten sowie Jahresendarbeiten.","","sarah@startsaldo.ch"],["Audelia Babbev-Pittet","Finanzbuchhalterin","Audelia betreut unsere Kunden in der Finanzbuchhaltung und sorgt dafür, dass Zahlen und Abstimmungen stimmen. Ihr ist wichtig, die Zusammenarbeit so einfach wie möglich zu gestalten mit klarer Kommunikation und unkomplizierten Lösungen für den Austausch von Dokumenten und Belegen.",audeliaPhotoUrl,"audelia@startsaldo.ch"]].map(([name,role,bio,photo,email],idx)=><Reveal key={name} delay={idx*120}><article className="overflow-hidden rounded-[20px] border border-border bg-card md:rounded-[24px]">{photo ? <img src={photo} alt={`Portrait von ${name}`} className="aspect-[4/3] w-full object-cover object-top"/> : <div className="grid aspect-[4/3] place-items-center bg-sage-soft"><div className="text-center"><UserRound className="mx-auto size-12 text-primary/50"/><p className="mt-3 text-sm font-medium text-muted-foreground">Portrait von {name}</p></div></div>}<div className="min-w-0 p-6 md:p-8"><h3 className="break-words text-[25px] font-semibold md:text-[28px]">{name}</h3><p className="mt-1 break-words font-semibold text-primary">{role}</p><p className="mt-5 leading-7 text-muted-foreground">{bio}</p>{email ? <a href={`mailto:${email}`} className="mt-5 inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-success"><Mail className="size-4 shrink-0" /><span className="break-all">{email}</span></a> : null}</div></article></Reveal>)}</div></div></section>
 
-      <section className="section-pad bg-card"><div className="section-shell"><Reveal><div className="text-center"><p className="eyebrow">Kundenfeedback</p><h2 className="heading-lg mt-4">Was unsere Kunden über die Zusammenarbeit sagen.</h2></div></Reveal><Reveal className="mt-12"><div ref={testiRef} className="testi-rail"><div className="testi-track">{[0,1].map((g)=><div key={g} className="testi-group" aria-hidden={g===1}>{[1,2,3,4,5,6].map(x=><div key={x} data-testi-card className="min-w-[min(70vw,310px)]"><article className="h-full rounded-[20px] bg-sage-soft p-8">{x===1 ? (<><p className="leading-7">«Die Buchhaltung meiner GmbH wird stets pünktlich und ordentlich erledigt. Ich bin mit der Kommunikation zufrieden und der Austausch mit Frau Sarah Mogel verläuft immer unkompliziert.»</p><p className="mt-8 text-sm font-medium">Jean-Marc Pittet</p></>) : (<><p className="text-lg font-medium">Kundenstimme folgt</p><p className="mt-8 text-sm text-muted-foreground">Referenz wird nach Freigabe ergänzt.</p></>)}</article></div>)}</div>)}</div></div></Reveal></div></section>
+      <section className="section-pad bg-card"><div className="section-shell"><Reveal><div className="text-center"><p className="eyebrow">Kundenfeedback</p><h2 className="heading-lg mt-4">Was unsere Kunden über die Zusammenarbeit sagen.</h2></div></Reveal><Reveal className="mt-12"><div ref={testiRef} className="testi-rail" aria-label="Kundenfeedback – horizontal scrollbar"><div className="testi-track">{[0,1].map((g)=><div key={g} className="testi-group" aria-hidden={g===1}>{[1,2,3,4,5,6].map(x=><div key={x} data-testi-card className="w-[280px] shrink-0 sm:w-[310px]"><article className="h-full rounded-[20px] bg-sage-soft p-8">{x===1 ? (<><p className="leading-7">«Die Buchhaltung meiner GmbH wird stets pünktlich und ordentlich erledigt. Ich bin mit der Kommunikation zufrieden und der Austausch mit Frau Sarah Mogel verläuft immer unkompliziert.»</p><p className="mt-8 text-sm font-medium">Jean-Marc Pittet</p></>) : (<><p className="text-lg font-medium">Kundenstimme folgt</p><p className="mt-8 text-sm text-muted-foreground">Referenz wird nach Freigabe ergänzt.</p></>)}</article></div>)}</div>)}</div></div></Reveal></div></section>
 
       <section id="faq" className="section-pad bg-sage-soft"><div className="section-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><Reveal><div className="text-center"><p className="eyebrow">FAQ</p><h2 className="heading-lg mt-4">Häufige Fragen.</h2><p className="mt-5 leading-7 text-muted-foreground">Hier finden Sie Antworten zu Umfang, Zusammenarbeit und Einstieg.</p></div></Reveal><Reveal delay={120}><Accordion type="single" collapsible>{[["Wie sieht eine Zusammenarbeit aus?","1 Kennenlernen – Wir besprechen Ihr Unternehmen, Ihre aktuelle Situation und Ihren Bedarf.\n2 Zusammenarbeit definieren – Wir klären Aufgaben, Zuständigkeiten, Termine und Abläufe.\n3 Laufend betreuen – Wir übernehmen die vereinbarten Aufgaben zuverlässig und bleiben Ihre direkten Ansprechpartnerinnen."],["Wo werden meine Daten gespeichert?","Für den sicheren Austausch und die Speicherung von Dokumenten nutzen wir Proton. Die Daten werden Ende-zu-Ende verschlüsselt und auf Proton-Infrastruktur in der Schweiz bzw. Deutschland gespeichert."],["Muss ich meine gesamte Buchhaltung auslagern?","Nein. Sie können sowohl die gesamte Finanz- oder Lohnbuchhaltung als auch einzelne Aufgaben an uns übertragen. Gemeinsam definieren wir einen Umfang, der zu Ihrem Unternehmen und Ihren bestehenden Abläufen passt."],["Können Sie mit meinem bestehenden Treuhänder zusammenarbeiten?","Ja. Wir können die laufende Buchhaltung vorbereiten und mit Ihrem bestehenden Treuhänder oder Ihrer Revisionsstelle zusammenarbeiten. Die Zuständigkeiten stimmen wir zu Beginn klar miteinander ab."],["Arbeiten Sie vollständig digital?","Ja. Dokumente und Informationen können digital ausgetauscht werden. Dadurch bleiben die Abläufe effizient und Sie können unabhängig von Ihrem Standort mit uns zusammenarbeiten."],["Für welche Unternehmen arbeiten Sie?","Wir richten uns insbesondere an Schweizer KMU und junge Unternehmen, die ihre Finanz- und/oder Lohnbuchhaltung zuverlässig auslagern möchten."]].map(([q,a])=><AccordionItem key={q ?? "faq"} value={q ?? "faq"}><AccordionTrigger className="min-h-[72px] text-left text-base hover:no-underline">{q}</AccordionTrigger><AccordionContent className="max-w-[600px] pb-6 leading-7 text-muted-foreground whitespace-pre-line">{a}</AccordionContent></AccordionItem>)}</Accordion></Reveal></div></section>
 
