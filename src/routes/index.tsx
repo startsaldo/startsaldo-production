@@ -168,7 +168,7 @@ function Index() {
       const groupWidth = rail.scrollWidth / 2;
       if (!groupWidth) return;
       if (rail.scrollLeft <= 0) rail.scrollLeft += groupWidth;
-      if (rail.scrollLeft >= groupWidth) rail.scrollLeft -= groupWidth;
+      else if (rail.scrollLeft >= groupWidth) rail.scrollLeft -= groupWidth;
     };
     const pauseTemporarily = () => {
       paused = true;
@@ -215,7 +215,7 @@ function Index() {
       dragStartX = event.clientX;
       dragStartScrollLeft = rail.scrollLeft;
       rail.setPointerCapture(event.pointerId);
-      rail.dataset.dragging = "true";
+      rail.dataset["dragging"] = "true";
     };
     const onPointerMove = (event: PointerEvent) => {
       if (!dragging || event.pointerType !== "mouse") return;
@@ -225,7 +225,7 @@ function Index() {
     const endPointerDrag = (event: PointerEvent) => {
       if (!dragging || event.pointerType !== "mouse") return;
       dragging = false;
-      delete rail.dataset.dragging;
+      delete rail.dataset["dragging"];
       if (rail.hasPointerCapture(event.pointerId)) rail.releasePointerCapture(event.pointerId);
       pauseTemporarily();
     };
