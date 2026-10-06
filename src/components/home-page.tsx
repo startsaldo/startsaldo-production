@@ -15,7 +15,7 @@ function StatementCard({ title, rows, highlighted = false }: { title: string; ro
   return (
     <div className={`statement-card ${highlighted ? "statement-card-highlighted" : ""}`} aria-hidden="true">
       <div className="border-b border-primary-foreground/15 pb-2">
-        <span className="text-[9px] font-semibold uppercase leading-none tracking-[0.05em]">{title}</span>
+        <span className="block truncate whitespace-nowrap text-[9px] font-semibold uppercase leading-none tracking-[0.05em]">{title}</span>
       </div>
       <div className="mt-2 space-y-2">
         {rows.map((row, index) => (
