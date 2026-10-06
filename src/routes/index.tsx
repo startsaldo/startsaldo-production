@@ -163,12 +163,14 @@ function Index() {
     let resumeTimer = 0;
     let raf = 0;
     let previousTime = performance.now();
+    let autoPosition = rail.scrollWidth / 2;
 
     const loopPosition = () => {
       const groupWidth = rail.scrollWidth / 2;
       if (!groupWidth) return;
       if (rail.scrollLeft <= 0) rail.scrollLeft += groupWidth;
       else if (rail.scrollLeft >= groupWidth) rail.scrollLeft -= groupWidth;
+      autoPosition = rail.scrollLeft;
     };
     const pauseTemporarily = () => {
       paused = true;
@@ -191,8 +193,10 @@ function Index() {
       const elapsed = Math.min(time - previousTime, 40);
       previousTime = time;
       if (!paused && !reducedMotion) {
-        rail.scrollLeft -= elapsed * 0.012;
-        loopPosition();
+        const groupWidth = rail.scrollWidth / 2;
+        autoPosition -= elapsed * 0.012;
+        if (autoPosition <= 0) autoPosition += groupWidth;
+        rail.scrollLeft = autoPosition;
       }
       updateFade();
       raf = requestAnimationFrame(tick);
@@ -235,7 +239,7 @@ function Index() {
       pauseTemporarily();
     };
 
-    rail.scrollLeft = rail.scrollWidth / 2;
+    rail.scrollLeft = autoPosition;
     rail.addEventListener("mouseenter", onMouseEnter);
     rail.addEventListener("mouseleave", onMouseLeave);
     rail.addEventListener("wheel", onWheel, { passive: false });

@@ -292,6 +292,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   cursor: grab;
+  scroll-behavior: auto;
   scrollbar-width: none;
   touch-action: pan-x pan-y;
   overscroll-behavior-x: contain;
