@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
+import { copy, type Lang } from "@/components/home-copy";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, CheckCircle2, ClipboardCheck, Cloud, Mail, Menu, UserRound, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,27 +9,7 @@ import sarahPhotoUrl from "@/assets/sarah.jpg";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  head: () => ({ meta: [
-    { title: "StartSaldo | Finanz- & Lohnbuchhaltung" },
-    { name: "description", content: "Persönliche Finanz- und Lohnbuchhaltung für Schweizer KMU, GmbHs, AGs, Startups und Selbstständige." },
-    { property: "og:title", content: "StartSaldo | Persönliche Buchhaltung" },
-    { property: "og:description", content: "Klare Abläufe. Persönliche Betreuung. Verlässliche Buchhaltung." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" },
-  ]}),
-  component: Index,
-});
 
-const statementCards = [
-  { title: "Bilanz", rows: ["Aktiven", "Umlaufvermögen", "Anlagevermögen", "Passiven"] },
-  { title: "Erfolgsrechnung", rows: ["Betriebsertrag", "Personalaufwand", "Betriebsaufwand", "Ergebnis"] },
-  { title: "Bilanz", rows: ["Flüssige Mittel", "Forderungen", "Eigenkapital", "Verbindlichkeiten"] },
-  { title: "Erfolgsrechnung", rows: ["Nettoerlös", "Warenaufwand", "Betriebserfolg", "Jahresergebnis"] },
-];
 
 function StatementCard({ title, rows, highlighted = false }: { title: string; rows: string[]; highlighted?: boolean }) {
   return (
@@ -48,7 +29,7 @@ function StatementCard({ title, rows, highlighted = false }: { title: string; ro
   );
 }
 
-function StatementMarquee({ reverse = false }: { reverse?: boolean }) {
+function StatementMarquee({ reverse = false, statementCards }: { reverse?: boolean; statementCards: { title: string; rows: string[] }[] }) {
   const cards = Array.from({ length: 12 }).flatMap(() => statementCards);
   const railRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -88,8 +69,10 @@ function StatementMarquee({ reverse = false }: { reverse?: boolean }) {
   );
 }
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+export function HomePage({ lang }: { lang: Lang }) {
+  const t = copy[lang];
+  const other = lang === "de" ? "en" : "de";
+  const langLink = (cls: string, onClick?: () => void) => <Link to={other === "en" ? "/en" : "/"} onClick={onClick} hrefLang={other} aria-label={t.switchLabel} className={cls}>{other.toUpperCase()}</Link>;
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
   const lastScrollY = useRef(0);
@@ -137,12 +120,12 @@ function Index() {
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => null)) as { error?: string } | null;
-        throw new Error(data?.error ?? "Die Nachricht konnte nicht gesendet werden.");
+        throw new Error(data?.error ?? t.sendFail);
       }
       form.reset();
       setSent(true);
     } catch (err) {
-      setSendError(err instanceof Error ? err.message : "Die Nachricht konnte nicht gesendet werden.");
+      setSendError(err instanceof Error ? err.message : t.sendFail);
     } finally {
       setSending(false);
     }
@@ -282,21 +265,22 @@ function Index() {
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
   }, []);
-  const nav = [["Dienstleistungen","#dienstleistungen"],["Über uns","#team"],["FAQ","#faq"],["Kontakt","#kontakt"]];
+  const nav = t.nav;
   const checks = (items: string[], light = false) => <ul className="mt-7 space-y-3.5">{items.map((item) => <li key={item} className="flex gap-3 text-[15px] leading-6"><Check className={`mt-1 size-4 shrink-0 ${light ? "text-sage" : "text-success"}`} />{item}</li>)}</ul>;
   return (
     <main className="bg-background text-foreground">
       <header className={`sticky top-0 z-50 border-b border-primary-foreground/15 bg-deep/95 text-primary-foreground backdrop-blur-md transition-transform duration-300 ease-out ${headerHidden ? "-translate-y-full" : "translate-y-0"}`}>
-        <div className="section-shell grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 md:h-[78px] md:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-4">
-          <a href="#top" className="block min-w-0" aria-label="StartSaldo – zum Seitenanfang">
+        <div className="section-shell grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 md:h-[78px] md:grid-cols-[auto_minmax(0,1fr)_auto_auto] lg:gap-4">
+          <a href="#top" className="block min-w-0" aria-label={t.toTop}>
              <img src={startsaldoLogoDarkUrl} alt="StartSaldo" className="h-auto w-[132px] sm:w-[148px]" />
           </a>
            <nav className="hidden justify-center gap-4 text-[13.5px] md:flex lg:gap-7 lg:text-[14px]">{nav.map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-primary-foreground transition-colors hover:text-sage">{label}</a>)}</nav>
-           <Button asChild className="hidden bg-sage text-deep hover:bg-sage-soft md:inline-flex"><a href="#kontakt">Kontakt aufnehmen</a></Button>
-           <button aria-label={menuOpen ? "Menü schliessen" : "Menü öffnen"} aria-expanded={menuOpen} className="grid size-10 shrink-0 place-items-center rounded-button border border-primary-foreground/35 bg-transparent text-primary-foreground md:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X className="size-5"/> : <Menu className="size-5"/>}</button>
+           <Button asChild className="hidden bg-sage text-deep hover:bg-sage-soft md:inline-flex"><a href="#kontakt">{t.cta}</a></Button>
+           {langLink("ml-1 hidden rounded-button border border-primary-foreground/35 px-3 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:text-sage md:inline-flex")}
+           <button aria-label={menuOpen ? t.menuClose : t.menuOpen} aria-expanded={menuOpen} className="grid size-10 shrink-0 place-items-center rounded-button border border-primary-foreground/35 bg-transparent text-primary-foreground md:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X className="size-5"/> : <Menu className="size-5"/>}</button>
         </div>
          <div className={`absolute inset-x-0 top-full z-40 border-b border-primary-foreground/15 bg-deep text-primary-foreground shadow-[0_24px_40px_-20px_rgba(23,32,28,0.25)] transition-all duration-300 ease-out md:hidden ${menuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`} aria-hidden={!menuOpen}>
-           <nav className="section-shell flex flex-col py-2">{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="border-b border-primary-foreground/15 py-3.5 text-base font-medium last:border-0">{label}</a>)}</nav>
+           <nav className="section-shell flex flex-col py-2">{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="border-b border-primary-foreground/15 py-3.5 text-base font-medium">{label}</a>)}{langLink("py-3.5 text-base font-semibold text-sage", () => setMenuOpen(false))}</nav>
         </div>
       </header>
 
@@ -305,44 +289,44 @@ function Index() {
          className="overflow-hidden bg-deep pb-14 pt-12 text-primary-foreground sm:py-16 lg:py-20"
       >
         <div className="section-shell">
-           <p className="hero-reveal hero-reveal-1 eyebrow mx-auto max-w-[320px] text-center text-sage">Finanz- & Lohnbuchhaltung für Schweizer KMU</p>
-           <h1 className="hero-reveal hero-reveal-2 heading-xl mx-auto mt-5 max-w-[650px] text-center">Ihre Buchhaltung.<br/><span className="text-sage">Persönlich erledigt.</span></h1>
-           <p className="hero-reveal hero-reveal-3 mx-auto mt-6 max-w-[350px] text-center text-base leading-7 text-primary-foreground/75 md:max-w-none md:text-[19px] md:leading-[1.65]">Wir übernehmen Ihre Finanz- und Lohnbuchhaltung zuverlässig und persönlich.</p>
+           <p className="hero-reveal hero-reveal-1 eyebrow mx-auto max-w-[320px] text-center text-sage">{t.eyebrow}</p>
+           <h1 className="hero-reveal hero-reveal-2 heading-xl mx-auto mt-5 max-w-[650px] text-center">{t.h1a}<br/><span className="text-sage">{t.h1b}</span></h1>
+           <p className="hero-reveal hero-reveal-3 mx-auto mt-6 max-w-[350px] text-center text-base leading-7 text-primary-foreground/75 md:max-w-none md:text-[19px] md:leading-[1.65]">{t.heroSub}</p>
         </div>
-         <div className="hero-reveal hero-reveal-4 section-shell mt-8 grid gap-3 sm:flex sm:items-center sm:justify-center"><Button variant="outline" asChild className="w-full border-sage bg-transparent text-sage hover:bg-primary-foreground/10 sm:w-auto"><a href="https://calendar.proton.me/bookings#aoKD9adzG08Fb5PKXT_boUZbBrowx2wglL7dlHh7oos=" target="_blank" rel="noopener noreferrer">Unverbindliches Erstgespräch</a></Button><Button asChild className="w-full bg-sage text-deep hover:bg-sage-soft sm:w-auto"><a href="#dienstleistungen">Dienstleistungen ansehen</a></Button></div>
-        <div className="hero-reveal hero-reveal-5 mt-7 w-full" aria-label="Abstrakte Bilanz- und Erfolgsrechnungen in Bewegung">
-          <StatementMarquee reverse />
+         <div className="hero-reveal hero-reveal-4 section-shell mt-8 grid gap-3 sm:flex sm:items-center sm:justify-center"><Button variant="outline" asChild className="w-full border-sage bg-transparent text-sage hover:bg-primary-foreground/10 sm:w-auto"><a href="https://calendar.proton.me/bookings#aoKD9adzG08Fb5PKXT_boUZbBrowx2wglL7dlHh7oos=" target="_blank" rel="noopener noreferrer">{t.heroBtn1}</a></Button><Button asChild className="w-full bg-sage text-deep hover:bg-sage-soft sm:w-auto"><a href="#dienstleistungen">{t.heroBtn2}</a></Button></div>
+        <div className="hero-reveal hero-reveal-5 mt-7 w-full" aria-label={t.marqueeLabel}>
+          <StatementMarquee reverse statementCards={t.statementCards} />
         </div>
 
       </section>
 
 
 
-      <section id="dienstleistungen" className="section-pad bg-card"><div className="section-shell"><Reveal><div className="text-center"><p className="eyebrow">Unsere Dienstleistungen</p><h2 className="heading-lg mt-4">Was wir Ihnen abnehmen.</h2><p className="mx-auto mt-4 max-w-[350px] text-base leading-7 text-muted-foreground md:mt-5 md:max-w-none md:text-[18px]">Von der laufenden Finanzbuchhaltung bis zur monatlichen Lohnadministration.</p></div></Reveal>
-        <div className="mt-10 grid items-stretch gap-5 md:mt-14 md:gap-6 lg:grid-cols-2"><Reveal className="h-full"><article className="flex h-full min-w-0 flex-col rounded-[20px] bg-sage-soft p-6 md:rounded-[24px] md:p-10"><h3 className="break-words text-[26px] font-semibold md:text-[30px]">Finanzbuchhaltung</h3><p className="mt-4 leading-7 text-muted-foreground">Wir kümmern uns um Ihre laufende Buchhaltung von Belegen und Bankabstimmungen bis hin zur MWST-Abrechnung und Steuererklärung.</p><div className="my-6 border-t border-border md:my-7"/>{checks(["Laufende Erfassung Ihrer Geschäftsfälle","Debitoren und Kreditoren","Bank- und Kontenabstimmungen","MWST-Abrechnungen und Vorbereitung der entsprechenden Unterlagen","Monats-, Quartals- und Jahresabschlüsse","Ausfüllung und Einreichung Ihrer Steuererklärung"])}<a href="#kontakt" className="mt-8 inline-flex items-center gap-2 font-semibold text-primary lg:mt-auto lg:pt-8">Jetzt Kontakt aufnehmen <ArrowRight className="size-4"/></a></article></Reveal>
-          <Reveal delay={120} className="h-full"><article className="flex h-full min-w-0 flex-col rounded-[20px] bg-sage-soft p-6 md:rounded-[24px] md:p-10"><h3 className="break-words text-[26px] font-semibold md:text-[30px]">Lohnbuchhaltung</h3><p className="mt-4 leading-7 text-muted-foreground">Vom monatlichen Lohnlauf bis zum Lohnausweis und der Kommunikation mit der SVA: Wir kümmern uns um Ihre Lohnadministration.</p><div className="my-6 border-t border-border md:my-7"/>{checks(["Monatliche Lohnabrechnungen","Ein- und Austritte von Mitarbeitenden","Abrechnungen und Meldungen für die Ausgleichskasse","Administration rund um die BVG und die UV","Quellensteuer und entsprechende Meldungen","Erstellung der jährlichen Lohnausweise","Jahresenddeklarationen und Abstimmungen mit Versicherungen und Behörden","Arbeitszeugnisse und andere Dokumente für Ihre Mitarbeiter"])}<a href="#kontakt" className="mt-8 inline-flex items-center gap-2 font-semibold text-primary lg:mt-auto lg:pt-8">Jetzt Kontakt aufnehmen <ArrowRight className="size-4"/></a></article></Reveal></div>
+      <section id="dienstleistungen" className="section-pad bg-card"><div className="section-shell"><Reveal><div className="text-center"><p className="eyebrow">{t.svcEyebrow}</p><h2 className="heading-lg mt-4">{t.svcTitle}</h2><p className="mx-auto mt-4 max-w-[350px] text-base leading-7 text-muted-foreground md:mt-5 md:max-w-none md:text-[18px]">{t.svcSub}</p></div></Reveal>
+        <div className="mt-10 grid items-stretch gap-5 md:mt-14 md:gap-6 lg:grid-cols-2"><Reveal className="h-full"><article className="flex h-full min-w-0 flex-col rounded-[20px] bg-sage-soft p-6 md:rounded-[24px] md:p-10"><h3 className="break-words text-[26px] font-semibold md:text-[30px]">{t.fin.title}</h3><p className="mt-4 leading-7 text-muted-foreground">{t.fin.text}</p><div className="my-6 border-t border-border md:my-7"/>{checks(t.fin.items)}<a href="#kontakt" className="mt-8 inline-flex items-center gap-2 font-semibold text-primary lg:mt-auto lg:pt-8">{t.svcLink} <ArrowRight className="size-4"/></a></article></Reveal>
+          <Reveal delay={120} className="h-full"><article className="flex h-full min-w-0 flex-col rounded-[20px] bg-sage-soft p-6 md:rounded-[24px] md:p-10"><h3 className="break-words text-[26px] font-semibold md:text-[30px]">{t.pay.title}</h3><p className="mt-4 leading-7 text-muted-foreground">{t.pay.text}</p><div className="my-6 border-t border-border md:my-7"/>{checks(t.pay.items)}<a href="#kontakt" className="mt-8 inline-flex items-center gap-2 font-semibold text-primary lg:mt-auto lg:pt-8">{t.svcLink} <ArrowRight className="size-4"/></a></article></Reveal></div>
       </div></section>
 
 
-      <section id="team" className="section-pad bg-sage-soft"><div className="section-shell"><Reveal><div className="text-center"><p className="eyebrow">Ihre Ansprechpartner</p><h2 className="heading-lg mt-4">Wer steht hinter den Zahlen?</h2><p className="mx-auto mt-4 max-w-[350px] text-base leading-7 text-muted-foreground md:mt-5 md:max-w-none md:text-[18px]">Ihre Buchhaltung wird persönlich von uns betreut. So wissen Sie jederzeit, an wen Sie sich wenden können.</p></div></Reveal><div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">{[["Audelia Babbev-Pittet","Finanzbuchhalterin","Audelia betreut unsere Kunden in der Finanzbuchhaltung und sorgt dafür, dass Zahlen und Abstimmungen stimmen. Ihr ist wichtig, die Zusammenarbeit so einfach wie möglich zu gestalten mit klarer Kommunikation und unkomplizierten Lösungen für den Austausch von Dokumenten und Belegen.",audeliaPhotoUrl,"audelia@startsaldo.ch"],["Sarah Mogel","Payroll Spezialistin | Sozialversicherungen","Sarah ist vor allem für die Lohnbuchhaltung und Sozialversicherungen zuständig. Sie begleitet unsere Kunden vom monatlichen Lohnlauf bis zu Ein- und Austritten sowie Jahresendarbeiten.",sarahPhotoUrl,"sarah@startsaldo.ch"]].map(([name,role,bio,photo,email],idx)=><Reveal key={name} delay={idx*120}><article className="overflow-hidden rounded-[20px] border border-border bg-card md:rounded-[24px]">{photo ? <img src={photo} alt={`Portrait von ${name}`} className="aspect-[4/3] w-full object-cover object-top"/> : <div className="grid aspect-[4/3] place-items-center bg-sage-soft"><div className="text-center"><UserRound className="mx-auto size-12 text-primary/50"/><p className="mt-3 text-sm font-medium text-muted-foreground">Portrait von {name}</p></div></div>}<div className="min-w-0 p-6 md:p-8"><h3 className="break-words text-[25px] font-semibold md:text-[28px]">{name}</h3><p className="mt-1 break-words font-semibold text-primary">{role}</p><p className="mt-5 leading-7 text-muted-foreground">{bio}</p>{email ? <a href={`mailto:${email}`} className="mt-5 inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-success"><Mail className="size-4 shrink-0" /><span className="break-all">{email}</span></a> : null}</div></article></Reveal>)}</div></div></section>
+      <section id="team" className="section-pad bg-sage-soft"><div className="section-shell"><Reveal><div className="text-center"><p className="eyebrow">{t.teamEyebrow}</p><h2 className="heading-lg mt-4">{t.teamTitle}</h2><p className="mx-auto mt-4 max-w-[350px] text-base leading-7 text-muted-foreground md:mt-5 md:max-w-none md:text-[18px]">{t.teamSub}</p></div></Reveal><div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">{([["Audelia Babbev-Pittet",t.audelia[0],t.audelia[1],audeliaPhotoUrl,"audelia@startsaldo.ch"],["Sarah Mogel",t.sarah[0],t.sarah[1],sarahPhotoUrl,"sarah@startsaldo.ch"]] as const).map(([name,role,bio,photo,email],idx)=><Reveal key={name} delay={idx*120}><article className="overflow-hidden rounded-[20px] border border-border bg-card md:rounded-[24px]">{photo ? <img src={photo} alt={`${t.portrait} ${name}`} className="aspect-[4/3] w-full object-cover object-top"/> : <div className="grid aspect-[4/3] place-items-center bg-sage-soft"><div className="text-center"><UserRound className="mx-auto size-12 text-primary/50"/><p className="mt-3 text-sm font-medium text-muted-foreground">{t.portrait} {name}</p></div></div>}<div className="min-w-0 p-6 md:p-8"><h3 className="break-words text-[25px] font-semibold md:text-[28px]">{name}</h3><p className="mt-1 break-words font-semibold text-primary">{role}</p><p className="mt-5 leading-7 text-muted-foreground">{bio}</p>{email ? <a href={`mailto:${email}`} className="mt-5 inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-success"><Mail className="size-4 shrink-0" /><span className="break-all">{email}</span></a> : null}</div></article></Reveal>)}</div></div></section>
 
-      <section className="section-pad bg-card"><div className="section-shell"><Reveal><div className="text-center"><p className="eyebrow">Kundenfeedback</p><h2 className="heading-lg mt-4">Was unsere Kunden über die Zusammenarbeit sagen.</h2></div></Reveal><Reveal className="mt-12"><div ref={testiRef} className="testi-rail" aria-label="Kundenfeedback – horizontal scrollbar"><div className="testi-track">{[0,1].map((g)=><div key={g} className="testi-group" aria-hidden={g===1}>{[1,2,3,4,5,6].map(x=><div key={x} data-testi-card className="w-[280px] shrink-0 sm:w-[310px]"><article className="h-full rounded-[20px] bg-sage-soft p-8">{x===1 ? (<><p className="leading-7">«Die Buchhaltung meiner GmbH wird stets pünktlich und ordentlich erledigt. Ich bin mit der Kommunikation zufrieden und der Austausch mit Frau Sarah Mogel verläuft immer unkompliziert.»</p><p className="mt-8 text-sm font-medium">Jean-Marc Pittet</p></>) : (<><p className="text-lg font-medium">Kundenstimme folgt</p><p className="mt-8 text-sm text-muted-foreground">Referenz wird nach Freigabe ergänzt.</p></>)}</article></div>)}</div>)}</div></div></Reveal></div></section>
+      <section className="section-pad bg-card"><div className="section-shell"><Reveal><div className="text-center"><p className="eyebrow">{t.testiEyebrow}</p><h2 className="heading-lg mt-4">{t.testiTitle}</h2></div></Reveal><Reveal className="mt-12"><div ref={testiRef} className="testi-rail" aria-label={t.testiLabel}><div className="testi-track">{[0,1].map((g)=><div key={g} className="testi-group" aria-hidden={g===1}>{[1,2,3,4,5,6].map(x=><div key={x} data-testi-card className="w-[280px] shrink-0 sm:w-[310px]"><article className="h-full rounded-[20px] bg-sage-soft p-8">{x===1 ? (<><p className="leading-7">{t.quote}</p><p className="mt-8 text-sm font-medium">Jean-Marc Pittet</p></>) : (<><p className="text-lg font-medium">{t.testiPh}</p><p className="mt-8 text-sm text-muted-foreground">{t.testiPhSub}</p></>)}</article></div>)}</div>)}</div></div></Reveal></div></section>
 
-      <section id="faq" className="section-pad bg-sage-soft"><div className="section-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><Reveal><div className="text-center"><p className="eyebrow">FAQ</p><h2 className="heading-lg mt-4">Häufige Fragen.</h2><p className="mt-5 leading-7 text-muted-foreground">Hier finden Sie Antworten zu Umfang, Zusammenarbeit und Einstieg.</p></div></Reveal><Reveal delay={120}><Accordion type="single" collapsible>{[["Wie sieht eine Zusammenarbeit aus?","1 Kennenlernen – Wir besprechen Ihr Unternehmen, Ihre aktuelle Situation und Ihren Bedarf.\n2 Zusammenarbeit definieren – Wir klären Aufgaben, Zuständigkeiten, Termine und Abläufe.\n3 Laufend betreuen – Wir übernehmen die vereinbarten Aufgaben zuverlässig und bleiben Ihre direkten Ansprechpartnerinnen."],["Wo werden meine Daten gespeichert?","Für den sicheren Austausch und die Speicherung von Dokumenten nutzen wir Proton. Die Daten werden Ende-zu-Ende verschlüsselt und auf Proton-Infrastruktur in der Schweiz bzw. Deutschland gespeichert."],["Muss ich meine gesamte Buchhaltung auslagern?","Nein. Sie können sowohl die gesamte Finanz- oder Lohnbuchhaltung als auch einzelne Aufgaben an uns übertragen. Gemeinsam definieren wir einen Umfang, der zu Ihrem Unternehmen und Ihren bestehenden Abläufen passt."],["Können Sie mit meinem bestehenden Treuhänder zusammenarbeiten?","Ja. Wir können die laufende Buchhaltung vorbereiten und mit Ihrem bestehenden Treuhänder oder Ihrer Revisionsstelle zusammenarbeiten. Die Zuständigkeiten stimmen wir zu Beginn klar miteinander ab."],["Arbeiten Sie vollständig digital?","Ja. Dokumente und Informationen können digital ausgetauscht werden. Dadurch bleiben die Abläufe effizient und Sie können unabhängig von Ihrem Standort mit uns zusammenarbeiten."],["Für welche Unternehmen arbeiten Sie?","Wir richten uns insbesondere an Schweizer KMU und junge Unternehmen, die ihre Finanz- und/oder Lohnbuchhaltung zuverlässig auslagern möchten."]].map(([q,a])=><AccordionItem key={q ?? "faq"} value={q ?? "faq"}><AccordionTrigger className="min-h-[72px] text-left text-base hover:no-underline">{q}</AccordionTrigger><AccordionContent className="max-w-[600px] pb-6 leading-7 text-muted-foreground whitespace-pre-line">{a}</AccordionContent></AccordionItem>)}</Accordion></Reveal></div></section>
+      <section id="faq" className="section-pad bg-sage-soft"><div className="section-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><Reveal><div className="text-center"><p className="eyebrow">FAQ</p><h2 className="heading-lg mt-4">{t.faqTitle}</h2><p className="mt-5 leading-7 text-muted-foreground">{t.faqSub}</p></div></Reveal><Reveal delay={120}><Accordion type="single" collapsible>{t.faq.map(([q,a])=><AccordionItem key={q ?? "faq"} value={q ?? "faq"}><AccordionTrigger className="min-h-[72px] text-left text-base hover:no-underline">{q}</AccordionTrigger><AccordionContent className="max-w-[600px] pb-6 leading-7 text-muted-foreground whitespace-pre-line">{a}</AccordionContent></AccordionItem>)}</Accordion></Reveal></div></section>
 
-      <section id="kontakt" className="section-pad bg-deep text-primary-foreground"><div className="section-shell grid gap-14 lg:grid-cols-[.8fr_1.2fr]"><Reveal><div><div className="text-center"><p className="eyebrow text-sage">Kontakt</p><h2 className="heading-lg mt-4">Nehmen Sie Kontakt mit uns auf.</h2></div><dl className="mt-10 space-y-6"><div><dt className="text-sm text-primary-foreground/65">E-Mail</dt><dd className="mt-1 font-semibold"><a href="mailto:info@startsaldo.ch" className="transition-colors hover:text-sage">info@startsaldo.ch</a></dd></div><div><dt className="text-sm text-primary-foreground/65">Telefon</dt><dd className="mt-1 font-semibold"><a href="tel:+41766295056" className="transition-colors hover:text-sage">076 629 50 56</a></dd></div><div><dt className="text-sm text-primary-foreground/65">Standort</dt><dd className="mt-1 font-semibold">Rothenthurm SZ, Schweiz</dd></div></dl></div></Reveal>
+      <section id="kontakt" className="section-pad bg-deep text-primary-foreground"><div className="section-shell grid gap-14 lg:grid-cols-[.8fr_1.2fr]"><Reveal><div><div className="text-center"><p className="eyebrow text-sage">{t.contactEyebrow}</p><h2 className="heading-lg mt-4">{t.contactTitle}</h2></div><dl className="mt-10 space-y-6"><div><dt className="text-sm text-primary-foreground/65">E-Mail</dt><dd className="mt-1 font-semibold"><a href="mailto:info@startsaldo.ch" className="transition-colors hover:text-sage">info@startsaldo.ch</a></dd></div><div><dt className="text-sm text-primary-foreground/65">{t.phone}</dt><dd className="mt-1 font-semibold"><a href="tel:+41766295056" className="transition-colors hover:text-sage">076 629 50 56</a></dd></div><div><dt className="text-sm text-primary-foreground/65">{t.location}</dt><dd className="mt-1 font-semibold">{t.locationValue}</dd></div></dl></div></Reveal>
         <Reveal delay={120}>
         {sent ? (
           <div role="status" className="flex flex-col items-center px-6 py-10 text-center text-primary-foreground md:px-10">
             <span className="grid size-16 place-items-center rounded-full bg-sage-soft"><CheckCircle2 className="size-8 text-success" /></span>
-            <h3 className="mt-7 max-w-[460px] text-[24px] font-semibold leading-snug">Ihre Nachricht wurde erfolgreich versendet und so schnell wie möglich bearbeitet.</h3>
-            <Button variant="outline" className="mt-8" onClick={() => setSent(false)}>Neue Nachricht schreiben</Button>
+            <h3 className="mt-7 max-w-[460px] text-[24px] font-semibold leading-snug">{t.success}</h3>
+            <Button variant="outline" className="mt-8" onClick={() => setSent(false)}>{t.newMsg}</Button>
           </div>
         ) : (
-        <form className="text-primary-foreground" onSubmit={handleContactSubmit}><div className="grid gap-5 sm:grid-cols-2">{[["Name","name"],["Firma","firma"],["E-Mail","email"],["Telefon","telefon"]].map(([label,field],i)=><label key={label} className="text-sm font-medium">{label}<input name={field} required={i===0||i===2} type={i===2?"email":i===3?"tel":"text"} className="mt-2 h-[52px] w-full rounded-[10px] border border-input bg-card px-4 text-foreground outline-none transition-colors focus:border-primary"/></label>)}</div><label className="mt-6 block text-sm font-medium">Nachricht<textarea name="nachricht" required className="mt-2 min-h-[140px] w-full resize-y rounded-[10px] border border-input bg-card p-4 text-foreground outline-none transition-colors focus:border-primary"/></label>{sendError && <p role="alert" className="mt-4 text-center text-sm font-medium text-destructive">{sendError}</p>}<Button type="submit" disabled={sending} className="mt-6 w-full bg-sage text-deep hover:bg-sage-soft">{sending ? "Wird gesendet…" : "Anfrage senden"}</Button><p className="mt-4 text-center text-xs leading-5 text-primary-foreground/70">Mit dem Absenden stimmen Sie der Bearbeitung Ihrer Angaben zur Kontaktaufnahme zu.</p></form>
+        <form className="text-primary-foreground" onSubmit={handleContactSubmit}><div className="grid gap-5 sm:grid-cols-2">{[[t.fName,"name"],[t.fCompany,"firma"],["E-Mail","email"],[t.phone,"telefon"]].map(([label,field],i)=><label key={label} className="text-sm font-medium">{label}<input name={field} required={i===0||i===2} type={i===2?"email":i===3?"tel":"text"} className="mt-2 h-[52px] w-full rounded-[10px] border border-input bg-card px-4 text-foreground outline-none transition-colors focus:border-primary"/></label>)}</div><label className="mt-6 block text-sm font-medium">{t.fMessage}<textarea name="nachricht" required className="mt-2 min-h-[140px] w-full resize-y rounded-[10px] border border-input bg-card p-4 text-foreground outline-none transition-colors focus:border-primary"/></label>{sendError && <p role="alert" className="mt-4 text-center text-sm font-medium text-destructive">{sendError}</p>}<Button type="submit" disabled={sending} className="mt-6 w-full bg-sage text-deep hover:bg-sage-soft">{sending ? t.sending : t.submit}</Button><p className="mt-4 text-center text-xs leading-5 text-primary-foreground/70">{t.consent}</p></form>
         )}</Reveal></div></section>
 
-      <footer className="bg-foreground py-12 text-primary-foreground"><div className="section-shell"><div className="grid gap-10 md:grid-cols-3"><div><img src={startsaldoLogoDarkUrl} alt="StartSaldo" className="h-auto w-[148px]" /><p className="mt-3 whitespace-nowrap text-sm leading-6 text-primary-foreground/65">Finanz- & Lohnbuchhaltung für Schweizer KMU.</p></div><nav className="flex flex-col items-start gap-3 text-sm md:mx-auto md:w-fit">{nav.slice(0,4).map(([l,h])=><a key={h} href={h}>{l}</a>)}</nav><div className="text-sm leading-7 md:justify-self-end"><a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a><br/><a href="tel:+41766295056">076 629 50 56</a><br/>Rothenthurm SZ</div></div><div className="mt-10 flex flex-row items-center justify-between gap-4 border-t border-primary-foreground/15 pt-6 text-xs text-primary-foreground/60"><p>© 2026 Digital Trust Solutions GmbH</p><div className="flex gap-5"><a href="#" onClick={(e)=>e.preventDefault()}>Impressum</a><a href="#" onClick={(e)=>e.preventDefault()}>Datenschutz</a></div></div></div></footer>
+      <footer className="bg-foreground py-12 text-primary-foreground"><div className="section-shell"><div className="grid gap-10 md:grid-cols-3"><div><img src={startsaldoLogoDarkUrl} alt="StartSaldo" className="h-auto w-[148px]" /><p className="mt-3 whitespace-nowrap text-sm leading-6 text-primary-foreground/65">{t.footerTag}</p></div><nav className="flex flex-col items-start gap-3 text-sm md:mx-auto md:w-fit">{nav.slice(0,4).map(([l,h])=><a key={h} href={h}>{l}</a>)}{langLink("font-semibold text-sage")}</nav><div className="text-sm leading-7 md:justify-self-end"><a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a><br/><a href="tel:+41766295056">076 629 50 56</a><br/>Rothenthurm SZ</div></div><div className="mt-10 flex flex-row items-center justify-between gap-4 border-t border-primary-foreground/15 pt-6 text-xs text-primary-foreground/60"><p>© 2026 Digital Trust Solutions GmbH</p><div className="flex gap-5"><a href="#" onClick={(e)=>e.preventDefault()}>{t.imprint}</a><a href="#" onClick={(e)=>e.preventDefault()}>{t.privacy}</a></div></div></div></footer>
     </main>
   );
 }
