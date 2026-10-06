@@ -49,17 +49,18 @@ export const Route = createFileRoute("/api/contact")({
           );
         }
 
-        const { name, firma, email, telefon, nachricht } = parsed.data;
+        const { name, firma, email, telefon, nachricht, lang } = parsed.data;
         const resend = new Resend(apiKey);
 
+        const en = lang === "en";
         const rows: Array<[string, string]> = [
           ["Name", name],
-          ["Firma", firma || "—"],
-          ["E-Mail", email],
-          ["Telefon", telefon || "—"],
+          [en ? "Company" : "Firma", firma || "—"],
+          [en ? "Email" : "E-Mail", email],
+          [en ? "Phone" : "Telefon", telefon || "—"],
         ];
         const html = `
-          <h2 style="font-family:sans-serif;">Neue Kontaktanfrage über die Website</h2>
+          <h2 style="font-family:sans-serif;">${en ? "New contact request via the website" : "Neue Kontaktanfrage über die Website"}</h2>
           <table style="font-family:sans-serif;border-collapse:collapse;">
             ${rows
               .map(
@@ -68,7 +69,7 @@ export const Route = createFileRoute("/api/contact")({
               )
               .join("")}
           </table>
-          <p style="font-family:sans-serif;font-weight:600;margin-top:16px;">Nachricht</p>
+          <p style="font-family:sans-serif;font-weight:600;margin-top:16px;">${en ? "Message" : "Nachricht"}</p>
           <p style="font-family:sans-serif;white-space:pre-line;">${escapeHtml(nachricht)}</p>
         `;
 
@@ -76,7 +77,7 @@ export const Route = createFileRoute("/api/contact")({
           from: "StartSaldo Website <website@startsaldo.ch>",
           to: [toEmail],
           replyTo: email,
-          subject: `Kontaktanfrage von ${name}`,
+          subject: en ? `Contact request from ${name}` : `Kontaktanfrage von ${name}`,
           html,
         });
 
