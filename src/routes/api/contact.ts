@@ -8,6 +8,7 @@ const contactSchema = z.object({
   email: z.string().trim().email().max(320),
   telefon: z.string().trim().max(50).optional().default(""),
   nachricht: z.string().trim().min(1).max(5000),
+  lang: z.enum(["de", "en"]).optional().default("de"),
 });
 
 function escapeHtml(value: string): string {

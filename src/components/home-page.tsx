@@ -116,6 +116,7 @@ export function HomePage({ lang }: { lang: Lang }) {
           email: fd.get("email"),
           telefon: fd.get("telefon"),
           nachricht: fd.get("nachricht"),
+          lang,
         }),
       });
       if (!res.ok) {
