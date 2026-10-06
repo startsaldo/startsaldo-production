@@ -283,7 +283,7 @@
   }
   .statement-card > div:first-child > span {
     font-size: 0.5rem;
-    letter-spacing: 0.03em;
+    letter-spacing: 0;
   }
 }
 
