@@ -5,10 +5,9 @@ import { ArrowRight, Check, CheckCircle2, ClipboardCheck, Cloud, Mail, Menu, Use
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import audeliaPhotoUrl from "@/assets/audelia.jpg";
-import sarahPhotoAsset from "@/assets/sarah-mirrored.jpg.asset.json";
+import sarahPhotoUrl from "@/assets/sarah-wide-background.png";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-const sarahPhotoUrl = sarahPhotoAsset.url;
 
 
 
