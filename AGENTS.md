@@ -9,5 +9,5 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 - Site texts live in src/components/home-copy.ts (de/en); / and /en render the same HomePage with a lang prop — keeps both languages in sync.
-- Render Sarah's supplied finished photo from an optimized CDN asset with the original CDN asset as a load-error fallback, uncropped and mirrored once with CSS — preserves the portrait while keeping it reliably available.
+- Site images (team photos, logos) are bundled files in src/assets, never Lovable CDN pointers (/__l5e/…) — the site is deployed on Vercel, where those CDN paths return 404. Sarah's finished photo is shown uncropped and mirrored once with CSS.
 - Serve favicon binaries from public/ and declare them in the root route head; TanStack Start generates the HTML, so no separate index.html is needed.
