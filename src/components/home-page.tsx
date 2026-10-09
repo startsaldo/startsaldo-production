@@ -5,8 +5,7 @@ import { ArrowRight, Check, CheckCircle2, ClipboardCheck, Cloud, Mail, Menu, Use
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import audeliaPhotoUrl from "@/assets/audelia.jpg";
-import sarahPhotoAsset from "@/assets/sarah-original.jpeg.asset.json";
-import sarahBackgroundAsset from "@/assets/sarah-grey-background.png.asset.json";
+import sarahPhotoAsset from "@/assets/sarah-photoshop.png.asset.json";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -17,11 +16,7 @@ function TeamPhoto({ photo, alt }: { photo: string; alt: string }) {
     return <img src={photo} alt={alt} className="aspect-[4/3] w-full object-cover object-top" />;
   }
   return (
-    <div className="relative aspect-[4/3] w-full overflow-hidden">
-      <img src={sarahBackgroundAsset.url} alt="" aria-hidden="true" className="absolute inset-y-0 left-0 h-full w-1/5 object-cover" />
-      <img src={sarahBackgroundAsset.url} alt="" aria-hidden="true" className="absolute inset-y-0 right-0 h-full w-1/5 -scale-x-100 object-cover" />
-      <img src={photo} alt={alt} className="absolute inset-0 size-full -scale-x-100 object-contain" />
-    </div>
+    <img src={photo} alt={alt} className="aspect-[4/3] w-full -scale-x-100 object-contain" />
   );
 }
 
