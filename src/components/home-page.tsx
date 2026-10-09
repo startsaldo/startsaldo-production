@@ -18,7 +18,8 @@ function TeamPhoto({ photo, alt }: { photo: string; alt: string }) {
   }
   return (
     <div className="relative aspect-[4/3] w-full overflow-hidden">
-      <img src={sarahBackgroundAsset.url} alt="" aria-hidden="true" className="absolute inset-0 size-full object-fill" />
+      <img src={sarahBackgroundAsset.url} alt="" aria-hidden="true" className="absolute inset-y-0 left-0 h-full w-1/5 object-cover" />
+      <img src={sarahBackgroundAsset.url} alt="" aria-hidden="true" className="absolute inset-y-0 right-0 h-full w-1/5 -scale-x-100 object-cover" />
       <img src={photo} alt={alt} className="absolute inset-0 size-full -scale-x-100 object-contain" />
     </div>
   );
