@@ -9,3 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 - Site texts live in src/components/home-copy.ts (de/en); / and /en render the same HomePage with a lang prop — keeps both languages in sync.
+- Render Sarah's original portrait and supplied background as separate image layers; mirror only the portrait with CSS to preserve the original photo without generative alterations.
