@@ -7,5 +7,5 @@
 - [x] Restyle the header and hero in dark green, swap hero button colours, and use the supplied dark-mode logo
 - [x] Point the «Unverbindliches Erstgespräch» button at the Proton booking page, opening in a new tab
 - [x] Make customer feedback manually scrollable, slow its automatic movement, and keep cards compact
-- [ ] Replace all favicon files and references with the supplied official logo and verify local delivery.
-- [ ] Verify published favicon URLs after the Vercel deployment (requires access to the Vercel deployment).
+- [x] Replace all favicon files and references with the supplied official logo and verify local delivery.
+- [ ] Verify published favicon URLs after the Vercel deployment — blocked by missing Vercel deployment access; current public URLs do not yet serve the new files.
