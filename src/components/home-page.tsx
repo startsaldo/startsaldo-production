@@ -5,13 +5,10 @@ import { ArrowRight, Check, CheckCircle2, ClipboardCheck, Cloud, Mail, Menu, Use
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import audeliaPhotoUrl from "@/assets/audelia.jpg";
-import sarahPhotoAsset from "@/assets/sarah-photoshop-optimized.webp.asset.json";
-import sarahPhotoFallbackAsset from "@/assets/sarah-photoshop.png.asset.json";
+import sarahPhotoUrl from "@/assets/sarah-photo.webp";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-const sarahPhotoUrl = sarahPhotoAsset.url;
-const sarahPhotoFallbackUrl = sarahPhotoFallbackAsset.url;
 
 function TeamPhoto({ photo, alt }: { photo: string; alt: string }) {
   if (photo !== sarahPhotoUrl) {
@@ -23,10 +20,6 @@ function TeamPhoto({ photo, alt }: { photo: string; alt: string }) {
       alt={alt}
       decoding="async"
       fetchPriority="high"
-      onError={(event) => {
-        if (event.currentTarget.src.endsWith(sarahPhotoFallbackUrl)) return;
-        event.currentTarget.src = sarahPhotoFallbackUrl;
-      }}
       className="aspect-[4/3] w-full -scale-x-100 bg-muted object-contain"
     />
   );
