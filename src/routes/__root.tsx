@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon.png?v=20261009-official" },
+      { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon.png?v=20261010-centered" },
       {
         rel: "icon",
         type: "image/png",
@@ -106,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "/favicon-dark.png?v=20261010-modes",
         media: "(prefers-color-scheme: dark)",
       },
-      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png?v=20261009-official" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png?v=20261010-centered" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" },
