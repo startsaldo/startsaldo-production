@@ -325,6 +325,7 @@
     width: 100%;
     padding-right: 0;
   }
+  .testi-group[aria-hidden="true"] { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
