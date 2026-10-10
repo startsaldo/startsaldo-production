@@ -44,9 +44,10 @@ const de = {
   testiEyebrow: "Kundenfeedback",
   testiTitle: "Was unsere Kunden über die Zusammenarbeit sagen.",
   testiLabel: "Kundenfeedback – horizontal scrollbar",
-  quote: "«Die Buchhaltung meiner GmbH wird stets pünktlich und ordentlich erledigt. Ich bin mit der Kommunikation zufrieden und der Austausch mit Frau Sarah Mogel verläuft immer unkompliziert.»",
-  testiPh: "Kundenstimme folgt",
-  testiPhSub: "Referenz wird nach Freigabe ergänzt.",
+  testimonials: [
+    { quote: "«Die Buchhaltung meiner GmbH wird stets pünktlich und ordentlich erledigt. Ich bin mit der Kommunikation zufrieden und der Austausch mit Frau Sarah Mogel verläuft immer unkompliziert.»", name: "Jean-Marc Pittet" },
+    { quote: "«Meine Buchhaltung wird zuverlässig und unkompliziert vorgenommen. Ich bin sehr dankbar für die Unterstützung und kann das Team sehr weiterempfehlen :)»", name: "Zita Varga", role: "Hundecoiffeursalon" },
+  ] as { quote: string; name: string; role?: string }[],
   faqTitle: "Häufige Fragen.",
   faqSub: "Hier finden Sie Antworten zu Umfang, Zusammenarbeit und Einstieg.",
   faq: [
@@ -119,9 +120,10 @@ const en: typeof de = {
   testiEyebrow: "Client feedback",
   testiTitle: "What our clients say about working with us.",
   testiLabel: "Client feedback – horizontally scrollable",
-  quote: "“The accounting for my GmbH is always done punctually and properly. I am happy with the communication, and working with Ms Sarah Mogel is always straightforward.”",
-  testiPh: "Testimonial coming soon",
-  testiPhSub: "Reference will be added once approved.",
+  testimonials: [
+    { quote: "“The accounting for my GmbH is always done punctually and properly. I am happy with the communication, and working with Ms Sarah Mogel is always straightforward.”", name: "Jean-Marc Pittet" },
+    { quote: "“My accounting is handled reliably and without complications. I am very grateful for the support and can highly recommend the team :)”", name: "Zita Varga", role: "Dog grooming salon" },
+  ],
   faqTitle: "Frequently asked questions.",
   faqSub: "Answers about scope, collaboration and getting started.",
   faq: [
