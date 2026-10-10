@@ -11,3 +11,4 @@
 - Site texts live in src/components/home-copy.ts (de/en); / and /en render the same HomePage with a lang prop — keeps both languages in sync.
 - Site images (team photos, logos) are bundled files in src/assets, never Lovable CDN pointers (/__l5e/…) — the site is deployed on Vercel, where those CDN paths return 404. Sarah's finished photo is shown uncropped and mirrored once with CSS.
 - Serve favicon binaries from public/ and declare them in the root route head; TanStack Start generates the HTML, so no separate index.html is needed.
+- Keep the crawler favicon in server-rendered HTML and synchronise the browser fallback with colour-scheme changes after hydration, so it cannot override the theme-specific tab icon.

@@ -91,20 +91,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico?v=20261009-official", sizes: "16x16 32x32 48x48" },
       { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon.png?v=20261009-official" },
       {
         rel: "icon",
         type: "image/png",
         sizes: "96x96",
-        href: "/favicon-light.png?v=20261009-modes",
+        href: "/favicon-light.png?v=20261010-modes",
         media: "(prefers-color-scheme: light)",
       },
       {
         rel: "icon",
         type: "image/png",
         sizes: "96x96",
-        href: "/favicon-dark.png?v=20261009-modes",
+        href: "/favicon-dark.png?v=20261010-modes",
         media: "(prefers-color-scheme: dark)",
       },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png?v=20261009-official" },
@@ -135,6 +134,20 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    const scheme = window.matchMedia("(prefers-color-scheme: dark)");
+    // Keep the crawler fallback in server HTML, but prevent browsers from
+    // choosing it over the transparent, colour-scheme-specific tab icon.
+    const updateTabIcon = () => {
+      const fallback = document.querySelector<HTMLLinkElement>('link[rel="icon"]:not([media])');
+      if (!fallback) return;
+      fallback.href = `/favicon-${scheme.matches ? "dark" : "light"}.png?v=20261010-modes`;
+    };
+    updateTabIcon();
+    scheme.addEventListener("change", updateTabIcon);
+    return () => scheme.removeEventListener("change", updateTabIcon);
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
