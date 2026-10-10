@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, CheckCircle2, ClipboardCheck, Cloud, Mail, Menu, UserRound, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
-import audeliaPhotoUrl from "@/assets/audelia.jpg";
+import audeliaPhotoUrl from "@/assets/audelia-photo.webp";
 import sarahPhotoUrl from "@/assets/sarah-photo.webp";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
