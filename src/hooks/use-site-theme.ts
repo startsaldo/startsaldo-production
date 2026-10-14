@@ -2,13 +2,8 @@ import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "startsaldo-theme";
 
-// "light" / "original" are explicit user choices; no stored value
-// (or "system") means the site follows the operating system setting.
-function systemPrefersLight(): boolean {
-  return typeof window !== "undefined" &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches === false &&
-    document.documentElement.dataset["siteTheme"] !== undefined;
-}
+// "light" / "original" are explicit user choices; no stored value means
+// the site follows the operating system colour-scheme setting.
 
 function readSystemLight(): boolean {
   return !window.matchMedia("(prefers-color-scheme: dark)").matches;
