@@ -1,11 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { copy, type Lang } from "@/components/home-copy";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Check, CheckCircle2, ClipboardCheck, Cloud, Mail, Menu, UserRound, X } from "lucide-react";
+import { ArrowRight, Check, CheckCircle2, ClipboardCheck, Cloud, Mail, Menu, Moon, Sun, UserRound, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import audeliaPhotoUrl from "@/assets/audelia-photo.webp";
 import sarahPhotoUrl from "@/assets/sarah-photo.webp";
+import { useSiteTheme } from "@/hooks/use-site-theme";
+import startsaldoLogoLightUrl from "@/assets/startsaldo-logo.png";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -29,14 +31,14 @@ function TeamPhoto({ photo, alt }: { photo: string; alt: string }) {
 function StatementCard({ title, rows, highlighted = false }: { title: string; rows: string[]; highlighted?: boolean }) {
   return (
     <div className={`statement-card ${highlighted ? "statement-card-highlighted" : ""}`} aria-hidden="true">
-      <div className="border-b border-primary-foreground/15 pb-2">
+      <div className="border-b border-band-foreground/15 pb-2">
         <span className="block whitespace-nowrap text-[8px] font-semibold uppercase leading-none tracking-normal">{title}</span>
       </div>
       <div className="mt-2 space-y-2">
         {rows.map((row, index) => (
-          <div key={row} className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-1.5 sm:gap-2">
-            <span className="truncate whitespace-nowrap text-[7.5px] leading-none text-primary-foreground/65 sm:text-[8px]">{row}</span>
-            <span className={`h-1 w-8 shrink-0 rounded-full bg-primary-foreground/25 sm:w-11 ${index % 2 ? "max-w-7 sm:max-w-8" : "max-w-8 sm:max-w-11"}`} />
+          <div key={row} className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-1.5 sm:gap-2">
+            <span className="truncate whitespace-nowrap text-[7.5px] leading-none text-band-foreground/65 sm:text-[8px]">{row}</span>
+            <span className={`h-1 w-8 shrink-0 rounded-full bg-band-foreground/25 sm:w-11 ${index % 2 ? "max-w-7 sm:max-w-8" : "max-w-8 sm:max-w-11"}`} />
           </div>
         ))}
       </div>
@@ -63,7 +65,8 @@ function StatementMarquee({ reverse = false, statementCards }: { reverse?: boole
       const railRect = rail.getBoundingClientRect();
       const rects = cardEls.map((el) => el.getBoundingClientRect());
       cardEls.forEach((el, i) => {
-        const rect = rects[i]!;
+        const rect = rects[i];
+        if (!rect) return;
         const d = Math.min(rect.right - railRect.left, railRect.right - rect.left);
         const t = Math.min(Math.max(d / fadeWidth, 0), 1);
         const eased = t * t * (3 - 2 * t);
@@ -86,6 +89,10 @@ function StatementMarquee({ reverse = false, statementCards }: { reverse?: boole
 
 export function HomePage({ lang }: { lang: Lang }) {
   const t = copy[lang];
+  const { lightMode, toggleTheme } = useSiteTheme();
+  const logoUrl = lightMode ? startsaldoLogoLightUrl : startsaldoLogoDarkUrl;
+  const themeLabel = lightMode ? t.darkMode : t.lightMode;
+  const themeSwitch = <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label={themeLabel} title={themeLabel} aria-pressed={lightMode} className="shrink-0 text-band-foreground hover:bg-band-foreground/10 hover:text-band-foreground">{lightMode ? <Moon /> : <Sun />}</Button>;
   const other = lang === "de" ? "en" : "de";
   const langLink = (cls: string, onClick?: () => void) => <Link to={other === "en" ? "/en" : "/"} onClick={onClick} hrefLang={other} aria-label={t.switchLabel} className={cls}>{other.toUpperCase()}</Link>;
   const [menuOpen, setMenuOpen] = useState(false);
@@ -284,34 +291,35 @@ export function HomePage({ lang }: { lang: Lang }) {
     return () => document.removeEventListener("click", onClick);
   }, []);
   const nav = t.nav;
-  const checks = (items: string[], light = false) => <ul className="mt-7 space-y-3.5">{items.map((item) => <li key={item} className="flex gap-3 text-[15px] leading-6"><Check className={`mt-1 size-4 shrink-0 ${light ? "text-sage" : "text-success"}`} />{item}</li>)}</ul>;
+  const checks = (items: string[], light = false) => <ul className="mt-7 space-y-3.5">{items.map((item) => <li key={item} className="flex gap-3 text-[15px] leading-6"><Check className={`mt-1 size-4 shrink-0 ${light ? "text-band-accent" : "text-success"}`} />{item}</li>)}</ul>;
   return (
     <main className="bg-background text-foreground">
-      <header className={`sticky top-0 z-50 border-b border-primary-foreground/15 bg-deep/95 text-primary-foreground backdrop-blur-md transition-transform duration-300 ease-out ${headerHidden ? "-translate-y-full" : "translate-y-0"}`}>
-        <div className="section-shell grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 md:h-[78px] md:grid-cols-[auto_minmax(0,1fr)_auto_auto] lg:gap-4">
+      <header className={`sticky top-0 z-50 border-b border-band-foreground/15 bg-band-surface/95 text-band-foreground backdrop-blur-md transition-transform duration-300 ease-out ${headerHidden ? "-translate-y-full" : "translate-y-0"}`}>
+        <div className="section-shell grid h-16 grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 md:h-[78px] md:grid-cols-[auto_minmax(0,1fr)_auto_auto_auto] lg:gap-4">
           <a href="#top" className="block min-w-0" aria-label={t.toTop}>
-             <img src={startsaldoLogoDarkUrl} alt="StartSaldo" className="h-auto w-[132px] sm:w-[148px]" />
+             <img src={logoUrl} alt="StartSaldo" className="h-auto w-[132px] sm:w-[148px]" />
           </a>
-           <nav className="hidden justify-center gap-4 text-[13.5px] md:flex lg:gap-7 lg:text-[14px]">{nav.map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-primary-foreground transition-colors hover:text-sage">{label}</a>)}</nav>
-           <Button asChild className="hidden bg-sage text-deep hover:bg-sage-soft md:inline-flex"><a href="#kontakt">{t.cta}</a></Button>
-           {langLink("ml-1 hidden rounded-button border border-primary-foreground/35 px-3 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:text-sage md:inline-flex")}
-           <button aria-label={menuOpen ? t.menuClose : t.menuOpen} aria-expanded={menuOpen} className="grid size-10 shrink-0 place-items-center rounded-button border border-primary-foreground/35 bg-transparent text-primary-foreground md:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X className="size-5"/> : <Menu className="size-5"/>}</button>
+           <nav className="hidden justify-center gap-4 text-[13.5px] md:flex lg:gap-7 lg:text-[14px]">{nav.map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-band-foreground transition-colors hover:text-band-accent">{label}</a>)}</nav>
+           <Button asChild className="hidden bg-band-accent text-band-surface hover:bg-band-hover md:inline-flex"><a href="#kontakt">{t.cta}</a></Button>
+           {langLink("ml-1 hidden rounded-button border border-band-foreground/35 px-3 py-2 text-sm font-semibold text-band-foreground transition-colors hover:text-band-accent md:inline-flex")}
+           {themeSwitch}
+           <button aria-label={menuOpen ? t.menuClose : t.menuOpen} aria-expanded={menuOpen} className="grid size-10 shrink-0 place-items-center rounded-button border border-band-foreground/35 bg-transparent text-band-foreground md:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X className="size-5"/> : <Menu className="size-5"/>}</button>
         </div>
-         <div className={`absolute inset-x-0 top-full z-40 border-b border-primary-foreground/15 bg-deep text-primary-foreground shadow-[0_24px_40px_-20px_rgba(23,32,28,0.25)] transition-all duration-300 ease-out md:hidden ${menuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`} aria-hidden={!menuOpen}>
-           <nav className="section-shell flex flex-col py-2">{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="border-b border-primary-foreground/15 py-3.5 text-base font-medium">{label}</a>)}{langLink("py-3.5 text-base font-semibold text-sage", () => setMenuOpen(false))}</nav>
+         <div className={`absolute inset-x-0 top-full z-40 border-b border-band-foreground/15 bg-band-surface text-band-foreground shadow-[0_24px_40px_-20px_rgba(23,32,28,0.25)] transition-all duration-300 ease-out md:hidden ${menuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`} aria-hidden={!menuOpen}>
+           <nav className="section-shell flex flex-col py-2">{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="border-b border-band-foreground/15 py-3.5 text-base font-medium">{label}</a>)}{langLink("py-3.5 text-base font-semibold text-band-accent", () => setMenuOpen(false))}</nav>
         </div>
       </header>
 
       <section
         id="top"
-         className="overflow-hidden bg-deep pb-14 pt-12 text-primary-foreground sm:py-16 lg:py-20"
+         className="overflow-hidden bg-band-surface pb-14 pt-12 text-band-foreground sm:py-16 lg:py-20"
       >
         <div className="section-shell">
-           <p className="hero-reveal hero-reveal-1 eyebrow mx-auto max-w-[320px] text-center text-sage">{t.eyebrow}</p>
-           <h1 className="hero-reveal hero-reveal-2 heading-xl mx-auto mt-5 max-w-[650px] text-center">{t.h1a}<br/><span className="text-sage">{t.h1b}</span></h1>
-           <p className="hero-reveal hero-reveal-3 mx-auto mt-6 max-w-[350px] text-center text-base leading-7 text-primary-foreground/75 md:max-w-none md:text-[19px] md:leading-[1.65]">{t.heroSub}</p>
+           <p className="hero-reveal hero-reveal-1 eyebrow mx-auto max-w-[320px] text-center text-band-accent">{t.eyebrow}</p>
+           <h1 className="hero-reveal hero-reveal-2 heading-xl mx-auto mt-5 max-w-[650px] text-center">{t.h1a}<br/><span className="text-band-accent">{t.h1b}</span></h1>
+           <p className="hero-reveal hero-reveal-3 mx-auto mt-6 max-w-[350px] text-center text-base leading-7 text-band-foreground/75 md:max-w-none md:text-[19px] md:leading-[1.65]">{t.heroSub}</p>
         </div>
-         <div className="hero-reveal hero-reveal-4 section-shell mt-8 grid gap-3 sm:flex sm:items-center sm:justify-center"><Button variant="outline" asChild className="w-full border-sage bg-transparent text-sage hover:bg-primary-foreground/10 sm:w-auto"><a href="https://calendar.proton.me/bookings#aoKD9adzG08Fb5PKXT_boUZbBrowx2wglL7dlHh7oos=" target="_blank" rel="noopener noreferrer">{t.heroBtn1}</a></Button><Button asChild className="w-full bg-sage text-deep hover:bg-sage-soft sm:w-auto"><a href="#dienstleistungen">{t.heroBtn2}</a></Button></div>
+         <div className="hero-reveal hero-reveal-4 section-shell mt-8 grid gap-3 sm:flex sm:items-center sm:justify-center"><Button variant="outline" asChild className="w-full border-band-accent bg-transparent text-band-accent hover:bg-band-foreground/10 sm:w-auto"><a href="https://calendar.proton.me/bookings#aoKD9adzG08Fb5PKXT_boUZbBrowx2wglL7dlHh7oos=" target="_blank" rel="noopener noreferrer">{t.heroBtn1}</a></Button><Button asChild className="w-full bg-band-accent text-band-surface hover:bg-band-hover sm:w-auto"><a href="#dienstleistungen">{t.heroBtn2}</a></Button></div>
         <div className="hero-reveal hero-reveal-5 mt-7 w-full" aria-label={t.marqueeLabel}>
           <StatementMarquee reverse statementCards={t.statementCards} />
         </div>
@@ -332,19 +340,19 @@ export function HomePage({ lang }: { lang: Lang }) {
 
       <section id="faq" className="section-pad bg-sage-soft"><div className="section-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><Reveal><div className="text-center"><p className="eyebrow">FAQ</p><h2 className="heading-lg mt-4">{t.faqTitle}</h2><p className="mt-5 leading-7 text-muted-foreground">{t.faqSub}</p></div></Reveal><Reveal delay={120}><Accordion type="single" collapsible>{t.faq.map(([q,a])=><AccordionItem key={q ?? "faq"} value={q ?? "faq"}><AccordionTrigger className="min-h-[72px] text-left text-base hover:no-underline">{q}</AccordionTrigger><AccordionContent className="max-w-[600px] pb-6 leading-7 text-muted-foreground whitespace-pre-line">{a}</AccordionContent></AccordionItem>)}</Accordion></Reveal></div></section>
 
-      <section id="kontakt" className="section-pad bg-deep text-primary-foreground"><div className="section-shell grid gap-14 lg:grid-cols-[.8fr_1.2fr]"><Reveal><div><div className="text-center"><p className="eyebrow text-sage">{t.contactEyebrow}</p><h2 className="heading-lg mt-4">{t.contactTitle}</h2></div><dl className="mt-10 space-y-6"><div><dt className="text-sm text-primary-foreground/65">E-Mail</dt><dd className="mt-1 font-semibold"><a href="mailto:info@startsaldo.ch" className="transition-colors hover:text-sage">info@startsaldo.ch</a></dd></div><div><dt className="text-sm text-primary-foreground/65">{t.phone}</dt><dd className="mt-1 font-semibold"><a href="tel:+41766295056" className="transition-colors hover:text-sage">076 629 50 56</a></dd></div><div><dt className="text-sm text-primary-foreground/65">{t.location}</dt><dd className="mt-1 font-semibold">{t.locationValue}</dd></div></dl></div></Reveal>
+      <section id="kontakt" className="section-pad bg-band-surface text-band-foreground"><div className="section-shell grid gap-14 lg:grid-cols-[.8fr_1.2fr]"><Reveal><div><div className="text-center"><p className="eyebrow text-band-accent">{t.contactEyebrow}</p><h2 className="heading-lg mt-4">{t.contactTitle}</h2></div><dl className="mt-10 space-y-6"><div><dt className="text-sm text-band-foreground/65">E-Mail</dt><dd className="mt-1 font-semibold"><a href="mailto:info@startsaldo.ch" className="transition-colors hover:text-band-accent">info@startsaldo.ch</a></dd></div><div><dt className="text-sm text-band-foreground/65">{t.phone}</dt><dd className="mt-1 font-semibold"><a href="tel:+41766295056" className="transition-colors hover:text-band-accent">076 629 50 56</a></dd></div><div><dt className="text-sm text-band-foreground/65">{t.location}</dt><dd className="mt-1 font-semibold">{t.locationValue}</dd></div></dl></div></Reveal>
         <Reveal delay={120}>
         {sent ? (
-          <div role="status" className="flex flex-col items-center px-6 py-10 text-center text-primary-foreground md:px-10">
+          <div role="status" className="flex flex-col items-center px-6 py-10 text-center text-band-foreground md:px-10">
             <span className="grid size-16 place-items-center rounded-full bg-sage-soft"><CheckCircle2 className="size-8 text-success" /></span>
             <h3 className="mt-7 max-w-[460px] text-[24px] font-semibold leading-snug">{t.success}</h3>
             <Button variant="outline" className="mt-8" onClick={() => setSent(false)}>{t.newMsg}</Button>
           </div>
         ) : (
-        <form className="text-primary-foreground" onSubmit={handleContactSubmit}><div className="grid gap-5 sm:grid-cols-2">{[[t.fName,"name"],[t.fCompany,"firma"],["E-Mail","email"],[t.phone,"telefon"]].map(([label,field],i)=><label key={label} className="text-sm font-medium">{label}<input name={field} required={i===0||i===2} type={i===2?"email":i===3?"tel":"text"} className="mt-2 h-[52px] w-full rounded-[10px] border border-input bg-card px-4 text-foreground outline-none transition-colors focus:border-primary"/></label>)}</div><label className="mt-6 block text-sm font-medium">{t.fMessage}<textarea name="nachricht" required className="mt-2 min-h-[140px] w-full resize-y rounded-[10px] border border-input bg-card p-4 text-foreground outline-none transition-colors focus:border-primary"/></label>{sendError && <p role="alert" className="mt-4 text-center text-sm font-medium text-destructive">{sendError}</p>}<Button type="submit" disabled={sending} className="mt-6 w-full bg-sage text-deep hover:bg-sage-soft">{sending ? t.sending : t.submit}</Button><p className="mt-4 text-center text-xs leading-5 text-primary-foreground/70">{t.consent}</p></form>
+        <form className="text-band-foreground" onSubmit={handleContactSubmit}><div className="grid gap-5 sm:grid-cols-2">{[[t.fName,"name"],[t.fCompany,"firma"],["E-Mail","email"],[t.phone,"telefon"]].map(([label,field],i)=><label key={label} className="text-sm font-medium">{label}<input name={field} required={i===0||i===2} type={i===2?"email":i===3?"tel":"text"} className="mt-2 h-[52px] w-full rounded-[10px] border border-input bg-card px-4 text-foreground outline-none transition-colors focus:border-primary"/></label>)}</div><label className="mt-6 block text-sm font-medium">{t.fMessage}<textarea name="nachricht" required className="mt-2 min-h-[140px] w-full resize-y rounded-[10px] border border-input bg-card p-4 text-foreground outline-none transition-colors focus:border-primary"/></label>{sendError && <p role="alert" className="mt-4 text-center text-sm font-medium text-destructive">{sendError}</p>}<Button type="submit" disabled={sending} className="mt-6 w-full bg-band-accent text-band-surface hover:bg-band-hover">{sending ? t.sending : t.submit}</Button><p className="mt-4 text-center text-xs leading-5 text-band-foreground/70">{t.consent}</p></form>
         )}</Reveal></div></section>
 
-      <footer className="bg-foreground py-12 text-primary-foreground"><div className="section-shell"><div className="grid gap-10 md:grid-cols-3"><div><img src={startsaldoLogoDarkUrl} alt="StartSaldo" className="h-auto w-[148px]" /><p className="mt-3 whitespace-nowrap text-sm leading-6 text-primary-foreground/65">{t.footerTag}</p></div><nav className="flex flex-col items-start gap-3 text-sm md:mx-auto md:w-fit">{nav.slice(0,4).map(([l,h])=><a key={h} href={h}>{l}</a>)}{langLink("font-semibold text-sage")}</nav><div className="text-sm leading-7 md:justify-self-end"><a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a><br/><a href="tel:+41766295056">076 629 50 56</a><br/>Rothenthurm SZ</div></div><div className="mt-10 flex flex-row items-center justify-between gap-4 border-t border-primary-foreground/15 pt-6 text-xs text-primary-foreground/60"><p>© 2026 Digital Trust Solutions GmbH</p><div className="flex gap-5"><a href="#" onClick={(e)=>e.preventDefault()}>{t.imprint}</a><a href="#" onClick={(e)=>e.preventDefault()}>{t.privacy}</a></div></div></div></footer>
+      <footer className="bg-footer-surface py-12 text-band-foreground"><div className="section-shell"><div className="grid gap-10 md:grid-cols-3"><div><img src={logoUrl} alt="StartSaldo" className="h-auto w-[148px]" /><p className="mt-3 whitespace-nowrap text-sm leading-6 text-band-foreground/65">{t.footerTag}</p></div><nav className="flex flex-col items-start gap-3 text-sm md:mx-auto md:w-fit">{nav.slice(0,4).map(([l,h])=><a key={h} href={h}>{l}</a>)}{langLink("font-semibold text-band-accent")}</nav><div className="text-sm leading-7 md:justify-self-end"><a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a><br/><a href="tel:+41766295056">076 629 50 56</a><br/>Rothenthurm SZ</div></div><div className="mt-10 flex flex-row items-center justify-between gap-4 border-t border-band-foreground/15 pt-6 text-xs text-band-foreground/60"><p>© 2026 Digital Trust Solutions GmbH</p><div className="flex gap-5"><a href="#" onClick={(e)=>e.preventDefault()}>{t.imprint}</a><a href="#" onClick={(e)=>e.preventDefault()}>{t.privacy}</a></div></div></div></footer>
     </main>
   );
 }
