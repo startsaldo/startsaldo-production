@@ -65,6 +65,11 @@
   --color-sage-soft: var(--sage-soft);
   --color-deep: var(--deep);
   --color-success: var(--success);
+  --color-band-surface: var(--band-surface);
+  --color-band-foreground: var(--band-foreground);
+  --color-band-accent: var(--band-accent);
+  --color-band-hover: var(--band-hover);
+  --color-footer-surface: var(--footer-surface);
   --radius-button: 0.75rem;
 }
 
@@ -94,6 +99,13 @@
   --sage-soft: oklch(0.96 0.014 153);
   --deep: oklch(0.29 0.052 161);
   --success: oklch(0.48 0.06 157);
+  --band-surface: var(--deep);
+  --band-foreground: var(--primary-foreground);
+  --band-accent: var(--sage);
+  --band-hover: var(--sage-soft);
+  --footer-surface: var(--foreground);
+  --statement-surface: var(--deep);
+  --statement-highlight: var(--primary);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -107,6 +119,16 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+:root[data-site-theme="light"] {
+  --band-surface: var(--sage-soft);
+  --band-foreground: var(--foreground);
+  --band-accent: var(--primary);
+  --band-hover: var(--primary-hover);
+  --footer-surface: var(--card);
+  --statement-surface: var(--card);
+  --statement-highlight: var(--sage);
 }
 
 .dark {
@@ -261,17 +283,17 @@
   flex-shrink: 0;
   opacity: 0.75;
   flex-direction: column;
-  border: 1px solid color-mix(in oklab, var(--primary-foreground) 18%, transparent);
+  border: 1px solid color-mix(in oklab, var(--band-foreground) 18%, transparent);
   border-radius: 0.75rem;
-  background: var(--deep);
+  background: var(--statement-surface);
   padding: 0.75rem;
-  color: var(--primary-foreground);
+  color: var(--band-foreground);
   box-shadow: 0 10px 30px color-mix(in oklab, var(--deep) 10%, transparent);
 }
 
 @utility statement-card-highlighted {
-  border-color: color-mix(in oklab, var(--sage) 72%, transparent);
-  background: var(--primary);
+  border-color: color-mix(in oklab, var(--band-accent) 72%, transparent);
+  background: var(--statement-highlight);
   box-shadow: 0 0 24px color-mix(in oklab, var(--sage) 14%, transparent);
 }
 
