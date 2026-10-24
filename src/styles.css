@@ -293,17 +293,36 @@
   letter-spacing: 0;
 }
 @media (max-width: 1023px) {
+  /* Show both people completely at the top, copy compact below their faces
+     on a strong fade that covers only the lower part of the photo. */
+  .portrait-hero { min-height: 0; }
+  .portrait-hero-image {
+    width: 190%;
+    height: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .portrait-hero-layout {
+    min-height: 0;
+    padding-top: 58vw;
+    padding-bottom: 28px;
+  }
   .portrait-hero::after {
     content: "";
     position: absolute;
-    inset: auto 0 0 0;
-    height: 60%;
-    background: linear-gradient(to top, var(--hero-photo-surface) 22%, transparent);
+    top: 40vw;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, var(--hero-photo-surface) 18vw);
     pointer-events: none;
   }
 }
+@media (max-width: 639px) {
+  .portrait-hero-heading { font-size: 32px; }
+}
 @media (min-width: 640px) and (max-width: 1023px) {
-  .portrait-hero, .portrait-hero-layout { min-height: 620px; }
+  .portrait-hero-layout { padding-top: 56vw; }
   .portrait-hero-heading { font-size: 44px; }
 }
 @media (min-width: 1024px) {
