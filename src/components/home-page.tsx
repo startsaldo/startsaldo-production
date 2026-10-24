@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import audeliaPhotoUrl from "@/assets/audelia-photo.webp";
 import sarahPhotoUrl from "@/assets/sarah-photo.webp";
+import teamHeroUrl from "@/assets/team-hero.webp";
 import { useSiteTheme } from "@/hooks/use-site-theme";
 import startsaldoLogoLightUrl from "@/assets/startsaldo-logo.png";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
@@ -312,14 +313,22 @@ export function HomePage({ lang }: { lang: Lang }) {
 
       <section
         id="top"
-         className="overflow-hidden bg-band-surface pb-14 pt-12 text-band-foreground sm:py-16 lg:py-20"
+        className="overflow-hidden bg-band-surface text-band-foreground"
       >
-        <div className="section-shell">
-          <h1 className="hero-reveal hero-reveal-2 heading-xl mx-auto max-w-[650px] text-center">{t.h1a}<br/><span className="text-band-accent">{t.h1b}</span></h1>
-           <p className="hero-reveal hero-reveal-3 mx-auto mt-6 max-w-[350px] text-center text-base leading-7 text-band-foreground/75 md:max-w-none md:text-[19px] md:leading-[1.65]">{t.heroSub}</p>
+        <div className="portrait-hero">
+          <img src={teamHeroUrl} alt={lang === "de" ? "Sarah Mogel und Audelia Babbev-Pittet von StartSaldo" : "Sarah Mogel and Audelia Babbev-Pittet of StartSaldo"} width={1942} height={809} fetchPriority="high" decoding="async" className="portrait-hero-image" />
+          <div className="section-shell portrait-hero-layout">
+            <div className="portrait-hero-copy">
+              <h1 className="hero-reveal hero-reveal-2 portrait-hero-heading">{t.h1a}<br/><span className="text-primary">{t.h1b}</span></h1>
+              <p className="hero-reveal hero-reveal-3 mt-5 max-w-[470px] text-base leading-7 text-hero-muted md:text-[18px]">{t.heroSub}</p>
+              <div className="hero-reveal hero-reveal-4 mt-7 flex flex-wrap gap-3">
+                <Button asChild className="h-auto min-h-11 whitespace-normal bg-primary px-5 py-3 text-primary-foreground hover:bg-primary-hover"><a href="https://calendar.proton.me/bookings#aoKD9adzG08Fb5PKXT_boUZbBrowx2wglL7dlHh7oos=" target="_blank" rel="noopener noreferrer">{t.heroBtn1}<ArrowRight className="size-4 shrink-0" /></a></Button>
+                <Button variant="outline" asChild className="h-auto min-h-11 whitespace-normal border-primary/35 bg-transparent px-5 py-3 text-primary hover:bg-primary/10 hover:text-primary"><a href="#dienstleistungen">{t.heroBtn2}</a></Button>
+              </div>
+            </div>
+          </div>
         </div>
-         <div className="hero-reveal hero-reveal-4 section-shell mt-8 grid gap-3 sm:flex sm:items-center sm:justify-center"><Button variant="outline" asChild className="w-full border-band-accent bg-transparent text-band-accent hover:bg-band-foreground/10 sm:w-auto"><a href="https://calendar.proton.me/bookings#aoKD9adzG08Fb5PKXT_boUZbBrowx2wglL7dlHh7oos=" target="_blank" rel="noopener noreferrer">{t.heroBtn1}</a></Button><Button asChild className="w-full bg-band-accent text-band-surface hover:bg-band-hover sm:w-auto"><a href="#dienstleistungen">{t.heroBtn2}</a></Button></div>
-        <div className="hero-reveal hero-reveal-5 mt-7 w-full" aria-label={t.marqueeLabel}>
+        <div className="hero-reveal hero-reveal-5 w-full py-5 md:py-6" aria-label={t.marqueeLabel}>
           <StatementMarquee reverse statementCards={t.statementCards} />
         </div>
 

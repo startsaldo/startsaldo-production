@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Use the supplied joint portrait as the hero background, keep the animation below, and verify both languages and screen sizes.
+
 - [x] Add a selectable light mode with reversed dark-band colours and verify switching on both languages.
 
 - [x] Build the complete responsive one-page website in the requested section order
