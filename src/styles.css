@@ -107,7 +107,7 @@
   --footer-surface: var(--foreground);
   --statement-surface: var(--deep);
   --statement-highlight: var(--primary);
-  --hero-photo-surface: oklch(0.925 0.014 135);
+  --hero-photo-surface: oklch(0.864 0.0136 160);
   --hero-muted: oklch(0.40 0.018 156);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -297,18 +297,18 @@
      on a strong fade that covers only the lower part of the photo. */
   .portrait-hero { min-height: 0; }
   .portrait-hero-image {
-    width: 190%;
+    width: 160%;
     height: auto;
-    /* Centres the two people: their span in the photo runs from 45% to 96%
+    /* Centres the two people: their span in the photo runs from 34% to 100%
        of its width, so the photo is offset until that span sits mid-screen. */
-    left: -83.8%;
+    left: -57.4%;
     right: auto;
     -webkit-mask-image: none;
     mask-image: none;
   }
   .portrait-hero-layout {
     min-height: 0;
-    padding-top: 66vw;
+    padding-top: 58vw;
     padding-bottom: 28px;
   }
   /* Copy is centred below the faces on every size under 1024px. */
@@ -318,11 +318,11 @@
   .portrait-hero::after {
     content: "";
     position: absolute;
-    top: 48vw;
+    top: 44vw;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, transparent, var(--hero-photo-surface) 18vw);
+    background: linear-gradient(to bottom, transparent, var(--hero-photo-surface) 14vw);
     pointer-events: none;
   }
 }
