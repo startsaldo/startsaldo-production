@@ -304,13 +304,17 @@
   }
   .portrait-hero-layout {
     min-height: 0;
-    padding-top: 58vw;
+    padding-top: 66vw;
     padding-bottom: 28px;
   }
+  /* Copy is centred below the faces on every size under 1024px. */
+  .portrait-hero-copy { text-align: center; }
+  .portrait-hero-sub { margin-inline: auto; }
+  .portrait-hero-actions { justify-content: center; }
   .portrait-hero::after {
     content: "";
     position: absolute;
-    top: 40vw;
+    top: 48vw;
     left: 0;
     right: 0;
     bottom: 0;
@@ -322,7 +326,6 @@
   .portrait-hero-heading { font-size: 32px; }
 }
 @media (min-width: 640px) and (max-width: 1023px) {
-  .portrait-hero-layout { padding-top: 56vw; }
   .portrait-hero-heading { font-size: 44px; }
 }
 @media (min-width: 1024px) {
