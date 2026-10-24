@@ -14,19 +14,17 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 
 function TeamPhoto({ photo, alt }: { photo: string; alt: string }) {
-  if (photo !== sarahPhotoUrl) {
-    return <img src={photo} alt={alt} className="aspect-[4/3] w-full object-cover object-top" />;
-  }
   return (
     <img
       src={photo}
       alt={alt}
       decoding="async"
       fetchPriority="high"
-      className="aspect-[4/3] w-full -scale-x-100 bg-muted object-contain"
+      className="aspect-[4/3] w-full object-cover object-top"
     />
   );
 }
+
 
 
 function StatementCard({ title, rows, highlighted = false }: { title: string; rows: string[]; highlighted?: boolean }) {
