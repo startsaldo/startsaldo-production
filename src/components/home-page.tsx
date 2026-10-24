@@ -167,6 +167,7 @@ export function HomePage({ lang }: { lang: Lang }) {
     let paused = false;
     let dragging = false;
     let hovering = false;
+    let lastTouchTime = 0;
     let dragStartX = 0;
     let dragStartScrollLeft = 0;
     let resumeTimer = 0;
@@ -225,7 +226,13 @@ export function HomePage({ lang }: { lang: Lang }) {
       }
       raf = requestAnimationFrame(tick);
     };
-    const onMouseEnter = () => { hovering = true; paused = true; };
+    const onMouseEnter = () => {
+      // Nach einer Berührung feuert der Browser synthetische Maus-Events —
+      // diese ignorieren, sonst bleibt der Auto-Lauf auf Touch-Geräten stehen.
+      if (performance.now() - lastTouchTime < 800) return;
+      hovering = true;
+      paused = true;
+    };
     const onMouseLeave = () => {
       hovering = false;
       if (!dragging) paused = false;
@@ -258,7 +265,11 @@ export function HomePage({ lang }: { lang: Lang }) {
       if (rail.hasPointerCapture(event.pointerId)) rail.releasePointerCapture(event.pointerId);
       pauseTemporarily();
     };
-    const onTouchStart = () => { paused = true; };
+    const onTouchStart = () => {
+      lastTouchTime = performance.now();
+      hovering = false;
+      paused = true;
+    };
     const onTouchEnd = () => {
       pauseTemporarily();
     };
