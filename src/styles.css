@@ -316,6 +316,10 @@
   .portrait-hero-copy { width: 43%; max-width: 510px; }
   .portrait-hero-heading { font-size: 40px; }
 }
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .portrait-hero, .portrait-hero-layout { min-height: 480px; }
+  .portrait-hero-copy { max-width: 430px; }
+}
 @media (min-width: 1280px) {
   .portrait-hero, .portrait-hero-layout { min-height: 560px; }
   .portrait-hero-heading { font-size: 48px; }
