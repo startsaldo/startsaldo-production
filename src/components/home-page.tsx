@@ -255,11 +255,12 @@ export function HomePage({ lang }: { lang: Lang }) {
     };
     const onTouchStart = () => { paused = true; };
     const onTouchEnd = () => {
-      loopPosition();
       pauseTemporarily();
     };
 
     rail.scrollLeft = autoPosition;
+    updateFade();
+    rail.addEventListener("scroll", onScroll, { passive: true });
     rail.addEventListener("mouseenter", onMouseEnter);
     rail.addEventListener("mouseleave", onMouseLeave);
     rail.addEventListener("wheel", onWheel, { passive: false });
