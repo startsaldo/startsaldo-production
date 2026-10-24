@@ -320,8 +320,8 @@ export function HomePage({ lang }: { lang: Lang }) {
           <div className="section-shell portrait-hero-layout">
             <div className="portrait-hero-copy">
               <h1 className="hero-reveal hero-reveal-2 portrait-hero-heading">{t.h1a}<br/><span className="text-primary">{t.h1b}</span></h1>
-              <p className="hero-reveal hero-reveal-3 mt-5 max-w-[470px] text-base leading-7 text-hero-muted md:text-[18px]">{t.heroSub}</p>
-              <div className="hero-reveal hero-reveal-4 mt-7 flex flex-wrap gap-3">
+              <p className="hero-reveal hero-reveal-3 portrait-hero-sub mt-5 max-w-[470px] text-base leading-7 text-hero-muted md:text-[18px]">{t.heroSub}</p>
+              <div className="hero-reveal hero-reveal-4 portrait-hero-actions mt-7 flex flex-wrap gap-3">
                 <Button asChild className="h-auto min-h-11 whitespace-normal bg-primary px-5 py-3 text-primary-foreground hover:bg-primary-hover"><a href="https://calendar.proton.me/bookings#aoKD9adzG08Fb5PKXT_boUZbBrowx2wglL7dlHh7oos=" target="_blank" rel="noopener noreferrer">{t.heroBtn1}<ArrowRight className="size-4 shrink-0" /></a></Button>
                 <Button variant="outline" asChild className="h-auto min-h-11 whitespace-normal border-primary/35 bg-transparent px-5 py-3 text-primary hover:bg-primary/10 hover:text-primary"><a href="#dienstleistungen">{t.heroBtn2}</a></Button>
               </div>
