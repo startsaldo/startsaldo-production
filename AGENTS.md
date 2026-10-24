@@ -13,3 +13,4 @@
 - Serve favicon binaries from public/ and declare them in the root route head; TanStack Start generates the HTML, so no separate index.html is needed.
 - Keep the crawler favicon in server-rendered HTML and synchronise the browser fallback with colour-scheme changes after hydration, so it cannot override the theme-specific tab icon.
 - Website display mode uses dedicated band colour tokens and a browser-stored preference; it is independent of OS-driven favicons and preserves photo rendering and alternating content sections.
+- The joint hero portrait stays unaltered in both colour modes; copy uses the empty left area on desktop and moves above the photo on smaller screens to keep both faces unobstructed. The statement animation sits below the portrait within the same hero section.
