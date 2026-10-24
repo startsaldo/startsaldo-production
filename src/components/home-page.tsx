@@ -166,6 +166,8 @@ export function HomePage({ lang }: { lang: Lang }) {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let paused = false;
     let dragging = false;
+    let hovering = false;
+    let lastTouchTime = 0;
     let dragStartX = 0;
     let dragStartScrollLeft = 0;
     let resumeTimer = 0;
@@ -184,7 +186,7 @@ export function HomePage({ lang }: { lang: Lang }) {
       paused = true;
       window.clearTimeout(resumeTimer);
       resumeTimer = window.setTimeout(() => {
-        if (!dragging && !rail.matches(":hover")) paused = false;
+        if (!dragging && !hovering) paused = false;
       }, 1800);
     };
     const updateFade = () => {
@@ -197,6 +199,22 @@ export function HomePage({ lang }: { lang: Lang }) {
         el.style.opacity = eased.toFixed(3);
       });
     };
+    // Fade- und Loop-Updates nur bei echten Scroll-Änderungen (rAF-gedrosselt
+    // über das scroll-Event) statt in jedem Animationsframe — vermeidet
+    // Layout-Thrashing und Ruckeln während der Touch-Scroll auf Mobile.
+    let fadeScheduled = false;
+    const onScroll = () => {
+      // Nur bei benutzergesteuertem Scrollen synchronisieren: beim Auto-Lauf
+      // würde das ganzzahlig gerundete scrollLeft die Sub-Pixel-Position
+      // zurücksetzen und den Lauf zum Stillstand bringen.
+      if (Math.abs(rail.scrollLeft - autoPosition) > 1) loopPosition();
+      if (fadeScheduled) return;
+      fadeScheduled = true;
+      requestAnimationFrame(() => {
+        fadeScheduled = false;
+        updateFade();
+      });
+    };
     const tick = (time: number) => {
       const elapsed = Math.min(time - previousTime, 40);
       previousTime = time;
@@ -206,11 +224,17 @@ export function HomePage({ lang }: { lang: Lang }) {
         if (autoPosition <= 0) autoPosition += groupWidth;
         rail.scrollLeft = autoPosition;
       }
-      updateFade();
       raf = requestAnimationFrame(tick);
     };
-    const onMouseEnter = () => { paused = true; };
+    const onMouseEnter = () => {
+      // Nach einer Berührung feuert der Browser synthetische Maus-Events —
+      // diese ignorieren, sonst bleibt der Auto-Lauf auf Touch-Geräten stehen.
+      if (performance.now() - lastTouchTime < 800) return;
+      hovering = true;
+      paused = true;
+    };
     const onMouseLeave = () => {
+      hovering = false;
       if (!dragging) paused = false;
     };
     const onWheel = (event: WheelEvent) => {
@@ -241,13 +265,18 @@ export function HomePage({ lang }: { lang: Lang }) {
       if (rail.hasPointerCapture(event.pointerId)) rail.releasePointerCapture(event.pointerId);
       pauseTemporarily();
     };
-    const onTouchStart = () => { paused = true; };
+    const onTouchStart = () => {
+      lastTouchTime = performance.now();
+      hovering = false;
+      paused = true;
+    };
     const onTouchEnd = () => {
-      loopPosition();
       pauseTemporarily();
     };
 
     rail.scrollLeft = autoPosition;
+    updateFade();
+    rail.addEventListener("scroll", onScroll, { passive: true });
     rail.addEventListener("mouseenter", onMouseEnter);
     rail.addEventListener("mouseleave", onMouseLeave);
     rail.addEventListener("wheel", onWheel, { passive: false });
@@ -261,6 +290,7 @@ export function HomePage({ lang }: { lang: Lang }) {
     return () => {
       cancelAnimationFrame(raf);
       window.clearTimeout(resumeTimer);
+      rail.removeEventListener("scroll", onScroll);
       rail.removeEventListener("mouseenter", onMouseEnter);
       rail.removeEventListener("mouseleave", onMouseLeave);
       rail.removeEventListener("wheel", onWheel);
