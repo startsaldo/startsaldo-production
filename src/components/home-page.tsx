@@ -274,6 +274,7 @@ export function HomePage({ lang }: { lang: Lang }) {
     return () => {
       cancelAnimationFrame(raf);
       window.clearTimeout(resumeTimer);
+      rail.removeEventListener("scroll", onScroll);
       rail.removeEventListener("mouseenter", onMouseEnter);
       rail.removeEventListener("mouseleave", onMouseLeave);
       rail.removeEventListener("wheel", onWheel);
