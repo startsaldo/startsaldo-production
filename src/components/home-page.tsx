@@ -197,6 +197,19 @@ export function HomePage({ lang }: { lang: Lang }) {
         el.style.opacity = eased.toFixed(3);
       });
     };
+    // Fade- und Loop-Updates nur bei echten Scroll-Änderungen (rAF-gedrosselt
+    // über das scroll-Event) statt in jedem Animationsframe — vermeidet
+    // Layout-Thrashing und Ruckeln während der Touch-Scroll auf Mobile.
+    let fadeScheduled = false;
+    const onScroll = () => {
+      loopPosition();
+      if (fadeScheduled) return;
+      fadeScheduled = true;
+      requestAnimationFrame(() => {
+        fadeScheduled = false;
+        updateFade();
+      });
+    };
     const tick = (time: number) => {
       const elapsed = Math.min(time - previousTime, 40);
       previousTime = time;
@@ -206,7 +219,6 @@ export function HomePage({ lang }: { lang: Lang }) {
         if (autoPosition <= 0) autoPosition += groupWidth;
         rail.scrollLeft = autoPosition;
       }
-      updateFade();
       raf = requestAnimationFrame(tick);
     };
     const onMouseEnter = () => { paused = true; };
