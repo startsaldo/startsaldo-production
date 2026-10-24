@@ -266,11 +266,16 @@
 }
 .portrait-hero-image {
   position: absolute;
-  inset: 0;
-  width: 100%;
+  top: 0;
+  right: 0;
   height: 100%;
+  width: auto;
+  max-width: none;
   object-fit: cover;
-  object-position: 100% top;
+  /* Fade the photo's left edge into the flat background so the free area
+     reads as one seamless surface for the copy. */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 18%);
+  mask-image: linear-gradient(to right, transparent, #000 18%);
 }
 .portrait-hero-layout {
   position: relative;
