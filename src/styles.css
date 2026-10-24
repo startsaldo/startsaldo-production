@@ -312,7 +312,7 @@
     padding-bottom: 28px;
   }
   /* Copy is centred below the faces on every size under 1024px. */
-  .portrait-hero-copy { text-align: center; }
+  .portrait-hero-copy { width: 100%; text-align: center; }
   .portrait-hero-sub { margin-inline: auto; }
   .portrait-hero-actions { justify-content: center; }
   .portrait-hero::after {
