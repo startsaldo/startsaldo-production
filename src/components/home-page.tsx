@@ -20,7 +20,7 @@ function TeamPhoto({ photo, alt }: { photo: string; alt: string }) {
       alt={alt}
       decoding="async"
       fetchPriority="high"
-      className="aspect-[4/3] w-full object-cover object-top"
+      className="aspect-[4/5] w-full object-cover object-top"
     />
   );
 }
