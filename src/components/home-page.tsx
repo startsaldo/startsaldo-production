@@ -166,6 +166,7 @@ export function HomePage({ lang }: { lang: Lang }) {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let paused = false;
     let dragging = false;
+    let hovering = false;
     let dragStartX = 0;
     let dragStartScrollLeft = 0;
     let resumeTimer = 0;
@@ -184,7 +185,7 @@ export function HomePage({ lang }: { lang: Lang }) {
       paused = true;
       window.clearTimeout(resumeTimer);
       resumeTimer = window.setTimeout(() => {
-        if (!dragging && !rail.matches(":hover")) paused = false;
+        if (!dragging && !hovering) paused = false;
       }, 1800);
     };
     const updateFade = () => {
@@ -202,7 +203,10 @@ export function HomePage({ lang }: { lang: Lang }) {
     // Layout-Thrashing und Ruckeln während der Touch-Scroll auf Mobile.
     let fadeScheduled = false;
     const onScroll = () => {
-      loopPosition();
+      // Nur bei benutzergesteuertem Scrollen synchronisieren: beim Auto-Lauf
+      // würde das ganzzahlig gerundete scrollLeft die Sub-Pixel-Position
+      // zurücksetzen und den Lauf zum Stillstand bringen.
+      if (Math.abs(rail.scrollLeft - autoPosition) > 1) loopPosition();
       if (fadeScheduled) return;
       fadeScheduled = true;
       requestAnimationFrame(() => {
@@ -221,8 +225,9 @@ export function HomePage({ lang }: { lang: Lang }) {
       }
       raf = requestAnimationFrame(tick);
     };
-    const onMouseEnter = () => { paused = true; };
+    const onMouseEnter = () => { hovering = true; paused = true; };
     const onMouseLeave = () => {
+      hovering = false;
       if (!dragging) paused = false;
     };
     const onWheel = (event: WheelEvent) => {
