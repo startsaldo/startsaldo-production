@@ -344,7 +344,7 @@ export function HomePage({ lang }: { lang: Lang }) {
         className="overflow-hidden bg-band-surface text-band-foreground"
       >
         <div className="portrait-hero">
-          <img src={teamHeroUrl} alt={lang === "de" ? "Sarah Mogel und Audelia Babbev-Pittet von StartSaldo" : "Sarah Mogel and Audelia Babbev-Pittet of StartSaldo"} width={1672} height={941} fetchPriority="high" decoding="async" className="portrait-hero-image" />
+          <img src={teamHeroUrl} alt={lang === "de" ? "Sarah Mogel und Audelia Babbev-Pittet von StartSaldo" : "Sarah Mogel and Audelia Babbev-Pittet of StartSaldo"} width={1448} height={1086} fetchPriority="high" decoding="async" className="portrait-hero-image" />
           <div className="section-shell portrait-hero-layout">
             <div className="portrait-hero-copy">
               <h1 className="hero-reveal hero-reveal-2 portrait-hero-heading">{t.h1a}<br/><span className="text-primary">{t.h1b}</span></h1>
