@@ -84,7 +84,7 @@ export function BookingPage({ lang }: { lang: Lang }) {
                 </a>
               </p>
               <Link
-                to={terminTo === "/termin" ? "/" : "/en"}
+                to={homeTo}
                 className="mt-8 inline-flex items-center gap-2 font-semibold text-band-accent transition-colors hover:text-band-foreground"
               >
                 <ArrowLeft className="size-4 shrink-0" />
