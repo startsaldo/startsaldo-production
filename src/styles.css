@@ -107,7 +107,7 @@
   --footer-surface: var(--foreground);
   --statement-surface: var(--deep);
   --statement-highlight: var(--primary);
-  --hero-photo-surface: oklch(0.864 0.0136 160);
+  --hero-photo-surface: oklch(0.865 0.02 170);
   --hero-muted: oklch(0.40 0.018 156);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -273,9 +273,10 @@
   max-width: none;
   object-fit: cover;
   /* Fade the photo's left edge into the flat background so the free area
-     reads as one seamless surface for the copy. */
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 18%);
-  mask-image: linear-gradient(to right, transparent, #000 18%);
+     reads as one seamless surface for the copy. The people start at 11.7%
+     of the photo width, so the fade must end before them. */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%);
+  mask-image: linear-gradient(to right, transparent, #000 10%);
 }
 .portrait-hero-layout {
   position: relative;
