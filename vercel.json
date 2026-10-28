@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/:token([A-Za-z0-9_-]{16})",
+      "destination": "https://startsaldo-qr-tracking.vercel.app/api/scan?token=:token"
+    }
+  ]
+}
