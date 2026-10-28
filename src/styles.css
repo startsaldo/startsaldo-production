@@ -300,9 +300,10 @@
   .portrait-hero-image {
     width: 160%;
     height: auto;
-    /* Centres the two people: their span in the photo runs from 34% to 100%
-       of its width, so the photo is offset until that span sits mid-screen. */
-    left: -57.4%;
+    /* Centres the two people: their span in the photo runs from 11.7% to
+       93.7% of its width, so the photo is offset until that span (centre
+       52.7%) sits mid-screen. */
+    left: -34.4%;
     right: auto;
     -webkit-mask-image: none;
     mask-image: none;
