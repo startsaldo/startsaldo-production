@@ -16,7 +16,6 @@ export function BookingPage({ lang }: { lang: Lang }) {
   const logoUrl = lightMode ? startsaldoLogoLightUrl : startsaldoLogoDarkUrl;
   const themeLabel = lightMode ? t.darkMode : t.lightMode;
   const homeTo = lang === "de" ? "/" : "/en";
-  const terminTo = lang === "de" ? "/termin" : "/en/termin";
   const otherTerminTo = lang === "de" ? "/en/termin" : "/termin";
   const other = lang === "de" ? "en" : "de";
 
