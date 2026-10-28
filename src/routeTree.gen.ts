@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnRouteImport } from './routes/en'
+import { Route as TerminRouteImport } from './routes/termin'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
+import { Route as EnIndexRouteImport } from './routes/en.index'
+import { Route as EnTerminRouteImport } from './routes/en.termin'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,39 +26,70 @@ const EnRoute = EnRouteImport.update({
   path: '/en',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TerminRoute = TerminRouteImport.update({
+  id: '/termin',
+  path: '/termin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
   path: '/api/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnTerminRoute = EnTerminRouteImport.update({
+  id: '/termin',
+  path: '/termin',
+  getParentRoute: () => EnRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/en': typeof EnRoute
+  '/en': typeof EnRouteWithChildren
+  '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
+  '/en/termin': typeof EnTerminRoute
+  '/en/': typeof EnIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/en': typeof EnRoute
+  '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
+  '/en/termin': typeof EnTerminRoute
+  '/en': typeof EnIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/en': typeof EnRoute
+  '/en': typeof EnRouteWithChildren
+  '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
+  '/en/termin': typeof EnTerminRoute
+  '/en/': typeof EnIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/en' | '/api/contact'
+  fullPaths: '/' | '/en' | '/termin' | '/api/contact' | '/en/termin' | '/en/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/en' | '/api/contact'
-  id: '__root__' | '/' | '/en' | '/api/contact'
+  to: '/' | '/termin' | '/api/contact' | '/en/termin' | '/en'
+  id:
+    | '__root__'
+    | '/'
+    | '/en'
+    | '/termin'
+    | '/api/contact'
+    | '/en/termin'
+    | '/en/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  EnRoute: typeof EnRoute
+  EnRoute: typeof EnRouteWithChildren
+  TerminRoute: typeof TerminRoute
   ApiContactRoute: typeof ApiContactRoute
 }
 
@@ -75,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/termin': {
+      id: '/termin'
+      path: '/termin'
+      fullPath: '/termin'
+      preLoaderRoute: typeof TerminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/contact': {
       id: '/api/contact'
       path: '/api/contact'
@@ -82,12 +123,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/': {
+      id: '/en/'
+      path: '/'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/termin': {
+      id: '/en/termin'
+      path: '/termin'
+      fullPath: '/en/termin'
+      preLoaderRoute: typeof EnTerminRouteImport
+      parentRoute: typeof EnRoute
+    }
   }
 }
 
+interface EnRouteChildren {
+  EnTerminRoute: typeof EnTerminRoute
+  EnIndexRoute: typeof EnIndexRoute
+}
+
+const EnRouteChildren: EnRouteChildren = {
+  EnTerminRoute: EnTerminRoute,
+  EnIndexRoute: EnIndexRoute,
+}
+
+const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  EnRoute: EnRoute,
+  EnRoute: EnRouteWithChildren,
+  TerminRoute: TerminRoute,
   ApiContactRoute: ApiContactRoute,
 }
 export const routeTree = rootRouteImport
