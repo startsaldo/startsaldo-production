@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, CalendarCheck, Check } from "lucide-react";
+import { ArrowRight, CalendarCheck, Check, Mail } from "lucide-react";
 import type { Lang } from "@/components/home-copy";
 import { Reveal } from "@/components/reveal";
 import { services, type Person, type ServiceSlug } from "@/components/service-pages";
@@ -20,7 +20,7 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
   const homeTo = lang === "de" ? "/" : "/en";
   const single = p.people.length === 1;
   const contactTitle = lang === "de" ? (single ? "Ihre Ansprechpartnerin" : "Ihre Ansprechpartnerinnen") : single ? "Your contact person" : "Your contact persons";
-  const blockCols = p.blocks.length === 4 ? "md:grid-cols-2" : "md:grid-cols-3";
+  const blockCols = p.blocks.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2";
 
   return (
     <main className="bg-background text-foreground">
@@ -44,15 +44,16 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
       <section className="section-pad bg-card">
         <div className="section-shell">
           <Reveal><h2 className="heading-lg text-center">{p.blocksTitle}</h2></Reveal>
-          <div className={`mt-12 grid gap-6 ${blockCols}`}>
+          <div className={`mt-10 grid items-stretch gap-5 md:mt-14 md:gap-6 ${blockCols}`}>
             {p.blocks.map((b, i) => (
               <Reveal key={b.title} delay={i * 80} className="h-full">
-                <article className="h-full rounded-[20px] border border-border bg-background p-7">
-                  <h3 className="text-xl font-semibold">{b.title}</h3>
-                  <ul className="mt-4 space-y-2.5">
+                <article className="h-full min-w-0 rounded-[20px] bg-sage-soft p-6 md:rounded-[24px] md:p-10">
+                  <h3 className="break-words text-[26px] font-semibold md:text-[30px]">{b.title}</h3>
+                  <div className="my-6 border-t border-border md:my-7" />
+                  <ul className="space-y-3.5">
                     {b.items.map((it) => (
-                      <li key={it} className="flex gap-3 leading-6 text-muted-foreground">
-                        <Check className="mt-0.5 size-4 shrink-0 text-success" strokeWidth={1.75} />{it}
+                      <li key={it} className="flex gap-3 text-[15px] leading-6">
+                        <Check className="mt-1 size-4 shrink-0 text-success" />{it}
                       </li>
                     ))}
                   </ul>
@@ -66,12 +67,12 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
       <section className="section-pad bg-sage-soft">
         <div className="section-shell">
           <Reveal><h2 className="heading-lg text-center">{p.processTitle}</h2></Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-4">
+          <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
             {p.process.map(([title, text], i) => (
               <Reveal key={title} delay={i * 80} className="h-full">
-                <div className="h-full rounded-[20px] bg-card p-6">
+                <div className="h-full rounded-[20px] border border-border bg-card p-6 md:rounded-[24px] md:p-8">
                   <span className="text-sm font-semibold text-primary">0{i + 1}</span>
-                  <h3 className="mt-2 text-lg font-semibold">{title}</h3>
+                  <h3 className="mt-2 text-xl font-semibold">{title}</h3>
                   <p className="mt-2 leading-6 text-muted-foreground">{text}</p>
                 </div>
               </Reveal>
@@ -84,19 +85,19 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
         <div className="section-shell">
           <Reveal className="text-center">
             <h2 className="heading-lg">{contactTitle}</h2>
-            <p className="mx-auto mt-5 max-w-[620px] leading-7 text-muted-foreground">{p.personText}</p>
+            <p className="mx-auto mt-4 max-w-[350px] text-base leading-7 text-muted-foreground md:mt-5 md:max-w-[680px] md:text-[18px]">{p.personText}</p>
           </Reveal>
-          <div className={`mx-auto mt-12 grid gap-6 ${single ? "max-w-[420px]" : "max-w-[860px] md:grid-cols-2"}`}>
+          <div className={`mx-auto mt-10 grid gap-5 md:mt-14 md:gap-6 ${single ? "max-w-[588px]" : "md:grid-cols-2"}`}>
             {p.people.map((k, i) => {
               const person = people[k];
               return (
                 <Reveal key={k} delay={i * 120}>
-                  <article className="overflow-hidden rounded-[20px] border border-border bg-background">
+                  <article className="overflow-hidden rounded-[20px] bg-sage-soft md:rounded-[24px]">
                     <img src={person.photo} alt={person.name} loading="lazy" className="aspect-square w-full object-cover object-top" />
-                    <div className="p-6">
-                      <p className="text-xl font-semibold">{person.name}</p>
-                      <p className="mt-1 font-semibold text-primary">{person.role[lang]}</p>
-                      <a href={`mailto:${person.email}`} className="mt-4 inline-block font-semibold text-primary hover:text-success">{person.email}</a>
+                    <div className="min-w-0 p-6 md:p-8">
+                      <h3 className="break-words text-[25px] font-semibold md:text-[28px]">{person.name}</h3>
+                      <p className="mt-1 break-words font-semibold text-primary">{person.role[lang]}</p>
+                      <a href={`mailto:${person.email}`} className="mt-5 inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-success"><Mail className="size-4 shrink-0" /><span className="break-all">{person.email}</span></a>
                     </div>
                   </article>
                 </Reveal>
@@ -107,9 +108,9 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
       </section>
 
       <section className="section-pad bg-sage-soft">
-        <div className="section-shell max-w-[820px]">
+        <div className="section-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
           <Reveal><h2 className="heading-lg text-center">{p.faqTitle}</h2></Reveal>
-          <Reveal delay={120} className="mt-10">
+          <Reveal delay={120}>
             <Accordion type="single" collapsible>
               {p.faq.map(([q, a]) => (
                 <AccordionItem key={q} value={q}>
