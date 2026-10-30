@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useCanGoBack, useRouter } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Moon, Sun } from "lucide-react";
 import { copy, type Lang } from "@/components/home-copy";
 import { Button } from "@/components/ui/button";
@@ -18,6 +18,8 @@ export function BookingPage({ lang }: { lang: Lang }) {
   const homeTo = lang === "de" ? "/" : "/en";
   const otherTerminTo = lang === "de" ? "/en/termin" : "/termin";
   const other = lang === "de" ? "en" : "de";
+  const router = useRouter();
+  const canGoBack = useCanGoBack();
 
   return (
     <main className="bg-background text-foreground">
@@ -52,7 +54,7 @@ export function BookingPage({ lang }: { lang: Lang }) {
       <section className="section-pad bg-band-surface text-band-foreground">
         <div className="section-shell">
           <div className="mx-auto max-w-[720px] text-center">
-            <h1 className="heading-lg">{t.terminTitle}</h1>
+            <h1 className="hero-reveal hero-reveal-1 heading-lg">{t.terminTitle}</h1>
             <p className="mx-auto mt-5 max-w-[560px] text-base leading-7 text-band-foreground/75 md:text-[18px]">
               {t.terminSub}
             </p>
@@ -82,13 +84,25 @@ export function BookingPage({ lang }: { lang: Lang }) {
                   +41 76 629 50 56
                 </a>
               </p>
-              <Link
-                to={homeTo}
-                className="mt-8 inline-flex items-center gap-2 font-semibold text-band-accent transition-colors hover:text-band-foreground"
-              >
-                <ArrowLeft className="size-4 shrink-0" />
-                {t.terminBack}
-              </Link>
+<div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
+                {canGoBack ? (
+                  <button
+                    type="button"
+                    onClick={() => router.history.back()}
+                    className="inline-flex items-center gap-2 font-semibold text-band-accent transition-colors hover:text-band-foreground"
+                  >
+                    <ArrowLeft className="size-4 shrink-0" />
+                    {lang === "de" ? "Zurück zur vorherigen Seite" : "Back to previous page"}
+                  </button>
+                ) : null}
+                <Link
+                  to={homeTo}
+                  className="inline-flex items-center gap-2 font-semibold text-band-accent transition-colors hover:text-band-foreground"
+                >
+                  {!canGoBack ? <ArrowLeft className="size-4 shrink-0" /> : null}
+                  {t.terminBack}
+                </Link>
+              </div>
             </div>
           </Reveal>
         </div>

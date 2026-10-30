@@ -181,15 +181,15 @@ export function PayrollPage({ lang }: { lang: Lang }) {
       <section className="section-pad bg-sage-soft">
         <div className="section-shell">
           <Reveal><h2 className="heading-lg text-center">{p.processTitle}</h2></Reveal>
-          <ol className="mt-12 grid gap-6 md:grid-cols-4">
+          <div className="mt-12 grid gap-6 md:grid-cols-4">
             {p.process.map(([title, text], i) => (
-              <Reveal key={title} delay={i * 80} className="h-full"><li className="h-full list-none rounded-[20px] bg-card p-6">
+              <Reveal key={title} delay={i * 80} className="h-full"><div className="h-full rounded-[20px] bg-card p-6">
                 <span className="text-sm font-semibold text-primary">0{i + 1}</span>
                 <h3 className="mt-2 text-lg font-semibold">{title}</h3>
                 <p className="mt-2 leading-6 text-muted-foreground">{text}</p>
-              </li></Reveal>
+              </div></Reveal>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
