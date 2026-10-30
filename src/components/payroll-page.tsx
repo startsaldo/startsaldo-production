@@ -156,7 +156,7 @@ export function PayrollPage({ lang }: { lang: Lang }) {
           <h2 className="heading-md text-center">{p.blocksTitle}</h2>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {p.blocks.map((b, i) => {
-              const Icon = icons[i];
+              const Icon = icons[i] ?? Wallet;
               return (
                 <Reveal key={b.title} delay={i * 80}>
                   <article className="h-full rounded-[20px] border border-border bg-background p-7">
