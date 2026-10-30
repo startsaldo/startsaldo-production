@@ -294,23 +294,28 @@
   letter-spacing: 0;
 }
 @media (max-width: 1023px) {
-  /* Show both people completely at the top, copy compact below their faces
-     on a strong fade that covers only the lower part of the photo. */
+  /* Zoomed-out portrait: both people are shown whole — from the top of the
+     head down past the hip — centred on the screen at a natural size. The
+     photo stays narrower than the viewport; its sides fade out into the same
+     mint background and the lower bodies dissolve into it before the edge. */
   .portrait-hero { min-height: 0; }
   .portrait-hero-image {
-    width: 160%;
+    width: 72%;
     height: auto;
-    /* Centres the two people: their span in the photo runs from 11.7% to
-       93.7% of its width, so the photo is offset until that span (centre
-       52.7%) sits mid-screen. */
-    left: -34.4%;
+    /* Centres the two people: their span runs from 11.6% to 93.8% of the
+       photo width (centre 52.7%), so the photo is offset until that centre
+       sits mid-screen: left = 50% - 0.527 * 72% = 12.1%. */
+    left: 12.1%;
     right: auto;
-    -webkit-mask-image: none;
-    mask-image: none;
+    /* Soft side fades: the outer 5-6% of the photo dissolve into the flat
+       background. The people end at 93.8% / start at 11.6%, so the fades
+       never touch them. */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 95%, transparent);
   }
   .portrait-hero-layout {
     min-height: 0;
-    padding-top: 58vw;
+    padding-top: 55vw;
     padding-bottom: 28px;
   }
   /* Copy is centred below the faces on every size under 1024px. */
@@ -324,7 +329,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, transparent, var(--hero-photo-surface) 14vw);
+    background: linear-gradient(to bottom, transparent, var(--hero-photo-surface) 10vw);
     pointer-events: none;
   }
 }
