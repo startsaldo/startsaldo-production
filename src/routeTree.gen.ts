@@ -11,9 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnRouteImport } from './routes/en'
+import { Route as LohnbuchhaltungRouteImport } from './routes/lohnbuchhaltung'
 import { Route as TerminRouteImport } from './routes/termin'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as EnIndexRouteImport } from './routes/en.index'
+import { Route as EnPayrollRouteImport } from './routes/en.payroll'
 import { Route as EnTerminRouteImport } from './routes/en.termin'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,6 +26,11 @@ const IndexRoute = IndexRouteImport.update({
 const EnRoute = EnRouteImport.update({
   id: '/en',
   path: '/en',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LohnbuchhaltungRoute = LohnbuchhaltungRouteImport.update({
+  id: '/lohnbuchhaltung',
+  path: '/lohnbuchhaltung',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TerminRoute = TerminRouteImport.update({
@@ -41,6 +48,11 @@ const EnIndexRoute = EnIndexRouteImport.update({
   path: '/',
   getParentRoute: () => EnRoute,
 } as any)
+const EnPayrollRoute = EnPayrollRouteImport.update({
+  id: '/payroll',
+  path: '/payroll',
+  getParentRoute: () => EnRoute,
+} as any)
 const EnTerminRoute = EnTerminRouteImport.update({
   id: '/termin',
   path: '/termin',
@@ -50,15 +62,19 @@ const EnTerminRoute = EnTerminRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/en': typeof EnRouteWithChildren
+  '/lohnbuchhaltung': typeof LohnbuchhaltungRoute
   '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
+  '/en/payroll': typeof EnPayrollRoute
   '/en/termin': typeof EnTerminRoute
   '/en/': typeof EnIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/lohnbuchhaltung': typeof LohnbuchhaltungRoute
   '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
+  '/en/payroll': typeof EnPayrollRoute
   '/en/termin': typeof EnTerminRoute
   '/en': typeof EnIndexRoute
 }
@@ -66,22 +82,41 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/en': typeof EnRouteWithChildren
+  '/lohnbuchhaltung': typeof LohnbuchhaltungRoute
   '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
+  '/en/payroll': typeof EnPayrollRoute
   '/en/termin': typeof EnTerminRoute
   '/en/': typeof EnIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/en' | '/termin' | '/api/contact' | '/en/termin' | '/en/'
+  fullPaths:
+    | '/'
+    | '/en'
+    | '/lohnbuchhaltung'
+    | '/termin'
+    | '/api/contact'
+    | '/en/payroll'
+    | '/en/termin'
+    | '/en/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/termin' | '/api/contact' | '/en/termin' | '/en'
+  to:
+    | '/'
+    | '/lohnbuchhaltung'
+    | '/termin'
+    | '/api/contact'
+    | '/en/payroll'
+    | '/en/termin'
+    | '/en'
   id:
     | '__root__'
     | '/'
     | '/en'
+    | '/lohnbuchhaltung'
     | '/termin'
     | '/api/contact'
+    | '/en/payroll'
     | '/en/termin'
     | '/en/'
   fileRoutesById: FileRoutesById
@@ -89,6 +124,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   EnRoute: typeof EnRouteWithChildren
+  LohnbuchhaltungRoute: typeof LohnbuchhaltungRoute
   TerminRoute: typeof TerminRoute
   ApiContactRoute: typeof ApiContactRoute
 }
@@ -107,6 +143,13 @@ declare module '@tanstack/react-router' {
       path: '/en'
       fullPath: '/en'
       preLoaderRoute: typeof EnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lohnbuchhaltung': {
+      id: '/lohnbuchhaltung'
+      path: '/lohnbuchhaltung'
+      fullPath: '/lohnbuchhaltung'
+      preLoaderRoute: typeof LohnbuchhaltungRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/termin': {
@@ -130,6 +173,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnIndexRouteImport
       parentRoute: typeof EnRoute
     }
+    '/en/payroll': {
+      id: '/en/payroll'
+      path: '/payroll'
+      fullPath: '/en/payroll'
+      preLoaderRoute: typeof EnPayrollRouteImport
+      parentRoute: typeof EnRoute
+    }
     '/en/termin': {
       id: '/en/termin'
       path: '/termin'
@@ -141,11 +191,13 @@ declare module '@tanstack/react-router' {
 }
 
 interface EnRouteChildren {
+  EnPayrollRoute: typeof EnPayrollRoute
   EnTerminRoute: typeof EnTerminRoute
   EnIndexRoute: typeof EnIndexRoute
 }
 
 const EnRouteChildren: EnRouteChildren = {
+  EnPayrollRoute: EnPayrollRoute,
   EnTerminRoute: EnTerminRoute,
   EnIndexRoute: EnIndexRoute,
 }
@@ -155,6 +207,7 @@ const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   EnRoute: EnRouteWithChildren,
+  LohnbuchhaltungRoute: LohnbuchhaltungRoute,
   TerminRoute: TerminRoute,
   ApiContactRoute: ApiContactRoute,
 }
