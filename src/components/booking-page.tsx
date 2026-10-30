@@ -58,7 +58,7 @@ export function BookingPage({ lang }: { lang: Lang }) {
             </p>
           </div>
           <Reveal className="mx-auto mt-10 max-w-[640px] md:mt-14">
-            <div className="rounded-[24px] bg-sage-soft p-6 text-foreground md:p-10">
+            <div className="booking-card rounded-[24px] bg-sage-soft p-6 text-foreground md:p-10">
               <p className="leading-7 text-muted-foreground">{t.terminTrust}</p>
               <Button
                 asChild
