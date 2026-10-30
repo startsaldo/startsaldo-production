@@ -28,7 +28,7 @@ const de = {
   fin: {
     title: "Finanzbuchhaltung",
     text: "Wir kümmern uns um Ihre laufende Buchhaltung von Belegen und Bankabstimmungen bis hin zur MWST-Abrechnung und Steuererklärung.",
-    items: ["Laufende Erfassung Ihrer Geschäftsfälle", "Debitoren und Kreditoren", "Bank- und Kontenabstimmungen", "MWST-Abrechnungen und Vorbereitung der entsprechenden Unterlagen", "Monats-, Quartals- und Jahresabschlüsse", "Ausfüllung und Einreichung Ihrer Steuererklärung"],
+    items: ["Laufende Erfassung Ihrer Geschäftsfälle", "Debitoren und Kreditoren", "Bank- und Kontenabstimmungen", "MWST-Abrechnungen und Vorbereitung der entsprechenden Unterlagen", "Monats-, Quartals- und Jahresabschlüsse", "Ausfüllung und Einreichung Ihrer Steuererklärung", "Spezialisiert auf Crypto Trading"],
   },
   pay: {
     title: "Lohnbuchhaltung",
@@ -110,7 +110,7 @@ const en: typeof de = {
   fin: {
     title: "Financial accounting",
     text: "We take care of your ongoing bookkeeping – from receipts and bank reconciliations to VAT returns and tax returns.",
-    items: ["Ongoing recording of your business transactions", "Accounts receivable and payable", "Bank and account reconciliations", "VAT returns and preparation of the related documents", "Monthly, quarterly and annual closings", "Completion and filing of your tax return"],
+    items: ["Ongoing recording of your business transactions", "Accounts receivable and payable", "Bank and account reconciliations", "VAT returns and preparation of the related documents", "Monthly, quarterly and annual closings", "Completion and filing of your tax return", "Specialised in crypto trading"],
   },
   pay: {
     title: "Payroll accounting",
