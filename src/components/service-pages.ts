@@ -204,7 +204,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         { title: "Nach der Einreichung", items: ["Prüfung der Veranlagung", "Kontrolle der Steuerrechnungen", "Rückfragen der Steuerbehörde", "Planung von Vorauszahlungen"] },
       ],
       process: stdProcess.de,
-      people: ["audelia", "sarah"],
+      people: ["audelia"],
       personText: "Weil wir Ihre Buchhaltung kennen, wird die Steuererklärung kein Extraprojekt. Sie erhalten eine klare Liste, was wir von Ihnen brauchen – den Rest erledigen wir.",
       faqTitle: "Häufige Fragen zur Steuererklärung",
       faq: [
@@ -229,7 +229,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         { title: "After filing", items: ["Checking the assessment", "Checking tax invoices", "Queries from the tax office", "Planning advance payments"] },
       ],
       process: stdProcess.en,
-      people: ["audelia", "sarah"],
+      people: ["audelia"],
       personText: "Because we know your accounts, the tax return is not an extra project. You get a clear list of what we need from you – we do the rest.",
       faqTitle: "Frequently asked questions on taxes",
       faq: [
@@ -308,7 +308,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         { title: "Abklärung Ihrer Situation", items: ["Private Vermögensverwaltung oder gewerbsmässiger Handel", "Auswirkungen auf Steuern und Sozialversicherungen", "Krypto im Unternehmen", "Verständliche Antworten"] },
       ],
       process: stdProcess.de,
-      people: ["audelia", "sarah"],
+      people: ["audelia"],
       personText: "Krypto-Trading ist eines unserer Spezialgebiete. Wir verstehen, wie Wallets, Börsen und Transaktionen funktionieren, und übersetzen das in eine saubere Buchhaltung und Steuererklärung.",
       faqTitle: "Häufige Fragen zu Krypto",
       faq: [
@@ -333,7 +333,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         { title: "Assessing your situation", items: ["Private wealth management or professional trading", "Impact on taxes and social insurances", "Crypto in your company", "Clear answers"] },
       ],
       process: stdProcess.en,
-      people: ["audelia", "sarah"],
+      people: ["audelia"],
       personText: "Crypto trading is one of our specialities. We understand how wallets, exchanges and transactions work, and turn them into clean accounts and tax returns.",
       faqTitle: "Frequently asked questions on crypto",
       faq: [
@@ -361,7 +361,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         { title: "Warum lokal", items: ["Persönliche Treffen möglich", "Kenntnis der regionalen Gegebenheiten", "Kurze Wege und schnelle Antworten", "Feste Ansprechpartnerinnen"] },
       ],
       process: stdProcess.de,
-      people: ["audelia", "sarah"],
+      people: ["audelia"],
       personText: "Wir sind in Rothenthurm zu Hause und betreuen KMU aus der Region persönlich. Gerne lernen wir Sie kennen.",
       faqTitle: "Häufige Fragen",
       faq: [
@@ -387,7 +387,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         { title: "Why local", items: ["Personal meetings possible", "Knowledge of the region", "Short distances and quick answers", "Fixed contact persons"] },
       ],
       process: stdProcess.en,
-      people: ["audelia", "sarah"],
+      people: ["audelia"],
       personText: "We are based in Rothenthurm and personally look after SMEs from the region. We look forward to meeting you.",
       faqTitle: "Frequently asked questions",
       faq: [
