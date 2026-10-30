@@ -372,7 +372,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       endTitle: "Lernen wir uns kennen?",
       endSub: "Buchen Sie ein unverbindliches Erstgespräch – vor Ort oder online.",
       metaTitle: "Buchhaltung Schwyz, Einsiedeln & Rothenthurm | StartSaldo",
-      metaDesc: "Treuhand-nahe Finanz- und Lohnbuchhaltung für KMU im Kanton Schwyz: Rothenthurm, Einsiedeln, Schwyz, Pfäffikon SZ und Umgebung – persönlich von StartSaldo.",
+      metaDesc: "Finanz- und Lohnbuchhaltung für KMU im Kanton Schwyz: Rothenthurm, Einsiedeln, Schwyz, Pfäffikon SZ und Umgebung – persönlich von StartSaldo.",
     },
     en: {
       ...en,
