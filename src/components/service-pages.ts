@@ -69,7 +69,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       titleAccent: "Sauber gebucht, klar erklärt.",
       sub: "Von den laufenden Belegen bis zur Bankabstimmung.",
       blocks: [
-        { title: "Laufende Buchhaltung", items: ["Erfassung Ihrer Geschäftsfälle", "Bank- und Kontenabstimmungen", "Kassabuch und Spesen", "Digitale Ablage Ihrer Belege"] },
+        { title: "Laufende Buchhaltung", items: ["Erfassung Ihrer Geschäftsfälle", "Bank- und Kontenabstimmungen", "Kassabuch und Spesen", "Digitale Ablage Ihrer Belege", "Verbuchung Ihrer Crypto Trades"] },
         { title: "Debitoren und Kreditoren", items: ["Verbuchung von Kunden- und Lieferantenrechnungen", "Übersicht über offene Posten", "Vorbereitung von Zahlungen", "Abstimmung der Konten"] },
         { title: "Abschlüsse", items: ["Monats- und Quartalsabschlüsse", "Jahresabschluss", "Abgrenzungen und Rückstellungen", "Übersichtliche Auswertungen"] },
         { title: "Aus einer Hand", items: ["MWST-Abrechnungen", "Steuererklärung Ihres Unternehmens", "Abstimmung mit der Lohnbuchhaltung", "Feste Ansprechpartnerin"] },
@@ -95,7 +95,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       titleAccent: "Booked properly, explained clearly.",
       sub: "From ongoing receipts to bank reconciliation.",
       blocks: [
-        { title: "Ongoing bookkeeping", items: ["Recording your business transactions", "Bank and account reconciliations", "Cash book and expenses", "Digital filing of your receipts"] },
+        { title: "Ongoing bookkeeping", items: ["Recording your business transactions", "Bank and account reconciliations", "Cash book and expenses", "Digital filing of your receipts", "Booking your crypto trades"] },
         { title: "Receivables and payables", items: ["Booking customer and supplier invoices", "Overview of open items", "Preparing payments", "Account reconciliation"] },
         { title: "Closings", items: ["Monthly and quarterly closings", "Annual accounts", "Accruals and provisions", "Clear reports"] },
         { title: "All from one source", items: ["VAT returns", "Your company's tax return", "Reconciliation with payroll", "One fixed contact person"] },
