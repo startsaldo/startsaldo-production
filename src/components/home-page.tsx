@@ -10,6 +10,8 @@ import teamHeroUrl from "@/assets/team-hero.webp";
 import { useSiteTheme } from "@/hooks/use-site-theme";
 import startsaldoLogoLightUrl from "@/assets/startsaldo-logo.png";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
+import { FooterServiceLinks, MobileServiceLinks, ServicesMenu } from "@/components/site-nav";
+import { servicePaths } from "@/components/service-pages";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 
@@ -304,8 +306,10 @@ export function HomePage({ lang }: { lang: Lang }) {
   }, []);
   useEffect(() => {
     if (window.location.hash) {
+      const target = document.getElementById(window.location.hash.slice(1));
       history.replaceState(null, "", window.location.pathname + window.location.search);
-      window.scrollTo(0, 0);
+      if (target) setTimeout(() => target.scrollIntoView({ block: "start" }), 50);
+      else window.scrollTo(0, 0);
     }
     const onClick = (e: MouseEvent) => {
       const a = (e.target as HTMLElement).closest?.('a[href^="#"]') as HTMLAnchorElement | null;
@@ -328,14 +332,14 @@ export function HomePage({ lang }: { lang: Lang }) {
           <a href="#top" className="block min-w-0" aria-label={t.toTop}>
              <img src={logoUrl} alt="StartSaldo" className="h-auto w-[132px] sm:w-[148px]" />
           </a>
-           <nav className="hidden justify-center gap-4 text-[13.5px] min-[860px]:flex lg:gap-7 lg:text-[14px]">{nav.map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-band-foreground transition-colors hover:text-band-accent">{label}</a>)}</nav>
+           <nav className="hidden items-center justify-center gap-4 text-[13.5px] min-[860px]:flex lg:gap-7 lg:text-[14px]"><ServicesMenu lang={lang} />{nav.filter(([, h]) => h !== "#dienstleistungen").map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-band-foreground transition-colors hover:text-band-accent">{label}</a>)}</nav>
            <Button asChild className="hidden bg-band-accent text-band-surface hover:bg-band-hover min-[860px]:inline-flex"><a href="#kontakt">{t.cta}</a></Button>
            {langLink("ml-1 hidden rounded-button border border-band-foreground/35 px-3 py-2 text-sm font-semibold text-band-foreground transition-colors hover:text-band-accent min-[860px]:inline-flex")}
            {themeSwitch}
            <button aria-label={menuOpen ? t.menuClose : t.menuOpen} aria-expanded={menuOpen} className="grid size-10 shrink-0 place-items-center rounded-button border border-band-foreground/35 bg-transparent text-band-foreground min-[860px]:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X className="size-5"/> : <Menu className="size-5"/>}</button>
         </div>
          <div className={`absolute inset-x-0 top-full z-40 border-b border-band-foreground/15 bg-band-surface text-band-foreground shadow-[0_24px_40px_-20px_rgba(23,32,28,0.25)] transition-all duration-300 ease-out min-[860px]:hidden ${menuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`} aria-hidden={!menuOpen}>
-           <nav className="section-shell flex flex-col py-2">{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="border-b border-band-foreground/15 py-3.5 text-base font-medium">{label}</a>)}{langLink("py-3.5 text-base font-semibold text-band-accent", () => setMenuOpen(false))}</nav>
+           <nav className="section-shell flex flex-col py-2"><MobileServiceLinks lang={lang} onClick={() => setMenuOpen(false)} />{nav.filter(([, h]) => h !== "#dienstleistungen").map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="border-b border-band-foreground/15 py-3.5 text-base font-medium">{label}</a>)}{langLink("py-3.5 text-base font-semibold text-band-accent", () => setMenuOpen(false))}</nav>
         </div>
       </header>
 
@@ -365,8 +369,9 @@ export function HomePage({ lang }: { lang: Lang }) {
 
 
       <section id="dienstleistungen" className="section-pad bg-card"><div className="section-shell"><Reveal><div className="text-center"><h2 className="heading-lg">{t.svcTitle}</h2><p className="mx-auto mt-4 max-w-[350px] text-base leading-7 text-muted-foreground md:mt-5 md:max-w-none md:text-[18px]">{t.svcSub}</p></div></Reveal>
-        <div className="mt-10 grid items-stretch gap-5 md:mt-14 md:gap-6 lg:grid-cols-2"><Reveal className="h-full"><article className="flex h-full min-w-0 flex-col rounded-[20px] bg-sage-soft p-6 md:rounded-[24px] md:p-10"><h3 className="break-words text-[26px] font-semibold md:text-[30px]">{t.fin.title}</h3><p className="mt-4 leading-7 text-muted-foreground">{t.fin.text}</p><div className="my-6 border-t border-border md:my-7"/>{checks(t.fin.items)}<a href="#kontakt" className="mt-8 inline-flex items-center gap-2 font-semibold text-primary lg:mt-auto lg:pt-8">{t.svcLink} <ArrowRight className="size-4"/></a></article></Reveal>
-          <Reveal delay={120} className="h-full"><article className="flex h-full min-w-0 flex-col rounded-[20px] bg-sage-soft p-6 md:rounded-[24px] md:p-10"><h3 className="break-words text-[26px] font-semibold md:text-[30px]">{t.pay.title}</h3><p className="mt-4 leading-7 text-muted-foreground">{t.pay.text}</p><div className="my-6 border-t border-border md:my-7"/>{checks(t.pay.items)}<a href="#kontakt" className="mt-8 inline-flex items-center gap-2 font-semibold text-primary lg:mt-auto lg:pt-8">{t.svcLink} <ArrowRight className="size-4"/></a></article></Reveal></div>
+        <div className="mt-10 grid items-stretch gap-5 md:mt-14 md:gap-6 lg:grid-cols-2"><Reveal className="h-full"><article className="flex h-full min-w-0 flex-col rounded-[20px] bg-sage-soft p-6 md:rounded-[24px] md:p-10"><h3 className="break-words text-[26px] font-semibold md:text-[30px]">{t.fin.title}</h3><p className="mt-4 leading-7 text-muted-foreground">{t.fin.text}</p><div className="my-6 border-t border-border md:my-7"/>{checks(t.fin.items)}<Link to={servicePaths.finanzbuchhaltung[lang]} className="mt-8 inline-flex items-center gap-2 font-semibold text-primary lg:mt-auto lg:pt-8">{t.more} <ArrowRight className="size-4"/></Link></article></Reveal>
+          <Reveal delay={120} className="h-full"><article className="flex h-full min-w-0 flex-col rounded-[20px] bg-sage-soft p-6 md:rounded-[24px] md:p-10"><h3 className="break-words text-[26px] font-semibold md:text-[30px]">{t.pay.title}</h3><p className="mt-4 leading-7 text-muted-foreground">{t.pay.text}</p><div className="my-6 border-t border-border md:my-7"/>{checks(t.pay.items)}<Link to={servicePaths.lohnbuchhaltung[lang]} className="mt-8 inline-flex items-center gap-2 font-semibold text-primary lg:mt-auto lg:pt-8">{t.more} <ArrowRight className="size-4"/></Link></article></Reveal></div>
+        <Reveal className="mt-5 md:mt-6"><article className="flex flex-col gap-5 rounded-[20px] bg-band-surface p-6 text-band-foreground md:flex-row md:items-center md:justify-between md:rounded-[24px] md:p-10"><div className="max-w-[640px]"><h3 className="text-[26px] font-semibold md:text-[30px]">{t.crypto.title}</h3><p className="mt-3 leading-7 text-band-foreground/75">{t.crypto.text}</p></div><Link to={servicePaths.krypto[lang]} className="inline-flex shrink-0 items-center gap-2 font-semibold text-band-accent">{t.crypto.link} <ArrowRight className="size-4"/></Link></article></Reveal>
       </div></section>
 
 
@@ -388,7 +393,7 @@ export function HomePage({ lang }: { lang: Lang }) {
         <form className="text-band-foreground" onSubmit={handleContactSubmit}><div className="grid gap-5 sm:grid-cols-2">{[[t.fName,"name"],[t.fCompany,"firma"],["E-Mail","email"],[t.phone,"telefon"]].map(([label,field],i)=><label key={label} className="text-sm font-medium">{label}<input name={field} required={i===0||i===2} type={i===2?"email":i===3?"tel":"text"} className="mt-2 h-[52px] w-full rounded-[10px] border border-input bg-card px-4 text-foreground outline-none transition-colors focus:border-primary"/></label>)}</div><label className="mt-6 block text-sm font-medium">{t.fMessage}<textarea name="nachricht" required className="mt-2 min-h-[140px] w-full resize-y rounded-[10px] border border-input bg-card p-4 text-foreground outline-none transition-colors focus:border-primary"/></label>{sendError && <p role="alert" className="mt-4 text-center text-sm font-medium text-destructive">{sendError}</p>}<Button type="submit" disabled={sending} className="mt-6 w-full bg-band-accent text-band-surface hover:bg-band-hover">{sending ? t.sending : t.submit}</Button><p className="mt-4 text-center text-xs leading-5 text-band-foreground/70">{t.consent}</p></form>
         )}</Reveal></div></section>
 
-      <footer className="bg-footer-surface py-12 text-band-foreground"><div className="section-shell"><div className="grid gap-10 md:grid-cols-3"><div><img src={logoUrl} alt="StartSaldo" className="h-auto w-[148px]" /><p className="mt-3 whitespace-nowrap text-sm leading-6 text-band-foreground/65">{t.footerTag}</p></div><nav className="flex flex-col items-start gap-3 text-sm md:mx-auto md:w-fit">{nav.slice(0,4).map(([l,h])=><a key={h} href={h}>{l}</a>)}<Link to={lang==="de"?"/lohnbuchhaltung":"/en/payroll"}>{lang==="de"?"Lohnbuchhaltung":"Payroll"}</Link>{langLink("font-semibold text-band-accent")}</nav><div className="text-sm leading-7 md:justify-self-end"><a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a><br/><a href="tel:+41766295056">+41 76 629 50 56</a><br/>6418 Rothenthurm</div></div><div className="mt-10 flex flex-row items-center justify-between gap-4 border-t border-band-foreground/15 pt-6 text-xs text-band-foreground/60"><p>© 2026 Digital Trust Solutions GmbH</p><div className="flex gap-5"><a href="#" onClick={(e)=>e.preventDefault()}>{t.imprint}</a><a href="#" onClick={(e)=>e.preventDefault()}>{t.privacy}</a></div></div></div></footer>
+      <footer className="bg-footer-surface py-12 text-band-foreground"><div className="section-shell"><div className="grid gap-10 md:grid-cols-4"><div><img src={logoUrl} alt="StartSaldo" className="h-auto w-[148px]" /><p className="mt-3 whitespace-nowrap text-sm leading-6 text-band-foreground/65">{t.footerTag}</p></div><nav className="flex flex-col items-start gap-3 text-sm md:mx-auto md:w-fit">{nav.slice(0,4).map(([l,h])=><a key={h} href={h}>{l}</a>)}{langLink("font-semibold text-band-accent")}</nav><FooterServiceLinks lang={lang} /><div className="text-sm leading-7 md:justify-self-end"><a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a><br/><a href="tel:+41766295056">+41 76 629 50 56</a><br/>6418 Rothenthurm</div></div><div className="mt-10 flex flex-row items-center justify-between gap-4 border-t border-band-foreground/15 pt-6 text-xs text-band-foreground/60"><p>© 2026 Digital Trust Solutions GmbH</p><div className="flex gap-5"><a href="#" onClick={(e)=>e.preventDefault()}>{t.imprint}</a><a href="#" onClick={(e)=>e.preventDefault()}>{t.privacy}</a></div></div></div></footer>
     </main>
   );
 }
