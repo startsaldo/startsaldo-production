@@ -3,6 +3,7 @@ import { ArrowRight, CalendarCheck, Check, FileText, Moon, ShieldCheck, Sun, Use
 import { copy, type Lang } from "@/components/home-copy";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useSiteTheme } from "@/hooks/use-site-theme";
 import startsaldoLogoLightUrl from "@/assets/startsaldo-logo.png";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
@@ -12,7 +13,7 @@ export const payrollCopy = {
   de: {
     title: "Lohnbuchhaltung für Schweizer KMU",
     titleAccent: "Pünktlich, korrekt und persönlich.",
-    sub: "Von der monatlichen Lohnabrechnung bis zum Lohnausweis Ende Jahr: Wir übernehmen Ihre Lohnbuchhaltung und alle Sozialversicherungen – damit Ihre Mitarbeitenden pünktlich ihren Lohn erhalten und Sie den Kopf frei haben.",
+    sub: "Von der monatlichen Lohnabrechnung bis zum Lohnausweis Ende Jahr.",
     cta: "Unverbindliches Erstgespräch",
     ctaContact: "Kontakt aufnehmen",
     blocksTitle: "Was wir für Sie übernehmen",
@@ -59,7 +60,7 @@ export const payrollCopy = {
   en: {
     title: "Payroll for Swiss SMEs",
     titleAccent: "On time, accurate and personal.",
-    sub: "From the monthly payslip to the annual salary certificate: we take care of your payroll and all social insurances – so your employees are paid on time and you can focus on your business.",
+    sub: "From the monthly payslip to the annual salary certificate.",
     cta: "Free initial consultation",
     ctaContact: "Get in touch",
     blocksTitle: "What we take care of",
@@ -138,12 +139,12 @@ export function PayrollPage({ lang }: { lang: Lang }) {
 
       <section className="section-pad bg-band-surface text-band-foreground">
         <div className="section-shell max-w-[860px] text-center">
-          <h1 className="heading-lg">
+          <h1 className="hero-reveal hero-reveal-1 heading-xl">
             {p.title}
             <span className="block text-band-accent">{p.titleAccent}</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-[640px] text-base leading-7 text-band-foreground/75 md:text-[18px]">{p.sub}</p>
-          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+          <p className="hero-reveal hero-reveal-2 mx-auto mt-6 max-w-[640px] text-base leading-7 text-band-foreground/75 md:text-[18px]">{p.sub}</p>
+          <div className="hero-reveal hero-reveal-3 mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild className="h-auto min-h-11 bg-primary px-5 py-3 text-primary-foreground hover:bg-primary-hover">
               <Link to={terminTo}>{p.cta}<ArrowRight className="size-4" /></Link>
             </Button>
@@ -153,7 +154,7 @@ export function PayrollPage({ lang }: { lang: Lang }) {
 
       <section className="section-pad bg-card">
         <div className="section-shell">
-          <h2 className="heading-md text-center">{p.blocksTitle}</h2>
+          <Reveal><h2 className="heading-lg text-center">{p.blocksTitle}</h2></Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {p.blocks.map((b, i) => {
               const Icon = icons[i] ?? Wallet;
@@ -179,14 +180,14 @@ export function PayrollPage({ lang }: { lang: Lang }) {
 
       <section className="section-pad bg-sage-soft">
         <div className="section-shell">
-          <h2 className="heading-md text-center">{p.processTitle}</h2>
+          <Reveal><h2 className="heading-lg text-center">{p.processTitle}</h2></Reveal>
           <ol className="mt-12 grid gap-6 md:grid-cols-4">
             {p.process.map(([title, text], i) => (
-              <li key={title} className="rounded-[20px] bg-card p-6">
+              <Reveal key={title} delay={i * 80} className="h-full"><li className="h-full list-none rounded-[20px] bg-card p-6">
                 <span className="text-sm font-semibold text-primary">0{i + 1}</span>
                 <h3 className="mt-2 text-lg font-semibold">{title}</h3>
                 <p className="mt-2 leading-6 text-muted-foreground">{text}</p>
-              </li>
+              </li></Reveal>
             ))}
           </ol>
         </div>
@@ -194,35 +195,30 @@ export function PayrollPage({ lang }: { lang: Lang }) {
 
       <section className="section-pad bg-card">
         <div className="section-shell grid items-center gap-10 md:grid-cols-[minmax(0,360px)_1fr]">
-          <img src={sarahPhoto} alt={p.personName} loading="lazy" className="aspect-square w-full rounded-[20px] object-cover object-top" />
-          <div>
-            <h2 className="heading-md">{p.personTitle}</h2>
+          <Reveal><img src={sarahPhoto} alt={p.personName} loading="lazy" className="aspect-square w-full rounded-[20px] object-cover object-top" /></Reveal>
+          <Reveal delay={120}><div>
+            <h2 className="heading-lg">{p.personTitle}</h2>
             <p className="mt-5 text-xl font-semibold">{p.personName}</p>
             <p className="text-muted-foreground">{p.personRole}</p>
             <p className="mt-5 max-w-[560px] leading-7 text-muted-foreground">{p.personText}</p>
             <a href="mailto:sarah@startsaldo.ch" className="mt-5 inline-block font-semibold text-primary">sarah@startsaldo.ch</a>
-          </div>
+          </div></Reveal>
         </div>
       </section>
 
       <section className="section-pad bg-sage-soft">
         <div className="section-shell max-w-[820px]">
-          <h2 className="heading-md text-center">{p.faqTitle}</h2>
-          <div className="mt-10 space-y-4">
-            {p.faq.map(([q, a]) => (
-              <details key={q} className="group rounded-[16px] bg-card p-5">
-                <summary className="cursor-pointer list-none font-semibold">{q}</summary>
-                <p className="mt-3 leading-7 text-muted-foreground">{a}</p>
-              </details>
-            ))}
-          </div>
+          <Reveal><h2 className="heading-lg text-center">{p.faqTitle}</h2></Reveal>
+          <Reveal delay={120} className="mt-10"><Accordion type="single" collapsible>{p.faq.map(([q, a]) => (
+            <AccordionItem key={q} value={q}><AccordionTrigger className="min-h-[72px] text-left text-base hover:no-underline">{q}</AccordionTrigger><AccordionContent className="max-w-[600px] pb-6 leading-7 text-muted-foreground">{a}</AccordionContent></AccordionItem>
+          ))}</Accordion></Reveal>
         </div>
       </section>
 
       <section className="section-pad bg-band-surface text-band-foreground">
-        <div className="section-shell text-center">
+        <Reveal className="section-shell text-center">
           <CalendarCheck className="mx-auto size-9 text-band-accent" strokeWidth={1.5} />
-          <h2 className="heading-md mt-5">{p.endTitle}</h2>
+          <h2 className="heading-lg mt-5">{p.endTitle}</h2>
           <p className="mx-auto mt-4 max-w-[520px] text-band-foreground/75">{p.endSub}</p>
           <Button asChild className="mt-8 h-auto min-h-11 bg-primary px-5 py-3 text-primary-foreground hover:bg-primary-hover">
             <Link to={terminTo}>{p.cta}<ArrowRight className="size-4" /></Link>
@@ -231,7 +227,7 @@ export function PayrollPage({ lang }: { lang: Lang }) {
             <a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a> · <a href="tel:+41766295056">+41 76 629 50 56</a>
           </p>
           <Link to={homeTo} className="mt-6 inline-block text-sm font-semibold text-band-accent">{p.back}</Link>
-        </div>
+        </Reveal>
       </section>
 
       <footer className="bg-footer-surface py-10 text-band-foreground">
