@@ -324,17 +324,17 @@ export function HomePage({ lang }: { lang: Lang }) {
   return (
     <main className="bg-background text-foreground">
       <header className={`sticky top-0 z-50 border-b border-band-foreground/15 bg-band-surface/95 text-band-foreground backdrop-blur-md transition-transform duration-300 ease-out ${headerHidden ? "-translate-y-full" : "translate-y-0"}`}>
-        <div className="section-shell grid h-16 grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 md:h-[78px] md:grid-cols-[auto_minmax(0,1fr)_auto_auto_auto] lg:gap-4">
+        <div className="section-shell grid h-16 grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 min-[860px]:h-[78px] min-[860px]:grid-cols-[auto_minmax(0,1fr)_auto_auto_auto] lg:gap-4">
           <a href="#top" className="block min-w-0" aria-label={t.toTop}>
              <img src={logoUrl} alt="StartSaldo" className="h-auto w-[132px] sm:w-[148px]" />
           </a>
-           <nav className="hidden justify-center gap-4 text-[13.5px] md:flex lg:gap-7 lg:text-[14px]">{nav.map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-band-foreground transition-colors hover:text-band-accent">{label}</a>)}</nav>
-           <Button asChild className="hidden bg-band-accent text-band-surface hover:bg-band-hover md:inline-flex"><a href="#kontakt">{t.cta}</a></Button>
-           {langLink("ml-1 hidden rounded-button border border-band-foreground/35 px-3 py-2 text-sm font-semibold text-band-foreground transition-colors hover:text-band-accent md:inline-flex")}
+           <nav className="hidden justify-center gap-4 text-[13.5px] min-[860px]:flex lg:gap-7 lg:text-[14px]">{nav.map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-band-foreground transition-colors hover:text-band-accent">{label}</a>)}</nav>
+           <Button asChild className="hidden bg-band-accent text-band-surface hover:bg-band-hover min-[860px]:inline-flex"><a href="#kontakt">{t.cta}</a></Button>
+           {langLink("ml-1 hidden rounded-button border border-band-foreground/35 px-3 py-2 text-sm font-semibold text-band-foreground transition-colors hover:text-band-accent min-[860px]:inline-flex")}
            {themeSwitch}
-           <button aria-label={menuOpen ? t.menuClose : t.menuOpen} aria-expanded={menuOpen} className="grid size-10 shrink-0 place-items-center rounded-button border border-band-foreground/35 bg-transparent text-band-foreground md:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X className="size-5"/> : <Menu className="size-5"/>}</button>
+           <button aria-label={menuOpen ? t.menuClose : t.menuOpen} aria-expanded={menuOpen} className="grid size-10 shrink-0 place-items-center rounded-button border border-band-foreground/35 bg-transparent text-band-foreground min-[860px]:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X className="size-5"/> : <Menu className="size-5"/>}</button>
         </div>
-         <div className={`absolute inset-x-0 top-full z-40 border-b border-band-foreground/15 bg-band-surface text-band-foreground shadow-[0_24px_40px_-20px_rgba(23,32,28,0.25)] transition-all duration-300 ease-out md:hidden ${menuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`} aria-hidden={!menuOpen}>
+         <div className={`absolute inset-x-0 top-full z-40 border-b border-band-foreground/15 bg-band-surface text-band-foreground shadow-[0_24px_40px_-20px_rgba(23,32,28,0.25)] transition-all duration-300 ease-out min-[860px]:hidden ${menuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`} aria-hidden={!menuOpen}>
            <nav className="section-shell flex flex-col py-2">{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="border-b border-band-foreground/15 py-3.5 text-base font-medium">{label}</a>)}{langLink("py-3.5 text-base font-semibold text-band-accent", () => setMenuOpen(false))}</nav>
         </div>
       </header>
