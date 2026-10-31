@@ -13,7 +13,7 @@ export const payrollCopy = {
       },
       {
         title: "Ein- und Austritte von Mitarbeitenden",
-        items: ["Anmeldung und Abmeldung bei AHV/IV/EO", "Pensionskasse (BVG), Unfall- (UVG) und Krankentaggeldversicherung (KTG)", "Quellensteuer-Mutationen", "Arbeitgeberbescheinigungen"],
+        items: ["An- und Abmeldungen bei der zuständigen Ausgleichskasse", "Pensionskasse (BVG), Unfall- (UVG) und Krankentaggeldversicherung (KTG)", "Quellensteuer-Mutationen", "Arbeitgeberbescheinigungen"],
       },
       {
         title: "Sozialversicherungen",
@@ -60,7 +60,7 @@ export const payrollCopy = {
       },
       {
         title: "Employees joining and leaving",
-        items: ["Registration and deregistration with AHV/IV/EO", "Pension fund (BVG), accident (UVG) and daily sickness insurance (KTG)", "Withholding tax changes", "Employer certificates"],
+        items: ["Registrations and deregistrations with the relevant compensation fund", "Pension fund (BVG), accident (UVG) and daily sickness insurance (KTG)", "Withholding tax changes", "Employer certificates"],
       },
       {
         title: "Social insurance",
