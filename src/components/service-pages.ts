@@ -316,7 +316,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Krypto in der Buchhaltung", items: ["Verbuchung von Käufen, Verkäufen und Tauschgeschäften", "Abstimmung von Wallets und Börsenkonten", "Bewertung per Stichtag", "Saubere Dokumentation der Transaktionen"] },
         { title: "Krypto in den Firmensteuern", items: ["Ausweis in der Bilanz nach Obligationenrecht", "Bewertung per Bilanzstichtag", "Erträge aus Staking und Lending", "Klare Unterlagen für die Steuerbehörde"] },
-        { title: "Abklärung Ihrer Situation", items: ["Private Vermögensverwaltung oder gewerbsmässiger Handel", "Auswirkungen auf Steuern und Sozialversicherungen", "Krypto im Unternehmen", "Verständliche Antworten"] },
+        { title: "Abklärung Ihrer Situation", items: ["Steuerliche Einordnung von Krypto-Transaktionen im Unternehmen", "Auswirkungen auf Steuern und Sozialversicherungen", "Krypto im Unternehmen", "Verständliche Antworten"] },
       ],
       process: stdProcess.de,
       people: ["audelia"],
@@ -324,7 +324,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Häufige Fragen zu Krypto",
       faq: [
         ["Wie werden Kryptowährungen in der Firma verbucht?", "Sie werden in der Bilanz Ihrer Firma ausgewiesen und per Bilanzstichtag bewertet. Wir sorgen dafür, dass Buchhaltung und Steuererklärung übereinstimmen."],
-        ["Bin ich privater Anleger oder gewerbsmässiger Händler?", "Das hängt unter anderem von Haltedauer, Volumen und Finanzierung ab. Wir schauen Ihre Situation gemeinsam an."],
+        ["Können Sie auch grosse Transaktionsvolumina verarbeiten?", "Ja. Wir arbeiten mit Exporten aus Ihren Börsen und Wallets und bringen auch viele Transaktionen sauber in die Buchhaltung."],
         ["Welche Unterlagen brauchen Sie?", "Zum Beispiel Exporte Ihrer Börsen und Wallet-Adressen. Sie erhalten von uns eine klare Liste."],
       ],
       endTitle: "Krypto sauber abgerechnet?",
@@ -341,7 +341,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Crypto in your accounts", items: ["Booking purchases, sales and swaps", "Reconciling wallets and exchange accounts", "Valuation at the reporting date", "Clean documentation of transactions"] },
         { title: "Crypto in your company taxes", items: ["Presentation in the balance sheet under Swiss law", "Valuation at the balance sheet date", "Income from staking and lending", "Clear documents for the tax office"] },
-        { title: "Assessing your situation", items: ["Private wealth management or professional trading", "Impact on taxes and social insurance", "Crypto in your company", "Clear answers"] },
+        { title: "Assessing your situation", items: ["Tax classification of crypto transactions in your company", "Impact on taxes and social insurance", "Crypto in your company", "Clear answers"] },
       ],
       process: stdProcess.en,
       people: ["audelia"],
@@ -349,7 +349,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Frequently asked questions on crypto",
       faq: [
         ["How are cryptocurrencies accounted for in a company?", "They are shown in your company's balance sheet and valued at the balance sheet date. We make sure your accounts and tax return match."],
-        ["Am I a private investor or a professional trader?", "This depends on factors such as holding period, volume and financing. We look at your situation together."],
+        ["Can you handle large transaction volumes?", "Yes. We work with exports from your exchanges and wallets and bring even large numbers of transactions cleanly into your accounts."],
         ["Which documents do you need?", "For example exports from your exchanges and wallet addresses. We give you a clear list."],
       ],
       endTitle: "Crypto properly accounted for?",
