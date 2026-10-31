@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://startsaldo.ch/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/termin</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/termin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/termin"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/termin</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/termin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/termin"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/finanzbuchhaltung</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/finanzbuchhaltung"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/accounting"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/accounting</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/finanzbuchhaltung"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/accounting"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/lohnbuchhaltung</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/lohnbuchhaltung"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/payroll"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/payroll</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/lohnbuchhaltung"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/payroll"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/mwst</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/mwst"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/vat"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/vat</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/mwst"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/vat"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/steuern</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/steuern"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/tax"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/tax</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/steuern"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/tax"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/jahresabschluss</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/jahresabschluss"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/annual-accounts"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/annual-accounts</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/jahresabschluss"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/annual-accounts"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/krypto</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/krypto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/crypto"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/crypto</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/krypto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/crypto"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/gruendung-startups</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/gruendung-startups"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/startups"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/startups</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/gruendung-startups"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/startups"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/buchhaltung-schwyz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/buchhaltung-schwyz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/accounting-schwyz"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/accounting-schwyz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/buchhaltung-schwyz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/accounting-schwyz"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/buchhaltung-zug</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/buchhaltung-zug"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/accounting-zug"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/accounting-zug</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/buchhaltung-zug"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/accounting-zug"/>
+  </url>
+</urlset>

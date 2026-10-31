@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HomePage } from "@/components/home-page";
+import { businessJsonLd } from "@/components/structured-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -11,7 +12,11 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "alternate", hrefLang: "en", href: "/en" }],
+    links: [
+      { rel: "canonical", href: "https://startsaldo.ch/" },
+      { rel: "alternate", hrefLang: "en", href: "https://startsaldo.ch/en" },
+    ],
+    scripts: [businessJsonLd("de")],
   }),
   component: () => <HomePage lang="de" />,
 });
