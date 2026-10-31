@@ -21,6 +21,8 @@ export type ServiceCopy = {
   endSub: string;
   metaTitle: string;
   metaDesc: string;
+  /** Optional extra section (used by the start-ups page). */
+  checklist?: { title: string; sub: string; items: string[] };
 };
 
 /** Route paths per page and language. Kept literal so Link stays type-safe. */
@@ -421,6 +423,20 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         { title: "Die ersten Mitarbeitenden", items: ["Anmeldung bei der Ausgleichskasse (AHV)", "Klärung von BVG und UV", "Erste Lohnabrechnungen", "Ein- und Austritte"] },
         { title: "Laufend", items: ["Laufende Buchhaltung", "MWST-Abrechnungen", "Jahresabschluss", "Steuererklärung"] },
       ],
+      checklist: {
+        title: "Checkliste für die Gründung",
+        sub: "Diese Punkte stehen nach einer Neugründung an. Wir prüfen sie gemeinsam und übernehmen, was Sie möchten.",
+        items: [
+          "Rechtsform festlegen und Gesellschaft gründen",
+          "Eintrag ins Handelsregister",
+          "Geschäftskonto bei der Bank eröffnen",
+          "Buchhaltung und digitale Belegablage einrichten",
+          "MWST-Pflicht prüfen und gegebenenfalls anmelden",
+          "Ausgleichskasse (AHV) als Arbeitgeber anmelden",
+          "Vorsorge (BVG) und Unfallversicherung (UV) klären",
+          "Termine für MWST, Löhne und Steuererklärung festhalten",
+        ],
+      },
       process: stdProcess.de,
       people: ["audelia"],
       personText: "Gerade am Anfang gibt es viele Fragen. Wir nehmen uns Zeit und sorgen dafür, dass Ihre Buchhaltung von Beginn an stimmt.",
@@ -448,6 +464,20 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         { title: "Your first employees", items: ["Registration with the compensation fund (AHV)", "Clarifying BVG and UV", "First payslips", "Onboarding and offboarding"] },
         { title: "Ongoing", items: ["Ongoing bookkeeping", "VAT returns", "Annual accounts", "Tax returns"] },
       ],
+      checklist: {
+        title: "Checklist for founders",
+        sub: "These are the points that come up after founding a company. We review them together and take over whatever you would like.",
+        items: [
+          "Choose the legal form and found the company",
+          "Entry in the commercial register",
+          "Open a business bank account",
+          "Set up accounting and digital filing of receipts",
+          "Check VAT liability and register if needed",
+          "Register as an employer with the compensation fund (AHV)",
+          "Clarify pension (BVG) and accident insurance (UV)",
+          "Set dates for VAT, payroll and the tax return",
+        ],
+      },
       process: stdProcess.en,
       people: ["audelia"],
       personText: "There are many questions at the beginning. We take our time and make sure your accounting is right from the start.",
