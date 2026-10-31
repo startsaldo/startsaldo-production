@@ -12,7 +12,7 @@ const de = {
   darkMode: "Dunkelmodus aktivieren",
   h1a: "Ihre Buchhaltung.",
   h1b: "Persönlich erledigt.",
-  heroServices: ["Laufende Buchhaltung", "MWST", "Lohnbuchhaltung", "Crypto Trades", "Jahresabschlüsse"],
+  heroServices: ["Laufende Buchhaltung", "MWST", "Lohnbuchhaltung", "Krypto-Transaktionen", "Jahresabschlüsse"],
   heroBtn1: "Kostenloses Erstgespräch",
   heroBtn2: "Dienstleistungen ansehen",
   marqueeLabel: "Abstrakte Bilanz- und Erfolgsrechnungen in Bewegung",

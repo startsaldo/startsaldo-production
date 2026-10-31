@@ -100,7 +100,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       menu: "Financial accounting",
       title: "Financial accounting for Swiss SMEs and start-ups",
       titleAccent: "Booked properly, explained clearly.",
-      sub: "From ongoing receipts to bank reconciliation.",
+      sub: "From day-to-day bookkeeping to bank reconciliations.",
       blocks: [
         { title: "Ongoing bookkeeping", items: ["Recording your business transactions", "Bank and account reconciliations", "Cash book and expenses", "Digital filing of your receipts", "Booking your crypto trades"] },
         { title: "Receivables and payables", items: ["Booking customer and supplier invoices", "Overview of open items", "Preparing payments", "Account reconciliation"] },
@@ -175,7 +175,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       ...en,
       menu: "VAT",
       title: "VAT returns for Swiss SMEs and start-ups",
-      titleAccent: "On time and traceable.",
+      titleAccent: "Accurate, timely and transparent.",
       sub: "From registration to periodic returns with the Federal Tax Administration.",
       blocks: [
         { title: "Registration and assessment", items: ["Checking whether you are liable for VAT", "Registration with the FTA", "Choice of settlement method", "Effective method or net tax rate"] },
@@ -389,7 +389,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       sub: "Personal financial accounting and payroll for SMEs and start-ups in Schwyz and the surrounding area.",
       blocksTitle: "For SMEs and start-ups in the region",
       blocks: [
-        { title: "Where we are there for you", items: ["Rothenthurm and Biberbrugg", "Einsiedeln and Sattel", "Schwyz and Brunnen", "Pfäffikon SZ, Lachen and Ausserschwyz", "Zug and all of Switzerland – digitally"] },
+        { title: "Areas we serve", items: ["Rothenthurm and Biberbrugg", "Einsiedeln and Sattel", "Schwyz and Brunnen", "Pfäffikon SZ, Lachen and Ausserschwyz", "Zug and all of Switzerland – digitally"] },
         { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Tax returns", "Crypto accounting"] },
         { title: "Why local", items: ["Knowledge of the region", "Short distances and quick answers", "Fixed contact persons", "Switzerland-wide collaboration – digital"] },
       ],
@@ -483,7 +483,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Häufige Fragen",
       faq: [
         ["Betreuen Sie Unternehmen im Kanton Zug?", "Ja. Wir arbeiten digital und unkompliziert mit Kunden aus Zug und der ganzen Schweiz zusammen."],
-        ["Kennen Sie sich mit Krypto aus?", "Ja, wir sind auf die Buchhaltung und Steuererklärung von Crypto Trades spezialisiert."],
+        ["Kennen Sie sich mit Krypto aus?", "Ja, wir sind auf die Buchhaltung und Steuererklärung von Krypto-Transaktionen spezialisiert."],
         ["Wie starte ich?", "Mit einem kostenlosen und unverbindlichen Erstgespräch. Buchen Sie einfach einen Termin."],
       ],
       endTitle: "Lernen wir uns kennen?",
@@ -499,7 +499,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       sub: "Financial accounting and payroll for SMEs and start-ups in Zug – specialised in crypto trading.",
       blocksTitle: "For SMEs and start-ups in Zug",
       blocks: [
-        { title: "Where we are there for you", items: ["Zug and Baar", "Cham and Steinhausen", "Rotkreuz and Risch", "Unterägeri and Oberägeri", "All of Switzerland – digitally"] },
+        { title: "Areas we serve", items: ["Zug and Baar", "Cham and Steinhausen", "Rotkreuz and Risch", "Unterägeri and Oberägeri", "All of Switzerland – digitally"] },
         { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Tax returns", "Crypto accounting"] },
         { title: "Why StartSaldo", items: ["Specialised in crypto trading", "Experience with start-ups", "Fixed contact persons", "Quick answers"] },
       ],
@@ -537,7 +537,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Häufige Fragen",
       faq: [
         ["Betreuen Sie Unternehmen in Wollerau, Freienbach und Pfäffikon SZ?", "Ja. Wir arbeiten digital und unkompliziert mit Kunden aus dem Bezirk Höfe, der March und der ganzen Schweiz zusammen."],
-        ["Kennen Sie sich mit Krypto aus?", "Ja, wir sind auf die Buchhaltung und Steuererklärung von Crypto Trades spezialisiert."],
+        ["Kennen Sie sich mit Krypto aus?", "Ja, wir sind auf die Buchhaltung und Steuererklärung von Krypto-Transaktionen spezialisiert."],
         ["Wie starte ich?", "Mit einem kostenlosen und unverbindlichen Erstgespräch. Buchen Sie einfach einen Termin."],
       ],
       endTitle: "Lernen wir uns kennen?",
@@ -553,7 +553,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       sub: "Financial accounting and payroll for SMEs and start-ups in Wollerau, Freienbach and Pfäffikon SZ – specialised in crypto trading.",
       blocksTitle: "For SMEs and start-ups on Upper Lake Zurich",
       blocks: [
-        { title: "Where we are there for you", items: ["Wollerau and Feusisberg", "Freienbach and Pfäffikon SZ", "Bäch, Wilen and Hurden", "Lachen, Altendorf and the March", "All of Switzerland – digitally"] },
+        { title: "Areas we serve", items: ["Wollerau and Feusisberg", "Freienbach and Pfäffikon SZ", "Bäch, Wilen and Hurden", "Lachen, Altendorf and the March district", "All of Switzerland – digitally"] },
         { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Tax returns", "Crypto accounting"] },
         { title: "Why StartSaldo", items: ["Based in the canton of Schwyz", "Specialised in crypto trading", "Fixed contact persons", "Quick answers"] },
       ],
