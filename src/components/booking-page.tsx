@@ -1,3 +1,4 @@
+import { LegalLinks } from "@/components/legal-page";
 import { Link, useCanGoBack, useRouter } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Moon, Sun } from "lucide-react";
 import { copy, type Lang } from "@/components/home-copy";
@@ -115,7 +116,7 @@ export function BookingPage({ lang }: { lang: Lang }) {
       <footer className="bg-footer-surface py-10 text-band-foreground">
         <div className="section-shell flex flex-col items-center gap-2 text-center text-xs text-band-foreground/60 md:flex-row md:justify-between md:text-left">
           <p>© 2026 Digital Trust Solutions GmbH</p>
-          <p>6418 Rothenthurm</p>
+          <LegalLinks lang={lang} />
         </div>
       </footer>
     </main>
