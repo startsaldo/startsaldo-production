@@ -8,7 +8,7 @@ export const Route = createFileRoute("/en/termin")({
       {
         name: "description",
         content:
-          "Choose a time for a free initial consultation with StartSaldo – personal accounting and payroll for Swiss SMEs.",
+          "Choose a time for a free initial consultation with StartSaldo – personal accounting and payroll for Swiss SMEs and start-ups.",
       },
       { property: "og:title", content: "Free initial consultation | StartSaldo" },
       {
