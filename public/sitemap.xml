@@ -120,4 +120,24 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/buchhaltung-ausserschwyz"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/accounting-ausserschwyz"/>
   </url>
+  <url>
+    <loc>https://startsaldo.ch/impressum</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/legal-notice"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/legal-notice</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/legal-notice"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/datenschutz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/privacy"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/privacy"/>
+  </url>
 </urlset>

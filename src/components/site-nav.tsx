@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useSiteTheme } from "@/hooks/use-site-theme";
 import startsaldoLogoLightUrl from "@/assets/startsaldo-logo.png";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
+import { LegalLinks } from "@/components/legal-page";
 
 export const servicesLabel = { de: "Leistungen", en: "Services" } as const;
 
@@ -120,7 +121,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
             Schoosstrasse 3, 6418 Rothenthurm
           </div>
         </div>
-        <div className="mt-10 border-t border-band-foreground/15 pt-6 text-xs text-band-foreground/60">© 2026 Digital Trust Solutions GmbH</div>
+        <div className="mt-10 flex flex-row items-center justify-between gap-4 border-t border-band-foreground/15 pt-6 text-xs text-band-foreground/60"><p>© 2026 Digital Trust Solutions GmbH</p><LegalLinks lang={lang} /></div>
       </div>
     </footer>
   );
