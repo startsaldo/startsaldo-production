@@ -110,4 +110,14 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/buchhaltung-zug"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/accounting-zug"/>
   </url>
+  <url>
+    <loc>https://startsaldo.ch/buchhaltung-ausserschwyz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/buchhaltung-ausserschwyz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/accounting-ausserschwyz"/>
+  </url>
+  <url>
+    <loc>https://startsaldo.ch/en/accounting-ausserschwyz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://startsaldo.ch/buchhaltung-ausserschwyz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://startsaldo.ch/en/accounting-ausserschwyz"/>
+  </url>
 </urlset>

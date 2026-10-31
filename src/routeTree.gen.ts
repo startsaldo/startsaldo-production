@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BuchhaltungAusserschwyzRouteImport } from './routes/buchhaltung-ausserschwyz'
 import { Route as BuchhaltungSchwyzRouteImport } from './routes/buchhaltung-schwyz'
 import { Route as BuchhaltungZugRouteImport } from './routes/buchhaltung-zug'
 import { Route as EnRouteImport } from './routes/en'
@@ -24,6 +25,7 @@ import { Route as TerminRouteImport } from './routes/termin'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as EnAccountingRouteImport } from './routes/en.accounting'
+import { Route as EnAccountingAusserschwyzRouteImport } from './routes/en.accounting-ausserschwyz'
 import { Route as EnAccountingSchwyzRouteImport } from './routes/en.accounting-schwyz'
 import { Route as EnAccountingZugRouteImport } from './routes/en.accounting-zug'
 import { Route as EnAnnualAccountsRouteImport } from './routes/en.annual-accounts'
@@ -37,6 +39,11 @@ import { Route as EnVatRouteImport } from './routes/en.vat'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuchhaltungAusserschwyzRoute = BuchhaltungAusserschwyzRouteImport.update({
+  id: '/buchhaltung-ausserschwyz',
+  path: '/buchhaltung-ausserschwyz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuchhaltungSchwyzRoute = BuchhaltungSchwyzRouteImport.update({
@@ -109,6 +116,12 @@ const EnAccountingRoute = EnAccountingRouteImport.update({
   path: '/accounting',
   getParentRoute: () => EnRoute,
 } as any)
+const EnAccountingAusserschwyzRoute =
+  EnAccountingAusserschwyzRouteImport.update({
+    id: '/accounting-ausserschwyz',
+    path: '/accounting-ausserschwyz',
+    getParentRoute: () => EnRoute,
+  } as any)
 const EnAccountingSchwyzRoute = EnAccountingSchwyzRouteImport.update({
   id: '/accounting-schwyz',
   path: '/accounting-schwyz',
@@ -157,6 +170,7 @@ const EnVatRoute = EnVatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/buchhaltung-ausserschwyz': typeof BuchhaltungAusserschwyzRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
   '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/en': typeof EnRouteWithChildren
@@ -170,6 +184,7 @@ export interface FileRoutesByFullPath {
   '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
+  '/en/accounting-ausserschwyz': typeof EnAccountingAusserschwyzRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
   '/en/accounting-zug': typeof EnAccountingZugRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
@@ -183,6 +198,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/buchhaltung-ausserschwyz': typeof BuchhaltungAusserschwyzRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
   '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/finanzbuchhaltung': typeof FinanzbuchhaltungRoute
@@ -195,6 +211,7 @@ export interface FileRoutesByTo {
   '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
+  '/en/accounting-ausserschwyz': typeof EnAccountingAusserschwyzRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
   '/en/accounting-zug': typeof EnAccountingZugRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
@@ -209,6 +226,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/buchhaltung-ausserschwyz': typeof BuchhaltungAusserschwyzRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
   '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/en': typeof EnRouteWithChildren
@@ -222,6 +240,7 @@ export interface FileRoutesById {
   '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
+  '/en/accounting-ausserschwyz': typeof EnAccountingAusserschwyzRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
   '/en/accounting-zug': typeof EnAccountingZugRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
@@ -237,6 +256,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/buchhaltung-ausserschwyz'
     | '/buchhaltung-schwyz'
     | '/buchhaltung-zug'
     | '/en'
@@ -250,6 +270,7 @@ export interface FileRouteTypes {
     | '/termin'
     | '/api/contact'
     | '/en/accounting'
+    | '/en/accounting-ausserschwyz'
     | '/en/accounting-schwyz'
     | '/en/accounting-zug'
     | '/en/annual-accounts'
@@ -263,6 +284,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/buchhaltung-ausserschwyz'
     | '/buchhaltung-schwyz'
     | '/buchhaltung-zug'
     | '/finanzbuchhaltung'
@@ -275,6 +297,7 @@ export interface FileRouteTypes {
     | '/termin'
     | '/api/contact'
     | '/en/accounting'
+    | '/en/accounting-ausserschwyz'
     | '/en/accounting-schwyz'
     | '/en/accounting-zug'
     | '/en/annual-accounts'
@@ -288,6 +311,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/buchhaltung-ausserschwyz'
     | '/buchhaltung-schwyz'
     | '/buchhaltung-zug'
     | '/en'
@@ -301,6 +325,7 @@ export interface FileRouteTypes {
     | '/termin'
     | '/api/contact'
     | '/en/accounting'
+    | '/en/accounting-ausserschwyz'
     | '/en/accounting-schwyz'
     | '/en/accounting-zug'
     | '/en/annual-accounts'
@@ -315,6 +340,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BuchhaltungAusserschwyzRoute: typeof BuchhaltungAusserschwyzRoute
   BuchhaltungSchwyzRoute: typeof BuchhaltungSchwyzRoute
   BuchhaltungZugRoute: typeof BuchhaltungZugRoute
   EnRoute: typeof EnRouteWithChildren
@@ -336,6 +362,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buchhaltung-ausserschwyz': {
+      id: '/buchhaltung-ausserschwyz'
+      path: '/buchhaltung-ausserschwyz'
+      fullPath: '/buchhaltung-ausserschwyz'
+      preLoaderRoute: typeof BuchhaltungAusserschwyzRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/buchhaltung-schwyz': {
@@ -436,6 +469,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnAccountingRouteImport
       parentRoute: typeof EnRoute
     }
+    '/en/accounting-ausserschwyz': {
+      id: '/en/accounting-ausserschwyz'
+      path: '/accounting-ausserschwyz'
+      fullPath: '/en/accounting-ausserschwyz'
+      preLoaderRoute: typeof EnAccountingAusserschwyzRouteImport
+      parentRoute: typeof EnRoute
+    }
     '/en/accounting-schwyz': {
       id: '/en/accounting-schwyz'
       path: '/accounting-schwyz'
@@ -504,6 +544,7 @@ declare module '@tanstack/react-router' {
 
 interface EnRouteChildren {
   EnAccountingRoute: typeof EnAccountingRoute
+  EnAccountingAusserschwyzRoute: typeof EnAccountingAusserschwyzRoute
   EnAccountingSchwyzRoute: typeof EnAccountingSchwyzRoute
   EnAccountingZugRoute: typeof EnAccountingZugRoute
   EnAnnualAccountsRoute: typeof EnAnnualAccountsRoute
@@ -518,6 +559,7 @@ interface EnRouteChildren {
 
 const EnRouteChildren: EnRouteChildren = {
   EnAccountingRoute: EnAccountingRoute,
+  EnAccountingAusserschwyzRoute: EnAccountingAusserschwyzRoute,
   EnAccountingSchwyzRoute: EnAccountingSchwyzRoute,
   EnAccountingZugRoute: EnAccountingZugRoute,
   EnAnnualAccountsRoute: EnAnnualAccountsRoute,
@@ -534,6 +576,7 @@ const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BuchhaltungAusserschwyzRoute: BuchhaltungAusserschwyzRoute,
   BuchhaltungSchwyzRoute: BuchhaltungSchwyzRoute,
   BuchhaltungZugRoute: BuchhaltungZugRoute,
   EnRoute: EnRouteWithChildren,

@@ -132,7 +132,7 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
             <Link to={terminTo}>{lang === "de" ? "Unverbindliches Erstgespräch" : "Free initial consultation"}<ArrowRight className="size-4" /></Link>
           </Button>
           <p className="mt-6 text-sm text-band-foreground/75">
-            <a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a> · <a href="tel:+41766295056">+41 76 629 50 56</a>
+            <a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a> · <a href="tel:+41766295056">+41 76 629 50 56</a> · <a href="https://wa.me/41766295056" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </p>
           <Link to={homeTo} className="mt-6 inline-block text-sm font-semibold text-band-accent">{lang === "de" ? "Zur Startseite" : "Back to home"}</Link>
         </Reveal>
