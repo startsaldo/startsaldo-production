@@ -141,7 +141,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faq: payrollCopy.en.faq.map(([a, b]) => [a, b] as [string, string]),
       people: ["sarah"],
       metaTitle: "Payroll services for Swiss SMEs and start-ups | StartSaldo",
-      metaDesc: "Payroll, social insurances, employee onboarding and offboarding, withholding tax and salary certificates for Swiss SMEs and start-ups – personally handled by StartSaldo.",
+      metaDesc: "Payroll, social insurance, employee onboarding and offboarding, withholding tax and salary certificates for Swiss SMEs and start-ups – personally handled by StartSaldo.",
     },
   },
   mwst: {
@@ -337,7 +337,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Crypto in your accounts", items: ["Booking purchases, sales and swaps", "Reconciling wallets and exchange accounts", "Valuation at the reporting date", "Clean documentation of transactions"] },
         { title: "Crypto in your company taxes", items: ["Presentation in the balance sheet under Swiss law", "Valuation at the balance sheet date", "Income from staking and lending", "Clear documents for the tax office"] },
-        { title: "Assessing your situation", items: ["Private wealth management or professional trading", "Impact on taxes and social insurances", "Crypto in your company", "Clear answers"] },
+        { title: "Assessing your situation", items: ["Private wealth management or professional trading", "Impact on taxes and social insurance", "Crypto in your company", "Clear answers"] },
       ],
       process: stdProcess.en,
       people: ["audelia"],
@@ -390,7 +390,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "For SMEs and start-ups in the region",
       blocks: [
         { title: "Where we are there for you", items: ["Rothenthurm and Biberbrugg", "Einsiedeln and Sattel", "Schwyz and Brunnen", "Pfäffikon SZ, Lachen and Ausserschwyz", "Zug and all of Switzerland – digitally"] },
-        { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurances", "VAT returns", "Tax returns", "Crypto accounting"] },
+        { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Tax returns", "Crypto accounting"] },
         { title: "Why local", items: ["Knowledge of the region", "Short distances and quick answers", "Fixed contact persons", "Switzerland-wide collaboration – digital"] },
       ],
       process: stdProcess.en,
@@ -500,7 +500,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "For SMEs and start-ups in Zug",
       blocks: [
         { title: "Where we are there for you", items: ["Zug and Baar", "Cham and Steinhausen", "Rotkreuz and Risch", "Unterägeri and Oberägeri", "All of Switzerland – digitally"] },
-        { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurances", "VAT returns", "Tax returns", "Crypto accounting"] },
+        { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Tax returns", "Crypto accounting"] },
         { title: "Why StartSaldo", items: ["Specialised in crypto trading", "Experience with start-ups", "Fixed contact persons", "Quick answers"] },
       ],
       process: stdProcess.en,
@@ -554,7 +554,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "For SMEs and start-ups on Upper Lake Zurich",
       blocks: [
         { title: "Where we are there for you", items: ["Wollerau and Feusisberg", "Freienbach and Pfäffikon SZ", "Bäch, Wilen and Hurden", "Lachen, Altendorf and the March", "All of Switzerland – digitally"] },
-        { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurances", "VAT returns", "Tax returns", "Crypto accounting"] },
+        { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Tax returns", "Crypto accounting"] },
         { title: "Why StartSaldo", items: ["Based in the canton of Schwyz", "Specialised in crypto trading", "Fixed contact persons", "Quick answers"] },
       ],
       process: stdProcess.en,

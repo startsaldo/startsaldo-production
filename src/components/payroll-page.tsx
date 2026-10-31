@@ -63,7 +63,7 @@ export const payrollCopy = {
         items: ["Registration and deregistration with AHV/IV/EO", "Pension fund (BVG), accident (UVG) and daily sickness insurance (KTG)", "Withholding tax changes", "Employer certificates"],
       },
       {
-        title: "Social insurances",
+        title: "Social insurance",
         items: ["Settlement with compensation and family allowance funds", "Reconciliation with pension fund and insurers", "Support with maternity, illness and accidents", "Answers to your questions on contributions"],
       },
       {
@@ -80,11 +80,11 @@ export const payrollCopy = {
     ],
     personTitle: "Your contact person",
     personName: "Sarah Mogel",
-    personRole: "Founder & specialist for payroll and social insurances",
-    personText: "With us you never end up in a queue. You have one fixed contact person who knows your business and answers your questions on payroll and social insurances clearly.",
+    personRole: "Founder & specialist for payroll and social insurance",
+    personText: "With us you never end up in a queue. You have one fixed contact person who knows your business and answers your questions on payroll and social insurance clearly.",
     faqTitle: "Frequently asked questions on payroll",
     faq: [
-      ["Is outsourcing worthwhile for small businesses?", "Yes. Especially with few employees, the effort for social insurances, withholding tax and salary certificates is relatively high. We take this work off your hands."],
+      ["Is outsourcing worthwhile for small businesses?", "Yes. Especially with few employees, the effort for social insurance, withholding tax and salary certificates is relatively high. We take this work off your hands."],
       ["How do I send hours and expenses?", "Whichever way is easiest for you – by e-mail, as a list or digitally. We discuss this in the initial meeting."],
       ["What happens when someone joins or leaves?", "You let us know, and we handle all registrations with the insurers and the required certificates."],
       ["Do you also do financial accounting?", "Yes. On request we also handle bookkeeping, VAT and the annual accounts – all from one source."],

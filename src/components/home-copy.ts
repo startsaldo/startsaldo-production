@@ -134,7 +134,7 @@ const en: typeof de = {
   teamTitle: "Who is behind the numbers?",
   teamSub: "Your accounting is handled personally by us. So you always know who to turn to.",
   audelia: ["Founder & financial accountant", "Audelia supports our clients in financial accounting and makes sure figures and reconciliations are correct. She cares about keeping the collaboration as simple as possible, with clear communication and straightforward solutions for exchanging documents and receipts."],
-  sarah: ["Founder & specialist for payroll and social insurances", "Sarah is primarily responsible for payroll and social insurance. She supports our clients from the monthly payroll run to employee onboarding, offboarding and year-end work."],
+  sarah: ["Founder & specialist for payroll and social insurance", "Sarah is primarily responsible for payroll and social insurance. She supports our clients from the monthly payroll run to employee onboarding, offboarding and year-end work."],
   daniel: ["Founder and General Manager", "Daniel is founder and general manager of StartSaldo. He is responsible for organisation, represents StartSaldo at events and is our crypto and IT specialist."],
   portrait: "Portrait of",
   testiTitle: "What our clients say about working with us.",
