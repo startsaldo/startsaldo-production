@@ -155,7 +155,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       sub: "Von der Anmeldung bis zur periodischen Abrechnung mit der ESTV.",
       blocks: [
         { title: "Anmeldung und Abklärung", items: ["Abklärung der MWST-Pflicht", "Anmeldung bei der ESTV", "Wahl der Abrechnungsmethode", "Effektive Methode oder Saldosteuersatz"] },
-        { title: "Periodische Abrechnung", items: ["Erstellung der MWST-Abrechnung", "Einreichung innert Frist", "Vorsteuerabzug korrekt erfasst", "Abstimmung mit der Buchhaltung"] },
+        { title: "Periodische Abrechnung", items: ["Erstellung der MWST-Abrechnung", "Einreichung innert Frist", "Korrekte Berücksichtigung der Vorsteuer je nach Abrechnungsmethode", "Abstimmung mit der Buchhaltung"] },
         { title: "Jahresabstimmung", items: ["Umsatzabstimmung", "Korrekturen und Berichtigungen", "Vorbereitung auf Kontrollen", "Saubere Dokumentation"] },
         { title: "Beratung im Alltag", items: ["Fragen zu Steuersätzen", "Rechnungen mit korrekten Angaben", "Leistungen ins Ausland", "Verständliche Antworten"] },
       ],
@@ -167,6 +167,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         ["Ab wann bin ich mehrwertsteuerpflichtig?", "In der Regel ab einem Jahresumsatz von CHF 100'000 aus steuerbaren Leistungen. Wir klären gerne mit Ihnen ab, ob und ab wann das für Sie gilt."],
         ["Effektive Methode oder Saldosteuersatz?", "Das hängt von Ihrer Branche, Ihren Kosten und Ihrem Aufwand ab. Der Saldosteuersatz entlastet Sie administrativ: Sie rechnen mit einer pauschalen Ersatzrate ab und erfassen die Vorsteuern nicht einzeln. Die effektive Methode lohnt sich, wenn Sie hohe Vorsteuern haben – etwa bei grösseren Investitionen in Maschinen, Fahrzeuge oder Immobilien. Wir zeigen Ihnen die Unterschiede und was für Sie sinnvoll ist."],
         ["Können Sie nur die MWST übernehmen?", "Ja. Sie können die MWST-Abrechnung einzeln oder zusammen mit der Buchhaltung an uns übergeben."],
+        ["Ist auch eine jährliche Abrechnung möglich?", "Ja. Seit 2025 können berechtigte Unternehmen auf Antrag bei der ESTV jährlich statt vierteljährlich abrechnen. Ob das für Sie in Frage kommt, klären wir gerne mit Ihnen ab."],
       ],
       endTitle: "MWST abgeben und Ruhe haben?",
       endSub: "Wir schauen gemeinsam, was Ihr Unternehmen braucht.",
@@ -181,7 +182,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       sub: "From registration to periodic returns with the Federal Tax Administration.",
       blocks: [
         { title: "Registration and assessment", items: ["Checking whether you are liable for VAT", "Registration with the FTA", "Choice of settlement method", "Effective method or net tax rate"] },
-        { title: "Periodic returns", items: ["Preparing the VAT return", "Filing on time", "Correct input tax deduction", "Reconciliation with accounting"] },
+        { title: "Periodic returns", items: ["Preparing the VAT return", "Filing on time", "Correct VAT treatment according to the applicable reporting method", "Reconciliation with accounting"] },
         { title: "Annual reconciliation", items: ["Turnover reconciliation", "Corrections and adjustments", "Preparation for audits", "Clean documentation"] },
         { title: "Everyday advice", items: ["Questions on tax rates", "Invoices with correct details", "Services abroad", "Clear answers"] },
       ],
@@ -193,6 +194,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         ["When do I become liable for VAT?", "Generally from an annual turnover of CHF 100,000 from taxable supplies. We are happy to check whether and from when this applies to you."],
         ["Effective method or net tax rate?", "It depends on your industry, your costs and your effort. The net tax rate reduces your administration: you settle at a flat replacement rate and do not record input tax individually. The effective method is worthwhile when you have high input tax – for example with larger investments in machines, vehicles or property. We explain the differences and what makes sense for you."],
         ["Can you take over VAT only?", "Yes. You can hand over the VAT return on its own or together with your accounting."],
+        ["Is annual settlement possible?", "Yes. Since 2025, eligible companies can apply to the FTA to settle annually instead of quarterly. We are happy to check with you whether this is an option for you."],
       ],
       endTitle: "Hand over VAT and relax?",
       endSub: "Let's look together at what your business needs.",
@@ -286,7 +288,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       sub: "A balance sheet and income statement you understand.",
       blocks: [
         { title: "Closing work", items: ["Reconciliation of all accounts", "Accruals and provisions", "Depreciation", "Inventory and stock"] },
-        { title: "Financial statements", items: ["Balance sheet and income statement", "Notes to the financial statements (Swiss Code of Obligations)", "Documents for the general or shareholders' meeting (AG/GmbH)", "Preparation for the audit"] },
+        { title: "Financial statements", items: ["Balance sheet and income statement", "Notes to the financial statements (Swiss Code of Obligations)", "Documents for the general meeting (AG) or shareholders' meeting (GmbH)", "Preparation for the audit"] },
         { title: "Review", items: ["Clear explanation of your figures", "Comparison with the previous year", "Basis for the tax return", "Pointers for the new year"] },
       ],
       process: stdProcess.en,
@@ -294,7 +296,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       personText: "We explain your annual accounts in plain words – so you know where your business stands.",
       faqTitle: "Frequently asked questions on annual accounts",
       faq: [
-        ["When must the annual accounts be ready?", "The accounts of a GmbH or AG must be presented to the general or shareholders' meeting within six months of the financial year end. We plan the work with you in good time."],
+        ["When must the annual accounts be ready?", "The accounts of a GmbH or AG must be presented to the general meeting (AG) or shareholders' meeting (GmbH) within six months of the financial year end. We plan the work with you in good time."],
         ["Do you also do the audit?", "No. We prepare the accounts so that your auditor can review them efficiently."],
         ["Can I just have the closing done by you?", "Yes. Even if you keep the books yourself during the year, we are happy to do the closing."],
       ],
