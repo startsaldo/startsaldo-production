@@ -35,7 +35,7 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
           <p className="hero-reveal hero-reveal-2 mx-auto mt-6 max-w-[640px] text-base leading-7 text-band-foreground/75 md:text-[18px]">{p.sub}</p>
           <div className="hero-reveal hero-reveal-3 mt-9 flex justify-center">
             <Button asChild className="h-auto min-h-11 bg-primary px-5 py-3 text-primary-foreground hover:bg-primary-hover">
-              <Link to={terminTo}>{lang === "de" ? "Unverbindliches Erstgespräch" : "Free initial consultation"}<ArrowRight className="size-4" /></Link>
+              <Link to={terminTo}>{lang === "de" ? "Kostenloses Erstgespräch" : "Free initial consultation"}<ArrowRight className="size-4" /></Link>
             </Button>
           </div>
         </div>
@@ -129,7 +129,7 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
           <h2 className="heading-lg mt-5">{p.endTitle}</h2>
           <p className="mx-auto mt-4 max-w-[520px] text-band-foreground/75">{p.endSub}</p>
           <Button asChild className="mt-8 h-auto min-h-11 bg-primary px-5 py-3 text-primary-foreground hover:bg-primary-hover">
-            <Link to={terminTo}>{lang === "de" ? "Unverbindliches Erstgespräch" : "Free initial consultation"}<ArrowRight className="size-4" /></Link>
+            <Link to={terminTo}>{lang === "de" ? "Kostenloses Erstgespräch" : "Free initial consultation"}<ArrowRight className="size-4" /></Link>
           </Button>
           <p className="mt-6 text-sm text-band-foreground/75">
             <a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a> · <a href="tel:+41766295056">+41 76 629 50 56</a> · <a href="https://wa.me/41766295056" target="_blank" rel="noopener noreferrer">WhatsApp</a>
