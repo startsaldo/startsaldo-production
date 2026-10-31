@@ -54,7 +54,7 @@ const de = {
   stepsTitle: "In 3 Schritten zu Ihrer Buchhaltung",
   stepsSub: "Der Einstieg ist einfacher, als Sie denken.",
   steps: [
-    ["Unverbindliches Erstgespräch", "Wir lernen uns online kennen und klären Ihre Ausgangslage und Ihre Fragen."],
+    ["Unverbindliches Erstgespräch", "Wir lernen uns kennen und klären Ihre Bedürfnisse – und wie wir Sie am besten entlasten können."],
     ["Einfache Übergabe", "Sie übermitteln uns Ihre Unterlagen digital. Wir richten alles sauber ein."],
     ["Entspannt zurücklehnen", "Buchhaltung, Löhne und Fristen erledigen wir zuverlässig und termingerecht."],
   ] as [string, string][],
@@ -145,7 +145,7 @@ const en: typeof de = {
   stepsTitle: "Your accounting in 3 steps",
   stepsSub: "Getting started is easier than you think.",
   steps: [
-    ["Free initial consultation", "We get to know each other online and clarify your situation and your questions."],
+    ["Free initial consultation", "We get to know each other and clarify your needs – and how we can best take the load off your hands."],
     ["Simple handover", "You send us your documents digitally. We set everything up properly."],
     ["Sit back and relax", "We handle bookkeeping, payroll and deadlines reliably and on time."],
   ],
