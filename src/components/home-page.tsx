@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { copy, type Lang } from "@/components/home-copy";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Check, CheckCircle2, ClipboardCheck, Cloud, Mail, Menu, Moon, Sun, UserRound, X } from "lucide-react";
+import { ArrowRight, Check, CheckCircle2, ClipboardCheck, Cloud, Mail, Menu, MessageCircle, Moon, Sun, UserRound, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import audeliaPhotoUrl from "@/assets/audelia-photo.webp";
