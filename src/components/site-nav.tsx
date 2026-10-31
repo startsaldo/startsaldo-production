@@ -87,10 +87,17 @@ export function SiteHeader({ lang, slug }: { lang: Lang; slug?: ServiceSlug }) {
   );
 }
 
+const regionLabel: Record<Lang, string> = { de: "Regionen", en: "Regions" };
+const regionShort: Partial<Record<ServiceSlug, string>> = { schwyz: "Schwyz", zug: "Zug", hoefe: "Höfe" };
+
 export function FooterServiceLinks({ lang }: { lang: Lang }) {
   return (
     <nav className="flex flex-col items-start gap-3 text-sm" aria-label={servicesLabel[lang]}>
-      {serviceOrder.map((s) => <Link key={s} to={servicePaths[s][lang]} className="hover:text-band-accent">{services[s][lang].menu}</Link>)}
+      {serviceOrder.filter((s) => !regionOrder.includes(s)).map((s) => <Link key={s} to={servicePaths[s][lang]} className="hover:text-band-accent">{services[s][lang].menu}</Link>)}
+      <p className="leading-6 text-band-foreground/65">
+        {regionLabel[lang]}:{" "}
+        {regionOrder.map((s, i) => <span key={s}>{i > 0 && " · "}<Link to={servicePaths[s][lang]} className="text-band-foreground hover:text-band-accent">{regionShort[s]}</Link></span>)}
+      </p>
     </nav>
   );
 }

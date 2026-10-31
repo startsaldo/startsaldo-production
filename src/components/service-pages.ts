@@ -1,7 +1,7 @@
 import type { Lang } from "@/components/home-copy";
 import { payrollCopy } from "@/components/payroll-page";
 
-export type ServiceSlug = "finanzbuchhaltung" | "lohnbuchhaltung" | "mwst" | "steuern" | "jahresabschluss" | "krypto" | "startups" | "schwyz" | "zug";
+export type ServiceSlug = "finanzbuchhaltung" | "lohnbuchhaltung" | "mwst" | "steuern" | "jahresabschluss" | "krypto" | "startups" | "schwyz" | "zug" | "hoefe";
 export type Person = "sarah" | "audelia";
 
 export type ServiceCopy = {
@@ -34,11 +34,14 @@ export const servicePaths = {
   startups: { de: "/gruendung-startups", en: "/en/startups" },
   schwyz: { de: "/buchhaltung-schwyz", en: "/en/accounting-schwyz" },
   zug: { de: "/buchhaltung-zug", en: "/en/accounting-zug" },
+  hoefe: { de: "/buchhaltung-ausserschwyz", en: "/en/accounting-ausserschwyz" },
 } as const;
 
-export const serviceOrder: ServiceSlug[] = ["finanzbuchhaltung", "lohnbuchhaltung", "mwst", "steuern", "jahresabschluss", "krypto", "startups", "schwyz", "zug"];
+export const serviceOrder: ServiceSlug[] = ["finanzbuchhaltung", "lohnbuchhaltung", "mwst", "steuern", "jahresabschluss", "krypto", "startups", "schwyz", "zug", "hoefe"];
+/** Region pages: footer shows them as one compact line. */
+export const regionOrder: ServiceSlug[] = ["schwyz", "zug", "hoefe"];
 /** Header menu: core services only; start-up and region pages stay footer-only. */
-export const navOrder: ServiceSlug[] = serviceOrder.filter((s) => s !== "startups" && s !== "schwyz" && s !== "zug");
+export const navOrder: ServiceSlug[] = serviceOrder.filter((s) => s !== "startups" && !regionOrder.includes(s));
 
 const stdProcess = {
   de: [
@@ -511,6 +514,60 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       endSub: "Book a free initial consultation.",
       metaTitle: "Accounting in Zug, Baar & Cham | StartSaldo",
       metaDesc: "Financial accounting and payroll for SMEs and start-ups in the canton of Zug: Zug, Baar, Cham, Steinhausen – specialised in crypto trading. Personally by StartSaldo.",
+    },
+  },
+  hoefe: {
+    de: {
+      ...de,
+      menu: "Region Ausserschwyz & Höfe",
+      title: "Buchhaltung in Ausserschwyz und Höfe",
+      titleAccent: "Persönlich betreut, digital verbunden.",
+      sub: "Finanz- und Lohnbuchhaltung für KMU und Start-ups in Wollerau, Freienbach und Pfäffikon SZ – mit Spezialisierung auf Crypto Trading.",
+      blocksTitle: "Für KMU und Start-ups am oberen Zürichsee",
+      blocks: [
+        { title: "Wo wir für Sie da sind", items: ["Wollerau und Feusisberg", "Freienbach und Pfäffikon SZ", "Bäch, Wilen und Hurden", "Lachen, Altendorf und die March", "Die ganze Schweiz – digital"] },
+        { title: "Was wir übernehmen", items: ["Finanzbuchhaltung und Jahresabschluss", "Lohnbuchhaltung und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung", "Krypto-Buchhaltung"] },
+        { title: "Warum StartSaldo", items: ["Aus dem Kanton Schwyz", "Spezialisiert auf Crypto Trading", "Feste Ansprechpartnerinnen", "Schnelle Antworten"] },
+      ],
+      process: stdProcess.de,
+      people: ["audelia"],
+      personText: "Wir sind selbst im Kanton Schwyz zu Hause und betreuen KMU und Start-ups aus Ausserschwyz und dem Bezirk Höfe persönlich und digital.",
+      faqTitle: "Häufige Fragen",
+      faq: [
+        ["Betreuen Sie Unternehmen in Wollerau, Freienbach und Pfäffikon SZ?", "Ja. Wir arbeiten digital und unkompliziert mit Kunden aus dem Bezirk Höfe, der March und der ganzen Schweiz zusammen."],
+        ["Kennen Sie sich mit Krypto aus?", "Ja, wir sind auf die Buchhaltung und Steuererklärung von Crypto Trades spezialisiert."],
+        ["Wie starte ich?", "Mit einem unverbindlichen Erstgespräch. Buchen Sie einfach einen Termin."],
+      ],
+      endTitle: "Lernen wir uns kennen?",
+      endSub: "Buchen Sie ein unverbindliches Erstgespräch.",
+      metaTitle: "Buchhaltung Wollerau, Freienbach & Pfäffikon SZ | StartSaldo",
+      metaDesc: "Finanz- und Lohnbuchhaltung für KMU und Start-ups in Ausserschwyz und Höfe: Wollerau, Freienbach, Pfäffikon SZ, Lachen – spezialisiert auf Crypto Trading.",
+    },
+    en: {
+      ...en,
+      menu: "Ausserschwyz & Höfe region",
+      title: "Accounting in Ausserschwyz and Höfe",
+      titleAccent: "Personal support, digitally connected.",
+      sub: "Financial accounting and payroll for SMEs and start-ups in Wollerau, Freienbach and Pfäffikon SZ – specialised in crypto trading.",
+      blocksTitle: "For SMEs and start-ups on Upper Lake Zurich",
+      blocks: [
+        { title: "Where we are there for you", items: ["Wollerau and Feusisberg", "Freienbach and Pfäffikon SZ", "Bäch, Wilen and Hurden", "Lachen, Altendorf and the March", "All of Switzerland – digitally"] },
+        { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurances", "VAT returns", "Tax returns", "Crypto accounting"] },
+        { title: "Why StartSaldo", items: ["Based in the canton of Schwyz", "Specialised in crypto trading", "Fixed contact persons", "Quick answers"] },
+      ],
+      process: stdProcess.en,
+      people: ["audelia"],
+      personText: "We are based in the canton of Schwyz ourselves and personally and digitally look after SMEs and start-ups from Ausserschwyz and the Höfe district.",
+      faqTitle: "Frequently asked questions",
+      faq: [
+        ["Do you serve companies in Wollerau, Freienbach and Pfäffikon SZ?", "Yes. We work digitally and easily with clients from the Höfe district, the March and all of Switzerland."],
+        ["Do you know crypto?", "Yes, we specialise in accounting and tax returns for crypto trades."],
+        ["How do I start?", "With a free initial consultation. Simply book an appointment."],
+      ],
+      endTitle: "Shall we meet?",
+      endSub: "Book a free initial consultation.",
+      metaTitle: "Accounting in Wollerau, Freienbach & Pfäffikon SZ | StartSaldo",
+      metaDesc: "Financial accounting and payroll for SMEs and start-ups in Ausserschwyz and Höfe: Wollerau, Freienbach, Pfäffikon SZ, Lachen – specialised in crypto trading.",
     },
   },
 };

@@ -83,6 +83,10 @@ export function BookingPage({ lang }: { lang: Lang }) {
                 <a href="tel:+41766295056" className="transition-colors hover:text-band-accent">
                   +41 76 629 50 56
                 </a>
+                <span className="px-2 text-band-foreground/40">·</span>
+                <a href="https://wa.me/41766295056" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-band-accent">
+                  WhatsApp
+                </a>
               </p>
 <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
                 {canGoBack ? (
