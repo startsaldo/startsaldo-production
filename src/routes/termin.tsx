@@ -8,7 +8,7 @@ export const Route = createFileRoute("/termin")({
       {
         name: "description",
         content:
-          "Wählen Sie einen Termin für ein unverbindliches Erstgespräch mit StartSaldo – persönliche Finanz- und Lohnbuchhaltung für Schweizer KMU.",
+          "Wählen Sie einen Termin für ein unverbindliches Erstgespräch mit StartSaldo – persönliche Finanz- und Lohnbuchhaltung für Schweizer KMU und Start-ups.",
       },
       { property: "og:title", content: "Unverbindliches Erstgespräch | StartSaldo" },
       {

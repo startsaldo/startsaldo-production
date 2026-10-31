@@ -5,7 +5,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "StartSaldo | Finanz- & Lohnbuchhaltung" },
-      { name: "description", content: "Persönliche Finanz- und Lohnbuchhaltung für Schweizer KMU, GmbHs, AGs, Startups und Selbstständige." },
+      { name: "description", content: "Persönliche Finanz- und Lohnbuchhaltung für Schweizer KMU und Start-ups, GmbHs, AGs und Selbstständige." },
       { property: "og:title", content: "StartSaldo | Persönliche Buchhaltung" },
       { property: "og:description", content: "Klare Abläufe. Persönliche Betreuung. Verlässliche Buchhaltung." },
       { property: "og:type", content: "website" },

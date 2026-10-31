@@ -4,7 +4,7 @@ import { HomePage } from "@/components/home-page";
 export const Route = createFileRoute("/en/")({
   head: () => ({
     meta: [
-      { title: "StartSaldo | Accounting & Payroll for Swiss SMEs" },
+      { title: "StartSaldo | Accounting & Payroll for Swiss SMEs and start-ups" },
       { name: "description", content: "Personal financial accounting and payroll for Swiss SMEs, start-ups and self-employed professionals." },
       { property: "og:title", content: "StartSaldo | Personal accounting" },
       { property: "og:description", content: "Clear processes. Personal support. Reliable accounting." },

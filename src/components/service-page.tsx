@@ -10,8 +10,8 @@ import sarahPhoto from "@/assets/sarah-photo.webp";
 import audeliaPhoto from "@/assets/audelia-photo.webp";
 
 const people: Record<Person, { name: string; email: string; photo: string; role: Record<Lang, string> }> = {
-  sarah: { name: "Sarah Mogel", email: "sarah@startsaldo.ch", photo: sarahPhoto, role: { de: "Payroll Spezialistin | Sozialversicherungen", en: "Payroll Specialist | Social Insurances" } },
-  audelia: { name: "Audelia Babbev-Pittet", email: "audelia@startsaldo.ch", photo: audeliaPhoto, role: { de: "Finanzbuchhalterin", en: "Financial accountant" } },
+  sarah: { name: "Sarah Mogel", email: "sarah@startsaldo.ch", photo: sarahPhoto, role: { de: "Gründerin & Payroll Spezialistin | Sozialversicherungen", en: "Founder & Payroll Specialist | Social Insurances" } },
+  audelia: { name: "Audelia Babbev-Pittet", email: "audelia@startsaldo.ch", photo: audeliaPhoto, role: { de: "Gründerin & Finanzbuchhalterin", en: "Founder & financial accountant" } },
 };
 
 export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {

@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
 import { copy, type Lang } from "@/components/home-copy";
-import { serviceOrder, servicePaths, services, type ServiceSlug } from "@/components/service-pages";
+import { navOrder, serviceOrder, servicePaths, services, type ServiceSlug } from "@/components/service-pages";
 import { Button } from "@/components/ui/button";
 import { useSiteTheme } from "@/hooks/use-site-theme";
 import startsaldoLogoLightUrl from "@/assets/startsaldo-logo.png";

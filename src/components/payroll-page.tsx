@@ -1,6 +1,6 @@
 export const payrollCopy = {
   de: {
-    title: "Lohnbuchhaltung für Schweizer KMU",
+    title: "Lohnbuchhaltung für Schweizer KMU und Start-ups",
     titleAccent: "Pünktlich, korrekt und persönlich.",
     sub: "Von der monatlichen Lohnabrechnung bis zum Lohnausweis Ende Jahr.",
     cta: "Unverbindliches Erstgespräch",
@@ -33,7 +33,7 @@ export const payrollCopy = {
     ],
     personTitle: "Ihre Ansprechpartnerin",
     personName: "Sarah Mogel",
-    personRole: "Payroll Spezialistin | Sozialversicherungen",
+    personRole: "Gründerin & Payroll Spezialistin | Sozialversicherungen",
     personText: "Bei uns landen Sie nicht in einer Warteschlange. Sie haben eine feste Ansprechpartnerin, die Ihren Betrieb kennt und Ihre Fragen zu Löhnen und Sozialversicherungen verständlich beantwortet.",
     faqTitle: "Häufige Fragen zur Lohnbuchhaltung",
     faq: [
@@ -47,7 +47,7 @@ export const payrollCopy = {
     back: "Zur Startseite",
   },
   en: {
-    title: "Payroll for Swiss SMEs",
+    title: "Payroll for Swiss SMEs and start-ups",
     titleAccent: "On time, accurate and personal.",
     sub: "From the monthly payslip to the annual salary certificate.",
     cta: "Free initial consultation",
@@ -80,7 +80,7 @@ export const payrollCopy = {
     ],
     personTitle: "Your contact person",
     personName: "Sarah Mogel",
-    personRole: "Payroll Specialist | Social Insurances",
+    personRole: "Founder & Payroll Specialist | Social Insurances",
     personText: "With us you never end up in a queue. You have one fixed contact person who knows your business and answers your questions on payroll and social insurances clearly.",
     faqTitle: "Frequently asked questions on payroll",
     faq: [
