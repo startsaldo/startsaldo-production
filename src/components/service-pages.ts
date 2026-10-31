@@ -49,13 +49,13 @@ const stdProcess = {
   de: [
     ["Erstgespräch", "Wir lernen Ihr Unternehmen, Ihre Abläufe und Ihre Fragen kennen."],
     ["Übernahme", "Wir übernehmen Ihre Unterlagen und richten alles sauber ein."],
-    ["Laufend", "Sie senden uns Belege und Informationen – per E-Mail oder digital. Wir erledigen den Rest."],
+    ["Laufend", "Sie senden uns Belege und Informationen – verschlüsselt über Proton. Wir erledigen den Rest."],
     ["Termine im Griff", "Fristen behalten wir im Blick und melden uns rechtzeitig bei Ihnen."],
   ] as [string, string][],
   en: [
     ["Initial meeting", "We get to know your business, your processes and your questions."],
     ["Onboarding", "We take over your documents and set everything up properly."],
-    ["Ongoing", "You send us receipts and information – by e-mail or digitally. We do the rest."],
+    ["Ongoing", "You send us receipts and information – encrypted via Proton. We do the rest."],
     ["Deadlines covered", "We keep track of deadlines and get in touch with you in good time."],
   ] as [string, string][],
 };
@@ -88,7 +88,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       personText: "Sie haben eine feste Ansprechpartnerin, die Ihre Zahlen kennt, Fragen verständlich beantwortet und den Austausch von Belegen so einfach wie möglich macht.",
       faqTitle: "Häufige Fragen zur Finanzbuchhaltung",
       faq: [
-        ["Wie übermittle ich meine Belege?", "So, wie es für Sie am einfachsten ist – per E-Mail, als Scan oder digital. Wir besprechen das im Erstgespräch."],
+        ["Wie übermittle ich meine Belege?", "Verschlüsselt über Proton – wir richten Ihnen den Zugang im Erstgespräch ein."],
         ["Kann ich nur einen Teil auslagern?", "Ja. Sie können die ganze Buchhaltung oder einzelne Aufgaben an uns übergeben."],
         ["Arbeiten Sie mit meiner bestehenden Software?", "Wir arbeiten standardmässig mit Banana, weil wir Ihre Daten bei uns auf Proton halten. Wenn Sie ausdrücklich ein anderes Programm wünschen, arbeiten wir auf Wunsch auch mit Bexio, Swiss21 oder Abacus."],
       ],
@@ -104,7 +104,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       titleAccent: "Booked properly, explained clearly.",
       sub: "From day-to-day bookkeeping to bank reconciliations.",
       blocks: [
-        { title: "Ongoing bookkeeping", items: ["Recording your business transactions", "Bank and account reconciliations", "Cash book and expenses", "Digital filing of your receipts", "Booking your crypto trades"] },
+        { title: "Ongoing bookkeeping", items: ["Recording your business transactions", "Bank and account reconciliations", "Cash book and expenses", "Digital filing of your receipts", "Recording crypto transactions"] },
         { title: "Receivables and payables", items: ["Booking customer and supplier invoices", "Overview of open items", "Preparing payments", "Account reconciliation"] },
         { title: "Closings", items: ["Monthly and quarterly closings", "Annual accounts", "Accruals and provisions", "Clear reports"] },
         { title: "All from one source", items: ["VAT returns", "Your company's tax return", "Reconciliation with payroll", "One fixed contact person"] },
@@ -114,7 +114,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       personText: "You have one fixed contact person who knows your figures, answers questions clearly and makes exchanging receipts as easy as possible.",
       faqTitle: "Frequently asked questions on accounting",
       faq: [
-        ["How do I send my receipts?", "Whichever way is easiest for you – by e-mail, as a scan or digitally. We discuss this in the initial meeting."],
+        ["How do I send my receipts?", "Encrypted via Proton – we set up your access in the initial meeting."],
         ["Can I outsource only part of it?", "Yes. You can hand over all of your accounting or individual tasks."],
         ["Do you work with my existing software?", "We work with Banana as standard, because we keep your data with us on Proton. If you explicitly prefer another programme, we are also happy to work with Bexio, Swiss21 or Abacus."],
       ],
