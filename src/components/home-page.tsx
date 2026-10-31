@@ -49,7 +49,11 @@ function StatementCard({ title, rows, highlighted = false }: { title: string; ro
 }
 
 function StatementMarquee({ reverse = false, statementCards }: { reverse?: boolean; statementCards: { title: string; rows: string[] }[] }) {
-  const cards = Array.from({ length: 12 }).flatMap(() => statementCards);
+  // Server HTML contains one set only (no repeated text for crawlers);
+  // the repeated copies for the endless loop are added in the browser.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const cards = Array.from({ length: mounted ? 12 : 1 }).flatMap(() => statementCards);
   const railRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -78,7 +82,7 @@ function StatementMarquee({ reverse = false, statementCards }: { reverse?: boole
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [cards.length]);
 
   return (
     <div className="statement-rail" ref={railRef}>
@@ -361,7 +365,7 @@ export function HomePage({ lang }: { lang: Lang }) {
             </div>
           </div>
         </div>
-        <div className="hero-reveal hero-reveal-5 w-full py-5 md:py-6" aria-label={t.marqueeLabel}>
+        <div className="hero-reveal hero-reveal-5 w-full py-5 md:py-6" aria-hidden="true">
           <StatementMarquee reverse statementCards={t.statementCards} />
         </div>
 
