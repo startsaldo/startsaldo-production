@@ -515,7 +515,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
   },
 };
 
-export const SITE = "https://swiss-ledger-boutique.lovable.app";
+export const SITE = "https://startsaldo.ch";
 
 export function serviceHead(slug: ServiceSlug, lang: Lang) {
   const c = services[slug][lang];
