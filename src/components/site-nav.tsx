@@ -10,7 +10,7 @@ import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
 
 export const servicesLabel = { de: "Leistungen", en: "Services" } as const;
 
-/** Desktop dropdown listing all service and region pages. */
+/** Desktop dropdown listing the service pages. The region page stays reachable via the footer. */
 export function ServicesMenu({ lang }: { lang: Lang }) {
   return (
     <div className="group relative">
@@ -20,7 +20,7 @@ export function ServicesMenu({ lang }: { lang: Lang }) {
       </button>
       <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
         <div className="w-[240px] rounded-[16px] border border-band-foreground/15 bg-band-surface p-2 shadow-[0_24px_40px_-20px_rgba(23,32,28,0.35)]">
-          {serviceOrder.map((s) => (
+          {navOrder.map((s) => (
             <Link key={s} to={servicePaths[s][lang]} className="block rounded-[10px] px-3 py-2.5 text-[14px] font-medium text-band-foreground transition-colors hover:bg-band-foreground/10 hover:text-band-accent" activeProps={{ className: "text-band-accent" }}>
               {services[s][lang].menu}
             </Link>
@@ -37,7 +37,7 @@ export function MobileServiceLinks({ lang, onClick }: { lang: Lang; onClick?: ()
     <div className="border-b border-band-foreground/15 py-3">
       <p className="pb-2 text-base font-medium">{servicesLabel[lang]}</p>
       <div className="grid grid-cols-2 gap-x-4">
-        {serviceOrder.map((s) => (
+        {navOrder.map((s) => (
           <Link key={s} to={servicePaths[s][lang]} onClick={onClick} className="py-2 text-[15px] text-band-foreground/80 hover:text-band-accent">
             {services[s][lang].menu}
           </Link>
