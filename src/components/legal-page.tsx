@@ -1,0 +1,143 @@
+import { Link } from "@tanstack/react-router";
+import type { Lang } from "@/components/home-copy";
+import { SiteFooter, SiteHeader } from "@/components/site-nav";
+
+export type LegalKind = "imprint" | "privacy";
+
+export const legalPaths = {
+  imprint: { de: "/impressum", en: "/en/legal-notice" },
+  privacy: { de: "/datenschutz", en: "/en/privacy" },
+} as const;
+
+export const legalLabels: Record<LegalKind, Record<Lang, string>> = {
+  imprint: { de: "Impressum", en: "Legal notice" },
+  privacy: { de: "Datenschutz", en: "Privacy" },
+};
+
+/** Footer links to the legal pages, used in every footer of the site. */
+export function LegalLinks({ lang, className = "flex gap-5" }: { lang: Lang; className?: string }) {
+  return (
+    <div className={className}>
+      <Link to={legalPaths.imprint[lang]} className="hover:text-band-accent">{legalLabels.imprint[lang]}</Link>
+      <Link to={legalPaths.privacy[lang]} className="hover:text-band-accent">{legalLabels.privacy[lang]}</Link>
+    </div>
+  );
+}
+
+type Block = { h: string; p: (string | string[])[] };
+
+const company = ["Digital Trust Solutions GmbH", "Schoosstrasse 3", "6418 Rothenthurm", "Schweiz"];
+const companyEn = ["Digital Trust Solutions GmbH", "Schoosstrasse 3", "6418 Rothenthurm", "Switzerland"];
+
+const content: Record<LegalKind, Record<Lang, { title: string; blocks: Block[] }>> = {
+  imprint: {
+    de: {
+      title: "Impressum",
+      blocks: [
+        { h: "Betreiberin der Website", p: ["StartSaldo ist die Marke für den Accounting-Bereich der Digital Trust Solutions GmbH.", company] },
+        { h: "Kontakt", p: [["Telefon: +41 76 629 50 56", "E-Mail: info@startsaldo.ch"]] },
+        { h: "Vertretungsberechtigte Personen", p: ["Daniel Babbev, Audelia Babbev"] },
+        { h: "Unternehmens-Identifikationsnummer (UID)", p: ["CHE-147.018.858"] },
+        { h: "Haftungsausschluss", p: ["Die Inhalte dieser Website wurden sorgfältig erstellt. Für Richtigkeit, Vollständigkeit und Aktualität übernehmen wir jedoch keine Gewähr. Die Informationen ersetzen keine individuelle Beratung. Für Inhalte verlinkter Websites Dritter sind ausschliesslich deren Betreiber verantwortlich."] },
+        { h: "Urheberrechte", p: ["Texte, Fotos und Gestaltung dieser Website gehören der Digital Trust Solutions GmbH bzw. den genannten Rechteinhabern. Eine Verwendung ist nur mit vorgängiger schriftlicher Zustimmung erlaubt."] },
+      ],
+    },
+    en: {
+      title: "Legal notice",
+      blocks: [
+        { h: "Website operator", p: ["StartSaldo is the accounting brand of Digital Trust Solutions GmbH.", companyEn] },
+        { h: "Contact", p: [["Phone: +41 76 629 50 56", "Email: info@startsaldo.ch"]] },
+        { h: "Authorised representatives", p: ["Daniel Babbev, Audelia Babbev"] },
+        { h: "Business identification number (UID)", p: ["CHE-147.018.858"] },
+        { h: "Disclaimer", p: ["The content of this website has been prepared with care. However, we accept no liability for its accuracy, completeness or timeliness. The information does not replace individual advice. The operators of linked third-party websites are solely responsible for their content."] },
+        { h: "Copyright", p: ["Texts, photos and design on this website belong to Digital Trust Solutions GmbH or the named rights holders. Any use requires prior written consent."] },
+      ],
+    },
+  },
+  privacy: {
+    de: {
+      title: "Datenschutzerklärung",
+      blocks: [
+        { h: "Verantwortliche Stelle", p: ["Verantwortlich für die Bearbeitung von Personendaten auf dieser Website ist:", [...company, "info@startsaldo.ch"]] },
+        { h: "Grundsatz", p: ["Wir bearbeiten Personendaten gemäss dem Schweizer Bundesgesetz über den Datenschutz (DSG). Wir bearbeiten nur die Daten, die für unsere Dienstleistungen und die Kommunikation mit Ihnen nötig sind, und geben sie nicht zu Werbezwecken weiter."] },
+        { h: "Kontaktformular und E-Mail", p: ["Wenn Sie uns über das Kontaktformular oder per E-Mail schreiben, bearbeiten wir Ihre Angaben (Name, Firma, E-Mail, Telefon, Nachricht), um Ihre Anfrage zu beantworten. Die Nachrichten aus dem Kontaktformular werden über den E-Mail-Dienst Resend an uns zugestellt. Unsere E-Mails laufen über Proton (Proton AG, Genf)."] },
+        { h: "Terminbuchung", p: ["Für Terminbuchungen nutzen wir Proton Calendar der Proton AG, Genf. Wenn Sie einen Termin buchen, gelten zusätzlich die Datenschutzbestimmungen von Proton."] },
+        { h: "Dokumentenaustausch", p: ["Für den sicheren Austausch und die Ablage von Unterlagen nutzen wir Proton. Die Daten werden verschlüsselt auf Proton-Infrastruktur in der Schweiz bzw. Deutschland gespeichert."] },
+        { h: "Buchhaltungssoftware", p: ["Je nach Mandat setzen wir Buchhaltungs- und Lohnsoftware von Schweizer Anbietern ein. Ihre Daten werden dort nur im Rahmen des jeweiligen Auftrags bearbeitet."] },
+        { h: "Hosting und Server-Logdateien", p: ["Diese Website wird bei Vercel Inc. (USA) gehostet. Beim Aufruf werden technisch notwendige Daten wie IP-Adresse, Datum, Uhrzeit und aufgerufene Seite kurzzeitig in Logdateien gespeichert, um den sicheren Betrieb zu gewährleisten."] },
+        { h: "Schriftarten", p: ["Diese Website lädt die Schrift «Manrope» von Google Fonts (Google LLC, USA). Dabei wird Ihre IP-Adresse an Google übermittelt."] },
+        { h: "Google-Unternehmensprofil", p: ["Wir verlinken auf unser Profil bei Google Maps. Erst wenn Sie diesen Link anklicken, werden Daten an Google übermittelt."] },
+        { h: "Datenübermittlung ins Ausland", p: ["Einige der genannten Anbieter haben ihren Sitz in den USA. Eine Übermittlung erfolgt nur, wenn ein angemessener Datenschutz gewährleistet ist, etwa durch das Swiss-U.S. Data Privacy Framework oder Standardvertragsklauseln."] },
+        { h: "Speicherung im Browser", p: ["Wir verwenden keine Tracking- oder Werbe-Cookies. Im Browser wird lediglich Ihre Wahl zwischen hellem und dunklem Modus gespeichert."] },
+        { h: "Ihre Rechte", p: ["Sie können jederzeit Auskunft über Ihre gespeicherten Daten verlangen sowie deren Berichtigung oder Löschung beantragen. Schreiben Sie uns dazu an info@startsaldo.ch."] },
+        { h: "Änderungen", p: ["Wir können diese Datenschutzerklärung anpassen. Es gilt die jeweils auf dieser Website veröffentlichte Fassung. Stand: Oktober 2026."] },
+      ],
+    },
+    en: {
+      title: "Privacy policy",
+      blocks: [
+        { h: "Controller", p: ["The controller for processing personal data on this website is:", [...companyEn, "info@startsaldo.ch"]] },
+        { h: "Principle", p: ["We process personal data in accordance with the Swiss Federal Act on Data Protection (FADP). We only process data needed for our services and for communicating with you, and we do not share it for advertising purposes."] },
+        { h: "Contact form and email", p: ["When you write to us via the contact form or by email, we process your details (name, company, email, phone, message) to answer your enquiry. Messages from the contact form are delivered to us via the email service Resend. Our emails run on Proton (Proton AG, Geneva)."] },
+        { h: "Appointment booking", p: ["For appointment bookings we use Proton Calendar by Proton AG, Geneva. When you book an appointment, Proton's privacy policy also applies."] },
+        { h: "Document exchange", p: ["For the secure exchange and storage of documents we use Proton. The data is stored encrypted on Proton infrastructure in Switzerland or Germany."] },
+        { h: "Accounting software", p: ["Depending on the engagement, we use accounting and payroll software from Swiss providers. Your data is processed there only within the scope of the respective engagement."] },
+        { h: "Hosting and server logs", p: ["This website is hosted by Vercel Inc. (USA). When you visit, technically necessary data such as IP address, date, time and the page requested are briefly stored in log files to ensure secure operation."] },
+        { h: "Fonts", p: ["This website loads the font \u201cManrope\u201d from Google Fonts (Google LLC, USA). Your IP address is transmitted to Google in the process."] },
+        { h: "Google Business Profile", p: ["We link to our profile on Google Maps. Data is only transmitted to Google once you click this link."] },
+        { h: "Transfers abroad", p: ["Some of the providers named have their registered office in the USA. Data is only transferred where adequate data protection is ensured, for example through the Swiss-U.S. Data Privacy Framework or standard contractual clauses."] },
+        { h: "Browser storage", p: ["We do not use tracking or advertising cookies. Only your choice between light and dark mode is stored in your browser."] },
+        { h: "Your rights", p: ["You may request information about your stored data at any time and ask for it to be corrected or deleted. Please write to info@startsaldo.ch."] },
+        { h: "Changes", p: ["We may update this privacy policy. The version published on this website applies. Last updated: October 2026."] },
+      ],
+    },
+  },
+};
+
+export function LegalPage({ kind, lang }: { kind: LegalKind; lang: Lang }) {
+  const c = content[kind][lang];
+  return (
+    <>
+      <SiteHeader lang={lang} />
+      <main className="bg-background text-foreground">
+        <section className="section-pad bg-sage-soft">
+          <div className="section-shell max-w-[760px]">
+            <h1 className="heading-lg">{c.title}</h1>
+            <div className="mt-10 space-y-8">
+              {c.blocks.map((b) => (
+                <div key={b.h}>
+                  <h2 className="text-lg font-semibold">{b.h}</h2>
+                  {b.p.map((para, i) =>
+                    Array.isArray(para)
+                      ? <p key={i} className="mt-2 leading-7 text-muted-foreground">{para.map((line, j) => <span key={j}>{line}<br /></span>)}</p>
+                      : <p key={i} className="mt-2 leading-7 text-muted-foreground">{para}</p>,
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <SiteFooter lang={lang} />
+    </>
+  );
+}
+
+export function legalHead(kind: LegalKind, lang: Lang) {
+  const title = `${content[kind][lang].title} | StartSaldo`;
+  const description = kind === "imprint"
+    ? (lang === "de" ? "Impressum von StartSaldo, einer Marke der Digital Trust Solutions GmbH in Rothenthurm." : "Legal notice of StartSaldo, a brand of Digital Trust Solutions GmbH in Rothenthurm.")
+    : (lang === "de" ? "Datenschutzerklärung von StartSaldo: wie wir Ihre Personendaten nach Schweizer DSG bearbeiten." : "StartSaldo privacy policy: how we process your personal data under Swiss data protection law.");
+  const other: Lang = lang === "de" ? "en" : "de";
+  return {
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+    links: [{ rel: "alternate", hrefLang: other, href: legalPaths[kind][other] }],
+  };
+}
