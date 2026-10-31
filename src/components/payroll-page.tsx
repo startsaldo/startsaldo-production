@@ -33,7 +33,7 @@ export const payrollCopy = {
     ],
     personTitle: "Ihre Ansprechpartnerin",
     personName: "Sarah Mogel",
-    personRole: "Gründerin & Payroll Spezialistin | Sozialversicherungen",
+    personRole: "Gründerin & Spezialistin für Payroll und Sozialversicherungen",
     personText: "Bei uns landen Sie nicht in einer Warteschlange. Sie haben eine feste Ansprechpartnerin, die Ihren Betrieb kennt und Ihre Fragen zu Löhnen und Sozialversicherungen verständlich beantwortet.",
     faqTitle: "Häufige Fragen zur Lohnbuchhaltung",
     faq: [
@@ -80,7 +80,7 @@ export const payrollCopy = {
     ],
     personTitle: "Your contact person",
     personName: "Sarah Mogel",
-    personRole: "Founder & Payroll Specialist | Social Insurances",
+    personRole: "Founder & specialist for payroll and social insurances",
     personText: "With us you never end up in a queue. You have one fixed contact person who knows your business and answers your questions on payroll and social insurances clearly.",
     faqTitle: "Frequently asked questions on payroll",
     faq: [

@@ -88,7 +88,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faq: [
         ["Wie übermittle ich meine Belege?", "So, wie es für Sie am einfachsten ist – per E-Mail, als Scan oder digital. Wir besprechen das im Erstgespräch."],
         ["Kann ich nur einen Teil auslagern?", "Ja. Sie können die ganze Buchhaltung oder einzelne Aufgaben an uns übergeben."],
-        ["Arbeiten Sie mit meiner bestehenden Software?", "Sprechen Sie uns darauf an. Wir klären im Erstgespräch, welche Lösung zu Ihrem Unternehmen passt."],
+        ["Arbeiten Sie mit meiner bestehenden Software?", "Wir arbeiten standardmässig mit Banana, weil wir Ihre Daten bei uns auf Proton halten. Wenn Sie ausdrücklich ein anderes Programm wünschen, arbeiten wir auf Wunsch auch mit Bexio, Swiss21 oder Abacus."],
       ],
       endTitle: "Bereit, die Buchhaltung abzugeben?",
       endSub: "Erzählen Sie uns in einem kostenlosen und unverbindlichen Gespräch, wie Ihr Unternehmen aufgestellt ist.",
@@ -114,7 +114,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faq: [
         ["How do I send my receipts?", "Whichever way is easiest for you – by e-mail, as a scan or digitally. We discuss this in the initial meeting."],
         ["Can I outsource only part of it?", "Yes. You can hand over all of your accounting or individual tasks."],
-        ["Do you work with my existing software?", "Just ask us. In the initial meeting we clarify which solution fits your business."],
+        ["Do you work with my existing software?", "We work with Banana as standard, because we keep your data with us on Proton. If you explicitly prefer another programme, we are also happy to work with Bexio, Swiss21 or Abacus."],
       ],
       endTitle: "Ready to hand over your accounting?",
       endSub: "Tell us about your business in a free, no-obligation conversation.",
