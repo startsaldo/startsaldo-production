@@ -41,6 +41,29 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
         </div>
       </section>
 
+      {p.checklist && (
+        <section className="section-pad bg-sage-soft">
+          <div className="section-shell max-w-[900px]">
+            <Reveal className="text-center">
+              <h2 className="heading-lg">{p.checklist.title}</h2>
+              <p className="mx-auto mt-4 max-w-[600px] text-base leading-7 text-muted-foreground md:text-[18px]">{p.checklist.sub}</p>
+            </Reveal>
+            <ul className="mt-10 grid gap-4 md:mt-14 md:grid-cols-2 md:gap-x-8">
+              {p.checklist.items.map((item, i) => (
+                <li key={item}>
+                  <Reveal delay={i * 60}>
+                    <div className="flex h-full items-start gap-4 rounded-[16px] border border-border bg-card p-5">
+                      <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-md border border-primary/30 text-primary"><Check className="size-3.5" strokeWidth={2} /></span>
+                      <span className="text-[15px] leading-6">{item}</span>
+                    </div>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       <section className="section-pad bg-card">
         <div className="section-shell">
           <Reveal><h2 className="heading-lg text-center">{p.blocksTitle}</h2></Reveal>
