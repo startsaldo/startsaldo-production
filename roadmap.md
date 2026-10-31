@@ -16,3 +16,4 @@
 - [x] Add a «Auf Google bewerten» link to the contact area of the home page (both languages).
 - [x] Add a founder checklist section to the start-ups page (both languages).
 - [x] Serve the web font locally instead of loading it from Google Fonts.
+- [x] Give the three regional pages their own wording (service block title, item phrasing, one extra question each).
