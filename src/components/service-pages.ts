@@ -1,7 +1,7 @@
 import type { Lang } from "@/components/home-copy";
 import { payrollCopy } from "@/components/payroll-page";
 
-export type ServiceSlug = "finanzbuchhaltung" | "lohnbuchhaltung" | "mwst" | "steuern" | "jahresabschluss" | "krypto" | "schwyz";
+export type ServiceSlug = "finanzbuchhaltung" | "lohnbuchhaltung" | "mwst" | "steuern" | "jahresabschluss" | "krypto" | "startups" | "schwyz" | "zug";
 export type Person = "sarah" | "audelia";
 
 export type ServiceCopy = {
@@ -31,11 +31,14 @@ export const servicePaths = {
   steuern: { de: "/steuern", en: "/en/tax" },
   jahresabschluss: { de: "/jahresabschluss", en: "/en/annual-accounts" },
   krypto: { de: "/krypto", en: "/en/crypto" },
+  startups: { de: "/gruendung-startups", en: "/en/startups" },
   schwyz: { de: "/buchhaltung-schwyz", en: "/en/accounting-schwyz" },
+  zug: { de: "/buchhaltung-zug", en: "/en/accounting-zug" },
 } as const;
 
-export const serviceOrder: ServiceSlug[] = ["finanzbuchhaltung", "lohnbuchhaltung", "mwst", "steuern", "jahresabschluss", "krypto", "schwyz"];
-export const navOrder: ServiceSlug[] = serviceOrder.filter((s) => s !== "schwyz");
+export const serviceOrder: ServiceSlug[] = ["finanzbuchhaltung", "lohnbuchhaltung", "mwst", "steuern", "jahresabschluss", "krypto", "startups", "schwyz", "zug"];
+/** Header menu: core services only; start-up and region pages stay footer-only. */
+export const navOrder: ServiceSlug[] = serviceOrder.filter((s) => s !== "startups" && s !== "schwyz" && s !== "zug");
 
 const stdProcess = {
   de: [
@@ -402,9 +405,117 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       metaDesc: "Financial accounting and payroll for SMEs and start-ups in the canton of Schwyz: Rothenthurm, Einsiedeln, Schwyz, Pfäffikon SZ and surroundings – personally by StartSaldo.",
     },
   },
+  startups: {
+    de: {
+      ...de,
+      menu: "Gründung & Start-ups",
+      title: "Buchhaltung für Neugründer",
+      titleAccent: "Von Anfang an sauber aufgestellt.",
+      sub: "Wir begleiten Start-ups und Neugründungen ab dem ersten Beleg – persönlich und digital.",
+      blocksTitle: "Was wir für Sie übernehmen",
+      blocks: [
+        { title: "Der Start", items: ["Eröffnungsbilanz", "Passender Kontenplan", "Einrichtung einer digitalen Buchhaltung", "Klärung der MWST-Pflicht"] },
+        { title: "Die ersten Mitarbeitenden", items: ["Anmeldung bei der Ausgleichskasse (AHV)", "Klärung von BVG und UV", "Erste Lohnabrechnungen", "Ein- und Austritte"] },
+        { title: "Laufend", items: ["Laufende Buchhaltung", "MWST-Abrechnungen", "Jahresabschluss", "Steuererklärung"] },
+      ],
+      process: stdProcess.de,
+      people: ["audelia"],
+      personText: "Gerade am Anfang gibt es viele Fragen. Wir nehmen uns Zeit und sorgen dafür, dass Ihre Buchhaltung von Beginn an stimmt.",
+      faqTitle: "Häufige Fragen",
+      faq: [
+        ["Ab wann brauche ich eine Buchhaltung?", "Ab der Gründung. Je früher alles sauber eingerichtet ist, desto einfacher wird später der Jahresabschluss."],
+        ["Muss ich mich für die MWST anmelden?", "Das hängt von Ihrem Umsatz und Ihrer Tätigkeit ab. Wir klären das gemeinsam mit Ihnen."],
+        ["Wie starte ich?", "Mit einem unverbindlichen Erstgespräch. Buchen Sie einfach einen Termin."],
+      ],
+      endTitle: "Sie gründen gerade?",
+      endSub: "Lassen Sie uns im unverbindlichen Erstgespräch über Ihren Start sprechen.",
+      metaTitle: "Buchhaltung für Start-ups & Neugründungen Schweiz | StartSaldo",
+      metaDesc: "Buchhaltung für Start-ups und Neugründungen in der Schweiz: Eröffnungsbilanz, MWST-Pflicht, AHV-Anmeldung und digitale Buchhaltung – persönlich von StartSaldo.",
+    },
+    en: {
+      ...en,
+      menu: "Founders & start-ups",
+      title: "Accounting for founders",
+      titleAccent: "Set up properly from day one.",
+      sub: "We support start-ups and new companies from the very first receipt – personally and digitally.",
+      blocksTitle: "What we take care of",
+      blocks: [
+        { title: "The start", items: ["Opening balance sheet", "Suitable chart of accounts", "Setting up digital accounting", "Clarifying VAT liability"] },
+        { title: "Your first employees", items: ["Registration with the compensation fund (AHV)", "Clarifying BVG and UV", "First payslips", "Onboarding and offboarding"] },
+        { title: "Ongoing", items: ["Ongoing bookkeeping", "VAT returns", "Annual accounts", "Tax returns"] },
+      ],
+      process: stdProcess.en,
+      people: ["audelia"],
+      personText: "There are many questions at the beginning. We take our time and make sure your accounting is right from the start.",
+      faqTitle: "Frequently asked questions",
+      faq: [
+        ["When do I need accounting?", "From the moment you found your company. The earlier everything is set up properly, the easier the annual accounts will be."],
+        ["Do I have to register for VAT?", "That depends on your turnover and activity. We clarify this together with you."],
+        ["How do I start?", "With a free initial consultation. Simply book an appointment."],
+      ],
+      endTitle: "Founding a company?",
+      endSub: "Let's talk about your start in a free initial consultation.",
+      metaTitle: "Accounting for start-ups & new companies Switzerland | StartSaldo",
+      metaDesc: "Accounting for start-ups and new companies in Switzerland: opening balance, VAT liability, AHV registration and digital accounting – personally by StartSaldo.",
+    },
+  },
+  zug: {
+    de: {
+      ...de,
+      menu: "Region Zug",
+      title: "Buchhaltung im Kanton Zug",
+      titleAccent: "Persönlich betreut, digital verbunden.",
+      sub: "Finanz- und Lohnbuchhaltung für KMU und Start-ups in Zug – mit Spezialisierung auf Crypto Trading.",
+      blocksTitle: "Für KMU und Start-ups in Zug",
+      blocks: [
+        { title: "Wo wir für Sie da sind", items: ["Stadt Zug und Baar", "Cham und Steinhausen", "Rotkreuz und Risch", "Unterägeri und Oberägeri", "Die ganze Schweiz – digital"] },
+        { title: "Was wir übernehmen", items: ["Finanzbuchhaltung und Jahresabschluss", "Lohnbuchhaltung und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung", "Krypto-Buchhaltung"] },
+        { title: "Warum StartSaldo", items: ["Spezialisiert auf Crypto Trading", "Erfahrung mit Start-ups", "Feste Ansprechpartnerinnen", "Schnelle Antworten"] },
+      ],
+      process: stdProcess.de,
+      people: ["audelia"],
+      personText: "Von Rothenthurm aus ist Zug nah. Wir betreuen KMU und Start-ups aus dem Kanton Zug persönlich und digital.",
+      faqTitle: "Häufige Fragen",
+      faq: [
+        ["Betreuen Sie Unternehmen im Kanton Zug?", "Ja. Wir arbeiten digital und unkompliziert mit Kunden aus Zug und der ganzen Schweiz zusammen."],
+        ["Kennen Sie sich mit Krypto aus?", "Ja, wir sind auf die Buchhaltung und Steuererklärung von Crypto Trades spezialisiert."],
+        ["Wie starte ich?", "Mit einem unverbindlichen Erstgespräch. Buchen Sie einfach einen Termin."],
+      ],
+      endTitle: "Lernen wir uns kennen?",
+      endSub: "Buchen Sie ein unverbindliches Erstgespräch.",
+      metaTitle: "Buchhaltung Zug, Baar & Cham | StartSaldo",
+      metaDesc: "Finanz- und Lohnbuchhaltung für KMU und Start-ups im Kanton Zug: Zug, Baar, Cham, Steinhausen – spezialisiert auf Crypto Trading. Persönlich von StartSaldo.",
+    },
+    en: {
+      ...en,
+      menu: "Zug region",
+      title: "Accounting in the canton of Zug",
+      titleAccent: "Personal support, digitally connected.",
+      sub: "Financial accounting and payroll for SMEs and start-ups in Zug – specialised in crypto trading.",
+      blocksTitle: "For SMEs and start-ups in Zug",
+      blocks: [
+        { title: "Where we are there for you", items: ["Zug and Baar", "Cham and Steinhausen", "Rotkreuz and Risch", "Unterägeri and Oberägeri", "All of Switzerland – digitally"] },
+        { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurances", "VAT returns", "Tax returns", "Crypto accounting"] },
+        { title: "Why StartSaldo", items: ["Specialised in crypto trading", "Experience with start-ups", "Fixed contact persons", "Quick answers"] },
+      ],
+      process: stdProcess.en,
+      people: ["audelia"],
+      personText: "Zug is close to Rothenthurm. We personally and digitally look after SMEs and start-ups from the canton of Zug.",
+      faqTitle: "Frequently asked questions",
+      faq: [
+        ["Do you serve companies in the canton of Zug?", "Yes. We work digitally and easily with clients from Zug and all of Switzerland."],
+        ["Do you know crypto?", "Yes, we specialise in accounting and tax returns for crypto trades."],
+        ["How do I start?", "With a free initial consultation. Simply book an appointment."],
+      ],
+      endTitle: "Shall we meet?",
+      endSub: "Book a free initial consultation.",
+      metaTitle: "Accounting in Zug, Baar & Cham | StartSaldo",
+      metaDesc: "Financial accounting and payroll for SMEs and start-ups in the canton of Zug: Zug, Baar, Cham, Steinhausen – specialised in crypto trading. Personally by StartSaldo.",
+    },
+  },
 };
 
-export const SITE = "https://swiss-ledger-boutique.lovable.app";
+export const SITE = "https://startsaldo.ch";
 
 export function serviceHead(slug: ServiceSlug, lang: Lang) {
   const c = services[slug][lang];

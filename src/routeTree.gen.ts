@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BuchhaltungSchwyzRouteImport } from './routes/buchhaltung-schwyz'
+import { Route as BuchhaltungZugRouteImport } from './routes/buchhaltung-zug'
 import { Route as EnRouteImport } from './routes/en'
 import { Route as FinanzbuchhaltungRouteImport } from './routes/finanzbuchhaltung'
+import { Route as GruendungStartupsRouteImport } from './routes/gruendung-startups'
 import { Route as JahresabschlussRouteImport } from './routes/jahresabschluss'
 import { Route as KryptoRouteImport } from './routes/krypto'
 import { Route as LohnbuchhaltungRouteImport } from './routes/lohnbuchhaltung'
@@ -23,9 +25,11 @@ import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as EnAccountingRouteImport } from './routes/en.accounting'
 import { Route as EnAccountingSchwyzRouteImport } from './routes/en.accounting-schwyz'
+import { Route as EnAccountingZugRouteImport } from './routes/en.accounting-zug'
 import { Route as EnAnnualAccountsRouteImport } from './routes/en.annual-accounts'
 import { Route as EnCryptoRouteImport } from './routes/en.crypto'
 import { Route as EnPayrollRouteImport } from './routes/en.payroll'
+import { Route as EnStartupsRouteImport } from './routes/en.startups'
 import { Route as EnTaxRouteImport } from './routes/en.tax'
 import { Route as EnTerminRouteImport } from './routes/en.termin'
 import { Route as EnVatRouteImport } from './routes/en.vat'
@@ -40,6 +44,11 @@ const BuchhaltungSchwyzRoute = BuchhaltungSchwyzRouteImport.update({
   path: '/buchhaltung-schwyz',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BuchhaltungZugRoute = BuchhaltungZugRouteImport.update({
+  id: '/buchhaltung-zug',
+  path: '/buchhaltung-zug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnRoute = EnRouteImport.update({
   id: '/en',
   path: '/en',
@@ -48,6 +57,11 @@ const EnRoute = EnRouteImport.update({
 const FinanzbuchhaltungRoute = FinanzbuchhaltungRouteImport.update({
   id: '/finanzbuchhaltung',
   path: '/finanzbuchhaltung',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GruendungStartupsRoute = GruendungStartupsRouteImport.update({
+  id: '/gruendung-startups',
+  path: '/gruendung-startups',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JahresabschlussRoute = JahresabschlussRouteImport.update({
@@ -100,6 +114,11 @@ const EnAccountingSchwyzRoute = EnAccountingSchwyzRouteImport.update({
   path: '/accounting-schwyz',
   getParentRoute: () => EnRoute,
 } as any)
+const EnAccountingZugRoute = EnAccountingZugRouteImport.update({
+  id: '/accounting-zug',
+  path: '/accounting-zug',
+  getParentRoute: () => EnRoute,
+} as any)
 const EnAnnualAccountsRoute = EnAnnualAccountsRouteImport.update({
   id: '/annual-accounts',
   path: '/annual-accounts',
@@ -113,6 +132,11 @@ const EnCryptoRoute = EnCryptoRouteImport.update({
 const EnPayrollRoute = EnPayrollRouteImport.update({
   id: '/payroll',
   path: '/payroll',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnStartupsRoute = EnStartupsRouteImport.update({
+  id: '/startups',
+  path: '/startups',
   getParentRoute: () => EnRoute,
 } as any)
 const EnTaxRoute = EnTaxRouteImport.update({
@@ -134,8 +158,10 @@ const EnVatRoute = EnVatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
+  '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/en': typeof EnRouteWithChildren
   '/finanzbuchhaltung': typeof FinanzbuchhaltungRoute
+  '/gruendung-startups': typeof GruendungStartupsRoute
   '/jahresabschluss': typeof JahresabschlussRoute
   '/krypto': typeof KryptoRoute
   '/lohnbuchhaltung': typeof LohnbuchhaltungRoute
@@ -145,9 +171,11 @@ export interface FileRoutesByFullPath {
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
+  '/en/accounting-zug': typeof EnAccountingZugRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
   '/en/crypto': typeof EnCryptoRoute
   '/en/payroll': typeof EnPayrollRoute
+  '/en/startups': typeof EnStartupsRoute
   '/en/tax': typeof EnTaxRoute
   '/en/termin': typeof EnTerminRoute
   '/en/vat': typeof EnVatRoute
@@ -156,7 +184,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
+  '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/finanzbuchhaltung': typeof FinanzbuchhaltungRoute
+  '/gruendung-startups': typeof GruendungStartupsRoute
   '/jahresabschluss': typeof JahresabschlussRoute
   '/krypto': typeof KryptoRoute
   '/lohnbuchhaltung': typeof LohnbuchhaltungRoute
@@ -166,9 +196,11 @@ export interface FileRoutesByTo {
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
+  '/en/accounting-zug': typeof EnAccountingZugRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
   '/en/crypto': typeof EnCryptoRoute
   '/en/payroll': typeof EnPayrollRoute
+  '/en/startups': typeof EnStartupsRoute
   '/en/tax': typeof EnTaxRoute
   '/en/termin': typeof EnTerminRoute
   '/en/vat': typeof EnVatRoute
@@ -178,8 +210,10 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
+  '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/en': typeof EnRouteWithChildren
   '/finanzbuchhaltung': typeof FinanzbuchhaltungRoute
+  '/gruendung-startups': typeof GruendungStartupsRoute
   '/jahresabschluss': typeof JahresabschlussRoute
   '/krypto': typeof KryptoRoute
   '/lohnbuchhaltung': typeof LohnbuchhaltungRoute
@@ -189,9 +223,11 @@ export interface FileRoutesById {
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
+  '/en/accounting-zug': typeof EnAccountingZugRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
   '/en/crypto': typeof EnCryptoRoute
   '/en/payroll': typeof EnPayrollRoute
+  '/en/startups': typeof EnStartupsRoute
   '/en/tax': typeof EnTaxRoute
   '/en/termin': typeof EnTerminRoute
   '/en/vat': typeof EnVatRoute
@@ -202,8 +238,10 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/buchhaltung-schwyz'
+    | '/buchhaltung-zug'
     | '/en'
     | '/finanzbuchhaltung'
+    | '/gruendung-startups'
     | '/jahresabschluss'
     | '/krypto'
     | '/lohnbuchhaltung'
@@ -213,9 +251,11 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/en/accounting'
     | '/en/accounting-schwyz'
+    | '/en/accounting-zug'
     | '/en/annual-accounts'
     | '/en/crypto'
     | '/en/payroll'
+    | '/en/startups'
     | '/en/tax'
     | '/en/termin'
     | '/en/vat'
@@ -224,7 +264,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/buchhaltung-schwyz'
+    | '/buchhaltung-zug'
     | '/finanzbuchhaltung'
+    | '/gruendung-startups'
     | '/jahresabschluss'
     | '/krypto'
     | '/lohnbuchhaltung'
@@ -234,9 +276,11 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/en/accounting'
     | '/en/accounting-schwyz'
+    | '/en/accounting-zug'
     | '/en/annual-accounts'
     | '/en/crypto'
     | '/en/payroll'
+    | '/en/startups'
     | '/en/tax'
     | '/en/termin'
     | '/en/vat'
@@ -245,8 +289,10 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/buchhaltung-schwyz'
+    | '/buchhaltung-zug'
     | '/en'
     | '/finanzbuchhaltung'
+    | '/gruendung-startups'
     | '/jahresabschluss'
     | '/krypto'
     | '/lohnbuchhaltung'
@@ -256,9 +302,11 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/en/accounting'
     | '/en/accounting-schwyz'
+    | '/en/accounting-zug'
     | '/en/annual-accounts'
     | '/en/crypto'
     | '/en/payroll'
+    | '/en/startups'
     | '/en/tax'
     | '/en/termin'
     | '/en/vat'
@@ -268,8 +316,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BuchhaltungSchwyzRoute: typeof BuchhaltungSchwyzRoute
+  BuchhaltungZugRoute: typeof BuchhaltungZugRoute
   EnRoute: typeof EnRouteWithChildren
   FinanzbuchhaltungRoute: typeof FinanzbuchhaltungRoute
+  GruendungStartupsRoute: typeof GruendungStartupsRoute
   JahresabschlussRoute: typeof JahresabschlussRoute
   KryptoRoute: typeof KryptoRoute
   LohnbuchhaltungRoute: typeof LohnbuchhaltungRoute
@@ -295,6 +345,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuchhaltungSchwyzRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/buchhaltung-zug': {
+      id: '/buchhaltung-zug'
+      path: '/buchhaltung-zug'
+      fullPath: '/buchhaltung-zug'
+      preLoaderRoute: typeof BuchhaltungZugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en': {
       id: '/en'
       path: '/en'
@@ -307,6 +364,13 @@ declare module '@tanstack/react-router' {
       path: '/finanzbuchhaltung'
       fullPath: '/finanzbuchhaltung'
       preLoaderRoute: typeof FinanzbuchhaltungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gruendung-startups': {
+      id: '/gruendung-startups'
+      path: '/gruendung-startups'
+      fullPath: '/gruendung-startups'
+      preLoaderRoute: typeof GruendungStartupsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/jahresabschluss': {
@@ -379,6 +443,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnAccountingSchwyzRouteImport
       parentRoute: typeof EnRoute
     }
+    '/en/accounting-zug': {
+      id: '/en/accounting-zug'
+      path: '/accounting-zug'
+      fullPath: '/en/accounting-zug'
+      preLoaderRoute: typeof EnAccountingZugRouteImport
+      parentRoute: typeof EnRoute
+    }
     '/en/annual-accounts': {
       id: '/en/annual-accounts'
       path: '/annual-accounts'
@@ -398,6 +469,13 @@ declare module '@tanstack/react-router' {
       path: '/payroll'
       fullPath: '/en/payroll'
       preLoaderRoute: typeof EnPayrollRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/startups': {
+      id: '/en/startups'
+      path: '/startups'
+      fullPath: '/en/startups'
+      preLoaderRoute: typeof EnStartupsRouteImport
       parentRoute: typeof EnRoute
     }
     '/en/tax': {
@@ -427,9 +505,11 @@ declare module '@tanstack/react-router' {
 interface EnRouteChildren {
   EnAccountingRoute: typeof EnAccountingRoute
   EnAccountingSchwyzRoute: typeof EnAccountingSchwyzRoute
+  EnAccountingZugRoute: typeof EnAccountingZugRoute
   EnAnnualAccountsRoute: typeof EnAnnualAccountsRoute
   EnCryptoRoute: typeof EnCryptoRoute
   EnPayrollRoute: typeof EnPayrollRoute
+  EnStartupsRoute: typeof EnStartupsRoute
   EnTaxRoute: typeof EnTaxRoute
   EnTerminRoute: typeof EnTerminRoute
   EnVatRoute: typeof EnVatRoute
@@ -439,9 +519,11 @@ interface EnRouteChildren {
 const EnRouteChildren: EnRouteChildren = {
   EnAccountingRoute: EnAccountingRoute,
   EnAccountingSchwyzRoute: EnAccountingSchwyzRoute,
+  EnAccountingZugRoute: EnAccountingZugRoute,
   EnAnnualAccountsRoute: EnAnnualAccountsRoute,
   EnCryptoRoute: EnCryptoRoute,
   EnPayrollRoute: EnPayrollRoute,
+  EnStartupsRoute: EnStartupsRoute,
   EnTaxRoute: EnTaxRoute,
   EnTerminRoute: EnTerminRoute,
   EnVatRoute: EnVatRoute,
@@ -453,8 +535,10 @@ const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BuchhaltungSchwyzRoute: BuchhaltungSchwyzRoute,
+  BuchhaltungZugRoute: BuchhaltungZugRoute,
   EnRoute: EnRouteWithChildren,
   FinanzbuchhaltungRoute: FinanzbuchhaltungRoute,
+  GruendungStartupsRoute: GruendungStartupsRoute,
   JahresabschlussRoute: JahresabschlussRoute,
   KryptoRoute: KryptoRoute,
   LohnbuchhaltungRoute: LohnbuchhaltungRoute,
