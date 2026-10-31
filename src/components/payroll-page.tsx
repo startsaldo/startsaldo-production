@@ -3,7 +3,7 @@ export const payrollCopy = {
     title: "Lohnbuchhaltung für Schweizer KMU und Start-ups",
     titleAccent: "Pünktlich, korrekt und persönlich.",
     sub: "Von der monatlichen Lohnabrechnung bis zum Lohnausweis Ende Jahr.",
-    cta: "Unverbindliches Erstgespräch",
+    cta: "Kostenloses Erstgespräch",
     ctaContact: "Kontakt aufnehmen",
     blocksTitle: "Was wir für Sie übernehmen",
     blocks: [
@@ -43,7 +43,7 @@ export const payrollCopy = {
       ["Übernehmen Sie auch die Finanzbuchhaltung?", "Ja. Auf Wunsch übernehmen wir auch die laufende Buchhaltung, MWST und den Jahresabschluss – alles aus einer Hand."],
     ],
     endTitle: "Bereit, die Lohnbuchhaltung abzugeben?",
-    endSub: "Erzählen Sie uns in einem unverbindlichen Gespräch, wie Ihr Betrieb aufgestellt ist.",
+    endSub: "Erzählen Sie uns in einem kostenlosen und unverbindlichen Gespräch, wie Ihr Betrieb aufgestellt ist.",
     back: "Zur Startseite",
   },
   en: {
