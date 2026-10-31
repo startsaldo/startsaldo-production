@@ -369,7 +369,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Wo wir für Sie da sind", items: ["Rothenthurm und Biberbrugg", "Einsiedeln und Sattel", "Schwyz und Brunnen", "Pfäffikon SZ, Lachen und Ausserschwyz", "Zug und die ganze Schweiz – digital"] },
         { title: "Ihr Alltag mit uns", items: ["Laufende Finanzbuchhaltung", "Monatlicher Lohnlauf und Sozialversicherungen", "MWST-Abrechnungen innert Frist", "Jahresabschluss und Steuererklärung", "Krypto-Transaktionen"] },
-        { title: "Warum lokal", items: ["Rothenthurm im Kanton Schwyz", "Vom Gewerbebetrieb bis zum Start-up", "Feste Ansprechpartnerinnen", "Volldigital in der ganzen Schweiz"] },
+        { title: "Warum lokal", items: ["Wir kennen die Schwyzer Steuerbehörde und Ausgleichskassen aus der täglichen Arbeit", "Vom Gewerbebetrieb bis zum Start-up", "Feste Ansprechpartnerinnen", "Volldigital in der ganzen Schweiz"] },
       ],
       process: stdProcess.de,
       people: ["audelia"],
@@ -396,7 +396,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Areas we serve", items: ["Rothenthurm and Biberbrugg", "Einsiedeln and Sattel", "Schwyz and Brunnen", "Pfäffikon SZ, Lachen and Ausserschwyz", "Zug and all of Switzerland – digitally"] },
         { title: "Your day to day with us", items: ["Ongoing financial accounting", "Monthly payroll and social insurance", "VAT returns filed on time", "Annual accounts and tax return", "Crypto transactions"] },
-        { title: "Why local", items: ["Rothenthurm in the canton of Schwyz", "From trades businesses to start-ups", "Fixed contact persons", "Fully digital across Switzerland"] },
+        { title: "Why local", items: ["We know the Schwyz tax office and compensation funds from our day-to-day work", "From trades businesses to start-ups", "Fixed contact persons", "Fully digital across Switzerland"] },
       ],
       process: stdProcess.en,
       people: ["audelia"],
@@ -429,7 +429,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       ],
       checklist: {
         title: "Checkliste für die Gründung",
-        sub: "Diese Punkte stehen nach einer Neugründung an. Wir prüfen sie gemeinsam und übernehmen, was Sie möchten.",
+        sub: "Diese Punkte sind vor, während und nach einer Firmengründung wichtig. Wir prüfen sie gemeinsam und übernehmen die Aufgaben, bei denen Sie Unterstützung wünschen.",
         items: [
           "Rechtsform festlegen und Gesellschaft gründen",
           "Eintrag ins Handelsregister",
@@ -470,7 +470,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       ],
       checklist: {
         title: "Checklist for founders",
-        sub: "These are the points that come up after founding a company. We review them together and take over whatever you would like.",
+        sub: "These steps are relevant before, during and after setting up a company. We review them together and support you where needed.",
         items: [
           "Choose the legal form and found the company",
           "Entry in the commercial register",
@@ -508,12 +508,12 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "Für KMU und Start-ups in Zug",
       blocks: [
         { title: "Wo wir für Sie da sind", items: ["Stadt Zug und Baar", "Cham und Steinhausen", "Rotkreuz und Risch", "Unterägeri und Oberägeri", "Die ganze Schweiz – digital"] },
-        { title: "Womit wir Zuger Firmen entlasten", items: ["Finanzbuchhaltung und Jahresrechnung", "Löhne und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung Ihrer Firma", "Krypto-Buchhaltung und Ausweise"] },
+        { title: "Womit wir Zuger Firmen entlasten", items: ["Finanzbuchhaltung und Jahresrechnung", "Löhne und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung Ihrer Firma", "Krypto-Buchhaltung und steuerliche Dokumentation"] },
         { title: "Warum StartSaldo", items: ["Spezialisiert auf Krypto-Transaktionen", "Erfahrung mit Start-ups", "Feste Ansprechpartnerinnen", "Volldigital im ganzen Kanton"] },
       ],
       process: stdProcess.de,
       people: ["audelia"],
-      personText: "Der Kanton Zug zieht Start-ups und Handelsfirmen an. Wir betreuen Zuger KMU und Start-ups volldigital – von der laufenden Buchhaltung bis zur Krypto-Verrechnung.",
+      personText: "Der Kanton Zug zieht Start-ups und Handelsfirmen an. Wir betreuen Zuger KMU und Start-ups volldigital – von der laufenden Buchhaltung bis zur Verbuchung von Krypto-Transaktionen.",
       faqTitle: "Häufige Fragen",
       faq: [
         ["Betreuen Sie Unternehmen im Kanton Zug?", "Ja. Wir arbeiten digital und unkompliziert mit Kunden aus Zug und der ganzen Schweiz zusammen."],
@@ -535,12 +535,12 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "For SMEs and start-ups in Zug",
       blocks: [
         { title: "Areas we serve", items: ["Zug and Baar", "Cham and Steinhausen", "Rotkreuz and Risch", "Unterägeri and Oberägeri", "All of Switzerland – digitally"] },
-        { title: "How we take the load off Zug companies", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Your company's tax return", "Crypto accounting and statements"] },
+        { title: "How we take the load off Zug companies", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Your company's tax return", "Crypto accounting and tax documentation"] },
         { title: "Why StartSaldo", items: ["Specialised in crypto transactions", "Experience with start-ups", "Fixed contact persons", "Fully digital across the canton"] },
       ],
       process: stdProcess.en,
       people: ["audelia"],
-      personText: "The canton of Zug attracts start-ups and trading companies. We look after SMEs and start-ups from Zug fully digitally – from day-to-day bookkeeping to crypto settlements.",
+      personText: "The canton of Zug attracts start-ups and trading companies. We look after SMEs and start-ups from Zug fully digitally – from day-to-day bookkeeping to crypto transaction accounting.",
       faqTitle: "Frequently asked questions",
       faq: [
         ["Do you serve companies in the canton of Zug?", "Yes. We work digitally and easily with clients from Zug and all of Switzerland."],
@@ -565,7 +565,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Wo wir für Sie da sind", items: ["Wollerau und Feusisberg", "Freienbach und Pfäffikon SZ", "Bäch, Wilen und Hurden", "Lachen, Altendorf und die March", "Die ganze Schweiz – digital"] },
         { title: "Womit wir Sie am oberen Zürichsee entlasten", items: ["Laufende Buchhaltung", "Lohnabrechnungen und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung der Firma", "Krypto in Buchhaltung und Steuern"] },
-        { title: "Warum StartSaldo", items: ["Vom Kanton Schwyz zum oberen Zürichsee", "Spezialisiert auf Krypto-Transaktionen", "Feste Ansprechpartnerinnen", "Alles volldigital"] },
+        { title: "Warum StartSaldo", items: ["Persönliche Betreuung – verschlüsselt über Proton", "Spezialisiert auf Krypto-Transaktionen", "Feste Ansprechpartnerinnen", "Alles volldigital"] },
       ],
       process: stdProcess.de,
       people: ["audelia"],
@@ -592,7 +592,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Areas we serve", items: ["Wollerau and Feusisberg", "Freienbach and Pfäffikon SZ", "Bäch, Wilen and Hurden", "Lachen, Altendorf and the March district", "All of Switzerland – digitally"] },
         { title: "How we lighten your load on Upper Lake Zurich", items: ["Ongoing bookkeeping", "Payslips and social insurance", "VAT returns", "Your company's tax return", "Crypto in accounting and taxes"] },
-        { title: "Why StartSaldo", items: ["From the canton of Schwyz to Upper Lake Zurich", "Specialised in crypto transactions", "Fixed contact persons", "Everything fully digital"] },
+        { title: "Why StartSaldo", items: ["Personal support – encrypted via Proton", "Specialised in crypto transactions", "Fixed contact persons", "Everything fully digital"] },
       ],
       process: stdProcess.en,
       people: ["audelia"],
