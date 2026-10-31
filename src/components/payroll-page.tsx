@@ -38,7 +38,7 @@ export const payrollCopy = {
     faqTitle: "Häufige Fragen zur Lohnbuchhaltung",
     faq: [
       ["Lohnt sich die Auslagerung auch für kleine Betriebe?", "Ja. Gerade bei wenigen Mitarbeitenden ist der Aufwand für Sozialversicherungen, Quellensteuer und Lohnausweise im Verhältnis gross. Wir nehmen Ihnen diese Arbeit ab."],
-      ["Wie übermittle ich Stunden und Spesen?", "Ganz so, wie es für Sie am einfachsten ist – per E-Mail, als Liste oder digital. Wir besprechen das im Erstgespräch."],
+      ["Wie übermittle ich Stunden und Spesen?", "Ganz so, wie es für Sie am einfachsten ist – per E-Mail, als Liste oder digital. Ihre Lohndaten übermitteln wir über Proton: verschlüsselt, diskret und auf Schweizer Infrastruktur. Wir besprechen das im Erstgespräch."],
       ["Was passiert bei einem Ein- oder Austritt?", "Sie informieren uns, wir kümmern uns um alle An- und Abmeldungen bei den Versicherungen und um die nötigen Bescheinigungen."],
       ["Übernehmen Sie auch die Finanzbuchhaltung?", "Ja. Auf Wunsch übernehmen wir auch die laufende Buchhaltung, MWST und den Jahresabschluss – alles aus einer Hand."],
     ],
@@ -73,7 +73,7 @@ export const payrollCopy = {
     ],
     processTitle: "How we work together",
     process: [
-      ["Initial meeting", "We get to know your business, your employees and your insurances."],
+      ["Initial meeting", "We get to know your business, your employees and your insurance partners."],
       ["Onboarding", "We take over the master data and set up your payroll properly."],
       ["Monthly", "You send us hours, expenses and changes – by e-mail or digitally. We do the payroll."],
       ["Year end", "We prepare salary certificates and declarations on time."],
@@ -85,7 +85,7 @@ export const payrollCopy = {
     faqTitle: "Frequently asked questions on payroll",
     faq: [
       ["Is outsourcing worthwhile for small businesses?", "Yes. Especially with few employees, the effort for social insurance, withholding tax and salary certificates is relatively high. We take this work off your hands."],
-      ["How do I send hours and expenses?", "Whichever way is easiest for you – by e-mail, as a list or digitally. We discuss this in the initial meeting."],
+      ["How do I send hours and expenses?", "Whichever way is easiest for you – by e-mail, as a list or digitally. We exchange payroll data via Proton: encrypted, discreet and on Swiss infrastructure. We discuss this in the initial meeting."],
       ["What happens when someone joins or leaves?", "You let us know, and we handle all registrations with the insurers and the required certificates."],
       ["Do you also do financial accounting?", "Yes. On request we also handle bookkeeping, VAT and the annual accounts – all from one source."],
     ],

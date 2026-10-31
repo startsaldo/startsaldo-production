@@ -76,7 +76,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       titleAccent: "Sauber gebucht, klar erklärt.",
       sub: "Von den laufenden Belegen bis zur Bankabstimmung.",
       blocks: [
-        { title: "Laufende Buchhaltung", items: ["Erfassung Ihrer Geschäftsfälle", "Bank- und Kontenabstimmungen", "Kassabuch und Spesen", "Digitale Ablage Ihrer Belege", "Verbuchung Ihrer Crypto Trades"] },
+        { title: "Laufende Buchhaltung", items: ["Erfassung Ihrer Geschäftsfälle", "Bank- und Kontenabstimmungen", "Kassabuch und Spesen", "Digitale Ablage Ihrer Belege", "Verbuchung Ihrer Krypto-Transaktionen"] },
         { title: "Debitoren und Kreditoren", items: ["Verbuchung von Kunden- und Lieferantenrechnungen", "Übersicht über offene Posten", "Vorbereitung von Zahlungen", "Abstimmung der Konten"] },
         { title: "Abschlüsse", items: ["Monats- und Quartalsabschlüsse", "Jahresabschluss", "Abgrenzungen und Rückstellungen", "Übersichtliche Auswertungen"] },
         { title: "Aus einer Hand", items: ["MWST-Abrechnungen", "Steuererklärung Ihres Unternehmens", "Abstimmung mit der Lohnbuchhaltung", "Feste Ansprechpartnerin"] },
@@ -163,7 +163,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Häufige Fragen zur MWST",
       faq: [
         ["Ab wann bin ich mehrwertsteuerpflichtig?", "In der Regel ab einem Jahresumsatz von CHF 100'000 aus steuerbaren Leistungen. Wir klären gerne mit Ihnen ab, ob und ab wann das für Sie gilt."],
-        ["Effektive Methode oder Saldosteuersatz?", "Das hängt von Ihrer Branche, Ihren Kosten und Ihrem Aufwand ab. Wir zeigen Ihnen die Unterschiede und was für Sie sinnvoll ist."],
+        ["Effektive Methode oder Saldosteuersatz?", "Das hängt von Ihrer Branche, Ihren Kosten und Ihrem Aufwand ab. Der Saldosteuersatz entlastet Sie administrativ: Sie rechnen mit einer pauschalen Ersatzrate ab und erfassen die Vorsteuern nicht einzeln. Die effektive Methode lohnt sich, wenn Sie hohe Vorsteuern haben – etwa bei grösseren Investitionen in Maschinen, Fahrzeuge oder Immobilien. Wir zeigen Ihnen die Unterschiede und was für Sie sinnvoll ist."],
         ["Können Sie nur die MWST übernehmen?", "Ja. Sie können die MWST-Abrechnung einzeln oder zusammen mit der Buchhaltung an uns übergeben."],
       ],
       endTitle: "MWST abgeben und Ruhe haben?",
@@ -189,7 +189,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Frequently asked questions on VAT",
       faq: [
         ["When do I become liable for VAT?", "Generally from an annual turnover of CHF 100,000 from taxable supplies. We are happy to check whether and from when this applies to you."],
-        ["Effective method or net tax rate?", "It depends on your industry, your costs and your effort. We explain the differences and what makes sense for you."],
+        ["Effective method or net tax rate?", "It depends on your industry, your costs and your effort. The net tax rate reduces your administration: you settle at a flat replacement rate and do not record input tax individually. The effective method is worthwhile when you have high input tax – for example with larger investments in machines, vehicles or property. We explain the differences and what makes sense for you."],
         ["Can you take over VAT only?", "Yes. You can hand over the VAT return on its own or together with your accounting."],
       ],
       endTitle: "Hand over VAT and relax?",
@@ -259,7 +259,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       sub: "Bilanz und Erfolgsrechnung, die Sie verstehen.",
       blocks: [
         { title: "Abschlussarbeiten", items: ["Abstimmung aller Konten", "Abgrenzungen und Rückstellungen", "Abschreibungen", "Inventar und Warenlager"] },
-        { title: "Jahresrechnung", items: ["Bilanz und Erfolgsrechnung", "Anhang nach Obligationenrecht", "Unterlagen für die Generalversammlung", "Vorbereitung für die Revision"] },
+        { title: "Jahresrechnung", items: ["Bilanz und Erfolgsrechnung", "Anhang nach Obligationenrecht", "Unterlagen für die General- bzw. Gesellschafterversammlung (AG/GmbH)", "Vorbereitung für die Revision"] },
         { title: "Auswertung", items: ["Verständliche Erklärung Ihrer Zahlen", "Vergleich mit dem Vorjahr", "Grundlage für die Steuererklärung", "Hinweise für das neue Jahr"] },
       ],
       process: stdProcess.de,
@@ -267,7 +267,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       personText: "Wir erklären Ihnen Ihren Abschluss in verständlichen Worten – damit Sie wissen, wo Ihr Unternehmen steht.",
       faqTitle: "Häufige Fragen zum Jahresabschluss",
       faq: [
-        ["Bis wann muss der Jahresabschluss fertig sein?", "Die Jahresrechnung einer GmbH oder AG muss innert sechs Monaten nach Geschäftsjahresende der Generalversammlung vorgelegt werden. Wir planen die Arbeiten rechtzeitig mit Ihnen."],
+        ["Bis wann muss der Jahresabschluss fertig sein?", "Die Jahresrechnung einer GmbH oder AG muss innert sechs Monaten nach Geschäftsjahresende der General- bzw. Gesellschafterversammlung vorgelegt werden. Wir planen die Arbeiten rechtzeitig mit Ihnen."],
         ["Übernehmen Sie auch die Revision?", "Nein. Wir bereiten den Abschluss so vor, dass Ihre Revisionsstelle effizient prüfen kann."],
         ["Kann ich nur den Abschluss bei Ihnen machen?", "Ja. Auch wenn Sie die Buchhaltung unter dem Jahr selbst führen, übernehmen wir gerne den Abschluss."],
       ],
@@ -284,7 +284,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       sub: "A balance sheet and income statement you understand.",
       blocks: [
         { title: "Closing work", items: ["Reconciliation of all accounts", "Accruals and provisions", "Depreciation", "Inventory and stock"] },
-        { title: "Financial statements", items: ["Balance sheet and income statement", "Notes under the Code of Obligations", "Documents for the general meeting", "Preparation for the audit"] },
+        { title: "Financial statements", items: ["Balance sheet and income statement", "Notes to the financial statements (Swiss Code of Obligations)", "Documents for the general or shareholders' meeting (AG/GmbH)", "Preparation for the audit"] },
         { title: "Review", items: ["Clear explanation of your figures", "Comparison with the previous year", "Basis for the tax return", "Pointers for the new year"] },
       ],
       process: stdProcess.en,
@@ -292,7 +292,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       personText: "We explain your annual accounts in plain words – so you know where your business stands.",
       faqTitle: "Frequently asked questions on annual accounts",
       faq: [
-        ["When must the annual accounts be ready?", "The accounts of a GmbH or AG must be presented to the general meeting within six months of the financial year end. We plan the work with you in good time."],
+        ["When must the annual accounts be ready?", "The accounts of a GmbH or AG must be presented to the general or shareholders' meeting within six months of the financial year end. We plan the work with you in good time."],
         ["Do you also do the audit?", "No. We prepare the accounts so that your auditor can review them efficiently."],
         ["Can I just have the closing done by you?", "Yes. Even if you keep the books yourself during the year, we are happy to do the closing."],
       ],
