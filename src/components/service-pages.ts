@@ -489,7 +489,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       endTitle: "Lernen wir uns kennen?",
       endSub: "Buchen Sie ein kostenloses und unverbindliches Erstgespräch.",
       metaTitle: "Buchhaltung Zug, Baar & Cham | StartSaldo",
-      metaDesc: "Finanz- und Lohnbuchhaltung für KMU und Start-ups im Kanton Zug: Zug, Baar, Cham, Steinhausen – spezialisiert auf Crypto Trading. Persönlich von StartSaldo.",
+      metaDesc: "Finanz- und Lohnbuchhaltung für KMU und Start-ups im Kanton Zug: Zug, Baar, Cham, Steinhausen – spezialisiert auf Krypto-Transaktionen. Persönlich von StartSaldo.",
     },
     en: {
       ...en,
@@ -543,7 +543,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       endTitle: "Lernen wir uns kennen?",
       endSub: "Buchen Sie ein kostenloses und unverbindliches Erstgespräch.",
       metaTitle: "Buchhaltung Wollerau, Freienbach & Pfäffikon SZ | StartSaldo",
-      metaDesc: "Finanz- und Lohnbuchhaltung für KMU und Start-ups in Ausserschwyz und Höfe: Wollerau, Freienbach, Pfäffikon SZ, Lachen – spezialisiert auf Crypto Trading.",
+      metaDesc: "Finanz- und Lohnbuchhaltung für KMU und Start-ups in Ausserschwyz und Höfe: Wollerau, Freienbach, Pfäffikon SZ, Lachen – spezialisiert auf Krypto-Transaktionen.",
     },
     en: {
       ...en,
