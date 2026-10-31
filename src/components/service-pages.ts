@@ -359,7 +359,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Wo wir für Sie da sind", items: ["Rothenthurm und Biberbrugg", "Einsiedeln und Sattel", "Schwyz und Brunnen", "Pfäffikon SZ, Lachen und Ausserschwyz", "Zug und die ganze Schweiz – digital"] },
         { title: "Was wir übernehmen", items: ["Finanzbuchhaltung und Jahresabschluss", "Lohnbuchhaltung und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung", "Krypto-Buchhaltung"] },
-        { title: "Warum lokal", items: ["Kenntnis der regionalen Gegebenheiten", "Kurze Wege und schnelle Antworten", "Feste Ansprechpartnerinnen"] },
+        { title: "Warum lokal", items: ["Kenntnis der regionalen Gegebenheiten", "Kurze Wege und schnelle Antworten", "Feste Ansprechpartnerinnen", "Schweizweite Zusammenarbeit – digital"] },
       ],
       process: stdProcess.de,
       people: ["audelia"],
@@ -385,7 +385,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Where we are there for you", items: ["Rothenthurm and Biberbrugg", "Einsiedeln and Sattel", "Schwyz and Brunnen", "Pfäffikon SZ, Lachen and Ausserschwyz", "Zug and all of Switzerland – digitally"] },
         { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurances", "VAT returns", "Tax returns", "Crypto accounting"] },
-        { title: "Why local", items: ["Knowledge of the region", "Short distances and quick answers", "Fixed contact persons"] },
+        { title: "Why local", items: ["Knowledge of the region", "Short distances and quick answers", "Fixed contact persons", "Switzerland-wide collaboration – digital"] },
       ],
       process: stdProcess.en,
       people: ["audelia"],
