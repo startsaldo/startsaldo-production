@@ -51,6 +51,14 @@ const de = {
   ] as { quote: string; name: string; role?: string }[],
   faqTitle: "Häufige Fragen.",
   faqSub: "Hier finden Sie Antworten zu Umfang, Zusammenarbeit und Einstieg.",
+  stepsTitle: "In 3 Schritten zu Ihrer Buchhaltung",
+  stepsSub: "Der Einstieg ist einfacher, als Sie denken.",
+  steps: [
+    ["Unverbindliches Erstgespräch", "Wir lernen uns online kennen und klären Ihre Ausgangslage und Ihre Fragen."],
+    ["Einfache Übergabe", "Sie übermitteln uns Ihre Unterlagen digital. Wir richten alles sauber ein."],
+    ["Entspannt zurücklehnen", "Buchhaltung, Löhne und Fristen erledigen wir zuverlässig und termingerecht."],
+  ] as [string, string][],
+  stepsBtn: "Erstgespräch buchen",
   faq: [
     ["Wie sieht eine Zusammenarbeit aus?", "1 Kennenlernen – Wir besprechen Ihr Unternehmen, Ihre aktuelle Situation und Ihren Bedarf.\n2 Zusammenarbeit definieren – Wir klären Aufgaben, Zuständigkeiten, Termine und Abläufe.\n3 Laufend betreuen – Wir übernehmen die vereinbarten Aufgaben zuverlässig und bleiben Ihre direkten Ansprechpartnerinnen."],
     ["Wo werden meine Daten gespeichert?", "Für den sicheren Austausch und die Speicherung von Dokumenten nutzen wir Proton. Die Daten werden Ende-zu-Ende verschlüsselt und auf Proton-Infrastruktur in der Schweiz bzw. Deutschland gespeichert."],
@@ -134,6 +142,14 @@ const en: typeof de = {
   ],
   faqTitle: "Frequently asked questions.",
   faqSub: "Answers about scope, collaboration and getting started.",
+  stepsTitle: "Your accounting in 3 steps",
+  stepsSub: "Getting started is easier than you think.",
+  steps: [
+    ["Free initial consultation", "We get to know each other online and clarify your situation and your questions."],
+    ["Simple handover", "You send us your documents digitally. We set everything up properly."],
+    ["Sit back and relax", "We handle bookkeeping, payroll and deadlines reliably and on time."],
+  ],
+  stepsBtn: "Book a consultation",
   faq: [
     ["What does working together look like?", "1 Getting to know you – We discuss your company, your current situation and your needs.\n2 Defining the collaboration – We clarify tasks, responsibilities, deadlines and processes.\n3 Ongoing support – We reliably take care of the agreed tasks and remain your direct contacts."],
     ["Where is my data stored?", "We use Proton for the secure exchange and storage of documents. Data is end-to-end encrypted and stored on Proton infrastructure in Switzerland or Germany."],
