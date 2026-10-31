@@ -49,13 +49,13 @@ const stdProcess = {
   de: [
     ["Erstgespräch", "Wir lernen Ihr Unternehmen, Ihre Abläufe und Ihre Fragen kennen."],
     ["Übernahme", "Wir übernehmen Ihre Unterlagen und richten alles sauber ein."],
-    ["Laufend", "Sie senden uns Belege und Informationen – per E-Mail oder digital. Wir erledigen den Rest."],
+    ["Laufend", "Sie senden uns Belege und Informationen – verschlüsselt über Proton. Wir erledigen den Rest."],
     ["Termine im Griff", "Fristen behalten wir im Blick und melden uns rechtzeitig bei Ihnen."],
   ] as [string, string][],
   en: [
     ["Initial meeting", "We get to know your business, your processes and your questions."],
     ["Onboarding", "We take over your documents and set everything up properly."],
-    ["Ongoing", "You send us receipts and information – by e-mail or digitally. We do the rest."],
+    ["Ongoing", "You send us receipts and information – encrypted via Proton. We do the rest."],
     ["Deadlines covered", "We keep track of deadlines and get in touch with you in good time."],
   ] as [string, string][],
 };
@@ -88,7 +88,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       personText: "Sie haben eine feste Ansprechpartnerin, die Ihre Zahlen kennt, Fragen verständlich beantwortet und den Austausch von Belegen so einfach wie möglich macht.",
       faqTitle: "Häufige Fragen zur Finanzbuchhaltung",
       faq: [
-        ["Wie übermittle ich meine Belege?", "So, wie es für Sie am einfachsten ist – per E-Mail, als Scan oder digital. Wir besprechen das im Erstgespräch."],
+        ["Wie übermittle ich meine Belege?", "Verschlüsselt über Proton – wir richten Ihnen den Zugang im Erstgespräch ein."],
         ["Kann ich nur einen Teil auslagern?", "Ja. Sie können die ganze Buchhaltung oder einzelne Aufgaben an uns übergeben."],
         ["Arbeiten Sie mit meiner bestehenden Software?", "Wir arbeiten standardmässig mit Banana, weil wir Ihre Daten bei uns auf Proton halten. Wenn Sie ausdrücklich ein anderes Programm wünschen, arbeiten wir auf Wunsch auch mit Bexio, Swiss21 oder Abacus."],
       ],
@@ -104,7 +104,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       titleAccent: "Booked properly, explained clearly.",
       sub: "From day-to-day bookkeeping to bank reconciliations.",
       blocks: [
-        { title: "Ongoing bookkeeping", items: ["Recording your business transactions", "Bank and account reconciliations", "Cash book and expenses", "Digital filing of your receipts", "Booking your crypto trades"] },
+        { title: "Ongoing bookkeeping", items: ["Recording your business transactions", "Bank and account reconciliations", "Cash book and expenses", "Digital filing of your receipts", "Recording crypto transactions"] },
         { title: "Receivables and payables", items: ["Booking customer and supplier invoices", "Overview of open items", "Preparing payments", "Account reconciliation"] },
         { title: "Closings", items: ["Monthly and quarterly closings", "Annual accounts", "Accruals and provisions", "Clear reports"] },
         { title: "All from one source", items: ["VAT returns", "Your company's tax return", "Reconciliation with payroll", "One fixed contact person"] },
@@ -114,7 +114,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       personText: "You have one fixed contact person who knows your figures, answers questions clearly and makes exchanging receipts as easy as possible.",
       faqTitle: "Frequently asked questions on accounting",
       faq: [
-        ["How do I send my receipts?", "Whichever way is easiest for you – by e-mail, as a scan or digitally. We discuss this in the initial meeting."],
+        ["How do I send my receipts?", "Encrypted via Proton – we set up your access in the initial meeting."],
         ["Can I outsource only part of it?", "Yes. You can hand over all of your accounting or individual tasks."],
         ["Do you work with my existing software?", "We work with Banana as standard, because we keep your data with us on Proton. If you explicitly prefer another programme, we are also happy to work with Bexio, Swiss21 or Abacus."],
       ],
@@ -155,7 +155,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       sub: "Von der Anmeldung bis zur periodischen Abrechnung mit der ESTV.",
       blocks: [
         { title: "Anmeldung und Abklärung", items: ["Abklärung der MWST-Pflicht", "Anmeldung bei der ESTV", "Wahl der Abrechnungsmethode", "Effektive Methode oder Saldosteuersatz"] },
-        { title: "Periodische Abrechnung", items: ["Erstellung der MWST-Abrechnung", "Einreichung innert Frist", "Vorsteuerabzug korrekt erfasst", "Abstimmung mit der Buchhaltung"] },
+        { title: "Periodische Abrechnung", items: ["Erstellung der MWST-Abrechnung", "Einreichung innert Frist", "Korrekte Berücksichtigung der Vorsteuer je nach Abrechnungsmethode", "Abstimmung mit der Buchhaltung"] },
         { title: "Jahresabstimmung", items: ["Umsatzabstimmung", "Korrekturen und Berichtigungen", "Vorbereitung auf Kontrollen", "Saubere Dokumentation"] },
         { title: "Beratung im Alltag", items: ["Fragen zu Steuersätzen", "Rechnungen mit korrekten Angaben", "Leistungen ins Ausland", "Verständliche Antworten"] },
       ],
@@ -167,6 +167,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         ["Ab wann bin ich mehrwertsteuerpflichtig?", "In der Regel ab einem Jahresumsatz von CHF 100'000 aus steuerbaren Leistungen. Wir klären gerne mit Ihnen ab, ob und ab wann das für Sie gilt."],
         ["Effektive Methode oder Saldosteuersatz?", "Das hängt von Ihrer Branche, Ihren Kosten und Ihrem Aufwand ab. Der Saldosteuersatz entlastet Sie administrativ: Sie rechnen mit einer pauschalen Ersatzrate ab und erfassen die Vorsteuern nicht einzeln. Die effektive Methode lohnt sich, wenn Sie hohe Vorsteuern haben – etwa bei grösseren Investitionen in Maschinen, Fahrzeuge oder Immobilien. Wir zeigen Ihnen die Unterschiede und was für Sie sinnvoll ist."],
         ["Können Sie nur die MWST übernehmen?", "Ja. Sie können die MWST-Abrechnung einzeln oder zusammen mit der Buchhaltung an uns übergeben."],
+        ["Ist auch eine jährliche Abrechnung möglich?", "Ja. Seit 2025 können berechtigte Unternehmen auf Antrag bei der ESTV jährlich statt vierteljährlich abrechnen. Ob das für Sie in Frage kommt, klären wir gerne mit Ihnen ab."],
       ],
       endTitle: "MWST abgeben und Ruhe haben?",
       endSub: "Wir schauen gemeinsam, was Ihr Unternehmen braucht.",
@@ -181,7 +182,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       sub: "From registration to periodic returns with the Federal Tax Administration.",
       blocks: [
         { title: "Registration and assessment", items: ["Checking whether you are liable for VAT", "Registration with the FTA", "Choice of settlement method", "Effective method or net tax rate"] },
-        { title: "Periodic returns", items: ["Preparing the VAT return", "Filing on time", "Correct input tax deduction", "Reconciliation with accounting"] },
+        { title: "Periodic returns", items: ["Preparing the VAT return", "Filing on time", "Correct VAT treatment according to the applicable reporting method", "Reconciliation with accounting"] },
         { title: "Annual reconciliation", items: ["Turnover reconciliation", "Corrections and adjustments", "Preparation for audits", "Clean documentation"] },
         { title: "Everyday advice", items: ["Questions on tax rates", "Invoices with correct details", "Services abroad", "Clear answers"] },
       ],
@@ -193,6 +194,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
         ["When do I become liable for VAT?", "Generally from an annual turnover of CHF 100,000 from taxable supplies. We are happy to check whether and from when this applies to you."],
         ["Effective method or net tax rate?", "It depends on your industry, your costs and your effort. The net tax rate reduces your administration: you settle at a flat replacement rate and do not record input tax individually. The effective method is worthwhile when you have high input tax – for example with larger investments in machines, vehicles or property. We explain the differences and what makes sense for you."],
         ["Can you take over VAT only?", "Yes. You can hand over the VAT return on its own or together with your accounting."],
+        ["Is annual settlement possible?", "Yes. Since 2025, eligible companies can apply to the FTA to settle annually instead of quarterly. We are happy to check with you whether this is an option for you."],
       ],
       endTitle: "Hand over VAT and relax?",
       endSub: "Let's look together at what your business needs.",
@@ -286,7 +288,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       sub: "A balance sheet and income statement you understand.",
       blocks: [
         { title: "Closing work", items: ["Reconciliation of all accounts", "Accruals and provisions", "Depreciation", "Inventory and stock"] },
-        { title: "Financial statements", items: ["Balance sheet and income statement", "Notes to the financial statements (Swiss Code of Obligations)", "Documents for the general or shareholders' meeting (AG/GmbH)", "Preparation for the audit"] },
+        { title: "Financial statements", items: ["Balance sheet and income statement", "Notes to the financial statements (Swiss Code of Obligations)", "Documents for the general meeting (AG) or shareholders' meeting (GmbH)", "Preparation for the audit"] },
         { title: "Review", items: ["Clear explanation of your figures", "Comparison with the previous year", "Basis for the tax return", "Pointers for the new year"] },
       ],
       process: stdProcess.en,
@@ -294,7 +296,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       personText: "We explain your annual accounts in plain words – so you know where your business stands.",
       faqTitle: "Frequently asked questions on annual accounts",
       faq: [
-        ["When must the annual accounts be ready?", "The accounts of a GmbH or AG must be presented to the general or shareholders' meeting within six months of the financial year end. We plan the work with you in good time."],
+        ["When must the annual accounts be ready?", "The accounts of a GmbH or AG must be presented to the general meeting (AG) or shareholders' meeting (GmbH) within six months of the financial year end. We plan the work with you in good time."],
         ["Do you also do the audit?", "No. We prepare the accounts so that your auditor can review them efficiently."],
         ["Can I just have the closing done by you?", "Yes. Even if you keep the books yourself during the year, we are happy to do the closing."],
       ],
@@ -367,7 +369,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Wo wir für Sie da sind", items: ["Rothenthurm und Biberbrugg", "Einsiedeln und Sattel", "Schwyz und Brunnen", "Pfäffikon SZ, Lachen und Ausserschwyz", "Zug und die ganze Schweiz – digital"] },
         { title: "Ihr Alltag mit uns", items: ["Laufende Finanzbuchhaltung", "Monatlicher Lohnlauf und Sozialversicherungen", "MWST-Abrechnungen innert Frist", "Jahresabschluss und Steuererklärung", "Krypto-Transaktionen"] },
-        { title: "Warum lokal", items: ["Rothenthurm im Kanton Schwyz", "Vom Gewerbebetrieb bis zum Start-up", "Feste Ansprechpartnerinnen", "Volldigital in der ganzen Schweiz"] },
+        { title: "Warum lokal", items: ["Wir kennen die Schwyzer Steuerbehörde und Ausgleichskassen aus der täglichen Arbeit", "Vom Gewerbebetrieb bis zum Start-up", "Feste Ansprechpartnerinnen", "Volldigital in der ganzen Schweiz"] },
       ],
       process: stdProcess.de,
       people: ["audelia"],
@@ -394,7 +396,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Areas we serve", items: ["Rothenthurm and Biberbrugg", "Einsiedeln and Sattel", "Schwyz and Brunnen", "Pfäffikon SZ, Lachen and Ausserschwyz", "Zug and all of Switzerland – digitally"] },
         { title: "Your day to day with us", items: ["Ongoing financial accounting", "Monthly payroll and social insurance", "VAT returns filed on time", "Annual accounts and tax return", "Crypto transactions"] },
-        { title: "Why local", items: ["Rothenthurm in the canton of Schwyz", "From trades businesses to start-ups", "Fixed contact persons", "Fully digital across Switzerland"] },
+        { title: "Why local", items: ["We know the Schwyz tax office and compensation funds from our day-to-day work", "From trades businesses to start-ups", "Fixed contact persons", "Fully digital across Switzerland"] },
       ],
       process: stdProcess.en,
       people: ["audelia"],
@@ -427,7 +429,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       ],
       checklist: {
         title: "Checkliste für die Gründung",
-        sub: "Diese Punkte stehen nach einer Neugründung an. Wir prüfen sie gemeinsam und übernehmen, was Sie möchten.",
+        sub: "Diese Punkte sind vor, während und nach einer Firmengründung wichtig. Wir prüfen sie gemeinsam und übernehmen die Aufgaben, bei denen Sie Unterstützung wünschen.",
         items: [
           "Rechtsform festlegen und Gesellschaft gründen",
           "Eintrag ins Handelsregister",
@@ -468,7 +470,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       ],
       checklist: {
         title: "Checklist for founders",
-        sub: "These are the points that come up after founding a company. We review them together and take over whatever you would like.",
+        sub: "These steps are relevant before, during and after setting up a company. We review them together and support you where needed.",
         items: [
           "Choose the legal form and found the company",
           "Entry in the commercial register",
@@ -506,12 +508,12 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "Für KMU und Start-ups in Zug",
       blocks: [
         { title: "Wo wir für Sie da sind", items: ["Stadt Zug und Baar", "Cham und Steinhausen", "Rotkreuz und Risch", "Unterägeri und Oberägeri", "Die ganze Schweiz – digital"] },
-        { title: "Womit wir Zuger Firmen entlasten", items: ["Finanzbuchhaltung und Jahresrechnung", "Löhne und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung Ihrer Firma", "Krypto-Buchhaltung und Ausweise"] },
+        { title: "Womit wir Zuger Firmen entlasten", items: ["Finanzbuchhaltung und Jahresrechnung", "Löhne und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung Ihrer Firma", "Krypto-Buchhaltung und steuerliche Dokumentation"] },
         { title: "Warum StartSaldo", items: ["Spezialisiert auf Krypto-Transaktionen", "Erfahrung mit Start-ups", "Feste Ansprechpartnerinnen", "Volldigital im ganzen Kanton"] },
       ],
       process: stdProcess.de,
       people: ["audelia"],
-      personText: "Der Kanton Zug zieht Start-ups und Handelsfirmen an. Wir betreuen Zuger KMU und Start-ups volldigital – von der laufenden Buchhaltung bis zur Krypto-Verrechnung.",
+      personText: "Der Kanton Zug zieht Start-ups und Handelsfirmen an. Wir betreuen Zuger KMU und Start-ups volldigital – von der laufenden Buchhaltung bis zur Verbuchung von Krypto-Transaktionen.",
       faqTitle: "Häufige Fragen",
       faq: [
         ["Betreuen Sie Unternehmen im Kanton Zug?", "Ja. Wir arbeiten digital und unkompliziert mit Kunden aus Zug und der ganzen Schweiz zusammen."],
@@ -533,12 +535,12 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "For SMEs and start-ups in Zug",
       blocks: [
         { title: "Areas we serve", items: ["Zug and Baar", "Cham and Steinhausen", "Rotkreuz and Risch", "Unterägeri and Oberägeri", "All of Switzerland – digitally"] },
-        { title: "How we take the load off Zug companies", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Your company's tax return", "Crypto accounting and statements"] },
+        { title: "How we take the load off Zug companies", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Your company's tax return", "Crypto accounting and tax documentation"] },
         { title: "Why StartSaldo", items: ["Specialised in crypto transactions", "Experience with start-ups", "Fixed contact persons", "Fully digital across the canton"] },
       ],
       process: stdProcess.en,
       people: ["audelia"],
-      personText: "The canton of Zug attracts start-ups and trading companies. We look after SMEs and start-ups from Zug fully digitally – from day-to-day bookkeeping to crypto settlements.",
+      personText: "The canton of Zug attracts start-ups and trading companies. We look after SMEs and start-ups from Zug fully digitally – from day-to-day bookkeeping to crypto transaction accounting.",
       faqTitle: "Frequently asked questions",
       faq: [
         ["Do you serve companies in the canton of Zug?", "Yes. We work digitally and easily with clients from Zug and all of Switzerland."],
@@ -563,7 +565,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Wo wir für Sie da sind", items: ["Wollerau und Feusisberg", "Freienbach und Pfäffikon SZ", "Bäch, Wilen und Hurden", "Lachen, Altendorf und die March", "Die ganze Schweiz – digital"] },
         { title: "Womit wir Sie am oberen Zürichsee entlasten", items: ["Laufende Buchhaltung", "Lohnabrechnungen und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung der Firma", "Krypto in Buchhaltung und Steuern"] },
-        { title: "Warum StartSaldo", items: ["Vom Kanton Schwyz zum oberen Zürichsee", "Spezialisiert auf Krypto-Transaktionen", "Feste Ansprechpartnerinnen", "Alles volldigital"] },
+        { title: "Warum StartSaldo", items: ["Persönliche Betreuung – verschlüsselt über Proton", "Spezialisiert auf Krypto-Transaktionen", "Feste Ansprechpartnerinnen", "Alles volldigital"] },
       ],
       process: stdProcess.de,
       people: ["audelia"],
@@ -590,7 +592,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Areas we serve", items: ["Wollerau and Feusisberg", "Freienbach and Pfäffikon SZ", "Bäch, Wilen and Hurden", "Lachen, Altendorf and the March district", "All of Switzerland – digitally"] },
         { title: "How we lighten your load on Upper Lake Zurich", items: ["Ongoing bookkeeping", "Payslips and social insurance", "VAT returns", "Your company's tax return", "Crypto in accounting and taxes"] },
-        { title: "Why StartSaldo", items: ["From the canton of Schwyz to Upper Lake Zurich", "Specialised in crypto transactions", "Fixed contact persons", "Everything fully digital"] },
+        { title: "Why StartSaldo", items: ["Personal support – encrypted via Proton", "Specialised in crypto transactions", "Fixed contact persons", "Everything fully digital"] },
       ],
       process: stdProcess.en,
       people: ["audelia"],
