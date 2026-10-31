@@ -366,7 +366,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "Für KMU und Start-ups in der Region",
       blocks: [
         { title: "Wo wir für Sie da sind", items: ["Rothenthurm und Biberbrugg", "Einsiedeln und Sattel", "Schwyz und Brunnen", "Pfäffikon SZ, Lachen und Ausserschwyz", "Zug und die ganze Schweiz – digital"] },
-        { title: "Was wir übernehmen", items: ["Finanzbuchhaltung und Jahresabschluss", "Lohnbuchhaltung und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung", "Krypto-Buchhaltung"] },
+        { title: "Ihr Alltag mit uns", items: ["Laufende Finanzbuchhaltung", "Monatlicher Lohnlauf und Sozialversicherungen", "MWST-Abrechnungen innert Frist", "Jahresabschluss und Steuererklärung", "Krypto-Transaktionen"] },
         { title: "Warum lokal", items: ["Rothenthurm im Kanton Schwyz", "Vom Gewerbebetrieb bis zum Start-up", "Feste Ansprechpartnerinnen", "Volldigital in der ganzen Schweiz"] },
       ],
       process: stdProcess.de,
@@ -375,6 +375,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Häufige Fragen",
       faq: [
         ["Arbeiten Sie nur im Kanton Schwyz?", "Nein. Wir betreuen Kunden in der ganzen Schweiz – digital und unkompliziert."],
+        ["Können Sie auch nur die Lohnbuchhaltung übernehmen?", "Ja. Sie können auch nur die Löhne an uns geben und Ihre Finanzbuchhaltung selbst behalten. Wir legen den Umfang gemeinsam fest."],
         ["Wo finde ich Sie?", "An der Schoosstrasse 3 in 6418 Rothenthurm."],
         ["Wie starte ich?", "Mit einem kostenlosen und unverbindlichen Erstgespräch. Buchen Sie einfach einen Termin."],
       ],
@@ -392,7 +393,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "For SMEs and start-ups in the region",
       blocks: [
         { title: "Areas we serve", items: ["Rothenthurm and Biberbrugg", "Einsiedeln and Sattel", "Schwyz and Brunnen", "Pfäffikon SZ, Lachen and Ausserschwyz", "Zug and all of Switzerland – digitally"] },
-        { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Tax returns", "Crypto accounting"] },
+        { title: "Your day to day with us", items: ["Ongoing financial accounting", "Monthly payroll and social insurance", "VAT returns filed on time", "Annual accounts and tax return", "Crypto transactions"] },
         { title: "Why local", items: ["Rothenthurm in the canton of Schwyz", "From trades businesses to start-ups", "Fixed contact persons", "Fully digital across Switzerland"] },
       ],
       process: stdProcess.en,
@@ -401,6 +402,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Frequently asked questions",
       faq: [
         ["Do you only work in the canton of Schwyz?", "No. We serve clients throughout Switzerland – digitally and easily."],
+        ["Can you take over payroll only?", "Yes. You can hand over just payroll and keep your own financial accounting. We agree on the scope together."],
         ["Where can I find you?", "At Schoosstrasse 3, 6418 Rothenthurm."],
         ["How do I start?", "With a free initial consultation. Simply book an appointment."],
       ],
@@ -504,7 +506,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "Für KMU und Start-ups in Zug",
       blocks: [
         { title: "Wo wir für Sie da sind", items: ["Stadt Zug und Baar", "Cham und Steinhausen", "Rotkreuz und Risch", "Unterägeri und Oberägeri", "Die ganze Schweiz – digital"] },
-        { title: "Was wir übernehmen", items: ["Finanzbuchhaltung und Jahresabschluss", "Lohnbuchhaltung und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung", "Krypto-Buchhaltung"] },
+        { title: "Womit wir Zuger Firmen entlasten", items: ["Finanzbuchhaltung und Jahresrechnung", "Löhne und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung Ihrer Firma", "Krypto-Buchhaltung und Ausweise"] },
         { title: "Warum StartSaldo", items: ["Spezialisiert auf Krypto-Transaktionen", "Erfahrung mit Start-ups", "Feste Ansprechpartnerinnen", "Volldigital im ganzen Kanton"] },
       ],
       process: stdProcess.de,
@@ -513,6 +515,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Häufige Fragen",
       faq: [
         ["Betreuen Sie Unternehmen im Kanton Zug?", "Ja. Wir arbeiten digital und unkompliziert mit Kunden aus Zug und der ganzen Schweiz zusammen."],
+        ["Muss ich für die Zusammenarbeit vor Ort sein?", "Nein. Wir arbeiten volldigital: Sie senden uns Ihre Unterlagen verschlüsselt über Proton, wir erledigen den Rest."],
         ["Kennen Sie sich mit Krypto aus?", "Ja, wir sind auf die Buchhaltung und Steuererklärung von Krypto-Transaktionen spezialisiert."],
         ["Wie starte ich?", "Mit einem kostenlosen und unverbindlichen Erstgespräch. Buchen Sie einfach einen Termin."],
       ],
@@ -530,7 +533,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "For SMEs and start-ups in Zug",
       blocks: [
         { title: "Areas we serve", items: ["Zug and Baar", "Cham and Steinhausen", "Rotkreuz and Risch", "Unterägeri and Oberägeri", "All of Switzerland – digitally"] },
-        { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Tax returns", "Crypto accounting"] },
+        { title: "How we take the load off Zug companies", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Your company's tax return", "Crypto accounting and statements"] },
         { title: "Why StartSaldo", items: ["Specialised in crypto transactions", "Experience with start-ups", "Fixed contact persons", "Fully digital across the canton"] },
       ],
       process: stdProcess.en,
@@ -539,6 +542,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Frequently asked questions",
       faq: [
         ["Do you serve companies in the canton of Zug?", "Yes. We work digitally and easily with clients from Zug and all of Switzerland."],
+        ["Do I have to be on site to work with you?", "No. We work fully digitally: you send us your documents encrypted via Proton and we handle the rest."],
         ["Do you know crypto?", "Yes, we specialise in accounting and tax returns for crypto trades."],
         ["How do I start?", "With a free initial consultation. Simply book an appointment."],
       ],
@@ -558,7 +562,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "Für KMU und Start-ups am oberen Zürichsee",
       blocks: [
         { title: "Wo wir für Sie da sind", items: ["Wollerau und Feusisberg", "Freienbach und Pfäffikon SZ", "Bäch, Wilen und Hurden", "Lachen, Altendorf und die March", "Die ganze Schweiz – digital"] },
-        { title: "Was wir übernehmen", items: ["Finanzbuchhaltung und Jahresabschluss", "Lohnbuchhaltung und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung", "Krypto-Buchhaltung"] },
+        { title: "Womit wir Sie am oberen Zürichsee entlasten", items: ["Laufende Buchhaltung", "Lohnabrechnungen und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung der Firma", "Krypto in Buchhaltung und Steuern"] },
         { title: "Warum StartSaldo", items: ["Vom Kanton Schwyz zum oberen Zürichsee", "Spezialisiert auf Krypto-Transaktionen", "Feste Ansprechpartnerinnen", "Alles volldigital"] },
       ],
       process: stdProcess.de,
@@ -567,6 +571,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Häufige Fragen",
       faq: [
         ["Betreuen Sie Unternehmen in Wollerau, Freienbach und Pfäffikon SZ?", "Ja. Wir arbeiten digital und unkompliziert mit Kunden aus dem Bezirk Höfe, der March und der ganzen Schweiz zusammen."],
+        ["Wir sitzen im Bezirk Höfe – passt das zu Rothenthurm?", "Ja. Der Austausch läuft volldigital über Proton, deshalb spielt der Standort Ihrer Firma keine Rolle."],
         ["Kennen Sie sich mit Krypto aus?", "Ja, wir sind auf die Buchhaltung und Steuererklärung von Krypto-Transaktionen spezialisiert."],
         ["Wie starte ich?", "Mit einem kostenlosen und unverbindlichen Erstgespräch. Buchen Sie einfach einen Termin."],
       ],
@@ -584,7 +589,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocksTitle: "For SMEs and start-ups on Upper Lake Zurich",
       blocks: [
         { title: "Areas we serve", items: ["Wollerau and Feusisberg", "Freienbach and Pfäffikon SZ", "Bäch, Wilen and Hurden", "Lachen, Altendorf and the March district", "All of Switzerland – digitally"] },
-        { title: "What we take care of", items: ["Financial accounting and annual accounts", "Payroll and social insurance", "VAT returns", "Tax returns", "Crypto accounting"] },
+        { title: "How we lighten your load on Upper Lake Zurich", items: ["Ongoing bookkeeping", "Payslips and social insurance", "VAT returns", "Your company's tax return", "Crypto in accounting and taxes"] },
         { title: "Why StartSaldo", items: ["From the canton of Schwyz to Upper Lake Zurich", "Specialised in crypto transactions", "Fixed contact persons", "Everything fully digital"] },
       ],
       process: stdProcess.en,
@@ -593,6 +598,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Frequently asked questions",
       faq: [
         ["Do you serve companies in Wollerau, Freienbach and Pfäffikon SZ?", "Yes. We work digitally and easily with clients from the Höfe district, the March and all of Switzerland."],
+        ["Our company is in the Höfe district – does Rothenthurm still work?", "Yes. Exchange runs fully digitally via Proton, so your company's location does not matter."],
         ["Do you know crypto?", "Yes, we specialise in accounting and tax returns for crypto trades."],
         ["How do I start?", "With a free initial consultation. Simply book an appointment."],
       ],

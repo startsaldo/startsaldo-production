@@ -15,4 +15,5 @@
 - [ ] Verify published favicon URLs after the Vercel deployment — blocked by missing Vercel deployment access; current public URLs do not yet serve the new files.
 - [x] Add a «Auf Google bewerten» link to the contact area of the home page (both languages).
 - [x] Add a founder checklist section to the start-ups page (both languages).
-- [ ] Serve the web font locally instead of loading it from Google Fonts — waiting on the user's decision.
+- [x] Serve the web font locally instead of loading it from Google Fonts.
+- [x] Give the three regional pages their own wording (service block title, item phrasing, one extra question each).
