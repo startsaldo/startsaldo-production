@@ -373,7 +373,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Häufige Fragen",
       faq: [
         ["Arbeiten Sie nur im Kanton Schwyz?", "Nein. Wir betreuen Kunden in der ganzen Schweiz – digital und unkompliziert."],
-        ["Wo finde ich Sie?", "An der Schosstrasse 3 in 6418 Rothenthurm."],
+        ["Wo finde ich Sie?", "An der Schoosstrasse 3 in 6418 Rothenthurm."],
         ["Wie starte ich?", "Mit einem unverbindlichen Erstgespräch. Buchen Sie einfach einen Termin."],
       ],
       endTitle: "Lernen wir uns kennen?",
@@ -399,7 +399,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Frequently asked questions",
       faq: [
         ["Do you only work in the canton of Schwyz?", "No. We serve clients throughout Switzerland – digitally and easily."],
-        ["Where can I find you?", "At Schosstrasse 3, 6418 Rothenthurm."],
+        ["Where can I find you?", "At Schoosstrasse 3, 6418 Rothenthurm."],
         ["How do I start?", "With a free initial consultation. Simply book an appointment."],
       ],
       endTitle: "Shall we meet?",
