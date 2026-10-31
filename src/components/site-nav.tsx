@@ -117,7 +117,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           <div className="text-sm leading-7 md:justify-self-end">
             <a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a><br />
             <a href="tel:+41766295056">+41 76 629 50 56</a><br />
-            Schosstrasse 3, 6418 Rothenthurm
+            Schoosstrasse 3, 6418 Rothenthurm
           </div>
         </div>
         <div className="mt-10 border-t border-band-foreground/15 pt-6 text-xs text-band-foreground/60">© 2026 Digital Trust Solutions GmbH</div>
