@@ -14,8 +14,8 @@ export function businessJsonLd(lang: Lang) {
       telephone: "+41 76 629 50 56",
       description:
         lang === "de"
-          ? "Persönliche Finanz- und Lohnbuchhaltung für Schweizer KMU und Start-ups – spezialisiert auf Crypto Trading."
-          : "Personal financial accounting and payroll for Swiss SMEs and start-ups – specialised in crypto trading.",
+          ? "Persönliche Finanz- und Lohnbuchhaltung für Schweizer KMU und Start-ups – inklusive Buchhaltung für Firmen mit Krypto-Transaktionen."
+          : "Personal financial accounting and payroll for Swiss SMEs and start-ups – including accounting for companies with crypto transactions.",
       address: { "@type": "PostalAddress", streetAddress: "Schoosstrasse 3", postalCode: "6418", addressLocality: "Rothenthurm", addressRegion: "SZ", addressCountry: "CH" },
       areaServed: [{ "@type": "Country", name: "Switzerland" }, { "@type": "AdministrativeArea", name: "Kanton Schwyz" }, { "@type": "AdministrativeArea", name: "Kanton Zug" }],
       hasMap: "https://www.google.com/maps/place/?q=place_id:ChIJYV3YuEtNhUcRbeOM7T-gjeU",
@@ -23,4 +23,18 @@ export function businessJsonLd(lang: Lang) {
       knowsLanguage: ["de", "en"],
     }),
   };
+}
+
+/** Shared link-preview tags (WhatsApp, LinkedIn, iMessage) for every page. */
+export function shareMeta(lang: Lang) {
+  const img = "https://startsaldo.ch/og/startsaldo-team.jpg";
+  return [
+    { property: "og:site_name", content: "StartSaldo" },
+    { property: "og:locale", content: lang === "de" ? "de_CH" : "en_CH" },
+    { property: "og:image", content: img },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { name: "twitter:image", content: img },
+    { name: "twitter:card", content: "summary_large_image" },
+  ];
 }

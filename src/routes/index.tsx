@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HomePage } from "@/components/home-page";
-import { businessJsonLd } from "@/components/structured-data";
+import { businessJsonLd, shareMeta } from "@/components/structured-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -9,10 +9,9 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Persönliche Finanz- und Lohnbuchhaltung für Schweizer KMU und Start-ups, GmbHs, AGs und Selbstständige." },
       { property: "og:title", content: "StartSaldo | Persönliche Buchhaltung" },
       { property: "og:description", content: "Klare Abläufe. Persönliche Betreuung. Verlässliche Buchhaltung." },
-      { property: "og:image", content: "https://startsaldo.ch/og/startsaldo-team.jpg" },
-      { name: "twitter:image", content: "https://startsaldo.ch/og/startsaldo-team.jpg" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://startsaldo.ch/" },
+      ...shareMeta("de"),
     ],
     links: [
       { rel: "canonical", href: "https://startsaldo.ch/" },
