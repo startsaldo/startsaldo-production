@@ -8,6 +8,7 @@ import { Reveal } from "@/components/reveal";
 import audeliaPhotoUrl from "@/assets/audelia-photo.webp";
 import sarahPhotoUrl from "@/assets/sarah-photo.webp";
 import danielPhotoUrl from "@/assets/daniel-photo.webp";
+import teamLaptopBandUrl from "@/assets/team-laptop-band.webp";
 import teamHeroUrl from "@/assets/team-hero.webp";
 import { useSiteTheme } from "@/hooks/use-site-theme";
 import startsaldoLogoLightUrl from "@/assets/startsaldo-logo.png";
