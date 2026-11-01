@@ -20,3 +20,4 @@
 - [x] Zweite Prüfrunde: MWST-Vorsteuer präzisiert + FAQ jährliche Abrechnung, Krypto nur Firmen, Checklisten-Einleitung, Zug/Höfe/Schwyz-Formulierungen, AHV-Ausgleichskasse, Proton-Übermittlung, EN-Korrekturen.
 - [x] Gemeinsames Laptop-Foto (Sarah und Audelia) als Social-Media-Vorschau (og/twitter:image) und als Bildband im Abschnitt «In 3 Schritten» einsetzen, in beiden Sprachen.
 - [x] Neues Teamfoto (Sarah & Audelia am Laptop) überall ersetzt, Pflanze links angeschnitten, Foto in den Team-Bereich vor die Personenkarten verschoben, Social-Vorschaubild aktualisiert.
+- [x] Team-Untertitel auf «Ein eingespieltes Team, das Wert auf persönliche Kundenbetreuung und Zuverlässigkeit legt.» gesetzt (DE/EN) und das Laptop-Foto rechts um den hellen Wandstreifen beschnitten (inkl. Social-Vorschau).
