@@ -304,10 +304,11 @@
 .hero-reveal-4 { animation-delay: 500ms; }
 .hero-reveal-5 { animation-delay: 680ms; }
 
-/* Keep the real portrait unchanged in both display modes. The portrait is the
-   hero background at every size and the copy sits in front of it: on desktop
-   in the free area on the left, on small screens at the bottom over a soft
-   fade so the faces stay unobstructed. */
+/* Keep the real portrait unchanged in both display modes: no crop, no retouch,
+   no dissolving edges. The photo sits inside the hero band as a clean rounded
+   panel with a hairline border — the same visual language as the content cards
+   further down the page. On desktop it leaves the left area free for the copy;
+   on small screens it sits above the copy so both faces stay visible. */
 .portrait-hero {
   position: relative;
   background: var(--hero-photo-surface);
@@ -316,17 +317,19 @@
 }
 .portrait-hero-image {
   position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  /* Keeps the panel's right edge flush with the content column (section-shell).
+     The height cap stops the panel growing into the copy column on wide
+     screens: 470px tall leaves at least 60px of clearance to the text. */
+  right: calc((100% - min(100% - 64px, 1200px)) / 2);
+  height: min(calc(100% - 80px), 470px);
   width: auto;
   max-width: none;
   object-fit: cover;
-  /* Fade the photo's left edge into the flat background so the free area
-     reads as one seamless surface for the copy. The people start at 11.7%
-     of the photo width, so the fade must end before them. */
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%);
-  mask-image: linear-gradient(to right, transparent, #000 10%);
+  border: 1px solid color-mix(in oklab, var(--primary) 26%, transparent);
+  border-radius: 24px;
+  box-shadow: 0 20px 44px -26px color-mix(in oklab, var(--foreground) 45%, transparent);
 }
 .portrait-hero-layout {
   position: relative;
@@ -345,43 +348,31 @@
 }
 @media (max-width: 1023px) {
   /* Zoomed-out portrait: both people are shown whole — from the top of the
-     head down past the hip — centred on the screen at a natural size. The
-     photo stays narrower than the viewport; its sides fade out into the same
-     mint background and the lower bodies dissolve into it before the edge. */
+     head down past the hip — centred on the screen at a natural size, inside
+     the same rounded, hairline-bordered panel used on desktop. */
   .portrait-hero { min-height: 0; }
   .portrait-hero-image {
+    top: 0;
+    transform: none;
     width: 72%;
     height: auto;
-    /* Centres the two people: their span runs from 11.6% to 93.8% of the
-       photo width (centre 52.7%), so the photo is offset until that centre
-       sits mid-screen: left = 50% - 0.527 * 72% = 12.1%. */
-    left: 12.1%;
+    /* The two people span 11.6% to 93.8% of the photo width (centre 52.7%);
+       the panel itself is centred so its edges sit evenly on the band. */
+    left: 14%;
     right: auto;
-    /* Soft side fades: the outer 5-6% of the photo dissolve into the flat
-       background. The people end at 93.8% / start at 11.6%, so the fades
-       never touch them. */
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 95%, transparent);
-    mask-image: linear-gradient(to right, transparent, #000 6%, #000 95%, transparent);
+    border-radius: 20px;
   }
   .portrait-hero-layout {
     min-height: 0;
-    padding-top: 55vw;
+    /* The panel is 72vw wide, so 54vw tall at the photo's own ratio; the copy
+       starts just below its bottom edge. */
+    padding-top: 58vw;
     padding-bottom: 28px;
   }
   /* Copy is centred below the faces on every size under 1024px. */
   .portrait-hero-copy { width: 100%; text-align: center; }
   .portrait-hero-sub { margin-inline: auto; }
   .portrait-hero-actions { justify-content: center; }
-  .portrait-hero::after {
-    content: "";
-    position: absolute;
-    top: 44vw;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent, var(--hero-photo-surface) 10vw);
-    pointer-events: none;
-  }
 }
 @media (max-width: 639px) {
   .portrait-hero-heading { font-size: 32px; }
@@ -401,7 +392,10 @@
 }
 @media (min-width: 1024px) and (max-width: 1279px) {
   .portrait-hero, .portrait-hero-layout { min-height: 480px; }
-  .portrait-hero-copy { max-width: 430px; }
+  .portrait-hero-copy { max-width: 400px; }
+  /* At this width the two columns sit closest together: the panel is capped so
+     the copy keeps a clear gap of about 40px. */
+  .portrait-hero-image { height: min(calc(100% - 80px), 390px); }
 }
 @media (min-width: 1280px) {
   .portrait-hero, .portrait-hero-layout { min-height: 560px; }
