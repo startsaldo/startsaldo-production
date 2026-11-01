@@ -18,3 +18,4 @@
 - [x] Serve the web font locally instead of loading it from Google Fonts.
 - [x] Give the three regional pages their own wording (service block title, item phrasing, one extra question each).
 - [x] Zweite Prüfrunde: MWST-Vorsteuer präzisiert + FAQ jährliche Abrechnung, Krypto nur Firmen, Checklisten-Einleitung, Zug/Höfe/Schwyz-Formulierungen, AHV-Ausgleichskasse, Proton-Übermittlung, EN-Korrekturen.
+- [x] Gemeinsames Laptop-Foto (Sarah und Audelia) als Social-Media-Vorschau (og/twitter:image) und als Bildband im Abschnitt «In 3 Schritten» einsetzen, in beiden Sprachen.
