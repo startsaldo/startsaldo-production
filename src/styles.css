@@ -366,9 +366,9 @@
   }
   .portrait-hero-layout {
     min-height: 0;
-    /* The panel is 72vw wide, so about 61vw tall at the photo's own ratio
-       (1278x1086); the copy starts just below its bottom edge. */
-    padding-top: 65vw;
+    /* The panel is 72vw wide, so about 55vw tall at the photo's own ratio
+       (1414x1086); the copy starts just below its bottom edge. */
+    padding-top: 59vw;
     padding-bottom: 28px;
   }
   /* Copy is centred below the faces on every size under 1024px. */
