@@ -9,6 +9,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Persönliche Finanz- und Lohnbuchhaltung für Schweizer KMU und Start-ups, GmbHs, AGs und Selbstständige." },
       { property: "og:title", content: "StartSaldo | Persönliche Buchhaltung" },
       { property: "og:description", content: "Klare Abläufe. Persönliche Betreuung. Verlässliche Buchhaltung." },
+      { property: "og:image", content: "https://startsaldo.ch/og/startsaldo-team.jpg" },
+      { name: "twitter:image", content: "https://startsaldo.ch/og/startsaldo-team.jpg" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

@@ -8,6 +8,7 @@ import { Reveal } from "@/components/reveal";
 import audeliaPhotoUrl from "@/assets/audelia-photo.webp";
 import sarahPhotoUrl from "@/assets/sarah-photo.webp";
 import danielPhotoUrl from "@/assets/daniel-photo.webp";
+import teamLaptopBandUrl from "@/assets/team-laptop-band.webp";
 import teamHeroUrl from "@/assets/team-hero.webp";
 import { useSiteTheme } from "@/hooks/use-site-theme";
 import startsaldoLogoLightUrl from "@/assets/startsaldo-logo.png";
@@ -387,6 +388,7 @@ export function HomePage({ lang }: { lang: Lang }) {
       <section id="faq" className="section-pad bg-sage-soft"><div className="section-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><Reveal><div className="text-center"><h2 className="heading-lg">{t.faqTitle}</h2><p className="mt-5 leading-7 text-muted-foreground">{t.faqSub}</p></div></Reveal><Reveal delay={120}><Accordion type="single" collapsible>{t.faq.map(([q,a])=><AccordionItem key={q ?? "faq"} value={q ?? "faq"}><AccordionTrigger className="min-h-[72px] text-left text-base hover:no-underline">{q}</AccordionTrigger><AccordionContent className="max-w-[600px] pb-6 leading-7 text-muted-foreground whitespace-pre-line">{a}</AccordionContent></AccordionItem>)}</Accordion></Reveal></div></section>
 
       <section id="ablauf" className="section-pad bg-card"><div className="section-shell"><Reveal><div className="text-center"><h2 className="heading-lg">{t.stepsTitle}</h2><p className="mx-auto mt-4 max-w-[350px] text-base leading-7 text-muted-foreground md:mt-5 md:max-w-none md:text-[18px]">{t.stepsSub}</p></div></Reveal>
+        <Reveal delay={80}><img src={teamLaptopBandUrl} width={1440} height={810} loading="lazy" decoding="async" alt={lang === "de" ? "Audelia Babbev-Pittet und Sarah Mogel betrachten gemeinsam einen Laptop-Bildschirm" : "Audelia Babbev-Pittet and Sarah Mogel looking at a laptop screen together"} className="mt-10 w-full rounded-[20px] md:mt-14 md:rounded-[24px]" /></Reveal>
         <ol className="mt-10 grid gap-5 md:mt-14 md:grid-cols-3 md:gap-6">{t.steps.map(([title, text], i) => <Reveal key={title} delay={i * 120} className="h-full"><li className="flex h-full flex-col rounded-[20px] bg-sage-soft p-6 md:rounded-[24px] md:p-8"><span className="grid size-11 place-items-center rounded-full bg-primary text-lg font-semibold text-primary-foreground">{i + 1}</span><h3 className="mt-6 text-[22px] font-semibold md:text-[24px]">{title}</h3><p className="mt-3 leading-7 text-muted-foreground">{text}</p></li></Reveal>)}</ol>
         <Reveal><div className="mt-10 flex justify-center"><Button asChild className="h-auto min-h-11 bg-primary px-5 py-3 text-primary-foreground hover:bg-primary-hover"><Link to={lang === "de" ? "/termin" : "/en/termin"}>{t.stepsBtn}<ArrowRight className="size-4 shrink-0" /></Link></Button></div></Reveal>
       </div></section>

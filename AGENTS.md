@@ -11,6 +11,7 @@
 - Site texts live in src/components/home-copy.ts (de/en); / and /en render the same HomePage with a lang prop — keeps both languages in sync.
 - Site images (team photos, logos) are bundled files in src/assets, never Lovable CDN pointers (/__l5e/…) — the site is deployed on Vercel, where those CDN paths return 404. Sarah's finished photo is shown uncropped and mirrored once with CSS.
 - Serve favicon binaries from public/ and declare them in the root route head; TanStack Start generates the HTML, so no separate index.html is needed.
+- Social share images (og:image, twitter:image) are real files under public/ with a stable path and an absolute startsaldo.ch URL in the leaf route head; bundled src/assets imports get hashed names, so they cannot serve as a share URL.
 - Keep the crawler favicon in server-rendered HTML and synchronise the browser fallback with colour-scheme changes after hydration, so it cannot override the theme-specific tab icon.
 - Website display mode uses dedicated band colour tokens and a browser-stored preference; it is independent of OS-driven favicons and preserves photo rendering and alternating content sections.
 - The joint hero portrait stays unaltered in both colour modes; copy uses the empty left area on desktop and moves above the photo on smaller screens to keep both faces unobstructed. The statement animation sits below the portrait within the same hero section.
