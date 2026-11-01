@@ -49,13 +49,13 @@ const stdProcess = {
   de: [
     ["Erstgespräch", "Wir lernen Ihr Unternehmen, Ihre Abläufe und Ihre Fragen kennen."],
     ["Übernahme", "Wir übernehmen Ihre Unterlagen und richten alles sauber ein."],
-    ["Laufend", "Sie senden uns Belege und Informationen – verschlüsselt über Proton. Wir erledigen den Rest."],
+    ["Laufend", "Sie senden uns Belege und Informationen über einen sicheren Proton-Freigabelink. Wir erledigen den Rest."],
     ["Termine im Griff", "Fristen behalten wir im Blick und melden uns rechtzeitig bei Ihnen."],
   ] as [string, string][],
   en: [
     ["Initial meeting", "We get to know your business, your processes and your questions."],
     ["Onboarding", "We take over your documents and set everything up properly."],
-    ["Ongoing", "You send us receipts and information – encrypted via Proton. We do the rest."],
+    ["Ongoing", "You send us receipts and information via a secure Proton share link. We do the rest."],
     ["Deadlines covered", "We keep track of deadlines and get in touch with you in good time."],
   ] as [string, string][],
 };
@@ -316,7 +316,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Krypto in der Buchhaltung", items: ["Verbuchung von Käufen, Verkäufen und Tauschgeschäften", "Abstimmung von Wallets und Börsenkonten", "Bewertung per Stichtag", "Saubere Dokumentation der Transaktionen"] },
         { title: "Krypto in den Firmensteuern", items: ["Ausweis in der Bilanz nach Obligationenrecht", "Bewertung per Bilanzstichtag", "Erträge aus Staking und Lending", "Klare Unterlagen für die Steuerbehörde"] },
-        { title: "Abklärung Ihrer Situation", items: ["Steuerliche Einordnung von Krypto-Transaktionen im Unternehmen", "Auswirkungen auf Steuern und Sozialversicherungen", "Krypto im Unternehmen", "Verständliche Antworten"] },
+        { title: "Abklärung Ihrer Situation", items: ["Steuerliche Einordnung von Krypto-Transaktionen im Unternehmen", "Auswirkungen auf Steuern und Sozialversicherungen", "Bewertung und Dokumentation am Bilanzstichtag", "Verständliche Antworten"] },
       ],
       process: stdProcess.de,
       people: ["audelia"],
@@ -341,7 +341,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Crypto in your accounts", items: ["Booking purchases, sales and swaps", "Reconciling wallets and exchange accounts", "Valuation at the reporting date", "Clean documentation of transactions"] },
         { title: "Crypto in your company taxes", items: ["Presentation in the balance sheet under Swiss law", "Valuation at the balance sheet date", "Income from staking and lending", "Clear documents for the tax office"] },
-        { title: "Assessing your situation", items: ["Tax classification of crypto transactions in your company", "Impact on taxes and social insurance", "Crypto in your company", "Clear answers"] },
+        { title: "Assessing your situation", items: ["Tax classification of crypto transactions in your company", "Impact on taxes and social insurance", "Valuation and documentation at the balance sheet date", "Clear answers"] },
       ],
       process: stdProcess.en,
       people: ["audelia"],
@@ -517,7 +517,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Häufige Fragen",
       faq: [
         ["Betreuen Sie Unternehmen im Kanton Zug?", "Ja. Wir arbeiten digital und unkompliziert mit Kunden aus Zug und der ganzen Schweiz zusammen."],
-        ["Muss ich für die Zusammenarbeit vor Ort sein?", "Nein. Wir arbeiten volldigital: Sie senden uns Ihre Unterlagen verschlüsselt über Proton, wir erledigen den Rest."],
+        ["Muss ich für die Zusammenarbeit vor Ort sein?", "Nein. Wir arbeiten volldigital: Sie senden uns Ihre Unterlagen über einen sicheren Proton-Freigabelink, wir erledigen den Rest."],
         ["Kennen Sie sich mit Krypto aus?", "Ja, wir sind auf die Buchhaltung und Steuererklärung von Krypto-Transaktionen spezialisiert."],
         ["Wie starte ich?", "Mit einem kostenlosen und unverbindlichen Erstgespräch. Buchen Sie einfach einen Termin."],
       ],
@@ -544,7 +544,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faqTitle: "Frequently asked questions",
       faq: [
         ["Do you serve companies in the canton of Zug?", "Yes. We work digitally and easily with clients from Zug and all of Switzerland."],
-        ["Do I have to be on site to work with you?", "No. We work fully digitally: you send us your documents encrypted via Proton and we handle the rest."],
+        ["Do I have to be on site to work with you?", "No. We work fully digitally: you send us your documents via a secure Proton share link and we handle the rest."],
         ["Do you know crypto?", "Yes, we specialise in accounting and tax returns for crypto trades."],
         ["How do I start?", "With a free initial consultation. Simply book an appointment."],
       ],
@@ -565,7 +565,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Wo wir für Sie da sind", items: ["Wollerau und Feusisberg", "Freienbach und Pfäffikon SZ", "Bäch, Wilen und Hurden", "Lachen, Altendorf und die March", "Die ganze Schweiz – digital"] },
         { title: "Womit wir Sie am oberen Zürichsee entlasten", items: ["Laufende Buchhaltung", "Lohnabrechnungen und Sozialversicherungen", "MWST-Abrechnungen", "Steuererklärung der Firma", "Krypto in Buchhaltung und Steuern"] },
-        { title: "Warum StartSaldo", items: ["Persönliche Betreuung – verschlüsselt über Proton", "Spezialisiert auf Krypto-Transaktionen", "Feste Ansprechpartnerinnen", "Alles volldigital"] },
+        { title: "Warum StartSaldo", items: ["Persönliche Betreuung – Dokumentenaustausch über Proton", "Spezialisiert auf Krypto-Transaktionen", "Feste Ansprechpartnerinnen", "Alles volldigital"] },
       ],
       process: stdProcess.de,
       people: ["audelia"],
@@ -592,7 +592,7 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       blocks: [
         { title: "Areas we serve", items: ["Wollerau and Feusisberg", "Freienbach and Pfäffikon SZ", "Bäch, Wilen and Hurden", "Lachen, Altendorf and the March district", "All of Switzerland – digitally"] },
         { title: "How we lighten your load on Upper Lake Zurich", items: ["Ongoing bookkeeping", "Payslips and social insurance", "VAT returns", "Your company's tax return", "Crypto in accounting and taxes"] },
-        { title: "Why StartSaldo", items: ["Personal support – encrypted via Proton", "Specialised in crypto transactions", "Fixed contact persons", "Everything fully digital"] },
+        { title: "Why StartSaldo", items: ["Personal support – document exchange via Proton", "Specialised in crypto transactions", "Fixed contact persons", "Everything fully digital"] },
       ],
       process: stdProcess.en,
       people: ["audelia"],
