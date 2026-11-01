@@ -1,3 +1,4 @@
+import { shareMeta } from "@/components/structured-data";
 import type { Lang } from "@/components/home-copy";
 import { payrollCopy } from "@/components/payroll-page";
 
@@ -628,7 +629,7 @@ export function serviceHead(slug: ServiceSlug, lang: Lang) {
       { property: "og:description", content: c.metaDesc },
       { property: "og:type", content: "website" },
       { property: "og:url", content: url },
-      { name: "twitter:card", content: "summary_large_image" },
+      ...shareMeta(lang),
     ],
     links: [
       { rel: "canonical", href: url },

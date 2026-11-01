@@ -1,3 +1,4 @@
+import { shareMeta } from "@/components/structured-data";
 import { createFileRoute } from "@tanstack/react-router";
 import { BookingPage } from "@/components/booking-page";
 
@@ -16,9 +17,13 @@ export const Route = createFileRoute("/termin")({
         content: "Buchen Sie einen Termin für ein Erstgespräch – persönlich und unkompliziert.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://startsaldo.ch/termin" },
+      ...shareMeta("de"),
     ],
-    links: [{ rel: "alternate", hrefLang: "en", href: "/en/termin" }],
+    links: [
+      { rel: "canonical", href: "https://startsaldo.ch/termin" },
+      { rel: "alternate", hrefLang: "en", href: "https://startsaldo.ch/en/termin" },
+    ],
   }),
   component: () => <BookingPage lang="de" />,
 });

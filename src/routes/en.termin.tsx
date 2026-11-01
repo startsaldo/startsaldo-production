@@ -1,3 +1,4 @@
+import { shareMeta } from "@/components/structured-data";
 import { createFileRoute } from "@tanstack/react-router";
 import { BookingPage } from "@/components/booking-page";
 
@@ -16,9 +17,13 @@ export const Route = createFileRoute("/en/termin")({
         content: "Book a time for an initial consultation – personal and straightforward.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://startsaldo.ch/en/termin" },
+      ...shareMeta("en"),
     ],
-    links: [{ rel: "alternate", hrefLang: "de", href: "/termin" }],
+    links: [
+      { rel: "canonical", href: "https://startsaldo.ch/en/termin" },
+      { rel: "alternate", hrefLang: "de", href: "https://startsaldo.ch/termin" },
+    ],
   }),
   component: () => <BookingPage lang="en" />,
 });

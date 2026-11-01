@@ -1,3 +1,5 @@
+import { shareMeta } from "@/components/structured-data";
+import { SITE } from "@/components/service-pages";
 import { Link } from "@tanstack/react-router";
 import type { Lang } from "@/components/home-copy";
 import { SiteFooter, SiteHeader } from "@/components/site-nav";
@@ -140,8 +142,12 @@ export function legalHead(kind: LegalKind, lang: Lang) {
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:url", content: SITE + legalPaths[kind][lang] },
+      ...shareMeta(lang),
     ],
-    links: [{ rel: "alternate", hrefLang: other, href: legalPaths[kind][other] }],
+    links: [
+      { rel: "canonical", href: SITE + legalPaths[kind][lang] },
+      { rel: "alternate", hrefLang: other, href: SITE + legalPaths[kind][other] },
+    ],
   };
 }
