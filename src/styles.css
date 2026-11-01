@@ -317,10 +317,13 @@
 }
 .portrait-hero-image {
   position: absolute;
-  top: 40px;
-  /* Keeps the panel's right edge flush with the content column (section-shell). */
+  top: 50%;
+  transform: translateY(-50%);
+  /* Keeps the panel's right edge flush with the content column (section-shell).
+     The height cap stops the panel growing into the copy column on wide
+     screens: 470px tall leaves at least 60px of clearance to the text. */
   right: calc((100% - min(100% - 64px, 1200px)) / 2);
-  height: calc(100% - 80px);
+  height: min(calc(100% - 80px), 470px);
   width: auto;
   max-width: none;
   object-fit: cover;
@@ -350,6 +353,7 @@
   .portrait-hero { min-height: 0; }
   .portrait-hero-image {
     top: 0;
+    transform: none;
     width: 72%;
     height: auto;
     /* The two people span 11.6% to 93.8% of the photo width (centre 52.7%);
@@ -388,7 +392,7 @@
 }
 @media (min-width: 1024px) and (max-width: 1279px) {
   .portrait-hero, .portrait-hero-layout { min-height: 480px; }
-  .portrait-hero-copy { max-width: 430px; }
+  .portrait-hero-copy { max-width: 400px; }
 }
 @media (min-width: 1280px) {
   .portrait-hero, .portrait-hero-layout { min-height: 560px; }
