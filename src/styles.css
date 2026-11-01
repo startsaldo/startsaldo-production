@@ -393,6 +393,9 @@
 @media (min-width: 1024px) and (max-width: 1279px) {
   .portrait-hero, .portrait-hero-layout { min-height: 480px; }
   .portrait-hero-copy { max-width: 400px; }
+  /* At this width the two columns sit closest together: the panel is capped so
+     the copy keeps a clear gap of about 40px. */
+  .portrait-hero-image { height: min(calc(100% - 80px), 390px); }
 }
 @media (min-width: 1280px) {
   .portrait-hero, .portrait-hero-layout { min-height: 560px; }
