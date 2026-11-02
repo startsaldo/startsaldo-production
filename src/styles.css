@@ -371,8 +371,8 @@
      edge transition used on desktop. */
   .portrait-hero { min-height: 0; }
   .portrait-hero-image {
+    --portrait-hero-shift: 0px;
     top: 20px;
-    transform: none;
     width: 72%;
     height: auto;
     /* The two people span 11.6% to 93.8% of the photo width (centre 52.7%);
@@ -388,6 +388,7 @@
     padding-top: calc(65vw + 20px);
     padding-bottom: 28px;
   }
+
   /* Copy is centred below the faces on every size under 1024px. */
   .portrait-hero-copy { width: 100%; text-align: center; }
   .portrait-hero-sub { margin-inline: auto; }
