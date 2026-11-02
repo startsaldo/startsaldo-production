@@ -330,9 +330,10 @@
   overflow: hidden;
 }
 .portrait-hero-image {
+  --portrait-hero-shift: -50%;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(var(--portrait-hero-shift));
   /* Keeps the panel's right edge flush with the content column (section-shell).
      The height cap stops the panel growing into the copy column on wide
      screens: 470px tall leaves at least 60px of clearance to the text. */
@@ -348,6 +349,7 @@
 @media (min-width: 768px) {
   .portrait-hero-image { border-radius: 24px; }
 }
+
 .portrait-hero-layout {
   position: relative;
   z-index: 1;
