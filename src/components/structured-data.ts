@@ -27,7 +27,7 @@ export function businessJsonLd(lang: Lang) {
 
 /** Shared link-preview tags (WhatsApp, LinkedIn, iMessage) for every page. */
 export function shareMeta(lang: Lang) {
-  const img = "https://startsaldo.ch/og/startsaldo-team.jpg";
+  const img = "https://www.startsaldo.ch/og/startsaldo-team.jpg";
   return [
     { property: "og:site_name", content: "StartSaldo" },
     { property: "og:locale", content: lang === "de" ? "de_CH" : "en_CH" },
