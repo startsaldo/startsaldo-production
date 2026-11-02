@@ -350,7 +350,7 @@
      edge transition used on desktop. */
   .portrait-hero { min-height: 0; }
   .portrait-hero-image {
-    top: 0;
+    top: 20px;
     transform: none;
     width: 72%;
     height: auto;
@@ -362,8 +362,9 @@
   .portrait-hero-layout {
     min-height: 0;
     /* The panel is 72vw wide, so about 55vw tall at the photo's own ratio
-       (1278x1086, ~61vw); the copy starts just below its bottom edge. */
-    padding-top: 65vw;
+       (1278x1086, ~61vw); the copy starts just below its bottom edge.
+       The extra 20px match the photo's top offset below the header. */
+    padding-top: calc(65vw + 20px);
     padding-bottom: 28px;
   }
   /* Copy is centred below the faces on every size under 1024px. */
