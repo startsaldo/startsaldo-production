@@ -26,7 +26,7 @@
 - [x] Startseiten-Porträt durch das neue Foto «Audelia_und_Sarah.png» ersetzt; Farbübergang zur Bande geprüft.
 - [x] Google- und KI-Suche-Auftritt geprüft: Adressen auf www.startsaldo.ch vereinheitlicht, Service-Seiten mit strukturierten Daten ergänzt, llms.txt erstellt.
 - [x] Startseiten-Porträt: Bande auf warmes Greige gesetzt, damit der Fotoübergang weicher wirkt; Gesichter und Text auf Computer und Handy geprüft.
-- [x] Arbeitsfoto im Team-Bereich durch das neue Foto «Audelia_und_Sarah_am_Arbeiten.png» ersetzt (inkl. neuem Vorschaubild für Link-Freigaben); auf Computer und Handy geprüft.
+- [x] Arbeitsfoto im Team-Bereich durch das neueste Foto «Audelia_und_Sarah_am_Arbeiten-2.png» ersetzt (unverändert übernommen); Social-Vorschaubild aus demselben Foto neu zugeschnitten; auf Computer und Handy geprüft.
 
 
 
