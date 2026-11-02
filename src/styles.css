@@ -531,8 +531,13 @@
     opacity: 1;
     animation: none;
   }
+  .portrait-hero-fade {
+    opacity: 1;
+    animation: none;
+  }
   .statement-track { animation-play-state: paused; }
 }
+
 
 :root[data-site-theme="light"] .booking-card {
   background: var(--card);
