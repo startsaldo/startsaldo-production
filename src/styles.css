@@ -120,7 +120,6 @@
   --color-band-accent: var(--band-accent);
   --color-band-hover: var(--band-hover);
   --color-footer-surface: var(--footer-surface);
-  --color-hero-muted: var(--hero-muted);
   --radius-button: 0.75rem;
 }
 
@@ -157,10 +156,6 @@
   --footer-surface: var(--foreground);
   --statement-surface: var(--deep);
   --statement-highlight: var(--primary);
-  /* Matches the new portrait's plaster wall (warm greige), so the photo's
-     masked edges disappear instead of reading as a grey block on sage. */
-  --hero-photo-surface: oklch(0.88 0.014 80);
-  --hero-muted: oklch(0.40 0.018 156);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -313,8 +308,6 @@
    copy so both faces stay visible. */
 .portrait-hero {
   position: relative;
-  background: var(--hero-photo-surface);
-  color: var(--foreground);
   overflow: hidden;
 }
 .portrait-hero-image {
