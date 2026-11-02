@@ -307,9 +307,10 @@
 .hero-reveal-5 { animation-delay: 680ms; }
 
 /* Keep the original portrait and faces unchanged in both display modes.
-   Only the outermost edges blend into the matching hero surface; no frame,
-   shadow or broad haze. On desktop it leaves the left area free for the copy;
-   on small screens it sits above the copy so both faces stay visible. */
+   The edge treatment matches every other photo on the site: a clean rounded
+   rectangle (20px, 24px from 768px), no fade, frame or shadow. On desktop it
+   leaves the left area free for the copy; on small screens it sits above the
+   copy so both faces stay visible. */
 .portrait-hero {
   position: relative;
   background: var(--hero-photo-surface);
@@ -329,12 +330,11 @@
   max-width: none;
   object-fit: cover;
   border: 0;
-  border-radius: 0;
+  border-radius: 20px;
   box-shadow: none;
-  mask-image:
-    linear-gradient(to right, transparent, #000 2%, #000 98%, transparent),
-    linear-gradient(to bottom, transparent, #000 0.6%, #000 97%, transparent);
-  mask-composite: intersect;
+}
+@media (min-width: 768px) {
+  .portrait-hero-image { border-radius: 24px; }
 }
 .portrait-hero-layout {
   position: relative;
