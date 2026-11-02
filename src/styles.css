@@ -301,6 +301,25 @@
 .hero-reveal-4 { animation-delay: 500ms; }
 .hero-reveal-5 { animation-delay: 680ms; }
 
+/* The hero portrait fades in with the copy instead of popping in. The final
+   position comes from --portrait-hero-shift so the animation can't override
+   the centring used on desktop or the top offset used on smaller screens. */
+@keyframes hero-photo-fade {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--portrait-hero-shift) + 24px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(var(--portrait-hero-shift));
+  }
+}
+.portrait-hero-fade {
+  --portrait-hero-shift: 0px;
+  animation: hero-photo-fade 1000ms cubic-bezier(0.16, 1, 0.3, 1) 260ms both;
+}
+
+
 /* Keep the original portrait and faces unchanged in both display modes.
    The edge treatment matches every other photo on the site: a clean rounded
    rectangle (20px, 24px from 768px), no fade, frame or shadow. On desktop it
