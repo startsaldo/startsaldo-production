@@ -358,11 +358,11 @@ export function HomePage({ lang }: { lang: Lang }) {
           <img src={teamHeroUrl} alt={lang === "de" ? "Sarah Mogel und Audelia Babbev-Pittet von StartSaldo" : "Sarah Mogel and Audelia Babbev-Pittet of StartSaldo"} width={1278} height={1086} fetchPriority="high" decoding="async" className="portrait-hero-image" />
           <div className="section-shell portrait-hero-layout">
             <div className="portrait-hero-copy">
-              <h1 className="hero-reveal hero-reveal-2 portrait-hero-heading">{t.h1a}<br/><span className="text-primary">{t.h1b}</span></h1>
-              <ul className="hero-reveal hero-reveal-3 portrait-hero-sub mt-5 flex max-w-[470px] flex-col gap-2.5 text-base leading-6 text-hero-muted md:text-[17px] max-[1023px]:items-center"><li className="sr-only">{lang === "de" ? "Unsere Leistungen" : "Our services"}</li>{t.heroServices.map((s) => <li key={s} className="flex items-center gap-2.5"><Check className="size-4 shrink-0 text-success" />{s}</li>)}</ul>
+<h1 className="hero-reveal hero-reveal-2 portrait-hero-heading">{t.h1a}<br/><span className="text-band-accent">{t.h1b}</span></h1>
+              <ul className="hero-reveal hero-reveal-3 portrait-hero-sub mt-5 flex max-w-[470px] flex-col gap-2.5 text-base leading-6 text-band-foreground/75 md:text-[17px] max-[1023px]:items-center"><li className="sr-only">{lang === "de" ? "Unsere Leistungen" : "Our services"}</li>{t.heroServices.map((s) => <li key={s} className="flex items-center gap-2.5"><Check className="size-4 shrink-0 text-band-accent" />{s}</li>)}</ul>
               <div className="hero-reveal hero-reveal-4 portrait-hero-actions mt-7 flex flex-wrap gap-3">
-                <Button asChild className="h-auto min-h-11 whitespace-normal bg-primary px-5 py-3 text-primary-foreground hover:bg-primary-hover"><Link to={lang === "de" ? "/termin" : "/en/termin"}>{t.heroBtn1}<ArrowRight className="size-4 shrink-0" /></Link></Button>
-                <Button variant="outline" asChild className="h-auto min-h-11 whitespace-normal border-primary/35 bg-transparent px-5 py-3 text-primary hover:bg-primary/10 hover:text-primary"><a href="#dienstleistungen">{t.heroBtn2}</a></Button>
+                <Button asChild className="h-auto min-h-11 whitespace-normal bg-band-accent px-5 py-3 text-band-surface hover:bg-band-hover"><Link to={lang === "de" ? "/termin" : "/en/termin"}>{t.heroBtn1}<ArrowRight className="size-4 shrink-0" /></Link></Button>
+                <Button variant="outline" asChild className="h-auto min-h-11 whitespace-normal border-band-accent/60 bg-transparent px-5 py-3 text-band-accent hover:bg-band-foreground/10 hover:text-band-accent"><a href="#dienstleistungen">{t.heroBtn2}</a></Button>
               </div>
             </div>
           </div>
