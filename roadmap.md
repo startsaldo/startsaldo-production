@@ -32,3 +32,5 @@
 
 
 
+- [x] Audelias Personentext ersetzt («rund um die Buchhaltung … erste Ansprechpartnerin in jeglichen Anliegen»); DE/EN geprüft.
+- [x] Punkt in der Finanzbuchhaltungs-Liste von «Spezialisiert auf Krypto-Transaktionen» auf «Krypto-Transaktionen» gekürzt (DE/EN).
