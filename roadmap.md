@@ -12,7 +12,7 @@
 - [x] Point the «Unverbindliches Erstgespräch» button at the Proton booking page, opening in a new tab
 - [x] Make customer feedback manually scrollable, slow its automatic movement, and keep cards compact
 - [x] Replace all favicon files and references with the supplied official logo and verify local delivery.
-- [ ] Verify published favicon URLs after the Vercel deployment — blocked by missing Vercel deployment access; current public URLs do not yet serve the new files.
+- [x] Published icon and preview files verified live on startsaldo.ch (all serve 200).
 - [x] Add a «Auf Google bewerten» link to the contact area of the home page (both languages).
 - [x] Add a founder checklist section to the start-ups page (both languages).
 - [x] Serve the web font locally instead of loading it from Google Fonts.
