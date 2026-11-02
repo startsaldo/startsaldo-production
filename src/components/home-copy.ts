@@ -54,6 +54,7 @@ const de = {
   workTitle: "Wie wir zusammenarbeiten.",
   workSub: "Persönlich, klar strukturiert und vollständig digital.",
   workAlt: "Audelia Babbev-Pittet arbeitet am Laptop und macht sich Notizen",
+  workAlt2: "Audelia Babbev-Pittet und Sarah Mogel stehen hinter einem Schreibtisch mit Laptop, Notizbuch und Wasserglas",
   stepsTitle: "In 3 Schritten zu Ihrer Buchhaltung",
   stepsSub: "Der Einstieg ist einfacher, als Sie denken.",
   steps: [
@@ -153,6 +154,7 @@ const en: typeof de = {
   workTitle: "How we work together.",
   workSub: "Personal, clearly structured and fully digital.",
   workAlt: "Audelia Babbev-Pittet working on a laptop and taking notes",
+  workAlt2: "Audelia Babbev-Pittet and Sarah Mogel standing behind a desk with a laptop, notebook and a glass of water",
   stepsTitle: "Your accounting in 3 steps",
   stepsSub: "Getting started is easier than you think.",
   steps: [
