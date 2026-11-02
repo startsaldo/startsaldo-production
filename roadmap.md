@@ -28,6 +28,7 @@
 - [x] Startseiten-Porträt: Bande auf warmes Greige gesetzt, damit der Fotoübergang weicher wirkt; Gesichter und Text auf Computer und Handy geprüft.
 - [x] Arbeitsfoto im Team-Bereich durch das neueste Foto «Audelia_und_Sarah_am_Arbeiten-2.png» ersetzt (unverändert übernommen); Social-Vorschaubild aus demselben Foto neu zugeschnitten; auf Computer und Handy geprüft.
 - [x] Gruppenfoto aus dem Team-Bereich entfernt; im Abschnitt «Wie wir zusammenarbeiten» neu zwei Fotos (Audelia am Laptop + beide Frauen am Schreibtisch, «Audelia_und_Sarah_im_Büro.png»); auf Computer und Handy geprüft.
+- [x] Zweites Foto im Abschnitt «Wie wir zusammenarbeiten» wieder entfernt; dort steht nur noch Audelia am Laptop (DE/EN geprüft).
 
 
 
