@@ -301,6 +301,25 @@
 .hero-reveal-4 { animation-delay: 500ms; }
 .hero-reveal-5 { animation-delay: 680ms; }
 
+/* The hero portrait fades in with the copy instead of popping in. The final
+   position comes from --portrait-hero-shift so the animation can't override
+   the centring used on desktop or the top offset used on smaller screens. */
+@keyframes hero-photo-fade {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--portrait-hero-shift) + 24px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(var(--portrait-hero-shift));
+  }
+}
+.portrait-hero-fade {
+  --portrait-hero-shift: 0px;
+  animation: hero-photo-fade 1000ms cubic-bezier(0.16, 1, 0.3, 1) 260ms both;
+}
+
+
 /* Keep the original portrait and faces unchanged in both display modes.
    The edge treatment matches every other photo on the site: a clean rounded
    rectangle (20px, 24px from 768px), no fade, frame or shadow. On desktop it
@@ -311,9 +330,10 @@
   overflow: hidden;
 }
 .portrait-hero-image {
+  --portrait-hero-shift: -50%;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(var(--portrait-hero-shift));
   /* Keeps the panel's right edge flush with the content column (section-shell).
      The height cap stops the panel growing into the copy column on wide
      screens: 470px tall leaves at least 60px of clearance to the text. */
@@ -329,6 +349,7 @@
 @media (min-width: 768px) {
   .portrait-hero-image { border-radius: 24px; }
 }
+
 .portrait-hero-layout {
   position: relative;
   z-index: 1;
@@ -350,8 +371,8 @@
      edge transition used on desktop. */
   .portrait-hero { min-height: 0; }
   .portrait-hero-image {
+    --portrait-hero-shift: 0px;
     top: 20px;
-    transform: none;
     width: 72%;
     height: auto;
     /* The two people span 11.6% to 93.8% of the photo width (centre 52.7%);
@@ -367,6 +388,7 @@
     padding-top: calc(65vw + 20px);
     padding-bottom: 28px;
   }
+
   /* Copy is centred below the faces on every size under 1024px. */
   .portrait-hero-copy { width: 100%; text-align: center; }
   .portrait-hero-sub { margin-inline: auto; }
@@ -509,8 +531,13 @@
     opacity: 1;
     animation: none;
   }
+  .portrait-hero-fade {
+    opacity: 1;
+    animation: none;
+  }
   .statement-track { animation-play-state: paused; }
 }
+
 
 :root[data-site-theme="light"] .booking-card {
   background: var(--card);

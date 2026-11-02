@@ -34,3 +34,5 @@
 
 - [x] Audelias Personentext ersetzt («rund um die Buchhaltung … erste Ansprechpartnerin in jeglichen Anliegen»); DE/EN geprüft.
 - [x] Punkt in der Finanzbuchhaltungs-Liste von «Spezialisiert auf Krypto-Transaktionen» auf «Krypto-Transaktionen» gekürzt (DE/EN).
+- [x] Hero-Foto blendet beim Öffnen der Seite sanft ein (wie die übrigen Hero-Elemente); Endposition auf Computer, Tablet und Handy geprüft, reduzierte Bewegung respektiert.
+
