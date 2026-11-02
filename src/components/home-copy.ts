@@ -51,6 +51,9 @@ const de = {
   ] as { quote: string; name: string; role?: string }[],
   faqTitle: "Häufige Fragen.",
   faqSub: "Hier finden Sie Antworten zu Umfang, Zusammenarbeit und Einstieg.",
+  workTitle: "Wie wir zusammenarbeiten.",
+  workSub: "Persönlich, klar strukturiert und vollständig digital.",
+  workAlt: "Audelia Babbev-Pittet arbeitet am Laptop und macht sich Notizen",
   stepsTitle: "In 3 Schritten zu Ihrer Buchhaltung",
   stepsSub: "Der Einstieg ist einfacher, als Sie denken.",
   steps: [
@@ -61,6 +64,7 @@ const de = {
   stepsBtn: "Erstgespräch buchen",
   whatsapp: "Kurze Frage? Via WhatsApp schreiben",
   faq: [
+    ["Wie läuft der Einstieg ab?", "In 3 Schritten zu Ihrer Buchhaltung:\n1 Kostenloses Erstgespräch – Wir lernen uns kennen und klären Ihre Bedürfnisse – und wie wir Sie am besten entlasten können.\n2 Einfache Übergabe – Sie übermitteln uns Ihre Unterlagen digital. Wir richten alles sauber ein.\n3 Entspannt zurücklehnen – Buchhaltung, Löhne und Fristen erledigen wir zuverlässig und termingerecht."],
     ["Wie sieht eine Zusammenarbeit aus?", "1 Kennenlernen – Wir besprechen Ihr Unternehmen, Ihre aktuelle Situation und Ihren Bedarf.\n2 Zusammenarbeit definieren – Wir klären Aufgaben, Zuständigkeiten, Termine und Abläufe.\n3 Laufend betreuen – Wir übernehmen die vereinbarten Aufgaben zuverlässig und bleiben Ihre direkten Ansprechpartnerinnen."],
     ["Wo werden meine Daten gespeichert?", "Für den sicheren Austausch und die Speicherung von Dokumenten nutzen wir Proton. Die Daten werden verschlüsselt auf Proton-Infrastruktur in der Schweiz, in Deutschland oder Norwegen gespeichert. Auch unsere Terminbuchung läuft über Proton, einen Schweizer Anbieter aus Genf, der dem Schweizer Datenschutzgesetz untersteht. Ihre Unterlagen behandeln wir selbstverständlich streng vertraulich."],
     ["Kann ich auch unter dem Jahr zu StartSaldo wechseln?", "Ja, ein Wechsel ist jederzeit möglich – Sie müssen nicht bis zum Jahresende warten. Wir übernehmen die bestehenden Saldi und offenen Posten und führen Ihre Buchhaltung nahtlos weiter, ohne Unterbruch für Ihr Tagesgeschäft."],
@@ -146,6 +150,9 @@ const en: typeof de = {
   ],
   faqTitle: "Frequently asked questions.",
   faqSub: "Answers about scope, collaboration and getting started.",
+  workTitle: "How we work together.",
+  workSub: "Personal, clearly structured and fully digital.",
+  workAlt: "Audelia Babbev-Pittet working on a laptop and taking notes",
   stepsTitle: "Your accounting in 3 steps",
   stepsSub: "Getting started is easier than you think.",
   steps: [
@@ -156,6 +163,7 @@ const en: typeof de = {
   stepsBtn: "Book a consultation",
   whatsapp: "Quick question? Message us on WhatsApp",
   faq: [
+    ["How do we get started?", "Your accounting in 3 steps:\n1 Free initial consultation – We get to know each other and clarify your needs – and how we can best support you.\n2 Simple handover – You send us your documents digitally. We set everything up properly.\n3 Sit back and relax – We handle accounting, payroll and deadlines reliably and on time."],
     ["What does working together look like?", "1 Getting to know you – We discuss your company, your current situation and your needs.\n2 Defining the collaboration – We clarify tasks, responsibilities, deadlines and processes.\n3 Ongoing support – We reliably take care of the agreed tasks and remain your direct contacts."],
     ["Where is my data stored?", "We use Proton for the secure exchange and storage of documents. Data is encrypted and stored on Proton infrastructure in Switzerland, Germany or Norway. Our appointment booking also runs via Proton, a Swiss provider based in Geneva that is subject to Swiss data protection law. We naturally treat your documents with strict confidentiality."],
     ["Can I switch to StartSaldo during the year?", "Yes, you can switch at any time – there is no need to wait until the end of the year. We take over the existing balances and open items and continue your accounting seamlessly, without interrupting your day-to-day business."],
