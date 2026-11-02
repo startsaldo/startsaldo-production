@@ -24,5 +24,7 @@
 - [x] Hero-Porträt ersetzt: neues Foto, Pflanze links angeschnitten, Bilderrahmen/weisser Wandstreifen und schwarzes Buchband retuschiert, Handy-Abstand ans neue Seitenverhältnis angepasst.
 - [x] Startseiten-Porträt durch neu hochgeladenes Foto ersetzt; nur 16 px links und 18 px rechts abgeschnitten, sonst nichts verändert.
 - [x] Startseiten-Porträt durch das neue Foto «Audelia_und_Sarah.png» ersetzt; Farbübergang zur Bande geprüft.
-- [ ] Google- und KI-Suche-Auftritt prüfen, Fehler beheben und realistische Ranking-Themen nennen.
+- [x] Google- und KI-Suche-Auftritt geprüft: Adressen auf www.startsaldo.ch vereinheitlicht, Service-Seiten mit strukturierten Daten ergänzt, llms.txt erstellt.
+- [ ] Startseiten-Porträt: Farbübergang zur BandeFINAL prüfen (warmes Greige oklch(0.88 0.014 80) gesetzt).
+
 

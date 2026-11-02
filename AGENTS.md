@@ -19,3 +19,5 @@
 - Never edit or delete the root vercel.json: its rewrite forwards startsaldo.ch/<16-char-code> to the QR-tracking API and must stay intact through future changes; existing routes like /termin must keep working.
 - Service/region sub pages share one ServicePage component; their texts, paths and head metadata live in src/components/service-pages.ts (de/en), and site-nav.tsx holds the shared Leistungen menu — add a page by adding data plus two thin route files.
 - The header dropdown and hamburger menu render navOrder (service pages only); the region page is deliberately kept out of the menu but stays linked from the footer, so it remains crawlable while the menu reads as services only.
+- The site's public origin is https://www.startsaldo.ch (the bare domain 308-redirects to www), so every canonical, og:url, hreflang alternate, sitemap <loc>, robots Sitemap directive and structured-data URL must use that exact host; src/components/service-pages.ts exports SITE as the single source, and public/llms.txt lists only public content routes on the same host.
+
