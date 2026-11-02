@@ -615,7 +615,66 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
   },
 };
 
-export const SITE = "https://startsaldo.ch";
+export const SITE = "https://www.startsaldo.ch";
+
+/** Region served, per page – used in the structured data of service pages. */
+const regionArea: Partial<Record<ServiceSlug, { de: string; en: string }>> = {
+  schwyz: { de: "Kanton Schwyz", en: "Canton of Schwyz" },
+  zug: { de: "Kanton Zug", en: "Canton of Zug" },
+  hoefe: { de: "Ausserschwyz und Höfe", en: "Ausserschwyz and Höfe" },
+};
+
+/** Service and breadcrumb structured data (Google / AI assistants). */
+export function serviceJsonLd(slug: ServiceSlug, lang: Lang) {
+  const c = services[slug][lang];
+  const url = SITE + servicePaths[slug][lang];
+  const home = lang === "de" ? SITE + "/" : SITE + "/en";
+  const area = regionArea[slug] ?? { de: "Schweiz", en: "Switzerland" };
+  return {
+    type: "application/ld+json",
+    children: JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          name: c.title,
+          description: c.metaDesc,
+          url,
+          inLanguage: lang,
+          areaServed: { "@type": "Place", name: area[lang] },
+          provider: {
+            "@type": "AccountingService",
+            name: "StartSaldo",
+            url: home,
+            email: "info@startsaldo.ch",
+            telephone: "+41 76 629 50 56",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Schoosstrasse 3",
+              postalCode: "6418",
+              addressLocality: "Rothenthurm",
+              addressRegion: "SZ",
+              addressCountry: "CH",
+            },
+          },
+        },
+        {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: lang === "de" ? "Startseite" : "Home",
+              item: home,
+            },
+            { "@type": "ListItem", position: 2, name: c.menu, item: url },
+          ],
+        },
+      ],
+    }),
+  };
+}
+
 
 export function serviceHead(slug: ServiceSlug, lang: Lang) {
   const c = services[slug][lang];
@@ -635,5 +694,7 @@ export function serviceHead(slug: ServiceSlug, lang: Lang) {
       { rel: "canonical", href: url },
       { rel: "alternate", hrefLang: other, href: SITE + servicePaths[slug][other] },
     ],
+    scripts: [serviceJsonLd(slug, lang)],
   };
 }
+

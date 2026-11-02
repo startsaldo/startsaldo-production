@@ -1,0 +1,33 @@
+# StartSaldo
+
+> Personal financial accounting and payroll for Swiss SMEs and start-ups, from Rothenthurm (canton Schwyz) – including companies with crypto transactions.
+
+StartSaldo is the accounting brand of Digital Trust Solutions GmbH (UID CHE-147.018.858). We take over bookkeeping, payroll, VAT returns, tax returns and annual accounts for Swiss limited companies (SMEs and start-ups). We work fully digitally: documents are exchanged via a secure Proton share link, and our own data is kept on Proton. Banana is our standard accounting software; Bexio, Swiss21 or Abacus on explicit client request.
+
+We are a small, personal team: Audelia Babbev-Pittet (financial accountant), Sarah Mogel (payroll and social insurance specialist) and Daniel Babbev (general manager). The initial consultation is free and non-binding.
+
+## Services
+
+- [Financial accounting](https://www.startsaldo.ch/finanzbuchhaltung): Ongoing bookkeeping for Swiss SMEs and start-ups.
+- [Payroll](https://www.startsaldo.ch/lohnbuchhaltung): Monthly payroll runs, social insurance and payslips.
+- [VAT returns](https://www.startsaldo.ch/mwst): Quarterly and annual VAT reporting in Switzerland.
+- [Tax returns](https://www.startsaldo.ch/steuern): Corporate tax returns for limited companies.
+- [Annual accounts](https://www.startsaldo.ch/jahresabschluss): Annual statements prepared and filed on time.
+- [Crypto accounting](https://www.startsaldo.ch/krypto): Accounting and taxes for companies with crypto transactions.
+- [Founders & start-ups](https://www.startsaldo.ch/gruendung-startups): Support around a company formation, up to the commercial register entry.
+
+## Regions
+
+- [Canton Schwyz](https://www.startsaldo.ch/buchhaltung-schwyz): Accounting for companies in the canton of Schwyz, based in Rothenthurm.
+- [Canton Zug](https://www.startsaldo.ch/buchhaltung-zug): Accounting for companies in the canton of Zug.
+- [Ausserschwyz & Höfe](https://www.startsaldo.ch/buchhaltung-ausserschwyz): Accounting for Wollerau, Freienbach, Pfäffikon SZ, Bäch and the March district.
+
+## Pages
+
+- [Home](https://www.startsaldo.ch/): Overview of the company and services.
+- [Book an appointment](https://www.startsaldo.ch/termin): How the free initial consultation works and how to book it.
+
+## Optional
+
+- [Legal notice](https://www.startsaldo.ch/en/legal-notice): Company details and responsibility for the website.
+- [Privacy policy](https://www.startsaldo.ch/en/privacy): How StartSaldo handles personal data.

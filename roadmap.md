@@ -23,3 +23,10 @@
 - [x] Team-Untertitel auf «Ein eingespieltes Team, das Wert auf persönliche Kundenbetreuung und Zuverlässigkeit legt.» gesetzt (DE/EN) und das Laptop-Foto rechts um den hellen Wandstreifen beschnitten (inkl. Social-Vorschau).
 - [x] Hero-Porträt ersetzt: neues Foto, Pflanze links angeschnitten, Bilderrahmen/weisser Wandstreifen und schwarzes Buchband retuschiert, Handy-Abstand ans neue Seitenverhältnis angepasst.
 - [x] Startseiten-Porträt durch neu hochgeladenes Foto ersetzt; nur 16 px links und 18 px rechts abgeschnitten, sonst nichts verändert.
+- [x] Startseiten-Porträt durch das neue Foto «Audelia_und_Sarah.png» ersetzt; Farbübergang zur Bande geprüft.
+- [x] Google- und KI-Suche-Auftritt geprüft: Adressen auf www.startsaldo.ch vereinheitlicht, Service-Seiten mit strukturierten Daten ergänzt, llms.txt erstellt.
+- [x] Startseiten-Porträt: Bande auf warmes Greige gesetzt, damit der Fotoübergang weicher wirkt; Gesichter und Text auf Computer und Handy geprüft.
+- [x] Arbeitsfoto im Team-Bereich durch das neue Foto «Audelia_und_Sarah_am_Arbeiten.png» ersetzt (inkl. neuem Vorschaubild für Link-Freigaben); auf Computer und Handy geprüft.
+
+
+
