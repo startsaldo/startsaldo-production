@@ -2,7 +2,7 @@
 
 > Personal financial accounting and payroll for Swiss SMEs and start-ups, from Rothenthurm (canton Schwyz) – including companies with crypto transactions.
 
-StartSaldo is the accounting brand of Digital Trust Solutions GmbH (UID CHE-147.018.858). We take over bookkeeping, payroll, VAT returns, tax returns and annual accounts for Swiss limited companies (SMEs and start-ups). We work fully digitally: documents are exchanged via a secure Proton share link, and data is stored encrypted via Proton (Swiss provider) or in the Abacus or Bexio portal. We work with Banana, Bexio and Abacus.
+StartSaldo is the accounting brand of Digital Trust Solutions GmbH (UID CHE-147.018.858). We take over bookkeeping, payroll, VAT returns, tax returns and annual accounts for Swiss limited companies (SMEs and start-ups). We work fully digitally: documents are exchanged via a secure Proton share link, and data is stored encrypted via Proton (Swiss provider) or in the Bexio portal. We work with Banana and Bexio.
 
 We are a small, personal team: Audelia Babbev-Pittet (financial accountant), Sarah Mogel (payroll and social insurance specialist) and Daniel Babbev (general manager). The initial consultation is free and non-binding.
 
