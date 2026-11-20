@@ -140,4 +140,16 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/datenschutz"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/privacy"/>
   </url>
+  <url>
+    <loc>https://www.startsaldo.ch/ratgeber</loc>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/ratgeber/gmbh-oder-einzelfirma</loc>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/ratgeber/mwst-pflicht-schweiz</loc>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/ratgeber/aufbewahrungspflicht-geschaeftsunterlagen</loc>
+  </url>
 </urlset>

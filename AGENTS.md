@@ -21,3 +21,4 @@
 - The header dropdown and hamburger menu render navOrder (service pages only); the region page is deliberately kept out of the menu but stays linked from the footer, so it remains crawlable while the menu reads as services only.
 - The site's public origin is https://www.startsaldo.ch (the bare domain 308-redirects to www), so every canonical, og:url, hreflang alternate, sitemap <loc>, robots Sitemap directive and structured-data URL must use that exact host; src/components/service-pages.ts exports SITE as the single source, and public/llms.txt lists only public content routes on the same host.
 
+- Ratgeber (blog) articles live as data in src/components/ratgeber.ts rendered by /ratgeber and /ratgeber/$slug — one place to add posts; add new slugs to sitemap.xml and llms.txt.

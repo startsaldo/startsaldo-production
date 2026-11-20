@@ -37,3 +37,4 @@
 - [x] Hero-Foto blendet beim Öffnen der Seite sanft ein (wie die übrigen Hero-Elemente); Endposition auf Computer, Tablet und Handy geprüft, reduzierte Bewegung respektiert.
 
 - [x] Abacus überall entfernt: Software heisst nur noch «Banana und Bexio» (DE/EN, Startseite, Leistungsseiten, Impressum/Datenschutz, llms.txt); Datenspeicherung «über Proton oder im Bexio-Portal».
+- Ratgeber-Bereich (/ratgeber) mit 3 Beiträgen

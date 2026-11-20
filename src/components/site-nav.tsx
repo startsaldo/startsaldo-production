@@ -99,6 +99,7 @@ export function FooterServiceLinks({ lang }: { lang: Lang }) {
         {regionLabel[lang]}:{" "}
         {regionOrder.map((s, i) => <span key={s}>{i > 0 && " · "}<Link to={servicePaths[s][lang]} className="text-band-foreground hover:text-band-accent">{regionShort[s]}</Link></span>)}
       </p>
+      {lang === "de" && <Link to="/ratgeber" className="hover:text-band-accent">Ratgeber</Link>}
     </nav>
   );
 }

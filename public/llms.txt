@@ -31,3 +31,10 @@ We are a small, personal team: Audelia Babbev-Pittet (financial accountant), Sar
 
 - [Legal notice](https://www.startsaldo.ch/en/legal-notice): Company details and responsibility for the website.
 - [Privacy policy](https://www.startsaldo.ch/en/privacy): How StartSaldo handles personal data.
+
+## Guides (German)
+
+- [Ratgeber](https://www.startsaldo.ch/ratgeber): Articles on formation, accounting and VAT for Swiss SMEs and start-ups.
+- [GmbH oder Einzelfirma](https://www.startsaldo.ch/ratgeber/gmbh-oder-einzelfirma): Liability, capital, bookkeeping and tax compared.
+- [MWST-Pflicht Schweiz](https://www.startsaldo.ch/ratgeber/mwst-pflicht-schweiz): When Swiss VAT registration is required.
+- [Aufbewahrungspflicht](https://www.startsaldo.ch/ratgeber/aufbewahrungspflicht-geschaeftsunterlagen): Ten-year retention of business records.
