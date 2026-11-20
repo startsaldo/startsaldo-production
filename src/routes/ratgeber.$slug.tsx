@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { RatgeberArticle } from "@/components/ratgeber-page";
-import { articleBySlug } from "@/components/ratgeber";
+import { articleBySlug, localize } from "@/components/ratgeber";
 import { SITE } from "@/components/service-pages";
 
 export const Route = createFileRoute("/ratgeber/$slug")({
@@ -9,9 +9,11 @@ export const Route = createFileRoute("/ratgeber/$slug")({
     if (!a) throw notFound();
     return a;
   },
-  head: ({ loaderData: a, params }) => {
-    if (!a) return { meta: [{ title: "Beitrag nicht gefunden | StartSaldo" }, { name: "robots", content: "noindex" }] };
+  head: ({ loaderData: raw, params }) => {
+    if (!raw) return { meta: [{ title: "Beitrag nicht gefunden | StartSaldo" }, { name: "robots", content: "noindex" }] };
+    const a = localize(raw, "de");
     const url = `${SITE}/ratgeber/${params.slug}`;
+    const alt = `${SITE}/en/guides/${params.slug}`;
     return {
       meta: [
         { title: `${a.title} | StartSaldo` }, { name: "description", content: a.desc },
@@ -19,7 +21,7 @@ export const Route = createFileRoute("/ratgeber/$slug")({
         { property: "og:type", content: "article" }, { property: "og:url", content: url },
         { name: "twitter:card", content: "summary_large_image" },
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [{ rel: "canonical", href: url }, { rel: "alternate", hrefLang: "en", href: alt }],
       scripts: [{
         type: "application/ld+json",
         children: JSON.stringify({
@@ -36,5 +38,5 @@ export const Route = createFileRoute("/ratgeber/$slug")({
       }],
     };
   },
-  component: () => <RatgeberArticle a={Route.useLoaderData()} />,
+  component: () => <RatgeberArticle article={Route.useLoaderData()} lang="de" />,
 });

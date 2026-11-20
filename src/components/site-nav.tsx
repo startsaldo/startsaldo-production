@@ -49,7 +49,7 @@ export function MobileServiceLinks({ lang, onClick }: { lang: Lang; onClick?: ()
 }
 
 /** Header for sub pages: same menu as the home page, anchors point back to home sections. */
-export function SiteHeader({ lang, slug }: { lang: Lang; slug?: ServiceSlug }) {
+export function SiteHeader({ lang, slug, altTo }: { lang: Lang; slug?: ServiceSlug; altTo?: string }) {
   const t = copy[lang];
   const { lightMode, toggleTheme } = useSiteTheme();
   const [open, setOpen] = useState(false);
@@ -57,7 +57,7 @@ export function SiteHeader({ lang, slug }: { lang: Lang; slug?: ServiceSlug }) {
   const themeLabel = lightMode ? t.darkMode : t.lightMode;
   const home = lang === "de" ? "/" : "/en";
   const other: Lang = lang === "de" ? "en" : "de";
-  const otherTo = slug ? servicePaths[slug][other] : other === "en" ? "/en" : "/";
+  const otherTo = altTo ?? (slug ? servicePaths[slug][other] : other === "en" ? "/en" : "/");
   const anchors = t.nav.filter(([, h]) => h !== "#dienstleistungen");
   const langLink = (cls: string) => (
     <Link to={otherTo} hrefLang={other} aria-label={t.switchLabel} className={cls} onClick={() => setOpen(false)}>{other.toUpperCase()}</Link>
@@ -99,7 +99,7 @@ export function FooterServiceLinks({ lang }: { lang: Lang }) {
         {regionLabel[lang]}:{" "}
         {regionOrder.map((s, i) => <span key={s}>{i > 0 && " · "}<Link to={servicePaths[s][lang]} className="text-band-foreground hover:text-band-accent">{regionShort[s]}</Link></span>)}
       </p>
-      {lang === "de" && <Link to="/ratgeber" className="hover:text-band-accent">Ratgeber</Link>}
+      <Link to={lang === "de" ? "/ratgeber" : "/en/guides"} className="hover:text-band-accent">{lang === "de" ? "Ratgeber" : "Guides"}</Link>
     </nav>
   );
 }

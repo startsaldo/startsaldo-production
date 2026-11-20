@@ -41,6 +41,8 @@ import { Route as EnTerminRouteImport } from './routes/en.termin'
 import { Route as EnVatRouteImport } from './routes/en.vat'
 import { Route as RatgeberIndexRouteImport } from './routes/ratgeber.index'
 import { Route as RatgeberSlugRouteImport } from './routes/ratgeber.$slug'
+import { Route as EnGuidesIndexRouteImport } from './routes/en.guides.index'
+import { Route as EnGuidesSlugRouteImport } from './routes/en.guides.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -203,6 +205,16 @@ const RatgeberSlugRoute = RatgeberSlugRouteImport.update({
   path: '/ratgeber/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnGuidesIndexRoute = EnGuidesIndexRouteImport.update({
+  id: '/guides/',
+  path: '/guides/',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnGuidesSlugRoute = EnGuidesSlugRouteImport.update({
+  id: '/guides/$slug',
+  path: '/guides/$slug',
+  getParentRoute: () => EnRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -237,6 +249,8 @@ export interface FileRoutesByFullPath {
   '/ratgeber/$slug': typeof RatgeberSlugRoute
   '/en/': typeof EnIndexRoute
   '/ratgeber/': typeof RatgeberIndexRoute
+  '/en/guides/$slug': typeof EnGuidesSlugRoute
+  '/en/guides/': typeof EnGuidesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -270,6 +284,8 @@ export interface FileRoutesByTo {
   '/ratgeber/$slug': typeof RatgeberSlugRoute
   '/en': typeof EnIndexRoute
   '/ratgeber': typeof RatgeberIndexRoute
+  '/en/guides/$slug': typeof EnGuidesSlugRoute
+  '/en/guides': typeof EnGuidesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -305,6 +321,8 @@ export interface FileRoutesById {
   '/ratgeber/$slug': typeof RatgeberSlugRoute
   '/en/': typeof EnIndexRoute
   '/ratgeber/': typeof RatgeberIndexRoute
+  '/en/guides/$slug': typeof EnGuidesSlugRoute
+  '/en/guides/': typeof EnGuidesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -341,6 +359,8 @@ export interface FileRouteTypes {
     | '/ratgeber/$slug'
     | '/en/'
     | '/ratgeber/'
+    | '/en/guides/$slug'
+    | '/en/guides/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -374,6 +394,8 @@ export interface FileRouteTypes {
     | '/ratgeber/$slug'
     | '/en'
     | '/ratgeber'
+    | '/en/guides/$slug'
+    | '/en/guides'
   id:
     | '__root__'
     | '/'
@@ -408,6 +430,8 @@ export interface FileRouteTypes {
     | '/ratgeber/$slug'
     | '/en/'
     | '/ratgeber/'
+    | '/en/guides/$slug'
+    | '/en/guides/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -657,6 +681,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RatgeberSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/guides/': {
+      id: '/en/guides/'
+      path: '/guides'
+      fullPath: '/en/guides/'
+      preLoaderRoute: typeof EnGuidesIndexRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/guides/$slug': {
+      id: '/en/guides/$slug'
+      path: '/guides/$slug'
+      fullPath: '/en/guides/$slug'
+      preLoaderRoute: typeof EnGuidesSlugRouteImport
+      parentRoute: typeof EnRoute
+    }
   }
 }
 
@@ -675,6 +713,8 @@ interface EnRouteChildren {
   EnTerminRoute: typeof EnTerminRoute
   EnVatRoute: typeof EnVatRoute
   EnIndexRoute: typeof EnIndexRoute
+  EnGuidesSlugRoute: typeof EnGuidesSlugRoute
+  EnGuidesIndexRoute: typeof EnGuidesIndexRoute
 }
 
 const EnRouteChildren: EnRouteChildren = {
@@ -692,6 +732,8 @@ const EnRouteChildren: EnRouteChildren = {
   EnTerminRoute: EnTerminRoute,
   EnVatRoute: EnVatRoute,
   EnIndexRoute: EnIndexRoute,
+  EnGuidesSlugRoute: EnGuidesSlugRoute,
+  EnGuidesIndexRoute: EnGuidesIndexRoute,
 }
 
 const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
