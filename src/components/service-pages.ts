@@ -11,7 +11,8 @@ export type ServiceCopy = {
   titleAccent: string;
   sub: string;
   blocksTitle: string;
-  blocks: { title: string; description?: string; items: string[] }[];
+  blocks: { title: string; description?: string; source?: { label: string; href: string }; items: string[] }[];
+  taskTable?: { title: string; headers: [string, string]; rows: [string, string][]; note: string };
   processTitle: string;
   process: [string, string][];
   people: Person[];
@@ -615,108 +616,397 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
     },
   },
   zuerich: {
-    de: {
-      menu: "Region Zürich",
-      title: "Treuhand für KMU und Start-ups in Zürich",
-      titleAccent: "Persönlich und digital.",
-      sub: "Sie führen eine GmbH, ein Start-up oder ein KMU in Zürich und möchten Ihre Buchhaltung professionell organisieren? StartSaldo unterstützt Unternehmen im Kanton Zürich bei der Finanzbuchhaltung, Lohnadministration, MWST und beim Jahresabschluss – ohne dass Ihr Treuhandbüro direkt in Zürich sitzen muss.",
-      blocksTitle: "Buchhaltung auslagern und mehr Zeit fürs Unternehmen gewinnen",
-      blocks: [
-        { title: "Unsere Treuhanddienstleistungen", items: ["Finanzbuchhaltung: Laufende Buchführung, Kontenabstimmungen und buchhalterische Auswertungen", "Jahresabschluss: Unterstützung beim Abschluss Ihrer GmbH nach Schweizer Rechnungslegungsvorschriften", "MWST: Vorbereitung und Abrechnung der Mehrwertsteuer", "Lohnbuchhaltung: Lohnabrechnungen und Sozialversicherungsadministration", "Krypto-Buchhaltung: Erfassung und Dokumentation von Geschäftsvorfällen mit Kryptowährungen"] },
-        { title: "Aufgaben sinnvoll aufteilen", description: "Gerade für Gründerinnen, Gründer und Geschäftsführer ist die Buchhaltung häufig eine zusätzliche Aufgabe neben dem eigentlichen Tagesgeschäft.", items: ["Sie entscheiden, welche Aufgaben Sie selbst erledigen und welche Sie uns übergeben", "Wir stimmen den genauen Leistungsumfang auf Ihr Unternehmen ab"] },
-        { title: "Digitale Zusammenarbeit statt Papierarbeit", description: "StartSaldo arbeitet aus Rothenthurm im Kanton Schwyz und bietet auch Zürcher KMU und Start-ups eine digitale Buchhaltungsbetreuung.", items: ["Belege und Informationen digital austauschen", "Fragen und Zuständigkeiten persönlich klären", "Ihre Unterlagen werden bei Proton gespeichert. Proton ist ein Schweizer Anbieter für verschlüsselte E-Mail- und Cloud-Speicherdienste.", "Ihre Unterlagen werden streng vertraulich behandelt"] },
-        { title: "Treuhänder wechseln oder erstmals auslagern", description: "Sie möchten Ihren bisherigen Treuhänder wechseln oder benötigen erstmals professionelle Unterstützung?", items: ["Bestehende Buchhaltung und gewünschte Aufgaben im Erstgespräch besprechen", "Bisherige Buchhaltung gemeinsam neu organisieren", "Benötigten Betreuungsumfang einschätzen"] },
+  "de": {
+    "menu": "Region Zürich",
+    "title": "Treuhänder für GmbHs, KMU und Start-ups in Zürich",
+    "titleAccent": "Persönlich und digital.",
+    "sub": "Sie führen eine GmbH, ein KMU oder ein Start-up in Zürich und möchten Ihre Buchhaltung professionell organisieren? StartSaldo unterstützt Zürcher Unternehmen bei der laufenden Finanzbuchhaltung, MWST, Lohnbuchhaltung und beim Jahresabschluss. Digital organisiert, mit persönlicher Betreuung – auch ohne Treuhandbüro in Zürich.",
+    "blocksTitle": "Was braucht eine GmbH für eine gut organisierte Buchhaltung?",
+    "blocks": [
+      {
+        "title": "Zuständigkeiten früh klären",
+        "description": "Eine Buchhaltungssoftware allein genügt nicht. Wichtig ist, dass Geschäftsfälle vollständig erfasst, Konten abgestimmt und die notwendigen Unterlagen für den Jahresabschluss vorhanden sind. Gerade bei jungen GmbHs sollten die Zuständigkeiten früh geklärt werden:",
+        "items": [
+          "Wer erfasst Kunden- und Lieferantenrechnungen?",
+          "Wer kontrolliert Bankkonten und offene Posten?",
+          "Wer bereitet die MWST-Abrechnung vor?",
+          "Wer erstellt den Jahresabschluss und die Steuererklärung?"
+        ]
+      },
+      {
+        "title": "Ganz oder teilweise übernehmen",
+        "description": "StartSaldo kann diese Arbeiten ganz oder teilweise übernehmen. Gemeinsam bestimmen wir, welche Aufgaben Sie selbst erledigen möchten.",
+        "items": [
+          "Laufende Finanzbuchhaltung",
+          "MWST-Abrechnungen",
+          "Lohnbuchhaltung",
+          "Jahresabschluss und Unternehmenssteuererklärung im vereinbarten Leistungsumfang"
+        ]
+      },
+      {
+        "title": "Jahresabschluss und Unternehmenssteuern in Zürich",
+        "description": "GmbHs mit Sitz im Kanton Zürich müssen grundsätzlich eine Unternehmenssteuererklärung einreichen. Der Kanton stellt dafür die elektronische Lösung ZHcorporateTax bereit. Für eine korrekte Deklaration braucht es eine nachvollziehbare Buchhaltung und die notwendigen Abschlussunterlagen.",
+        "items": [
+          "Vorbereitung Ihrer Buchhaltung",
+          "Abschlussarbeiten",
+          "Unternehmenssteuererklärung im vereinbarten Leistungsumfang"
+        ],
+        "source": {
+          "label": "Kanton Zürich – Steuererklärung für Unternehmen",
+          "href": "https://www.zh.ch/de/steuern-finanzen/steuern/steuern-juristische-personen/steuererklaerung-juristische-personen.html"
+        }
+      },
+      {
+        "title": "Neu gegründet oder Treuhänder wechseln?",
+        "description": "Bei einer neu gegründeten GmbH helfen wir, die Buchhaltungsorganisation von Anfang an sinnvoll aufzusetzen. Wenn bereits eine Buchhaltung besteht, prüfen wir gemeinsam die vorhandenen Unterlagen und klären, wie die Zusammenarbeit künftig aussehen soll.",
+        "items": [
+          "Ihre Unterlagen werden bei Proton gespeichert. Proton ist ein Schweizer Anbieter für verschlüsselte E-Mail- und Cloud-Speicherdienste.",
+          "Ihre Unterlagen werden streng vertraulich behandelt."
+        ]
+      }
+    ],
+    "processTitle": "So starten wir die Zusammenarbeit",
+    "process": [
+      [
+        "Erstgespräch",
+        "Wir besprechen Ihre bestehende Buchhaltung und die Aufgaben, die Sie abgeben möchten."
       ],
-      processTitle: "So starten wir die Zusammenarbeit",
-      process: [["Erstgespräch", "Wir besprechen Ihre bestehende Buchhaltung und die Aufgaben, die Sie abgeben möchten."], ["Aufgabenverteilung", "Gemeinsam finden wir eine praktikable Lösung für Ihr Unternehmen."], ["Unterlagen übernehmen", "Wir organisieren den digitalen Austausch Ihrer Belege und Informationen über einen Proton-Freigabelink."], ["Laufende Betreuung", "Wir betreuen Ihre Buchhaltung und bleiben für Ihre Fragen persönlich erreichbar."]],
-      people: ["audelia"],
-      personText: "Für Ihr Zürcher Unternehmen haben Sie eine feste Ansprechpartnerin in Rothenthurm. Wir helfen Ihnen, Ihre kaufmännischen Arbeiten sinnvoll aufzuteilen – persönlich betreut und digital organisiert.",
-      faqTitle: "Häufige Fragen zur Treuhand in Zürich",
-      faq: [
-        ["Muss mein Treuhänder in Zürich ansässig sein?", "Nein. Die Buchhaltung einer Zürcher GmbH kann auch von einem Treuhandunternehmen ausserhalb des Kantons geführt werden. Entscheidend sind eine zuverlässige Zusammenarbeit und die Einhaltung der geltenden Schweizer Vorschriften."],
-        ["Unterstützt StartSaldo auch neu gegründete GmbHs?", "Ja. Wir unterstützen KMU und Start-ups sowie neu gegründete GmbHs beim Aufbau einer geeigneten Buchhaltungsorganisation und bei der laufenden Betreuung."],
-        ["Wie werden meine Unterlagen gespeichert?", "Ihre Unterlagen werden bei Proton gespeichert. Proton ist ein Schweizer Anbieter für verschlüsselte E-Mail- und Cloud-Speicherdienste. Ihre Unterlagen werden streng vertraulich behandelt."],
-        ["Was kostet ein Treuhänder für eine GmbH in Zürich?", "Die Kosten hängen insbesondere von der Anzahl Geschäftsfälle, den Mitarbeitenden und den gewünschten Dienstleistungen ab. Eine erste Orientierung bietet unser Ratgeber zu Treuhandkosten für Schweizer GmbHs."],
+      [
+        "Aufgabenverteilung",
+        "Gemeinsam bestimmen wir, welche Aufgaben Sie selbst erledigen möchten."
       ],
-      faqGuide: { question: "Was kostet ein Treuhänder für eine GmbH in Zürich?", slug: "treuhaender-kosten-gmbh-schweiz", label: "Ratgeber zu Treuhandkosten für Schweizer GmbHs" },
-      endTitle: "Persönliche Treuhandbetreuung für Ihr Zürcher Unternehmen",
-      endSub: "Sie suchen eine zuverlässige Lösung für Ihre Buchhaltung, ohne unnötigen administrativen Aufwand? Wir besprechen gerne, wie StartSaldo Ihr Unternehmen entlasten kann.",
-      metaTitle: "Treuhand & Buchhaltung Zürich für KMU und Start-ups | StartSaldo",
-      metaDesc: "Finanzbuchhaltung, Löhne, MWST und Jahresabschluss für KMU und Start-ups im Kanton Zürich – digital und persönlich betreut aus Rothenthurm. Kostenloses Erstgespräch.",
+      [
+        "Laufende Betreuung",
+        "Wir organisieren den digitalen Austausch Ihrer Unterlagen und betreuen Ihre Buchhaltung im vereinbarten Umfang."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Ihre feste Ansprechpartnerin in Rothenthurm unterstützt Zürcher KMU und Start-ups beim Aufbau und bei der laufenden Betreuung ihrer Buchhaltung – digital organisiert und persönlich betreut.",
+    "faqTitle": "Häufige Fragen zur Treuhand in Zürich",
+    "faq": [
+      [
+        "Muss mein Treuhänder in Zürich sitzen?",
+        "Nein. Sie können Ihre Buchhaltung auch einem Treuhandunternehmen ausserhalb des Kantons anvertrauen. StartSaldo betreut KMU und Start-ups digital von seinem Standort im Kanton Schwyz aus."
+      ],
+      [
+        "Was kostet ein Treuhänder für eine GmbH in Zürich?",
+        "Die Kosten hängen vor allem von den Geschäftsfällen und dem Leistungsumfang ab. In unserem Ratgeber zu Treuhandkosten für GmbHs finden Sie eine erste Orientierung."
+      ]
+    ],
+    "faqGuide": {
+      "question": "Was kostet ein Treuhänder für eine GmbH in Zürich?",
+      "slug": "treuhaender-kosten-gmbh-schweiz",
+      "label": "Ratgeber zu Treuhandkosten für GmbHs"
     },
-    en: {
-      menu: "Zurich region",
-      title: "Accounting for SMEs and start-ups in Zurich",
-      titleAccent: "Personal and digital.",
-      sub: "Do you run a GmbH, start-up or SME in Zurich and want to organise your accounts professionally? StartSaldo supports companies in the canton of Zurich with financial accounting, payroll, VAT and annual accounts – without needing an accounting office in Zurich.",
-      blocksTitle: "Outsource your accounting and gain time for your business",
-      blocks: [
-        { title: "Our accounting services", items: ["Financial accounting: Ongoing bookkeeping, account reconciliations and reports", "Annual accounts: Support with your GmbH's closing under Swiss accounting rules", "VAT: Preparing and filing VAT returns", "Payroll: Payslips and social insurance administration", "Crypto accounting: Recording and documenting business transactions involving cryptocurrencies"] },
-        { title: "Share the workload", description: "For founders and managing directors, accounting is often an additional task alongside day-to-day business.", items: ["You decide which tasks to keep in-house and which to hand over", "We tailor the scope of our services to your company"] },
-        { title: "Digital cooperation instead of paperwork", description: "StartSaldo is based in Rothenthurm in the canton of Schwyz and offers digital accounting support to SMEs and start-ups in Zurich.", items: ["Exchange receipts and information digitally", "Discuss questions and responsibilities personally", "Your documents are stored with Proton. Proton is a Swiss provider of encrypted email and cloud storage services.", "Your documents are treated as strictly confidential"] },
-        { title: "Switch accountants or outsource for the first time", description: "Would you like to change your accountant or get professional support for the first time?", items: ["Discuss your existing accounts and the tasks to hand over in the initial consultation", "Reorganise your existing accounting together", "Assess the support your company needs"] },
-      ],
-      processTitle: "Getting started together",
-      process: [["Initial consultation", "We discuss your existing accounts and the tasks you want to hand over."], ["Responsibilities", "Together, we find a practical solution for your business."], ["Handover", "We organise the digital exchange of receipts and information via a Proton share link."], ["Ongoing support", "We look after your accounts and remain personally available for questions."]],
-      people: ["audelia"],
-      personText: "Your Zurich company has a fixed contact person in Rothenthurm. We help you share the administrative workload sensibly – personally supported and digitally organised.",
-      faqTitle: "Frequently asked questions about accounting in Zurich",
-      faq: [["Does my accountant need to be based in Zurich?", "No. A Zurich GmbH's books can also be kept by an accounting firm outside the canton. Reliable cooperation and compliance with Swiss regulations are what matters."], ["Does StartSaldo also support newly founded GmbHs?", "Yes. We help SMEs and start-ups, including newly founded GmbHs, establish a suitable accounting setup and provide ongoing support."], ["How are my documents stored?", "Your documents are stored with Proton. Proton is a Swiss provider of encrypted email and cloud storage services. Your documents are treated as strictly confidential."], ["What does an accountant cost for a GmbH in Zurich?", "Costs depend mainly on the number of transactions, employees and the services required. We discuss the scope in a free, no-obligation initial consultation."]],
-      endTitle: "Personal accounting support for your Zurich business",
-      endSub: "Looking for reliable accounting without unnecessary administration? We would be happy to discuss how StartSaldo can lighten your workload.",
-      metaTitle: "Accounting & Payroll in Zurich for SMEs and Start-ups | StartSaldo",
-      metaDesc: "Financial accounting, payroll, VAT and annual accounts for SMEs and start-ups in the canton of Zurich – personal digital support from Rothenthurm. Free consultation.",
-    },
+    "endTitle": "Buchhaltung für Ihre Zürcher GmbH organisieren",
+    "endSub": "Sie suchen eine persönliche Treuhandbetreuung, die sich mit digitalen Abläufen verbinden lässt? Besprechen wir gemeinsam, welche Aufgaben StartSaldo für Ihre GmbH übernehmen kann.",
+    "metaTitle": "Treuhänder Zürich für GmbHs, KMU und Start-ups | StartSaldo",
+    "metaDesc": "Finanzbuchhaltung, MWST, Lohnbuchhaltung, Jahresabschluss und Unternehmenssteuern für KMU und Start-ups in Zürich. Persönliche digitale Betreuung aus Rothenthurm."
   },
+  "en": {
+    "menu": "Zurich region",
+    "title": "Accountant for GmbHs, SMEs and start-ups in Zurich",
+    "titleAccent": "Personal and digital.",
+    "sub": "Do you run a GmbH, SME or start-up in Zurich and want to organise your accounting professionally? StartSaldo supports Zurich businesses with ongoing financial accounting, VAT, payroll and annual accounts. Digitally organised with personal support – without an accounting office in Zurich.",
+    "blocksTitle": "What does a GmbH need for well-organised accounting?",
+    "blocks": [
+      {
+        "title": "Clarify responsibilities early",
+        "description": "Accounting software alone is not enough. Transactions must be recorded in full, accounts reconciled and the documents needed for annual accounts available. Newly founded GmbHs should clarify responsibilities early:",
+        "items": [
+          "Who records customer and supplier invoices?",
+          "Who checks bank accounts and outstanding balances?",
+          "Who prepares VAT returns?",
+          "Who prepares annual accounts and the tax return?"
+        ]
+      },
+      {
+        "title": "Take over all or part of the work",
+        "description": "StartSaldo can take over all or part of these tasks. Together, we decide which responsibilities you want to keep in-house.",
+        "items": [
+          "Ongoing financial accounting",
+          "VAT returns",
+          "Payroll",
+          "Annual accounts and corporate tax returns within the agreed scope"
+        ]
+      },
+      {
+        "title": "Annual accounts and corporate taxes in Zurich",
+        "description": "GmbHs based in the canton of Zurich generally have to submit a corporate tax return. The canton provides the electronic ZHcorporateTax service. A correct declaration requires traceable accounting and the necessary closing documents.",
+        "items": [
+          "Preparing your accounting records",
+          "Closing work",
+          "Corporate tax return within the agreed scope"
+        ],
+        "source": {
+          "label": "Canton Zurich – Corporate tax returns (German)",
+          "href": "https://www.zh.ch/de/steuern-finanzen/steuern/steuern-juristische-personen/steuererklaerung-juristische-personen.html"
+        }
+      },
+      {
+        "title": "Newly founded or changing accountants?",
+        "description": "For a newly founded GmbH, we help establish a sensible accounting setup from the start. If accounts already exist, we review the available records together and agree on how future cooperation should work.",
+        "items": [
+          "Your documents are stored with Proton. Proton is a Swiss provider of encrypted email and cloud storage services.",
+          "Your documents are treated as strictly confidential."
+        ]
+      }
+    ],
+    "processTitle": "Getting started together",
+    "process": [
+      [
+        "Initial consultation",
+        "We discuss your existing accounts and the tasks you want to hand over."
+      ],
+      [
+        "Responsibilities",
+        "Together, we decide which tasks you want to keep in-house."
+      ],
+      [
+        "Ongoing support",
+        "We organise the digital exchange of your documents and look after your accounts within the agreed scope."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Your fixed contact person in Rothenthurm supports SMEs and start-ups in Zurich with setting up and maintaining their accounting – digitally organised with personal support.",
+    "faqTitle": "Frequently asked questions about accounting in Zurich",
+    "faq": [
+      [
+        "Does my accountant need to be based in Zurich?",
+        "No. You can entrust your accounting to a firm outside the canton. StartSaldo supports SMEs and start-ups digitally from its base in the canton of Schwyz."
+      ],
+      [
+        "What does an accountant cost for a GmbH in Zurich?",
+        "Costs depend mainly on your transactions and the scope of services. We discuss your needs in a free, no-obligation initial consultation."
+      ]
+    ],
+    "endTitle": "Organise the accounting for your Zurich GmbH",
+    "endSub": "Looking for personal accounting support combined with digital processes? Let us discuss which tasks StartSaldo can take over for your GmbH.",
+    "metaTitle": "Accountant in Zurich for GmbHs, SMEs and Start-ups | StartSaldo",
+    "metaDesc": "Financial accounting, VAT, payroll, annual accounts and corporate taxes for SMEs and start-ups in Zurich. Personal digital support from Rothenthurm."
+  }
+},
   luzern: {
-    de: {
-      menu: "Region Luzern",
-      title: "Buchhaltung für KMU und Start-ups in Luzern",
-      titleAccent: "Digital und persönlich betreut.",
-      sub: "Sie führen ein Unternehmen in Luzern und möchten weniger Zeit mit Belegen, Buchungen und administrativen Arbeiten verbringen? StartSaldo unterstützt Luzerner KMU und Start-ups bei der laufenden Buchhaltung, Lohnadministration, MWST und beim Jahresabschluss.",
-      blocksTitle: "Buchhaltung vollständig oder teilweise auslagern",
-      blocks: [
-        { title: "Unsere Leistungen für Luzerner Unternehmen", items: ["Laufende Finanzbuchhaltung: Geschäftsfälle erfassen, Konten abstimmen und Buchhaltungsunterlagen aufbereiten", "MWST-Abrechnungen: Die Mehrwertsteuer korrekt und nachvollziehbar abrechnen", "Lohnadministration: Lohnabrechnungen und dazugehörige Sozialversicherungsthemen bearbeiten", "Jahresabschluss: Den Jahresabschluss Ihrer GmbH vorbereiten und erstellen"] },
-        { title: "Die passende Aufgabenteilung", description: "Nicht jedes Unternehmen benötigt dieselbe Unterstützung. Vielleicht erstellen Sie Ihre Rechnungen selbst und möchten lediglich die laufenden Buchungen und den Jahresabschluss abgeben.", items: ["Einzelne Aufgaben oder Finanz- und Lohnbuchhaltung auslagern", "Aufgaben so verteilen, dass Ihre Buchhaltung übersichtlich und nachvollziehbar bleibt", "Neu gegründete Unternehmen von Beginn an mit einer geeigneten Buchhaltungsstruktur unterstützen"] },
-        { title: "Digitale Betreuung aus Rothenthurm", description: "Unser Standort liegt im Kanton Schwyz. Die digitale Betreuung ermöglicht uns die Zusammenarbeit mit KMU und Start-ups in Luzern und der übrigen Zentralschweiz – ohne Fahrten für jede Besprechung oder Belegübergabe.", items: ["Belege und relevante Informationen digital austauschen", "Für fachliche Fragen persönlich erreichbar bleiben", "Ihre Unterlagen werden bei Proton gespeichert. Proton ist ein Schweizer Anbieter für verschlüsselte E-Mail- und Cloud-Speicherdienste.", "Ihre Unterlagen werden streng vertraulich behandelt"] },
-        { title: "Auch ein Treuhänderwechsel ist möglich", description: "Wenn Sie Ihre bisherige Buchhaltungsbetreuung ändern möchten, unterstützen wir Sie bei der Organisation der Übernahme.", items: ["Vollständige Buchhaltungsdaten zusammenstellen", "Abgestimmte Konten übernehmen", "Laufende Arbeiten klar regeln"] },
+  "de": {
+    "menu": "Region Luzern",
+    "title": "Buchhaltung in Luzern auslagern",
+    "titleAccent": "Mehr Zeit fürs Unternehmen.",
+    "sub": "Sie führen ein KMU, ein Start-up oder eine GmbH im Kanton Luzern und möchten weniger Zeit mit Buchungsbelegen, Kontenabstimmungen und Abschlussarbeiten verbringen? StartSaldo unterstützt Luzerner Unternehmen bei der Finanzbuchhaltung, MWST und beim Jahresabschluss. Sie entscheiden, welche Arbeiten Sie selbst übernehmen und welche Sie uns übergeben.",
+    "blocksTitle": "Wann lohnt es sich, die Buchhaltung auszulagern?",
+    "blocks": [
+      {
+        "title": "Die bisherige Organisation überprüfen",
+        "description": "Die Buchhaltung selbst zu führen kann sinnvoll sein, solange genügend Zeit und Fachwissen vorhanden sind. Wenn Belege liegen bleiben, Abstimmungen immer wieder verschoben werden oder der Jahresabschluss viel Zeit beansprucht, lohnt es sich, die bisherige Organisation zu überprüfen.",
+        "items": [
+          "Eine vollständige Auslagerung ist nicht immer notwendig.",
+          "Sie entscheiden, welche Arbeiten Sie selbst übernehmen und welche Sie uns übergeben."
+        ]
+      },
+      {
+        "title": "Den Jahresabschluss rechtzeitig vorbereiten",
+        "description": "Bei einer GmbH sollten die Abschlussarbeiten nicht erst beginnen, wenn die Steuererklärung ansteht. Hilfreich sind insbesondere:",
+        "items": [
+          "Abgestimmte Bank- und Kassenkonten",
+          "Vollständige Kunden- und Lieferantenrechnungen",
+          "Eine Übersicht über offene Forderungen und Verbindlichkeiten",
+          "Unterlagen zu Anlagegütern und Abschreibungen",
+          "Relevante Lohn- und MWST-Unterlagen"
+        ]
+      },
+      {
+        "title": "Jahresabschluss und Unternehmenssteuererklärung",
+        "description": "Im Kanton Luzern entspricht die Steuerperiode einer juristischen Person grundsätzlich ihrem Geschäftsjahr. Die Abschlussorganisation ist daher auch für die Unternehmenssteuererklärung wichtig.",
+        "items": [
+          "Abschlussunterlagen vollständig und nachvollziehbar vorbereiten"
+        ],
+        "source": {
+          "label": "Kanton Luzern – Steuererklärung für juristische Personen",
+          "href": "https://steuern.lu.ch/juristischepersonen"
+        }
+      },
+      {
+        "title": "Persönliche Betreuung, digitale Zusammenarbeit",
+        "description": "StartSaldo arbeitet von seinem Standort in Rothenthurm im Kanton Schwyz aus und unterstützt KMU und Start-ups in Luzern und der Zentralschweiz. Wir stimmen die digitale Zusammenarbeit auf Ihre bestehende Buchhaltungsorganisation ab.",
+        "items": [
+          "Ihre Unterlagen werden bei Proton gespeichert. Proton ist ein Schweizer Anbieter für verschlüsselte E-Mail- und Cloud-Speicherdienste.",
+          "Ihre Unterlagen werden streng vertraulich behandelt."
+        ]
+      }
+    ],
+    "taskTable": {
+      "title": "Eine mögliche Aufgabenteilung",
+      "headers": [
+        "Ihr Unternehmen",
+        "StartSaldo"
       ],
-      processTitle: "So funktioniert die Zusammenarbeit",
-      process: [["Bedarf klären", "Wir besprechen Ihre Unternehmensgrösse, die aktuelle Buchhaltung und die gewünschten Dienstleistungen."], ["Aufgaben sinnvoll aufteilen", "Gemeinsam bestimmen wir, welche Arbeiten Sie selbst erledigen möchten und welche StartSaldo übernimmt."], ["Buchhaltung laufend betreuen", "Die Belege und relevanten Informationen werden digital ausgetauscht. Für fachliche Fragen bleiben wir persönlich erreichbar."]],
-      people: ["audelia"],
-      personText: "Ihre Ansprechpartnerin in Rothenthurm unterstützt Ihr Luzerner Unternehmen dabei, die Buchhaltung übersichtlich und nachvollziehbar zu organisieren. Sie behalten die Aufgaben, die Sie selbst erledigen möchten.",
-      faqTitle: "Häufige Fragen zur Buchhaltung in Luzern",
-      faq: [["Kann ich meine Rechnungen weiterhin selbst schreiben?", "Ja. Sie können bestimmte Aufgaben intern behalten und die übrige Buchhaltung auslagern. Wir stimmen die Aufgabenteilung mit Ihnen ab."], ["Muss ich meine Buchhaltungsunterlagen persönlich vorbeibringen?", "Nein. Die Zusammenarbeit kann digital organisiert werden. Wie Belege und Informationen ausgetauscht werden, vereinbaren wir gemeinsam."], ["Übernimmt StartSaldo auch die Lohnbuchhaltung?", "Ja. Neben der Finanzbuchhaltung bieten wir KMU und Start-ups Unterstützung bei Lohnabrechnungen und Sozialversicherungen."], ["Wie werden die Buchhaltungskosten berechnet?", "Die Kosten richten sich nach dem tatsächlichen Arbeitsumfang und den vereinbarten Leistungen. In unserem Ratgeber zu Treuhandkosten für GmbHs finden Sie eine erste Orientierung."]],
-      faqGuide: { question: "Wie werden die Buchhaltungskosten berechnet?", slug: "treuhaender-kosten-gmbh-schweiz", label: "Ratgeber zu Treuhandkosten für GmbHs" },
-      endTitle: "Ihre Buchhaltung in guten Händen",
-      endSub: "Sie möchten Ihre Buchhaltung abgeben und sich stärker auf Ihr Unternehmen konzentrieren? Wir zeigen Ihnen gerne, wie eine persönliche und digitale Zusammenarbeit mit StartSaldo aussehen kann.",
-      metaTitle: "Buchhaltung Luzern für KMU und Start-ups | StartSaldo",
-      metaDesc: "Buchhaltung vollständig oder teilweise auslagern: Finanzbuchhaltung, Löhne, MWST und Jahresabschluss für KMU und Start-ups in Luzern. Digital betreut aus Rothenthurm.",
-    },
-    en: {
-      menu: "Lucerne region",
-      title: "Accounting for SMEs and start-ups in Lucerne",
-      titleAccent: "Digital with personal support.",
-      sub: "Do you run a business in Lucerne and want to spend less time on receipts, bookkeeping and administration? StartSaldo supports SMEs and start-ups in Lucerne with ongoing accounting, payroll, VAT and annual accounts.",
-      blocksTitle: "Outsource all or part of your accounting",
-      blocks: [
-        { title: "Our services for Lucerne businesses", items: ["Ongoing financial accounting: Recording transactions, reconciling accounts and preparing records", "VAT returns: Clear and accurate VAT reporting", "Payroll: Payslips and related social insurance matters", "Annual accounts: Preparing and completing your GmbH's annual accounts"] },
-        { title: "The right division of tasks", description: "Not every business needs the same support. You may want to issue invoices yourself and hand over only ongoing bookkeeping and annual accounts.", items: ["Outsource individual tasks or both financial accounting and payroll", "Divide responsibilities to keep your accounting clear and traceable", "Help newly founded companies establish a suitable accounting setup from the start"] },
-        { title: "Digital support from Rothenthurm", description: "We are based in the canton of Schwyz. Digital support lets us work with SMEs and start-ups in Lucerne and the rest of Central Switzerland – without travelling for every discussion or document handover.", items: ["Exchange receipts and relevant information digitally", "Remain personally available for technical questions", "Your documents are stored with Proton. Proton is a Swiss provider of encrypted email and cloud storage services.", "Your documents are treated as strictly confidential"] },
-        { title: "Changing accountants is also possible", description: "If you want to change your current accounting support, we help organise the handover.", items: ["Compile complete accounting data", "Take over reconciled accounts", "Clearly agree responsibilities for ongoing work"] },
+      "rows": [
+        [
+          "Rechnungen erstellen",
+          "Laufende Buchungen bearbeiten"
+        ],
+        [
+          "Belege digital bereitstellen",
+          "Konten abstimmen"
+        ],
+        [
+          "Offene Zahlungen überwachen",
+          "MWST-Abrechnungen erstellen"
+        ],
+        [
+          "Geschäftliche Rückfragen beantworten",
+          "Jahresabschluss vorbereiten und erstellen"
+        ]
       ],
-      processTitle: "How we work together",
-      process: [["Understand your needs", "We discuss your company size, current accounting and the services you need."], ["Share responsibilities", "Together, we decide which tasks you want to keep and which StartSaldo takes over."], ["Ongoing accounting", "Receipts and relevant information are exchanged digitally. We remain personally available for questions."]],
-      people: ["audelia"],
-      personText: "Your contact person in Rothenthurm helps your Lucerne business organise clear, traceable accounts. You retain the tasks you prefer to handle yourself.",
-      faqTitle: "Frequently asked questions about accounting in Lucerne",
-      faq: [["Can I still write my own invoices?", "Yes. You can keep certain tasks in-house and outsource the rest of your accounting. We agree on the division of responsibilities with you."], ["Do I need to bring my accounting records in person?", "No. We can organise the cooperation digitally. We agree together on how receipts and information are exchanged."], ["Does StartSaldo also handle payroll?", "Yes. Alongside financial accounting, we support SMEs and start-ups with payslips and social insurance."], ["How are accounting costs calculated?", "Costs depend on the actual workload and agreed services. We discuss your needs in a free, no-obligation initial consultation."]],
-      endTitle: "Your accounting in good hands",
-      endSub: "Want to hand over your accounting and focus on your business? We would be happy to show you what personal, digital cooperation with StartSaldo can look like.",
-      metaTitle: "Accounting in Lucerne for SMEs and Start-ups | StartSaldo",
-      metaDesc: "Outsource all or part of your accounting: bookkeeping, payroll, VAT and annual accounts for SMEs and start-ups in Lucerne. Digital support from Rothenthurm.",
+      "note": "Die genaue Aufteilung vereinbaren wir individuell."
     },
+    "processTitle": "So organisieren wir Ihre Buchhaltung",
+    "process": [
+      [
+        "Bedarf klären",
+        "Wir besprechen Ihre aktuelle Buchhaltung und die gewünschten Dienstleistungen."
+      ],
+      [
+        "Aufgaben aufteilen",
+        "Gemeinsam bestimmen wir, welche Tätigkeiten Sie behalten und welche StartSaldo übernimmt."
+      ],
+      [
+        "Abschluss vorbereiten",
+        "Wir betreuen die vereinbarten Arbeiten und bereiten den Jahresabschluss anhand vollständiger Unterlagen vor."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Ihre Ansprechpartnerin in Rothenthurm unterstützt Luzerner KMU und Start-ups dabei, die Buchhaltung zu entlasten und den Jahresabschluss besser vorzubereiten.",
+    "faqTitle": "Häufige Fragen zur Buchhaltung in Luzern",
+    "faq": [
+      [
+        "Kann ich nur den Jahresabschluss auslagern?",
+        "Ja. Auch einzelne Arbeiten können übernommen werden. Dafür benötigen wir vollständige und nachvollziehbare Buchhaltungsunterlagen."
+      ],
+      [
+        "Muss ich meine Buchhaltung vollständig abgeben?",
+        "Nein. Wir können auch eine Aufgabenteilung vereinbaren, bei der Sie bestimmte Tätigkeiten weiterhin selbst erledigen."
+      ]
+    ],
+    "endTitle": "Ihre Buchhaltung neu organisieren",
+    "endSub": "Sie möchten Ihre Buchhaltung entlasten und den Jahresabschluss besser vorbereiten? Wir besprechen gerne, welche Lösung für Ihr Unternehmen sinnvoll ist.",
+    "metaTitle": "Buchhaltung in Luzern auslagern für KMU und Start-ups | StartSaldo",
+    "metaDesc": "Buchhaltung für KMU und Start-ups in Luzern ganz oder teilweise auslagern. Klare Aufgabenteilung, MWST und Jahresabschluss – digital betreut aus Rothenthurm."
   },
+  "en": {
+    "menu": "Lucerne region",
+    "title": "Outsource accounting in Lucerne",
+    "titleAccent": "More time for your business.",
+    "sub": "Do you run an SME, start-up or GmbH in the canton of Lucerne and want to spend less time on receipts, account reconciliations and closing work? StartSaldo supports Lucerne businesses with financial accounting, VAT and annual accounts. You decide which tasks to keep and which to hand over.",
+    "blocksTitle": "When does outsourcing your accounting make sense?",
+    "blocks": [
+      {
+        "title": "Review your current setup",
+        "description": "Keeping your own books can make sense when you have enough time and expertise. If receipts pile up, reconciliations keep being postponed or annual accounts take up a lot of time, it is worth reviewing your current setup.",
+        "items": [
+          "You do not always need to outsource everything.",
+          "You decide which tasks to keep and which to hand over."
+        ]
+      },
+      {
+        "title": "Prepare annual accounts in good time",
+        "description": "For a GmbH, closing work should not begin only when the tax return is due. Useful records include:",
+        "items": [
+          "Reconciled bank and cash accounts",
+          "Complete customer and supplier invoices",
+          "An overview of outstanding receivables and liabilities",
+          "Records of fixed assets and depreciation",
+          "Relevant payroll and VAT documents"
+        ]
+      },
+      {
+        "title": "Annual accounts and corporate tax returns",
+        "description": "In the canton of Lucerne, a legal entity’s tax period generally corresponds to its financial year. Organising the closing is therefore important for the corporate tax return too.",
+        "items": [
+          "Prepare complete, traceable closing documents"
+        ],
+        "source": {
+          "label": "Canton Lucerne – Tax returns for legal entities (German)",
+          "href": "https://steuern.lu.ch/juristischepersonen"
+        }
+      },
+      {
+        "title": "Personal support, digital cooperation",
+        "description": "StartSaldo is based in Rothenthurm in the canton of Schwyz and supports SMEs and start-ups in Lucerne and Central Switzerland. We adapt digital cooperation to your existing accounting setup.",
+        "items": [
+          "Your documents are stored with Proton. Proton is a Swiss provider of encrypted email and cloud storage services.",
+          "Your documents are treated as strictly confidential."
+        ]
+      }
+    ],
+    "taskTable": {
+      "title": "One possible division of tasks",
+      "headers": [
+        "Your company",
+        "StartSaldo"
+      ],
+      "rows": [
+        [
+          "Issue invoices",
+          "Handle ongoing bookkeeping"
+        ],
+        [
+          "Provide receipts digitally",
+          "Reconcile accounts"
+        ],
+        [
+          "Monitor outstanding payments",
+          "Prepare VAT returns"
+        ],
+        [
+          "Answer business-related queries",
+          "Prepare and complete annual accounts"
+        ]
+      ],
+      "note": "We agree on the exact division of tasks individually."
+    },
+    "processTitle": "How we organise your accounting",
+    "process": [
+      [
+        "Understand your needs",
+        "We discuss your current accounting and the services you need."
+      ],
+      [
+        "Share responsibilities",
+        "Together, we decide which tasks you retain and which StartSaldo takes over."
+      ],
+      [
+        "Prepare the closing",
+        "We handle the agreed tasks and prepare annual accounts using complete records."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Your contact person in Rothenthurm helps SMEs and start-ups in Lucerne reduce their accounting workload and prepare their annual accounts.",
+    "faqTitle": "Frequently asked questions about accounting in Lucerne",
+    "faq": [
+      [
+        "Can I outsource only the annual accounts?",
+        "Yes. We can also take over individual tasks. We need complete, traceable accounting records for this."
+      ],
+      [
+        "Do I have to outsource all my accounting?",
+        "No. We can agree on a division of tasks in which you continue handling certain activities yourself."
+      ]
+    ],
+    "endTitle": "Reorganise your accounting",
+    "endSub": "Want to reduce your accounting workload and prepare annual accounts more effectively? We would be happy to discuss a suitable solution for your business.",
+    "metaTitle": "Outsource Accounting in Lucerne for SMEs and Start-ups | StartSaldo",
+    "metaDesc": "Outsource all or part of your accounting in Lucerne. Clear responsibilities, VAT and annual accounts for SMEs and start-ups – digital support from Rothenthurm."
+  }
+},
+
 };
 
 export const SITE = "https://www.startsaldo.ch";

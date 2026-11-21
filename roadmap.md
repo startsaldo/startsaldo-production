@@ -49,3 +49,5 @@
 
 - [x] Zürich und Luzern mit gelieferten Texten (DE/EN), Proton statt Software-Namen, Regionslinks, Ratgeber-Verweisen und Suchmetadaten ergänzt; alle vier Seiten, Handyansicht und FAQ→Ratgeber→Termin geprüft.
 - [ ] Neue Regionsseiten auf Vercel veröffentlichen – wartet auf den externen Deployment-Workflow der Betreiberin.
+
+- [x] Neue Fassungen für Zürich und Luzern (DE/EN) mit kantonalen Quellen und Luzerner Aufgabentabelle eingesetzt; 14 Tests sowie alle vier Seiten, FAQ, Ratgeber und Terminlinks auf drei Bildschirmgrössen geprüft. Veröffentlichung weiterhin über Vercel erforderlich.

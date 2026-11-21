@@ -98,10 +98,30 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
                       </li>
                     ))}
                   </ul>
+                  {b.source && <a href={b.source.href} target="_blank" rel="noopener noreferrer" className="mt-5 block text-sm font-medium text-primary underline underline-offset-4">{b.source.label}</a>}
                 </article>
               </Reveal>
             ))}
           </div>
+          {p.taskTable && (
+            <Reveal className="mx-auto mt-12 max-w-[900px] min-w-0">
+              <h3 className="heading-lg text-center">{p.taskTable.title}</h3>
+              <div className="mt-6 overflow-hidden rounded-[20px] border border-border md:rounded-[24px]">
+                <table aria-label={p.taskTable.title} className="w-full table-fixed border-collapse text-left text-[14px] leading-6 md:text-[15px]">
+                  <thead className="bg-sage-soft text-primary">
+                    <tr>{p.taskTable.headers.map((header) => <th key={header} scope="col" className="w-1/2 break-words px-4 py-4 font-semibold md:px-6">{header}</th>)}</tr>
+                  </thead>
+                  <tbody className="divide-y divide-border bg-card">
+                    {p.taskTable.rows.map(([company, service]) => <tr key={company}>
+                      <th scope="row" className="break-words px-4 py-4 font-normal text-foreground/85 md:px-6">{company}</th>
+                      <td className="break-words px-4 py-4 text-foreground/85 md:px-6">{service}</td>
+                    </tr>)}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground">{p.taskTable.note}</p>
+            </Reveal>
+          )}
         </div>
       </section>
 

@@ -25,4 +25,4 @@
 - Accordion content is always rendered (forceMount, hidden when closed) so FAQ answers are in the server HTML for search and AI crawlers.
 - Service pages and Ratgeber articles cross-link via relatedGuides (service-page.tsx) and relatedServices (ratgeber-page.tsx); extend both maps when adding pages or articles.
 
-- Regional service blocks may include introductory paragraphs, and FAQs may link to an available guide; reuse the shared page layout to preserve the site design.
+- Regional service blocks may include introductory paragraphs and official source links, pages may include a two-column task table, and FAQs may link to an available guide; reuse the shared page layout to preserve the site design.

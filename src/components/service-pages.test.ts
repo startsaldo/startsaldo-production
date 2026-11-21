@@ -3,6 +3,18 @@ import assert from "node:assert/strict";
 import { regionOrder, navOrder, serviceHead, serviceJsonLd, servicePaths, services } from "@/components/service-pages";
 
 describe("Additional regions", () => {
+  for (const [company, delegated] of [
+    ["Rechnungen erstellen", "Laufende Buchungen bearbeiten"],
+    ["Belege digital bereitstellen", "Konten abstimmen"],
+    ["Offene Zahlungen überwachen", "MWST-Abrechnungen erstellen"],
+    ["Geschäftliche Rückfragen beantworten", "Jahresabschluss vorbereiten und erstellen"],
+  ] as const) {
+    it(`Lucerne's example keeps ${company} with the company and delegates ${delegated}`, () => {
+      const row = services.luzern.de.taskTable?.rows.find(([task]) => task === company);
+      assert.deepEqual(row, [company, delegated]);
+    });
+  }
+
   for (const [slug, area] of [["zuerich", "Kanton Zürich"], ["luzern", "Kanton Luzern"]] as const) {
     it(`${slug} serves the canton digitally from the existing Rothenthurm address`, () => {
       const schema = JSON.parse(serviceJsonLd(slug, "de").children);
