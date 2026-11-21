@@ -17,7 +17,15 @@ export function businessJsonLd(lang: Lang) {
           ? "Persönliche Finanz- und Lohnbuchhaltung für Schweizer KMU und Start-ups – inklusive Buchhaltung für Firmen mit Krypto-Transaktionen."
           : "Personal financial accounting and payroll for Swiss SMEs and start-ups – including accounting for companies with crypto transactions.",
       address: { "@type": "PostalAddress", streetAddress: "Schoosstrasse 3", postalCode: "6418", addressLocality: "Rothenthurm", addressRegion: "SZ", addressCountry: "CH" },
-      areaServed: [{ "@type": "Country", name: "Switzerland" }, { "@type": "AdministrativeArea", name: "Kanton Schwyz" }, { "@type": "AdministrativeArea", name: "Kanton Zug" }],
+      areaServed: [{ "@type": "Country", name: "Switzerland" }, { "@type": "AdministrativeArea", name: "Kanton Schwyz" }, { "@type": "AdministrativeArea", name: "Kanton Zug" }, { "@type": "City", name: "Rothenthurm" }, { "@type": "City", name: "Einsiedeln" }, { "@type": "City", name: "Schwyz" }],
+      logo: SITE + "/favicon-512x512.png",
+      image: SITE + "/og/startsaldo-team.jpg",
+      legalName: "Digital Trust Solutions GmbH",
+      taxID: "CHE-147.018.858",
+      knowsAbout: lang === "de"
+        ? ["Finanzbuchhaltung", "Lohnbuchhaltung", "Sozialversicherungen", "Mehrwertsteuer (MWST)", "Jahresabschluss nach OR", "Steuererklärung für KMU", "Firmengründung GmbH", "Krypto-Transaktionen in der Buchhaltung", "Banana", "Bexio"]
+        : ["Financial accounting", "Payroll", "Social insurance", "Value added tax (VAT)", "Annual accounts under the Swiss CO", "Tax returns for SMEs", "Company formation (GmbH)", "Crypto transactions in accounting", "Banana", "Bexio"],
+      sameAs: ["https://maps.google.com/maps?cid=16541053202830517101"],
       hasMap: "https://www.google.com/maps/place/?q=place_id:ChIJYV3YuEtNhUcRbeOM7T-gjeU",
       founder: [{ "@type": "Person", name: "Audelia Babbev-Pittet" }, { "@type": "Person", name: "Sarah Mogel" }, { "@type": "Person", name: "Daniel Babbev" }],
       knowsLanguage: ["de", "en"],

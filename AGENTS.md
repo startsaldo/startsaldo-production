@@ -22,3 +22,5 @@
 - The site's public origin is https://www.startsaldo.ch (the bare domain 308-redirects to www), so every canonical, og:url, hreflang alternate, sitemap <loc>, robots Sitemap directive and structured-data URL must use that exact host; src/components/service-pages.ts exports SITE as the single source, and public/llms.txt lists only public content routes on the same host.
 
 - Ratgeber (blog) articles live as data in src/components/ratgeber.ts (de + en fields) rendered by /ratgeber[/$slug] and /en/guides[/$slug] — one place to add posts; add new slugs to sitemap.xml and llms.txt.
+- Accordion content is always rendered (forceMount, hidden when closed) so FAQ answers are in the server HTML for search and AI crawlers.
+- Service pages and Ratgeber articles cross-link via relatedGuides (service-page.tsx) and relatedServices (ratgeber-page.tsx); extend both maps when adding pages or articles.

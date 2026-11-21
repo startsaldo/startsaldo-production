@@ -5,17 +5,19 @@ import { businessJsonLd, shareMeta } from "@/components/structured-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "StartSaldo | Finanz- & Lohnbuchhaltung" },
-      { name: "description", content: "Persönliche Finanz- und Lohnbuchhaltung für Schweizer KMU und Start-ups, GmbHs, AGs und Selbstständige." },
-      { property: "og:title", content: "StartSaldo | Persönliche Buchhaltung" },
-      { property: "og:description", content: "Klare Abläufe. Persönliche Betreuung. Verlässliche Buchhaltung." },
+      { title: "Buchhaltung & Treuhand in Schwyz | StartSaldo" },
+      { name: "description", content: "Finanz- und Lohnbuchhaltung, MWST und Jahresabschluss für KMU und Start-ups – persönlich betreut aus Rothenthurm im Kanton Schwyz. Kostenloses Erstgespräch." },
+      { property: "og:title", content: "Buchhaltung & Treuhand in Schwyz | StartSaldo" },
+      { property: "og:description", content: "Finanz- und Lohnbuchhaltung, MWST und Jahresabschluss für KMU und Start-ups – persönlich betreut aus Rothenthurm im Kanton Schwyz." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.startsaldo.ch/" },
       ...shareMeta("de"),
     ],
     links: [
       { rel: "canonical", href: "https://www.startsaldo.ch/" },
+      { rel: "alternate", hrefLang: "de", href: "https://www.startsaldo.ch/" },
       { rel: "alternate", hrefLang: "en", href: "https://www.startsaldo.ch/en" },
+      { rel: "alternate", hrefLang: "x-default", href: "https://www.startsaldo.ch/" },
     ],
     scripts: [businessJsonLd("de")],
   }),

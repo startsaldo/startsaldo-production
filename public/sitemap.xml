@@ -142,26 +142,50 @@
   </url>
   <url>
     <loc>https://www.startsaldo.ch/ratgeber</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/guides"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber"/>
   </url>
   <url>
     <loc>https://www.startsaldo.ch/ratgeber/gmbh-oder-einzelfirma</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/ratgeber/gmbh-oder-einzelfirma"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/guides/gmbh-oder-einzelfirma"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber/gmbh-oder-einzelfirma"/>
   </url>
   <url>
     <loc>https://www.startsaldo.ch/ratgeber/mwst-pflicht-schweiz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/ratgeber/mwst-pflicht-schweiz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/guides/mwst-pflicht-schweiz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber/mwst-pflicht-schweiz"/>
   </url>
   <url>
     <loc>https://www.startsaldo.ch/ratgeber/aufbewahrungspflicht-geschaeftsunterlagen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/ratgeber/aufbewahrungspflicht-geschaeftsunterlagen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/guides/aufbewahrungspflicht-geschaeftsunterlagen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber/aufbewahrungspflicht-geschaeftsunterlagen"/>
   </url>
   <url>
     <loc>https://www.startsaldo.ch/en/guides</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/guides"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber"/>
   </url>
   <url>
     <loc>https://www.startsaldo.ch/en/guides/gmbh-oder-einzelfirma</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/ratgeber/gmbh-oder-einzelfirma"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/guides/gmbh-oder-einzelfirma"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber/gmbh-oder-einzelfirma"/>
   </url>
   <url>
     <loc>https://www.startsaldo.ch/en/guides/mwst-pflicht-schweiz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/ratgeber/mwst-pflicht-schweiz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/guides/mwst-pflicht-schweiz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber/mwst-pflicht-schweiz"/>
   </url>
   <url>
     <loc>https://www.startsaldo.ch/en/guides/aufbewahrungspflicht-geschaeftsunterlagen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/ratgeber/aufbewahrungspflicht-geschaeftsunterlagen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/guides/aufbewahrungspflicht-geschaeftsunterlagen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber/aufbewahrungspflicht-geschaeftsunterlagen"/>
   </url>
 </urlset>

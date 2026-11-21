@@ -4,10 +4,25 @@ import type { Lang } from "@/components/home-copy";
 import { Reveal } from "@/components/reveal";
 import { services, type Person, type ServiceSlug } from "@/components/service-pages";
 import { SiteFooter, SiteHeader } from "@/components/site-nav";
+import { articleBySlug, localize } from "@/components/ratgeber";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import sarahPhoto from "@/assets/sarah-photo.webp";
 import audeliaPhoto from "@/assets/audelia-photo.webp";
+
+/** Ratgeber articles linked from each service/region page (internal linking for search). */
+const relatedGuides: Record<ServiceSlug, string[]> = {
+  finanzbuchhaltung: ["aufbewahrungspflicht-geschaeftsunterlagen", "mwst-pflicht-schweiz"],
+  lohnbuchhaltung: ["aufbewahrungspflicht-geschaeftsunterlagen"],
+  mwst: ["mwst-pflicht-schweiz"],
+  steuern: ["gmbh-oder-einzelfirma", "aufbewahrungspflicht-geschaeftsunterlagen"],
+  jahresabschluss: ["aufbewahrungspflicht-geschaeftsunterlagen"],
+  krypto: ["aufbewahrungspflicht-geschaeftsunterlagen"],
+  startups: ["gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
+  schwyz: ["gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
+  zug: ["gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
+  hoefe: ["gmbh-oder-einzelfirma", "aufbewahrungspflicht-geschaeftsunterlagen"],
+};
 
 const people: Record<Person, { name: string; email: string; photo: string; role: Record<Lang, string> }> = {
   sarah: { name: "Sarah Mogel", email: "sarah@startsaldo.ch", photo: sarahPhoto, role: { de: "Gründerin & Spezialistin für Payroll und Sozialversicherungen", en: "Founder & specialist for payroll and social insurance" } },
@@ -157,6 +172,19 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
           <p className="mt-6 text-sm text-band-foreground/75">
             <a href="mailto:info@startsaldo.ch">info@startsaldo.ch</a> · <a href="tel:+41766295056">+41 76 629 50 56</a> · <a href="https://wa.me/41766295056" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </p>
+          <nav aria-label={lang === "de" ? "Passende Ratgeber-Artikel" : "Related guides"} className="mx-auto mt-8 max-w-[560px] text-sm text-band-foreground/75">
+            <p className="font-semibold text-band-foreground">{lang === "de" ? "Passend dazu im Ratgeber:" : "Related guides:"}</p>
+            <ul className="mt-2 space-y-1.5">
+              {relatedGuides[slug].map((g) => {
+                const a = articleBySlug(g);
+                if (!a) return null;
+                const l = localize(a, lang);
+                return <li key={g}>{lang === "de"
+                  ? <Link to="/ratgeber/$slug" params={{ slug: g }} className="underline-offset-4 hover:text-band-accent hover:underline">{l.title}</Link>
+                  : <Link to="/en/guides/$slug" params={{ slug: g }} className="underline-offset-4 hover:text-band-accent hover:underline">{l.title}</Link>}</li>;
+              })}
+            </ul>
+          </nav>
           <Link to={homeTo} className="mt-6 inline-block text-sm font-semibold text-band-accent">{lang === "de" ? "Zur Startseite" : "Back to home"}</Link>
         </Reveal>
       </section>

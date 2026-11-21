@@ -13,7 +13,7 @@ import teamHeroUrl from "@/assets/team-hero.webp";
 import { useSiteTheme } from "@/hooks/use-site-theme";
 import startsaldoLogoLightUrl from "@/assets/startsaldo-logo.png";
 import startsaldoLogoDarkUrl from "@/assets/startsaldo-logo-dark.png";
-import { FooterServiceLinks, MobileServiceLinks, ServicesMenu } from "@/components/site-nav";
+import { FooterServiceLinks, GuideNavLink, MobileServiceLinks, ServicesMenu } from "@/components/site-nav";
 import { servicePaths } from "@/components/service-pages";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -339,14 +339,14 @@ export function HomePage({ lang }: { lang: Lang }) {
           <a href="#top" className="block min-w-0" aria-label={t.toTop}>
              <img src={logoUrl} alt="StartSaldo" className="h-auto w-[132px] sm:w-[148px]" />
           </a>
-           <nav className="hidden items-center justify-center gap-4 text-[13.5px] min-[860px]:flex lg:gap-7 lg:text-[14px]"><ServicesMenu lang={lang} />{nav.filter(([, h]) => h !== "#dienstleistungen").map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-band-foreground transition-colors hover:text-band-accent">{label}</a>)}</nav>
+           <nav className="hidden items-center justify-center gap-4 text-[13.5px] min-[860px]:flex lg:gap-7 lg:text-[14px]"><ServicesMenu lang={lang} />{nav.filter(([, h]) => h !== "#dienstleistungen").map(([label, href]) => <a key={href} href={href} className="whitespace-nowrap font-medium text-band-foreground transition-colors hover:text-band-accent">{label}</a>)}<GuideNavLink lang={lang} className="whitespace-nowrap font-medium text-band-foreground transition-colors hover:text-band-accent" /></nav>
            <Button asChild className="hidden bg-band-accent text-band-surface hover:bg-band-hover min-[860px]:inline-flex"><a href="#kontakt">{t.cta}</a></Button>
            {langLink("ml-1 hidden rounded-button border border-band-foreground/35 px-3 py-2 text-sm font-semibold text-band-foreground transition-colors hover:text-band-accent min-[860px]:inline-flex")}
            {themeSwitch}
            <button aria-label={menuOpen ? t.menuClose : t.menuOpen} aria-expanded={menuOpen} className="grid size-10 shrink-0 place-items-center rounded-button border border-band-foreground/35 bg-transparent text-band-foreground min-[860px]:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X className="size-5"/> : <Menu className="size-5"/>}</button>
         </div>
          <div className={`absolute inset-x-0 top-full z-40 border-b border-band-foreground/15 bg-band-surface text-band-foreground shadow-[0_24px_40px_-20px_rgba(23,32,28,0.25)] transition-all duration-300 ease-out min-[860px]:hidden ${menuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"}`} aria-hidden={!menuOpen}>
-           <nav className="section-shell flex flex-col py-2"><MobileServiceLinks lang={lang} onClick={() => setMenuOpen(false)} />{nav.filter(([, h]) => h !== "#dienstleistungen").map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="border-b border-band-foreground/15 py-3.5 text-base font-medium">{label}</a>)}{langLink("py-3.5 text-base font-semibold text-band-accent", () => setMenuOpen(false))}</nav>
+           <nav className="section-shell flex flex-col py-2"><MobileServiceLinks lang={lang} onClick={() => setMenuOpen(false)} />{nav.filter(([, h]) => h !== "#dienstleistungen").map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="border-b border-band-foreground/15 py-3.5 text-base font-medium">{label}</a>)}<GuideNavLink lang={lang} onClick={() => setMenuOpen(false)} className="border-b border-band-foreground/15 py-3.5 text-base font-medium" />{langLink("py-3.5 text-base font-semibold text-band-accent", () => setMenuOpen(false))}</nav>
         </div>
       </header>
 

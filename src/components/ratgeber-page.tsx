@@ -1,3 +1,4 @@
+import { services, servicePaths, type ServiceSlug } from "@/components/service-pages";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
@@ -47,6 +48,13 @@ export function RatgeberIndex({ lang }: { lang: GuideLang }) {
   );
 }
 
+/** Service pages linked from each article (internal linking for search). */
+const relatedServices: Record<string, ServiceSlug[]> = {
+  "gmbh-oder-einzelfirma": ["startups", "steuern"],
+  "mwst-pflicht-schweiz": ["mwst", "finanzbuchhaltung"],
+  "aufbewahrungspflicht-geschaeftsunterlagen": ["finanzbuchhaltung", "jahresabschluss"],
+};
+
 export function RatgeberArticle({ article, lang }: { article: Article; lang: GuideLang }) {
   const c = t[lang];
   const a = localize(article, lang);
@@ -71,6 +79,14 @@ export function RatgeberArticle({ article, lang }: { article: Article; lang: Gui
             </section>
           ))}
           <p className="text-sm text-muted-foreground">{c.note}</p>
+          {(relatedServices[a.slug] ?? []).length > 0 && (
+            <nav aria-label={lang === "de" ? "Passende Leistungen" : "Related services"} className="border-t border-border pt-6 text-[15px]">
+              <p className="font-semibold">{lang === "de" ? "Passende Leistungen von StartSaldo:" : "Related StartSaldo services:"}</p>
+              <ul className="mt-2 space-y-1.5">
+                {(relatedServices[a.slug] ?? []).map((sv) => <li key={sv}><Link to={servicePaths[sv][lang]} className="text-primary underline-offset-4 hover:underline">{services[sv][lang].menu}</Link></li>)}
+              </ul>
+            </nav>
+          )}
         </div>
       </article>
       <section className="section-pad bg-sage-soft">

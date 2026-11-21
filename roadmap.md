@@ -38,3 +38,4 @@
 
 - [x] Abacus überall entfernt: Software heisst nur noch «Banana und Bexio» (DE/EN, Startseite, Leistungsseiten, Impressum/Datenschutz, llms.txt); Datenspeicherung «über Proton oder im Bexio-Portal».
 - Ratgeber-Bereich (/ratgeber) mit 3 Beiträgen
+- [x] SEO/KI-Optimierung: Startseiten-Titel/H1/Beschreibung, KI-Crawler in robots.txt, Ratgeber im Menü, Querverlinkung Leistungen↔Ratgeber, Sitemap-Sprachverweise, FAQ ohne JavaScript lesbar, Firmendaten erweitert.

@@ -48,6 +48,11 @@ export function MobileServiceLinks({ lang, onClick }: { lang: Lang; onClick?: ()
   );
 }
 
+/** Ratgeber link shown in every header menu (desktop and mobile). */
+export function GuideNavLink({ lang, className, onClick }: { lang: Lang; className: string; onClick?: () => void }) {
+  return <Link to={lang === "de" ? "/ratgeber" : "/en/guides"} onClick={onClick} className={className}>{lang === "de" ? "Ratgeber" : "Guides"}</Link>;
+}
+
 /** Header for sub pages: same menu as the home page, anchors point back to home sections. */
 export function SiteHeader({ lang, slug, altTo }: { lang: Lang; slug?: ServiceSlug; altTo?: string }) {
   const t = copy[lang];
@@ -71,6 +76,7 @@ export function SiteHeader({ lang, slug, altTo }: { lang: Lang; slug?: ServiceSl
         <nav className="hidden items-center justify-center gap-4 text-[13.5px] min-[860px]:flex lg:gap-7 lg:text-[14px]">
           <ServicesMenu lang={lang} />
           {anchors.map(([label, href]) => <a key={href} href={`${home === "/" ? "" : home}/${href}`} className="whitespace-nowrap font-medium text-band-foreground transition-colors hover:text-band-accent">{label}</a>)}
+          <GuideNavLink lang={lang} className="whitespace-nowrap font-medium text-band-foreground transition-colors hover:text-band-accent" />
         </nav>
         <Button asChild className="hidden bg-band-accent text-band-surface hover:bg-band-hover min-[860px]:inline-flex"><Link to={lang === "de" ? "/termin" : "/en/termin"}>{t.cta}</Link></Button>
         {langLink("ml-1 hidden rounded-button border border-band-foreground/35 px-3 py-2 text-sm font-semibold text-band-foreground transition-colors hover:text-band-accent min-[860px]:inline-flex")}
@@ -81,6 +87,7 @@ export function SiteHeader({ lang, slug, altTo }: { lang: Lang; slug?: ServiceSl
         <nav className="section-shell flex flex-col py-2">
           <MobileServiceLinks lang={lang} onClick={() => setOpen(false)} />
           {anchors.map(([label, href]) => <a key={href} href={`${home === "/" ? "" : home}/${href}`} className="border-b border-band-foreground/15 py-3.5 text-base font-medium">{label}</a>)}
+          <GuideNavLink lang={lang} onClick={() => setOpen(false)} className="border-b border-band-foreground/15 py-3.5 text-base font-medium" />
           {langLink("py-3.5 text-base font-semibold text-band-accent")}
         </nav>
       </div>
