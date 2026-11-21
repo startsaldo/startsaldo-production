@@ -39,3 +39,5 @@
 - [x] Abacus überall entfernt: Software heisst nur noch «Banana und Bexio» (DE/EN, Startseite, Leistungsseiten, Impressum/Datenschutz, llms.txt); Datenspeicherung «über Proton oder im Bexio-Portal».
 - Ratgeber-Bereich (/ratgeber) mit 3 Beiträgen
 - [x] SEO/KI-Optimierung: Startseiten-Titel/H1/Beschreibung, KI-Crawler in robots.txt, Ratgeber im Menü, Querverlinkung Leistungen↔Ratgeber, Sitemap-Sprachverweise, FAQ ohne JavaScript lesbar, Firmendaten erweitert.
+- [x] Abschliessende Produktionsprüfung auf www.startsaldo.ch: alle 36 Sitemap-URLs ohne JavaScript, FAQ, HTML-Links, Canonicals, Sprachverweise, Schema und /en/ (308) geprüft; Startseiten-Adresse vervollständigt; Ergebnisse in .lovable/reviews/live-seo-2026-11-21.md dokumentiert.
+- [ ] Adresskorrektur auf Vercel veröffentlichen – wartet auf den externen Deployment-Workflow der Betreiberin.
