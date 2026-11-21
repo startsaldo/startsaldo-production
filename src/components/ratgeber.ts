@@ -1,7 +1,7 @@
 /** Ratgeber (blog) articles. Add an article by adding an entry here; routes, sitemap and llms.txt list it. */
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
-  | { type: "table"; label: string; headers: [string, string]; rows: [string, string][] }
+  | { type: "table"; label: string; headers: string[]; rows: string[][] }
   | { type: "list"; items: string[] }
   | { type: "faq"; items: { question: string; answer: string }[] }
   | { type: "cta"; label: string; to: "/termin" };
@@ -31,6 +31,378 @@ export type Article = ArticleContent & {
 };
 
 export const articles: Article[] = [
+  {
+    slug: "buchhaltung-selber-machen-oder-auslagern",
+    title: "Buchhaltung selber machen oder auslagern? Entscheidungshilfe für Schweizer KMU",
+    desc: "Selber führen, teilweise oder vollständig auslagern? Eine Entscheidungshilfe für Schweizer KMU und GmbHs mit Vergleich und fünf Leitfragen.",
+    seoTitle: "Buchhaltung selber machen oder auslagern? | StartSaldo",
+    metaDescription: "Buchhaltung selber machen oder auslagern? Vergleichen Sie die drei Modelle und finden Sie mit fünf Fragen die passende Lösung für Ihr KMU.",
+    category: "Buchhaltung",
+    date: "2026-11-21",
+    cta: "Kostenloses Erstgespräch vereinbaren",
+    defaultNote: false,
+    lead: [
+      "**Buchhaltung selber führen, einem Treuhänder übergeben oder beides kombinieren?** Für Schweizer KMU und GmbHs hängt die richtige Entscheidung vor allem von drei Faktoren ab: verfügbare Zeit, Fachkenntnisse und Umfang der Buchhaltung.",
+      "Nicht jedes Unternehmen muss sämtliche Buchhaltungsarbeiten auslagern. Oft ist eine Kombination aus eigener Vorbereitung und professioneller Betreuung sinnvoll.",
+      "Wir zeigen, welche Lösung zu Ihrem Unternehmen passen könnte.",
+    ],
+    sections: [
+      {
+        h: "Buchhaltung selber machen oder auslagern: Die drei Möglichkeiten",
+        p: [],
+        blocks: [
+          {
+            type: "table",
+            label: "Vergleich: Buchhaltung selber machen, teilweise oder vollständig auslagern",
+            headers: ["Modell", "Vorteile", "Geeignet für"],
+            rows: [
+              ["Selber machen", "Direkte Kontrolle, weniger externe Kosten", "Unternehmen mit ausreichenden Fachkenntnissen und Zeit"],
+              ["Teilweise auslagern", "Flexible Aufgabenverteilung, fachliche Unterstützung", "KMU, die bestimmte Arbeiten selbst übernehmen möchten"],
+              ["Vollständig auslagern", "Weniger interner Buchhaltungsaufwand", "Unternehmen mit wenig internen Ressourcen oder umfangreicher Buchhaltung"],
+            ],
+          },
+          { type: "paragraph", text: "Welche Variante am besten passt, hängt von der individuellen Situation ab. Auch das Schweizer KMU-Portal empfiehlt, bei dieser Entscheidung die verfügbaren Kenntnisse und die Zeit für die Buchhaltung zu berücksichtigen." },
+        ],
+      },
+      {
+        h: "Darf ich die Buchhaltung meiner GmbH selber machen?",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "Ja. Eine Schweizer GmbH darf ihre Buchhaltung selbst führen. Es besteht keine generelle Pflicht, dafür einen externen Treuhänder zu beauftragen." },
+          { type: "paragraph", text: "Allerdings muss die GmbH die gesetzlichen Anforderungen an die Buchführung und Rechnungslegung erfüllen." },
+          { type: "paragraph", text: "Gemäss Art. 957 ff. des Obligationenrechts gehört dazu insbesondere eine ordnungsgemässe Buchhaltung mit Bilanz und Erfolgsrechnung." },
+          { type: "paragraph", text: "Anders als bei kleineren Einzelunternehmen reicht für eine GmbH eine vereinfachte Einnahmen-Ausgaben-Rechnung grundsätzlich nicht aus." },
+          { type: "paragraph", text: "**Wichtig:** Auch wenn die Buchhaltung ausgelagert wird, bleibt die Geschäftsführung für die ordnungsgemässe Organisation der Buchführung verantwortlich." },
+          { type: "paragraph", text: "*Quelle: [SECO KMU-Portal – Buchhaltungspflicht für Handelsgesellschaften](https://www.kmu.admin.ch/de/buchhaltungspflicht-fuer-handelsgesellschaften).*" },
+        ],
+      },
+      {
+        h: "Wann lohnt es sich, die Buchhaltung selbst zu führen?",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "Die eigene Buchhaltung kann sinnvoll sein, wenn die Geschäftsfälle überschaubar sind und im Unternehmen ausreichend Fachwissen vorhanden ist." },
+          { type: "paragraph", text: "Typische Voraussetzungen sind:" },
+          {
+            type: "list",
+            items: [
+              "Sie verstehen die grundlegenden Buchhaltungsvorschriften.",
+              "Sie haben regelmässig Zeit, Belege zu erfassen und Konten abzustimmen.",
+              "Sie behalten Fristen und offene Geschäftsfälle im Blick.",
+              "Sie können den Jahresabschluss korrekt vorbereiten oder lassen ihn fachlich prüfen.",
+            ],
+          },
+          { type: "paragraph", text: "Der Vorteil liegt vor allem darin, dass Sie Ihre Zahlen laufend im Blick behalten und weniger Arbeiten extern vergeben müssen." },
+          { type: "paragraph", text: "Allerdings sollte der eigene Zeitaufwand nicht unterschätzt werden." },
+        ],
+      },
+      {
+        h: "Wann ist es sinnvoll, die Buchhaltung auszulagern?",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "Eine externe Betreuung wird besonders interessant, wenn die Buchhaltung zunehmend Zeit beansprucht oder besondere Fachkenntnisse erforderlich sind." },
+          { type: "paragraph", text: "Das kann beispielsweise der Fall sein, wenn:" },
+          {
+            type: "list",
+            items: [
+              "Ihr Unternehmen wächst und mehr Geschäftsfälle anfallen.",
+              "Sie Mitarbeitende beschäftigen und Lohnabrechnungen erstellen müssen.",
+              "MWST-Abrechnungen und Abschlussarbeiten zunehmend aufwendig werden.",
+              "Sie bei buchhalterischen oder steuerlichen Fragen unsicher sind.",
+              "Die Buchhaltung neben dem Tagesgeschäft regelmässig liegen bleibt.",
+            ],
+          },
+          { type: "paragraph", text: "Die Auslagerung kann interne Kapazitäten freimachen. Sie verursacht aber externe Kosten und erfordert weiterhin eine gute Zusammenarbeit: Geschäftliche Informationen und vollständige Belege müssen auch dem Treuhänder rechtzeitig zur Verfügung stehen." },
+        ],
+      },
+      {
+        h: "Die Alternative: Buchhaltung teilweise auslagern",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "Für viele KMU ist eine klare Aufgabenteilung eine interessante Lösung." },
+          { type: "paragraph", text: "Beispielsweise könnten Sie weiterhin Kundenrechnungen erstellen, Belege sammeln und offene Zahlungen überwachen." },
+          { type: "paragraph", text: "Ein Treuhänder übernimmt nach Vereinbarung die laufenden Buchungen, Kontenabstimmungen, MWST-Abrechnungen oder den Jahresabschluss." },
+          { type: "paragraph", text: "So bleiben Sie in die administrativen Abläufe eingebunden, ohne sämtliche Facharbeiten selbst erledigen zu müssen." },
+          { type: "paragraph", text: "Entscheidend ist, dass die Verantwortlichkeiten von Anfang an klar festgelegt werden." },
+        ],
+      },
+      {
+        h: "Was ist tatsächlich günstiger?",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "Die selbst geführte Buchhaltung verursacht möglicherweise weniger externe Kosten. Dafür investieren Sie eigene Arbeitszeit." },
+          { type: "paragraph", text: "Bei einer ausgelagerten Buchhaltung bezahlen Sie die vereinbarten Dienstleistungen. Im Gegenzug reduziert sich der interne Bearbeitungsaufwand." },
+          { type: "paragraph", text: "Für einen fairen Vergleich sollten Sie deshalb nicht nur Treuhandhonorare berücksichtigen." },
+          { type: "paragraph", text: "**Vergleichen Sie stattdessen:**" },
+          {
+            type: "list",
+            items: [
+              "Wie viel Zeit benötigt Ihre Buchhaltung jeden Monat?",
+              "Welche Arbeiten können Sie fachlich zuverlässig selbst erledigen?",
+              "Was kostet Sie diese Arbeitszeit im Unternehmen?",
+              "Welche Aufgaben würde ein Treuhänder übernehmen?",
+              "Welche Kosten entstehen für Abschluss, MWST und Lohnbuchhaltung zusätzlich?",
+            ],
+          },
+          { type: "paragraph", text: "Erst wenn diese Fragen geklärt sind, lassen sich die Modelle sinnvoll vergleichen." },
+          { type: "paragraph", text: "Konkrete Schweizer Preisrichtwerte finden Sie in unserem [Ratgeber zu den Treuhandkosten einer GmbH](/ratgeber/treuhaender-kosten-gmbh-schweiz)." },
+        ],
+      },
+      {
+        h: "Entscheidungshilfe: Fünf Fragen für Ihr KMU",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "Beantworten Sie die folgenden Fragen für Ihr Unternehmen:" },
+          {
+            type: "list",
+            items: [
+              "Habe ich ausreichend Zeit, die Buchhaltung laufend und vollständig zu führen?",
+              "Verfüge ich über das nötige Fachwissen?",
+              "Sind meine Geschäftsfälle und steuerlichen Anforderungen überschaubar?",
+              "Kann ich notwendige Kontrollen und den Jahresabschluss zuverlässig organisieren?",
+              "Könnte ich meine Zeit im Kerngeschäft sinnvoller einsetzen?",
+            ],
+          },
+          { type: "paragraph", text: "**Wenn Sie die ersten vier Fragen mit Ja beantworten**, kann eine intern geführte Buchhaltung weiterhin sinnvoll sein." },
+          { type: "paragraph", text: "Fehlen Zeit oder Fachkenntnisse, lohnt es sich, eine teilweise oder vollständige Auslagerung zu prüfen." },
+          { type: "paragraph", text: "Die fünfte Frage hilft, den wirtschaftlichen Nutzen der eigenen Zeit einzuschätzen." },
+        ],
+      },
+      {
+        h: "Häufige Fragen",
+        p: [],
+        blocks: [
+          {
+            type: "faq",
+            items: [
+              {
+                question: "Muss eine kleine GmbH einen Treuhänder haben?",
+                answer: "Nein. Auch eine kleine GmbH darf ihre Buchhaltung intern führen. Die gesetzlichen Anforderungen gelten jedoch unabhängig von der Unternehmensgrösse.",
+              },
+              {
+                question: "Kann ich nur den Jahresabschluss auslagern?",
+                answer: "Ja. Einzelne Aufgaben wie Jahresabschluss, MWST oder Lohnbuchhaltung können separat vergeben werden. Wichtig sind vollständige Unterlagen und eine klare Aufgabenverteilung.",
+              },
+              {
+                question: "Ist eine digitale Buchhaltung automatisch günstiger?",
+                answer: "Nicht unbedingt. Digitale Abläufe können die Zusammenarbeit vereinfachen. Wie viel Aufwand tatsächlich eingespart wird, hängt von der Organisation und den vereinbarten Leistungen ab.",
+              },
+              {
+                question: "Wer ist verantwortlich, wenn die Buchhaltung ausgelagert wird?",
+                answer: "Die Geschäftsführung bleibt für die ordnungsgemässe Organisation der Buchführung verantwortlich. Deshalb sollten Aufgaben, Kontrollen und Zuständigkeiten mit dem Treuhandbüro klar vereinbart werden.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        h: "Buchhaltung mit StartSaldo – so viel Unterstützung, wie Sie benötigen",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "StartSaldo unterstützt Schweizer KMU, GmbHs und Start-ups bei der laufenden Finanzbuchhaltung, Lohnadministration, MWST und beim Jahresabschluss." },
+          { type: "paragraph", text: "Wir verbinden persönliche Betreuung mit digital organisierter Zusammenarbeit." },
+          { type: "paragraph", text: "Dabei muss nicht zwingend die gesamte Buchhaltung ausgelagert werden. Gemeinsam klären wir, welche Aufgaben Sie selbst übernehmen möchten und wobei wir Sie entlasten können." },
+          { type: "paragraph", text: "**Sie sind unsicher, welche Lösung für Ihr Unternehmen sinnvoll ist?**" },
+          { type: "paragraph", text: "In einem kostenlosen Erstgespräch besprechen wir Ihre aktuelle Buchhaltungsorganisation und die Möglichkeiten einer Zusammenarbeit." },
+          { type: "cta", label: "Jetzt kostenloses Erstgespräch mit StartSaldo vereinbaren", to: "/termin" },
+        ],
+      },
+      {
+        h: "Quellen",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "[SECO KMU-Portal – Buchhaltung auslagern oder selbst führen?](https://www.kmu.admin.ch/de/buchhaltung-auslagern-oder-selbst-fuehren)" },
+          { type: "paragraph", text: "[SECO KMU-Portal – Buchhaltungspflicht für Handelsgesellschaften](https://www.kmu.admin.ch/de/buchhaltungspflicht-fuer-handelsgesellschaften)" },
+          { type: "paragraph", text: "[Eidgenössische Steuerverwaltung – Elektronischer Geschäftsverkehr und Aufbewahrung](https://www.estv.admin.ch/de/mwst-elektronischer-geschaeftsverkehr)" },
+          { type: "paragraph", text: "*Stand: November 2026. Der Beitrag dient der allgemeinen Information und ersetzt keine individuelle Buchhaltungs-, Steuer- oder Rechtsberatung.*" },
+        ],
+      },
+    ],
+    en: {
+      title: "Doing your own bookkeeping or outsourcing it? A guide for Swiss SMEs",
+      desc: "Do it yourself, outsource part of it or outsource it all? A guide for Swiss SMEs and GmbHs, with a comparison and five key questions.",
+      seoTitle: "Do your own bookkeeping or outsource it? | StartSaldo",
+      metaDescription: "Should you do your own bookkeeping or outsource it? Compare three approaches and use five questions to find the right solution for your SME.",
+      category: "Accounting",
+      cta: "Book a free initial consultation",
+      defaultNote: false,
+      lead: [
+        "**Should you do your own bookkeeping, hand it over to an external accountant or combine the two?** For Swiss SMEs and GmbHs, the right decision depends primarily on three factors: available time, expertise and the volume of bookkeeping work.",
+        "Not every company needs to outsource all of its bookkeeping. A combination of in-house preparation and professional support is often a sensible solution.",
+        "We explain which approach might suit your company.",
+      ],
+      sections: [
+        {
+          h: "Doing your own bookkeeping or outsourcing it: the three options",
+          p: [],
+          blocks: [
+            {
+              type: "table",
+              label: "Comparison: doing your own bookkeeping, partial outsourcing and full outsourcing",
+              headers: ["Approach", "Advantages", "Suitable for"],
+              rows: [
+                ["Do it yourself", "Direct control, lower external costs", "Companies with sufficient expertise and time"],
+                ["Partial outsourcing", "Flexible allocation of tasks, professional support", "SMEs that want to carry out certain tasks themselves"],
+                ["Full outsourcing", "Less in-house bookkeeping work", "Companies with limited internal resources or extensive bookkeeping requirements"],
+              ],
+            },
+            { type: "paragraph", text: "The best option depends on your individual situation. The Swiss SME Portal also recommends taking your available expertise and the time you can dedicate to bookkeeping into account when making this decision." },
+          ],
+        },
+        {
+          h: "Can I do my GmbH's bookkeeping myself?",
+          p: [],
+          blocks: [
+            { type: "paragraph", text: "Yes. A Swiss GmbH may keep its own accounts. There is no general requirement to appoint an external accountant for this purpose." },
+            { type: "paragraph", text: "However, the GmbH must meet the statutory requirements for bookkeeping and financial reporting." },
+            { type: "paragraph", text: "Under Article 957 et seq. of the Swiss Code of Obligations, this includes proper bookkeeping with a balance sheet and an income statement." },
+            { type: "paragraph", text: "Unlike smaller sole proprietorships, a GmbH generally cannot rely on simplified income and expenditure accounts." },
+            { type: "paragraph", text: "**Important:** Even if bookkeeping is outsourced, the management remains responsible for ensuring that it is properly organised." },
+            { type: "paragraph", text: "*Source: [SECO SME Portal – bookkeeping obligations for commercial companies (German)](https://www.kmu.admin.ch/de/buchhaltungspflicht-fuer-handelsgesellschaften).*" },
+          ],
+        },
+        {
+          h: "When is it worth doing your own bookkeeping?",
+          p: [],
+          blocks: [
+            { type: "paragraph", text: "Doing your own bookkeeping can make sense if your business transactions are manageable and your company has sufficient expertise." },
+            { type: "paragraph", text: "Typical requirements include:" },
+            {
+              type: "list",
+              items: [
+                "You understand the basic bookkeeping rules.",
+                "You regularly have time to record receipts and reconcile accounts.",
+                "You keep track of deadlines and outstanding transactions.",
+                "You can prepare the annual accounts correctly or have them professionally reviewed.",
+              ],
+            },
+            { type: "paragraph", text: "The main advantage is that you keep a constant eye on your figures and need to outsource less work." },
+            { type: "paragraph", text: "However, you should not underestimate the time required." },
+          ],
+        },
+        {
+          h: "When does it make sense to outsource bookkeeping?",
+          p: [],
+          blocks: [
+            { type: "paragraph", text: "External support becomes particularly attractive when bookkeeping takes up more and more time or requires specialist expertise." },
+            { type: "paragraph", text: "This may be the case if:" },
+            {
+              type: "list",
+              items: [
+                "Your company is growing and the number of transactions is increasing.",
+                "You employ staff and need to prepare payroll.",
+                "VAT returns and year-end work are becoming increasingly time-consuming.",
+                "You are unsure about accounting or tax matters.",
+                "Bookkeeping is regularly left undone because of day-to-day business.",
+              ],
+            },
+            { type: "paragraph", text: "Outsourcing can free up internal capacity. However, it creates external costs and still requires good cooperation: business information and complete receipts must also be provided to your external accountant on time." },
+          ],
+        },
+        {
+          h: "The alternative: partial bookkeeping outsourcing",
+          p: [],
+          blocks: [
+            { type: "paragraph", text: "For many SMEs, a clear division of tasks is an attractive solution." },
+            { type: "paragraph", text: "For example, you could continue to issue customer invoices, collect receipts and monitor outstanding payments." },
+            { type: "paragraph", text: "Depending on your agreement, an external accountant takes over ongoing entries, account reconciliations, VAT returns or the annual accounts." },
+            { type: "paragraph", text: "This keeps you involved in the administrative processes without having to carry out all the specialist work yourself." },
+            { type: "paragraph", text: "The key is to define responsibilities clearly from the outset." },
+          ],
+        },
+        {
+          h: "Which option is actually cheaper?",
+          p: [],
+          blocks: [
+            { type: "paragraph", text: "Keeping your own books may result in lower external costs. In return, you invest your own working time." },
+            { type: "paragraph", text: "With outsourced bookkeeping, you pay for the agreed services. In return, your internal workload is reduced." },
+            { type: "paragraph", text: "For a fair comparison, you should therefore consider more than just external accounting fees." },
+            { type: "paragraph", text: "**Compare the following instead:**" },
+            {
+              type: "list",
+              items: [
+                "How much time does your bookkeeping require each month?",
+                "Which tasks can you reliably carry out yourself?",
+                "What does this working time cost your business?",
+                "Which tasks would an external accountant take over?",
+                "What additional costs arise for annual accounts, VAT and payroll?",
+              ],
+            },
+            { type: "paragraph", text: "Only once these questions have been answered can you compare the approaches meaningfully." },
+            { type: "paragraph", text: "You can find indicative Swiss prices in our [German guide to the cost of an external accountant for a GmbH](/ratgeber/treuhaender-kosten-gmbh-schweiz)." },
+          ],
+        },
+        {
+          h: "Decision guide: five questions for your SME",
+          p: [],
+          blocks: [
+            { type: "paragraph", text: "Answer the following questions for your company:" },
+            {
+              type: "list",
+              items: [
+                "Do I have enough time to keep my bookkeeping up to date and complete?",
+                "Do I have the necessary expertise?",
+                "Are my business transactions and tax requirements manageable?",
+                "Can I reliably organise the necessary checks and annual accounts?",
+                "Could I use my time more effectively in my core business?",
+              ],
+            },
+            { type: "paragraph", text: "**If you answer yes to the first four questions**, keeping your bookkeeping in-house may continue to make sense." },
+            { type: "paragraph", text: "If you lack time or expertise, it is worth considering partial or full outsourcing." },
+            { type: "paragraph", text: "The fifth question helps you assess the economic value of your own time." },
+          ],
+        },
+        {
+          h: "Frequently asked questions",
+          p: [],
+          blocks: [
+            {
+              type: "faq",
+              items: [
+                {
+                  question: "Does a small GmbH need an external accountant?",
+                  answer: "No. Even a small GmbH may keep its accounts in-house. However, the statutory requirements apply regardless of the company's size.",
+                },
+                {
+                  question: "Can I outsource only the annual accounts?",
+                  answer: "Yes. Individual tasks such as annual accounts, VAT or payroll can be outsourced separately. Complete documents and a clear division of tasks are essential.",
+                },
+                {
+                  question: "Is digital bookkeeping automatically cheaper?",
+                  answer: "Not necessarily. Digital processes can simplify cooperation. How much work is actually saved depends on your organisation and the agreed services.",
+                },
+                {
+                  question: "Who is responsible when bookkeeping is outsourced?",
+                  answer: "The management remains responsible for ensuring that bookkeeping is properly organised. Tasks, checks and responsibilities should therefore be clearly agreed with the external accounting firm.",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          h: "Bookkeeping with StartSaldo – as much support as you need",
+          p: [],
+          blocks: [
+            { type: "paragraph", text: "StartSaldo supports Swiss SMEs, GmbHs and start-ups with ongoing financial accounting, payroll administration, VAT and annual accounts." },
+            { type: "paragraph", text: "We combine personal support with digitally organised cooperation." },
+            { type: "paragraph", text: "You do not necessarily need to outsource your entire bookkeeping. Together, we clarify which tasks you would like to carry out yourself and where we can lighten your workload." },
+            { type: "paragraph", text: "**Are you unsure which solution makes sense for your company?**" },
+            { type: "paragraph", text: "In a free initial consultation, we discuss your current bookkeeping organisation and the options for working together." },
+            { type: "cta", label: "Book a free initial consultation with StartSaldo", to: "/termin" },
+          ],
+        },
+        {
+          h: "Sources",
+          p: [],
+          blocks: [
+            { type: "paragraph", text: "[SECO SME Portal – outsource bookkeeping or do it yourself? (German)](https://www.kmu.admin.ch/de/buchhaltung-auslagern-oder-selbst-fuehren)" },
+            { type: "paragraph", text: "[SECO SME Portal – bookkeeping obligations for commercial companies (German)](https://www.kmu.admin.ch/de/buchhaltungspflicht-fuer-handelsgesellschaften)" },
+            { type: "paragraph", text: "[Federal Tax Administration – electronic commerce and record retention (German)](https://www.estv.admin.ch/de/mwst-elektronischer-geschaeftsverkehr)" },
+            { type: "paragraph", text: "*Last updated: November 2026. This article provides general information and does not replace individual accounting, tax or legal advice.*" },
+          ],
+        },
+      ],
+    },
+  },
   {
     slug: "treuhaender-kosten-gmbh-schweiz",
     title: "Was kostet ein Treuhänder für eine GmbH in der Schweiz?",
@@ -69,7 +441,7 @@ export const articles: Article[] = [
         ],
       },
       {
-        h: "Was beeinflusst die Kosten eines Treuhänders?",
+        h: "Die wichtigsten Kostenfaktoren",
         p: [],
         blocks: [
           { type: "paragraph", text: "Nicht der Umsatz allein bestimmt die Buchhaltungskosten. Entscheidend ist vor allem der tatsächliche Arbeitsaufwand." },
@@ -85,7 +457,7 @@ export const articles: Article[] = [
         ],
       },
       {
-        h: "Muss eine GmbH einen Treuhänder beauftragen?",
+        h: "Buchführung ohne externen Treuhänder",
         p: [],
         blocks: [
           { type: "paragraph", text: "Nein. Eine Schweizer GmbH ist gemäss Art. 957 ff. Obligationenrecht zur ordnungsgemässen Buchführung und Rechnungslegung verpflichtet. Sie muss dafür aber keinen externen Treuhänder beauftragen." },
@@ -95,7 +467,7 @@ export const articles: Article[] = [
         ],
       },
       {
-        h: "Pauschalpreis oder Stundenhonorar?",
+        h: "Pauschalpreis und Stundenhonorar",
         p: [],
         blocks: [
           { type: "paragraph", text: "Beide Modelle haben Vorteile." },
@@ -105,7 +477,7 @@ export const articles: Article[] = [
         ],
       },
       {
-        h: "Worauf sollten Sie bei einer Treuhandofferte achten?",
+        h: "Treuhandofferten richtig vergleichen",
         p: [],
         blocks: [
           { type: "paragraph", text: "Bevor Sie zwei Angebote vergleichen, sollten Sie diese fünf Fragen klären:" },
@@ -129,6 +501,22 @@ export const articles: Article[] = [
           {
             type: "faq",
             items: [
+              {
+                question: "Was beeinflusst die Kosten eines Treuhänders?",
+                answer: "Entscheidend sind vor allem die Anzahl der Belege, der Umfang der Dienstleistungen, Mitarbeitende und Lohnbuchhaltung sowie die Qualität Ihrer Buchhaltungsunterlagen. Auch internationale Geschäftsfälle oder Kryptowährungen können zusätzlichen Aufwand verursachen.",
+              },
+              {
+                question: "Muss eine GmbH einen Treuhänder beauftragen?",
+                answer: "Nein. Eine Schweizer GmbH muss keinen externen Treuhänder beauftragen. Sie ist jedoch gemäss Art. 957 ff. Obligationenrecht zur ordnungsgemässen Buchführung und Rechnungslegung verpflichtet – unabhängig davon, ob sie die Buchhaltung intern führt oder auslagert.",
+              },
+              {
+                question: "Pauschalpreis oder Stundenhonorar?",
+                answer: "Beide Modelle haben Vorteile: Eine Pauschale erleichtert die Planung wiederkehrender Kosten, während bei einer Abrechnung nach Aufwand die geleisteten Stunden verrechnet werden. Manche Treuhandbüros kombinieren beide Modelle.",
+              },
+              {
+                question: "Worauf sollten Sie bei einer Treuhandofferte achten?",
+                answer: "Klären Sie, welche Leistungen enthalten sind – insbesondere laufende Finanzbuchhaltung, Jahresabschluss, Steuererklärung, MWST und Lohnbuchhaltung. Fragen Sie auch nach Software, Einrichtung, Datenübernahme und möglichen Zusatzkosten.",
+              },
               {
                 question: "Was kostet die Buchhaltung einer kleinen GmbH monatlich?",
                 answer: "Der von Gryps für das untersuchte Beispiel ermittelte Durchschnitt von CHF 2'400 jährlich entspricht rechnerisch CHF 200 pro Monat. Das ist jedoch kein allgemein gültiger Monatstarif. Leistungsumfang und Zusatzkosten können erheblich abweichen.",

@@ -12,13 +12,13 @@ import audeliaPhoto from "@/assets/audelia-photo.webp";
 
 /** Ratgeber articles linked from each service/region page (internal linking for search). */
 const relatedGuides: Record<ServiceSlug, string[]> = {
-  finanzbuchhaltung: ["treuhaender-kosten-gmbh-schweiz", "aufbewahrungspflicht-geschaeftsunterlagen", "mwst-pflicht-schweiz"],
-  lohnbuchhaltung: ["aufbewahrungspflicht-geschaeftsunterlagen"],
-  mwst: ["mwst-pflicht-schweiz"],
+  finanzbuchhaltung: ["buchhaltung-selber-machen-oder-auslagern", "treuhaender-kosten-gmbh-schweiz", "aufbewahrungspflicht-geschaeftsunterlagen", "mwst-pflicht-schweiz"],
+  lohnbuchhaltung: ["buchhaltung-selber-machen-oder-auslagern", "aufbewahrungspflicht-geschaeftsunterlagen"],
+  mwst: ["buchhaltung-selber-machen-oder-auslagern", "mwst-pflicht-schweiz"],
   steuern: ["gmbh-oder-einzelfirma", "aufbewahrungspflicht-geschaeftsunterlagen"],
-  jahresabschluss: ["aufbewahrungspflicht-geschaeftsunterlagen"],
+  jahresabschluss: ["buchhaltung-selber-machen-oder-auslagern", "aufbewahrungspflicht-geschaeftsunterlagen"],
   krypto: ["aufbewahrungspflicht-geschaeftsunterlagen"],
-  startups: ["gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
+  startups: ["buchhaltung-selber-machen-oder-auslagern", "gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
   schwyz: ["gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
   zug: ["gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
   zuerich: ["treuhaender-kosten-gmbh-schweiz", "gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],

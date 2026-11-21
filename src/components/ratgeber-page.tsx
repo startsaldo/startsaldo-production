@@ -52,6 +52,7 @@ export function RatgeberIndex({ lang }: { lang: GuideLang }) {
 
 /** Service pages linked from each article (internal linking for search). */
 const relatedServices: Record<string, ServiceSlug[]> = {
+  "buchhaltung-selber-machen-oder-auslagern": ["finanzbuchhaltung", "jahresabschluss", "mwst", "lohnbuchhaltung", "startups"],
   "treuhaender-kosten-gmbh-schweiz": ["finanzbuchhaltung", "jahresabschluss", "mwst", "lohnbuchhaltung", "zuerich", "luzern", "aargau"],
   "gmbh-oder-einzelfirma": ["startups", "steuern", "bern"],
   "mwst-pflicht-schweiz": ["mwst", "finanzbuchhaltung", "basel"],
@@ -64,6 +65,8 @@ function ContentLink({ href, children }: { href: string; children: ReactNode }) 
   if (href === "https://www.startsaldo.ch/mwst" || href === "/mwst") return <Link to="/mwst" className={contentLinkClass}>{children}</Link>;
   if (href === "https://www.startsaldo.ch/jahresabschluss" || href === "/jahresabschluss") return <Link to="/jahresabschluss" className={contentLinkClass}>{children}</Link>;
   if (href === "https://www.startsaldo.ch/termin" || href === "/termin") return <Link to="/termin" className={contentLinkClass}>{children}</Link>;
+  const guide = href.match(/^(?:https:\/\/www\.startsaldo\.ch)?\/ratgeber\/([^/]+)$/);
+  if (guide?.[1]) return <Link to="/ratgeber/$slug" params={{ slug: guide[1] }} className={contentLinkClass}>{children}</Link>;
   return <a href={href} target="_blank" rel="noopener noreferrer" className={contentLinkClass}>{children}</a>;
 }
 
@@ -78,7 +81,7 @@ function InlineText({ text }: { text: string }): ReactNode {
   });
 }
 
-function ArticleBlocks({ blocks }: { blocks: ArticleBlock[] }) {
+function ArticleBlocks({ blocks, lang }: { blocks: ArticleBlock[]; lang: GuideLang }) {
   return (
     <div className="mt-4 space-y-4">
       {blocks.map((block, i) => {
@@ -87,18 +90,35 @@ function ArticleBlocks({ blocks }: { blocks: ArticleBlock[] }) {
           return <p key={i} className={`${secondary ? "text-sm text-muted-foreground" : "text-[16px] text-foreground/85"} leading-7`}><InlineText text={block.text} /></p>;
         }
         if (block.type === "table") {
+          const threeColumns = block.headers.length === 3;
+          const cellPadding = threeColumns ? "px-3 py-3.5 sm:px-4 sm:py-4" : "px-4 py-3.5 sm:px-5 sm:py-4";
           return (
             <div key={i} className="overflow-hidden rounded-[20px] border border-border bg-card pt-0">
-              <table aria-label={block.label} className="w-full table-fixed border-collapse text-left text-[14px] leading-6">
-                <colgroup><col className="w-[58%]" /><col /></colgroup>
+              {threeColumns && (
+                <div role="group" aria-label={block.label} className="divide-y divide-border sm:hidden">
+                  {block.rows.map((row, rowIndex) => (
+                    <dl key={row[0] ?? rowIndex} className="space-y-3 px-4 py-5">
+                      {row.map((cell, cellIndex) => (
+                        <div key={cellIndex} className="grid grid-cols-[92px_minmax(0,1fr)] gap-3">
+                          <dt className="font-semibold text-primary">{block.headers[cellIndex]}</dt>
+                          <dd className="min-w-0 break-words text-foreground/85">{cell}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  ))}
+                </div>
+              )}
+              <table aria-label={block.label} className={`${threeColumns ? "hidden text-[13px] sm:table sm:text-[14px]" : "text-[14px]"} w-full table-fixed border-collapse text-left leading-6`}>
+                <colgroup>{block.headers.map((header, index) => <col key={header} className={index === 0 ? (threeColumns ? "w-[24%]" : "w-[58%]") : undefined} />)}</colgroup>
                 <thead className="bg-sage-soft text-primary">
-                  <tr>{block.headers.map((header) => <th key={header} scope="col" className="px-4 py-3.5 font-semibold sm:px-5 sm:py-4">{header}</th>)}</tr>
+                  <tr>{block.headers.map((header) => <th key={header} scope="col" className={`${cellPadding} break-words font-semibold`}>{header}</th>)}</tr>
                 </thead>
                 <tbody className="divide-y divide-border">
-                  {block.rows.map(([label, price]) => (
-                    <tr key={label}>
-                      <th scope="row" className="px-4 py-4 font-normal text-foreground/85 sm:px-5">{label}</th>
-                      <td className="px-4 py-4 font-semibold text-foreground sm:px-5">{price}</td>
+                  {block.rows.map((row, rowIndex) => (
+                    <tr key={row[0] ?? rowIndex}>
+                      {row.map((cell, cellIndex) => cellIndex === 0
+                        ? <th key={cellIndex} scope="row" className={`${cellPadding} break-words font-normal text-foreground/85`}>{cell}</th>
+                        : <td key={cellIndex} className={`${cellPadding} break-words ${threeColumns ? "text-foreground/85" : "font-semibold text-foreground"}`}>{cell}</td>)}
                     </tr>
                   ))}
                 </tbody>
@@ -126,7 +146,7 @@ function ArticleBlocks({ blocks }: { blocks: ArticleBlock[] }) {
           );
         }
         return (
-          <Link key={i} to={block.to} className="inline-flex items-center gap-2 font-semibold text-primary underline-offset-4 hover:underline">
+          <Link key={i} to={lang === "de" ? block.to : "/en/termin"} className="inline-flex items-center gap-2 font-semibold text-primary underline-offset-4 hover:underline">
             {block.label}<ArrowRight className="size-4 shrink-0" />
           </Link>
         );
@@ -157,7 +177,7 @@ export function RatgeberArticle({ article, lang }: { article: Article; lang: Gui
           {a.sections.map((s) => (
             <section key={s.h}>
               <h2 className="text-[24px] font-semibold md:text-[28px]">{s.h}</h2>
-              {s.blocks ? <ArticleBlocks blocks={s.blocks} /> : s.p.map((p) => <p key={p} className="mt-4 text-[16px] leading-7 text-foreground/85">{p}</p>)}
+              {s.blocks ? <ArticleBlocks blocks={s.blocks} lang={lang} /> : s.p.map((p) => <p key={p} className="mt-4 text-[16px] leading-7 text-foreground/85">{p}</p>)}
             </section>
           ))}
           {a.defaultNote !== false && <p className="text-sm text-muted-foreground">{c.note}</p>}

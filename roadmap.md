@@ -37,9 +37,11 @@
 - [x] Hero-Foto blendet beim Öffnen der Seite sanft ein (wie die übrigen Hero-Elemente); Endposition auf Computer, Tablet und Handy geprüft, reduzierte Bewegung respektiert.
 
 - [x] Frühere Software-Nennungen überall entfernt; Datenspeicherung ausschliesslich mit kurzer Proton-Beschreibung (DE/EN, Startseite, Leistungsseiten, Impressum/Datenschutz, llms.txt).
-- [x] Ratgeber-Bereich (/ratgeber) mit 4 Beiträgen: drei deutsch/englisch, Treuhandkosten vorerst nur deutsch.
+- [x] Ratgeber-Bereich (/ratgeber) mit 5 Beiträgen: vier deutsch/englisch, Treuhandkosten nur deutsch.
 - [x] Freigegebenen deutschen Artikel «Treuhänder-Kosten für eine GmbH» mit Preistabelle, FAQ, Quellen, internen Links und SEO-Daten eingebunden; Desktop/Mobil, SSR und Links geprüft. Kein englischer Artikel ohne freigegebene Übersetzung.
-- [ ] Neuen Ratgeberartikel auf Vercel veröffentlichen – wartet auf den externen Deployment-Workflow der Betreiberin.
+- [x] Neuen Ratgeber «Buchhaltung selber machen oder auslagern?» auf Deutsch und Englisch mit Vergleichstabelle, fünf Entscheidungsfragen, FAQ, Quellen und Querverlinkungen eingebunden; Handy- und Desktopdarstellung geprüft.
+- [x] Preisratgeber: Alle acht Fragen unter «Häufige Fragen» zusammengefasst und die vier vorherigen Frage-Zwischentitel sachlich formuliert.
+- [ ] Neue Ratgeberartikel auf Vercel veröffentlichen – wartet auf den externen Deployment-Workflow der Betreiberin.
 - [x] SEO/KI-Optimierung: Startseiten-Titel/H1/Beschreibung, KI-Crawler in robots.txt, Ratgeber im Menü, Querverlinkung Leistungen↔Ratgeber, Sitemap-Sprachverweise, FAQ ohne JavaScript lesbar, Firmendaten erweitert.
 - [x] Abschliessende Produktionsprüfung auf www.startsaldo.ch: alle 36 Sitemap-URLs ohne JavaScript, FAQ, HTML-Links, Canonicals, Sprachverweise, Schema und /en/ (308) geprüft; Startseiten-Adresse vervollständigt; Ergebnisse in .lovable/reviews/live-seo-2026-11-21.md dokumentiert.
 - [ ] Adresskorrektur auf Vercel veröffentlichen – wartet auf den externen Deployment-Workflow der Betreiberin.

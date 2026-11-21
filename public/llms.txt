@@ -43,6 +43,7 @@ We are a small, personal team: Audelia Babbev-Pittet (financial accountant), Sar
 ## Guides
 
 - [Ratgeber](https://www.startsaldo.ch/ratgeber): Articles on formation, accounting and VAT for Swiss SMEs and start-ups.
+- [Buchhaltung selber machen oder auslagern](https://www.startsaldo.ch/ratgeber/buchhaltung-selber-machen-oder-auslagern): A comparison of doing your own bookkeeping, partial outsourcing and full outsourcing for Swiss SMEs. [English](https://www.startsaldo.ch/en/guides/buchhaltung-selber-machen-oder-auslagern).
 - [Treuhänder-Kosten für eine GmbH](https://www.startsaldo.ch/ratgeber/treuhaender-kosten-gmbh-schweiz): Swiss guide prices and factors for comparing accounting costs.
 - [GmbH oder Einzelfirma](https://www.startsaldo.ch/ratgeber/gmbh-oder-einzelfirma): Liability, capital, bookkeeping and tax compared.
 - [MWST-Pflicht Schweiz](https://www.startsaldo.ch/ratgeber/mwst-pflicht-schweiz): When Swiss VAT registration is required.

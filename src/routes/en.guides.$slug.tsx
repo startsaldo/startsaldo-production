@@ -16,8 +16,8 @@ export const Route = createFileRoute("/en/guides/$slug")({
     const alt = `${SITE}/ratgeber/${params.slug}`;
     return {
       meta: [
-        { title: `${a.title} | StartSaldo` }, { name: "description", content: a.desc },
-        { property: "og:title", content: a.title }, { property: "og:description", content: a.desc },
+        { title: a.seoTitle ?? `${a.title} | StartSaldo` }, { name: "description", content: a.metaDescription ?? a.desc },
+        { property: "og:title", content: a.title }, { property: "og:description", content: a.metaDescription ?? a.desc },
         { property: "og:type", content: "article" }, { property: "og:url", content: url },
         { name: "twitter:card", content: "summary_large_image" },
       ],

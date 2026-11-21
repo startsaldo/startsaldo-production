@@ -147,6 +147,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber"/>
   </url>
   <url>
+    <loc>https://www.startsaldo.ch/ratgeber/buchhaltung-selber-machen-oder-auslagern</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/ratgeber/buchhaltung-selber-machen-oder-auslagern"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/guides/buchhaltung-selber-machen-oder-auslagern"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber/buchhaltung-selber-machen-oder-auslagern"/>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/en/guides/buchhaltung-selber-machen-oder-auslagern</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/ratgeber/buchhaltung-selber-machen-oder-auslagern"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/guides/buchhaltung-selber-machen-oder-auslagern"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber/buchhaltung-selber-machen-oder-auslagern"/>
+  </url>
+  <url>
     <loc>https://www.startsaldo.ch/ratgeber/treuhaender-kosten-gmbh-schweiz</loc>
   </url>
   <url>
