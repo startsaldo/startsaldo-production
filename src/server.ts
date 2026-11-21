@@ -46,6 +46,12 @@ function isH3SwallowedErrorBody(body: string): boolean {
 
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    // Permanent (308) redirect for trailing-slash URLs like /en/ so search engines consolidate on the slashless URL.
+    const url = new URL(request.url);
+    if (url.pathname.length > 1 && url.pathname.endsWith("/") && (request.method === "GET" || request.method === "HEAD")) {
+      url.pathname = url.pathname.replace(/\/+$/, "") || "/";
+      return new Response(null, { status: 308, headers: { location: url.pathname + url.search } });
+    }
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
