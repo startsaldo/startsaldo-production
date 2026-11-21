@@ -215,4 +215,52 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-lucerne"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-luzern"/>
   </url>
+  <url>
+    <loc>https://www.startsaldo.ch/buchhaltung-aargau</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-aargau"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-aargau"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-aargau"/>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/en/accounting-aargau</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-aargau"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-aargau"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-aargau"/>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/buchhaltung-st-gallen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-st-gallen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-st-gallen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-st-gallen"/>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/en/accounting-st-gallen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-st-gallen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-st-gallen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-st-gallen"/>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/buchhaltung-bern</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-bern"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-bern"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-bern"/>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/en/accounting-bern</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-bern"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-bern"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-bern"/>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/buchhaltung-basel</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-basel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-basel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-basel"/>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/en/accounting-basel</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-basel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-basel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-basel"/>
+  </url>
 </urlset>

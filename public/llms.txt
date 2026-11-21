@@ -25,6 +25,11 @@ We are a small, personal team: Audelia Babbev-Pittet (financial accountant), Sar
 - [Canton Zurich](https://www.startsaldo.ch/buchhaltung-zuerich): Personal, digital accounting for SMEs and start-ups in Zurich, supported from Rothenthurm. [English](https://www.startsaldo.ch/en/accounting-zurich).
 - [Canton Lucerne](https://www.startsaldo.ch/buchhaltung-luzern): Full or partial accounting outsourcing for SMEs and start-ups in Lucerne. [English](https://www.startsaldo.ch/en/accounting-lucerne).
 
+- [Aargau](https://www.startsaldo.ch/buchhaltung-aargau): Accounting for SMEs and start-ups, digitally supported from Rothenthurm. [English](https://www.startsaldo.ch/en/accounting-aargau).
+- [St. Gallen](https://www.startsaldo.ch/buchhaltung-st-gallen): Accounting for SMEs and start-ups, digitally supported from Rothenthurm. [English](https://www.startsaldo.ch/en/accounting-st-gallen).
+- [Bern](https://www.startsaldo.ch/buchhaltung-bern): Accounting for SMEs and start-ups, digitally supported from Rothenthurm. [English](https://www.startsaldo.ch/en/accounting-bern).
+- [Basel](https://www.startsaldo.ch/buchhaltung-basel): Accounting for SMEs and start-ups, digitally supported from Rothenthurm. [English](https://www.startsaldo.ch/en/accounting-basel).
+
 ## Pages
 
 - [Home](https://www.startsaldo.ch/): Overview of the company and services.

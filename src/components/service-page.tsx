@@ -22,6 +22,10 @@ const relatedGuides: Record<ServiceSlug, string[]> = {
   schwyz: ["gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
   zug: ["gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
   zuerich: ["treuhaender-kosten-gmbh-schweiz", "gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
+  aargau: ["treuhaender-kosten-gmbh-schweiz", "aufbewahrungspflicht-geschaeftsunterlagen"],
+  "st-gallen": ["aufbewahrungspflicht-geschaeftsunterlagen", "mwst-pflicht-schweiz"],
+  bern: ["gmbh-oder-einzelfirma", "aufbewahrungspflicht-geschaeftsunterlagen"],
+  basel: ["mwst-pflicht-schweiz", "aufbewahrungspflicht-geschaeftsunterlagen"],
   luzern: ["treuhaender-kosten-gmbh-schweiz", "aufbewahrungspflicht-geschaeftsunterlagen", "mwst-pflicht-schweiz"],
   hoefe: ["gmbh-oder-einzelfirma", "aufbewahrungspflicht-geschaeftsunterlagen"],
 };

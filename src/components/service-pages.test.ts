@@ -15,7 +15,23 @@ describe("Additional regions", () => {
     });
   }
 
-  for (const [slug, area] of [["zuerich", "Kanton Zürich"], ["luzern", "Kanton Luzern"]] as const) {
+  for (const [company, delegated] of [
+    ["Geschäftliche Unterlagen bereitstellen", "Laufende Finanzbuchhaltung"],
+    ["Kundenrechnungen und Zahlungen im Blick behalten", "Konten abstimmen"],
+    ["Informationen zu Geschäftsfällen liefern", "MWST-Abrechnungen"],
+    ["Unternehmensentscheidungen treffen", "Jahresabschluss und vereinbarte Auswertungen"],
+  ] as const) {
+    it(`St. Gallen's example keeps ${company} with the company and delegates ${delegated}`, () => {
+      const row = services["st-gallen"].de.taskTable?.rows.find(([task]) => task === company);
+      assert.deepEqual(row, [company, delegated]);
+    });
+  }
+
+  for (const [slug, area] of [
+    ["zuerich", "Kanton Zürich"], ["luzern", "Kanton Luzern"],
+    ["aargau", "Kanton Aargau"], ["st-gallen", "Kanton St. Gallen"],
+    ["bern", "Kanton Bern"], ["basel", "Basel-Stadt und Basel-Landschaft"],
+  ] as const) {
     it(`${slug} serves the canton digitally from the existing Rothenthurm address`, () => {
       const schema = JSON.parse(serviceJsonLd(slug, "de").children);
       assert.equal(schema["@graph"][0].areaServed.name, area);

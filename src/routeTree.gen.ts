@@ -10,9 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BuchhaltungAargauRouteImport } from './routes/buchhaltung-aargau'
 import { Route as BuchhaltungAusserschwyzRouteImport } from './routes/buchhaltung-ausserschwyz'
+import { Route as BuchhaltungBaselRouteImport } from './routes/buchhaltung-basel'
+import { Route as BuchhaltungBernRouteImport } from './routes/buchhaltung-bern'
 import { Route as BuchhaltungLuzernRouteImport } from './routes/buchhaltung-luzern'
 import { Route as BuchhaltungSchwyzRouteImport } from './routes/buchhaltung-schwyz'
+import { Route as BuchhaltungStGallenRouteImport } from './routes/buchhaltung-st-gallen'
 import { Route as BuchhaltungZuerichRouteImport } from './routes/buchhaltung-zuerich'
 import { Route as BuchhaltungZugRouteImport } from './routes/buchhaltung-zug'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
@@ -29,9 +33,13 @@ import { Route as TerminRouteImport } from './routes/termin'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as EnAccountingRouteImport } from './routes/en.accounting'
+import { Route as EnAccountingAargauRouteImport } from './routes/en.accounting-aargau'
 import { Route as EnAccountingAusserschwyzRouteImport } from './routes/en.accounting-ausserschwyz'
+import { Route as EnAccountingBaselRouteImport } from './routes/en.accounting-basel'
+import { Route as EnAccountingBernRouteImport } from './routes/en.accounting-bern'
 import { Route as EnAccountingLucerneRouteImport } from './routes/en.accounting-lucerne'
 import { Route as EnAccountingSchwyzRouteImport } from './routes/en.accounting-schwyz'
+import { Route as EnAccountingStGallenRouteImport } from './routes/en.accounting-st-gallen'
 import { Route as EnAccountingZugRouteImport } from './routes/en.accounting-zug'
 import { Route as EnAccountingZurichRouteImport } from './routes/en.accounting-zurich'
 import { Route as EnAnnualAccountsRouteImport } from './routes/en.annual-accounts'
@@ -53,9 +61,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BuchhaltungAargauRoute = BuchhaltungAargauRouteImport.update({
+  id: '/buchhaltung-aargau',
+  path: '/buchhaltung-aargau',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BuchhaltungAusserschwyzRoute = BuchhaltungAusserschwyzRouteImport.update({
   id: '/buchhaltung-ausserschwyz',
   path: '/buchhaltung-ausserschwyz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuchhaltungBaselRoute = BuchhaltungBaselRouteImport.update({
+  id: '/buchhaltung-basel',
+  path: '/buchhaltung-basel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuchhaltungBernRoute = BuchhaltungBernRouteImport.update({
+  id: '/buchhaltung-bern',
+  path: '/buchhaltung-bern',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuchhaltungLuzernRoute = BuchhaltungLuzernRouteImport.update({
@@ -66,6 +89,11 @@ const BuchhaltungLuzernRoute = BuchhaltungLuzernRouteImport.update({
 const BuchhaltungSchwyzRoute = BuchhaltungSchwyzRouteImport.update({
   id: '/buchhaltung-schwyz',
   path: '/buchhaltung-schwyz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuchhaltungStGallenRoute = BuchhaltungStGallenRouteImport.update({
+  id: '/buchhaltung-st-gallen',
+  path: '/buchhaltung-st-gallen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuchhaltungZuerichRoute = BuchhaltungZuerichRouteImport.update({
@@ -148,12 +176,27 @@ const EnAccountingRoute = EnAccountingRouteImport.update({
   path: '/accounting',
   getParentRoute: () => EnRoute,
 } as any)
+const EnAccountingAargauRoute = EnAccountingAargauRouteImport.update({
+  id: '/accounting-aargau',
+  path: '/accounting-aargau',
+  getParentRoute: () => EnRoute,
+} as any)
 const EnAccountingAusserschwyzRoute =
   EnAccountingAusserschwyzRouteImport.update({
     id: '/accounting-ausserschwyz',
     path: '/accounting-ausserschwyz',
     getParentRoute: () => EnRoute,
   } as any)
+const EnAccountingBaselRoute = EnAccountingBaselRouteImport.update({
+  id: '/accounting-basel',
+  path: '/accounting-basel',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnAccountingBernRoute = EnAccountingBernRouteImport.update({
+  id: '/accounting-bern',
+  path: '/accounting-bern',
+  getParentRoute: () => EnRoute,
+} as any)
 const EnAccountingLucerneRoute = EnAccountingLucerneRouteImport.update({
   id: '/accounting-lucerne',
   path: '/accounting-lucerne',
@@ -162,6 +205,11 @@ const EnAccountingLucerneRoute = EnAccountingLucerneRouteImport.update({
 const EnAccountingSchwyzRoute = EnAccountingSchwyzRouteImport.update({
   id: '/accounting-schwyz',
   path: '/accounting-schwyz',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnAccountingStGallenRoute = EnAccountingStGallenRouteImport.update({
+  id: '/accounting-st-gallen',
+  path: '/accounting-st-gallen',
   getParentRoute: () => EnRoute,
 } as any)
 const EnAccountingZugRoute = EnAccountingZugRouteImport.update({
@@ -242,9 +290,13 @@ const EnGuidesSlugRoute = EnGuidesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/buchhaltung-aargau': typeof BuchhaltungAargauRoute
   '/buchhaltung-ausserschwyz': typeof BuchhaltungAusserschwyzRoute
+  '/buchhaltung-basel': typeof BuchhaltungBaselRoute
+  '/buchhaltung-bern': typeof BuchhaltungBernRoute
   '/buchhaltung-luzern': typeof BuchhaltungLuzernRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
+  '/buchhaltung-st-gallen': typeof BuchhaltungStGallenRoute
   '/buchhaltung-zuerich': typeof BuchhaltungZuerichRoute
   '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/datenschutz': typeof DatenschutzRoute
@@ -260,9 +312,13 @@ export interface FileRoutesByFullPath {
   '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
+  '/en/accounting-aargau': typeof EnAccountingAargauRoute
   '/en/accounting-ausserschwyz': typeof EnAccountingAusserschwyzRoute
+  '/en/accounting-basel': typeof EnAccountingBaselRoute
+  '/en/accounting-bern': typeof EnAccountingBernRoute
   '/en/accounting-lucerne': typeof EnAccountingLucerneRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
+  '/en/accounting-st-gallen': typeof EnAccountingStGallenRoute
   '/en/accounting-zug': typeof EnAccountingZugRoute
   '/en/accounting-zurich': typeof EnAccountingZurichRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
@@ -282,9 +338,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/buchhaltung-aargau': typeof BuchhaltungAargauRoute
   '/buchhaltung-ausserschwyz': typeof BuchhaltungAusserschwyzRoute
+  '/buchhaltung-basel': typeof BuchhaltungBaselRoute
+  '/buchhaltung-bern': typeof BuchhaltungBernRoute
   '/buchhaltung-luzern': typeof BuchhaltungLuzernRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
+  '/buchhaltung-st-gallen': typeof BuchhaltungStGallenRoute
   '/buchhaltung-zuerich': typeof BuchhaltungZuerichRoute
   '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/datenschutz': typeof DatenschutzRoute
@@ -299,9 +359,13 @@ export interface FileRoutesByTo {
   '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
+  '/en/accounting-aargau': typeof EnAccountingAargauRoute
   '/en/accounting-ausserschwyz': typeof EnAccountingAusserschwyzRoute
+  '/en/accounting-basel': typeof EnAccountingBaselRoute
+  '/en/accounting-bern': typeof EnAccountingBernRoute
   '/en/accounting-lucerne': typeof EnAccountingLucerneRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
+  '/en/accounting-st-gallen': typeof EnAccountingStGallenRoute
   '/en/accounting-zug': typeof EnAccountingZugRoute
   '/en/accounting-zurich': typeof EnAccountingZurichRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
@@ -322,9 +386,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/buchhaltung-aargau': typeof BuchhaltungAargauRoute
   '/buchhaltung-ausserschwyz': typeof BuchhaltungAusserschwyzRoute
+  '/buchhaltung-basel': typeof BuchhaltungBaselRoute
+  '/buchhaltung-bern': typeof BuchhaltungBernRoute
   '/buchhaltung-luzern': typeof BuchhaltungLuzernRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
+  '/buchhaltung-st-gallen': typeof BuchhaltungStGallenRoute
   '/buchhaltung-zuerich': typeof BuchhaltungZuerichRoute
   '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/datenschutz': typeof DatenschutzRoute
@@ -340,9 +408,13 @@ export interface FileRoutesById {
   '/termin': typeof TerminRoute
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
+  '/en/accounting-aargau': typeof EnAccountingAargauRoute
   '/en/accounting-ausserschwyz': typeof EnAccountingAusserschwyzRoute
+  '/en/accounting-basel': typeof EnAccountingBaselRoute
+  '/en/accounting-bern': typeof EnAccountingBernRoute
   '/en/accounting-lucerne': typeof EnAccountingLucerneRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
+  '/en/accounting-st-gallen': typeof EnAccountingStGallenRoute
   '/en/accounting-zug': typeof EnAccountingZugRoute
   '/en/accounting-zurich': typeof EnAccountingZurichRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
@@ -364,9 +436,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/buchhaltung-aargau'
     | '/buchhaltung-ausserschwyz'
+    | '/buchhaltung-basel'
+    | '/buchhaltung-bern'
     | '/buchhaltung-luzern'
     | '/buchhaltung-schwyz'
+    | '/buchhaltung-st-gallen'
     | '/buchhaltung-zuerich'
     | '/buchhaltung-zug'
     | '/datenschutz'
@@ -382,9 +458,13 @@ export interface FileRouteTypes {
     | '/termin'
     | '/api/contact'
     | '/en/accounting'
+    | '/en/accounting-aargau'
     | '/en/accounting-ausserschwyz'
+    | '/en/accounting-basel'
+    | '/en/accounting-bern'
     | '/en/accounting-lucerne'
     | '/en/accounting-schwyz'
+    | '/en/accounting-st-gallen'
     | '/en/accounting-zug'
     | '/en/accounting-zurich'
     | '/en/annual-accounts'
@@ -404,9 +484,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/buchhaltung-aargau'
     | '/buchhaltung-ausserschwyz'
+    | '/buchhaltung-basel'
+    | '/buchhaltung-bern'
     | '/buchhaltung-luzern'
     | '/buchhaltung-schwyz'
+    | '/buchhaltung-st-gallen'
     | '/buchhaltung-zuerich'
     | '/buchhaltung-zug'
     | '/datenschutz'
@@ -421,9 +505,13 @@ export interface FileRouteTypes {
     | '/termin'
     | '/api/contact'
     | '/en/accounting'
+    | '/en/accounting-aargau'
     | '/en/accounting-ausserschwyz'
+    | '/en/accounting-basel'
+    | '/en/accounting-bern'
     | '/en/accounting-lucerne'
     | '/en/accounting-schwyz'
+    | '/en/accounting-st-gallen'
     | '/en/accounting-zug'
     | '/en/accounting-zurich'
     | '/en/annual-accounts'
@@ -443,9 +531,13 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/buchhaltung-aargau'
     | '/buchhaltung-ausserschwyz'
+    | '/buchhaltung-basel'
+    | '/buchhaltung-bern'
     | '/buchhaltung-luzern'
     | '/buchhaltung-schwyz'
+    | '/buchhaltung-st-gallen'
     | '/buchhaltung-zuerich'
     | '/buchhaltung-zug'
     | '/datenschutz'
@@ -461,9 +553,13 @@ export interface FileRouteTypes {
     | '/termin'
     | '/api/contact'
     | '/en/accounting'
+    | '/en/accounting-aargau'
     | '/en/accounting-ausserschwyz'
+    | '/en/accounting-basel'
+    | '/en/accounting-bern'
     | '/en/accounting-lucerne'
     | '/en/accounting-schwyz'
+    | '/en/accounting-st-gallen'
     | '/en/accounting-zug'
     | '/en/accounting-zurich'
     | '/en/annual-accounts'
@@ -484,9 +580,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BuchhaltungAargauRoute: typeof BuchhaltungAargauRoute
   BuchhaltungAusserschwyzRoute: typeof BuchhaltungAusserschwyzRoute
+  BuchhaltungBaselRoute: typeof BuchhaltungBaselRoute
+  BuchhaltungBernRoute: typeof BuchhaltungBernRoute
   BuchhaltungLuzernRoute: typeof BuchhaltungLuzernRoute
   BuchhaltungSchwyzRoute: typeof BuchhaltungSchwyzRoute
+  BuchhaltungStGallenRoute: typeof BuchhaltungStGallenRoute
   BuchhaltungZuerichRoute: typeof BuchhaltungZuerichRoute
   BuchhaltungZugRoute: typeof BuchhaltungZugRoute
   DatenschutzRoute: typeof DatenschutzRoute
@@ -514,11 +614,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/buchhaltung-aargau': {
+      id: '/buchhaltung-aargau'
+      path: '/buchhaltung-aargau'
+      fullPath: '/buchhaltung-aargau'
+      preLoaderRoute: typeof BuchhaltungAargauRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/buchhaltung-ausserschwyz': {
       id: '/buchhaltung-ausserschwyz'
       path: '/buchhaltung-ausserschwyz'
       fullPath: '/buchhaltung-ausserschwyz'
       preLoaderRoute: typeof BuchhaltungAusserschwyzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buchhaltung-basel': {
+      id: '/buchhaltung-basel'
+      path: '/buchhaltung-basel'
+      fullPath: '/buchhaltung-basel'
+      preLoaderRoute: typeof BuchhaltungBaselRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buchhaltung-bern': {
+      id: '/buchhaltung-bern'
+      path: '/buchhaltung-bern'
+      fullPath: '/buchhaltung-bern'
+      preLoaderRoute: typeof BuchhaltungBernRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/buchhaltung-luzern': {
@@ -533,6 +654,13 @@ declare module '@tanstack/react-router' {
       path: '/buchhaltung-schwyz'
       fullPath: '/buchhaltung-schwyz'
       preLoaderRoute: typeof BuchhaltungSchwyzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buchhaltung-st-gallen': {
+      id: '/buchhaltung-st-gallen'
+      path: '/buchhaltung-st-gallen'
+      fullPath: '/buchhaltung-st-gallen'
+      preLoaderRoute: typeof BuchhaltungStGallenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/buchhaltung-zuerich': {
@@ -647,11 +775,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnAccountingRouteImport
       parentRoute: typeof EnRoute
     }
+    '/en/accounting-aargau': {
+      id: '/en/accounting-aargau'
+      path: '/accounting-aargau'
+      fullPath: '/en/accounting-aargau'
+      preLoaderRoute: typeof EnAccountingAargauRouteImport
+      parentRoute: typeof EnRoute
+    }
     '/en/accounting-ausserschwyz': {
       id: '/en/accounting-ausserschwyz'
       path: '/accounting-ausserschwyz'
       fullPath: '/en/accounting-ausserschwyz'
       preLoaderRoute: typeof EnAccountingAusserschwyzRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/accounting-basel': {
+      id: '/en/accounting-basel'
+      path: '/accounting-basel'
+      fullPath: '/en/accounting-basel'
+      preLoaderRoute: typeof EnAccountingBaselRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/accounting-bern': {
+      id: '/en/accounting-bern'
+      path: '/accounting-bern'
+      fullPath: '/en/accounting-bern'
+      preLoaderRoute: typeof EnAccountingBernRouteImport
       parentRoute: typeof EnRoute
     }
     '/en/accounting-lucerne': {
@@ -666,6 +815,13 @@ declare module '@tanstack/react-router' {
       path: '/accounting-schwyz'
       fullPath: '/en/accounting-schwyz'
       preLoaderRoute: typeof EnAccountingSchwyzRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/accounting-st-gallen': {
+      id: '/en/accounting-st-gallen'
+      path: '/accounting-st-gallen'
+      fullPath: '/en/accounting-st-gallen'
+      preLoaderRoute: typeof EnAccountingStGallenRouteImport
       parentRoute: typeof EnRoute
     }
     '/en/accounting-zug': {
@@ -778,9 +934,13 @@ declare module '@tanstack/react-router' {
 
 interface EnRouteChildren {
   EnAccountingRoute: typeof EnAccountingRoute
+  EnAccountingAargauRoute: typeof EnAccountingAargauRoute
   EnAccountingAusserschwyzRoute: typeof EnAccountingAusserschwyzRoute
+  EnAccountingBaselRoute: typeof EnAccountingBaselRoute
+  EnAccountingBernRoute: typeof EnAccountingBernRoute
   EnAccountingLucerneRoute: typeof EnAccountingLucerneRoute
   EnAccountingSchwyzRoute: typeof EnAccountingSchwyzRoute
+  EnAccountingStGallenRoute: typeof EnAccountingStGallenRoute
   EnAccountingZugRoute: typeof EnAccountingZugRoute
   EnAccountingZurichRoute: typeof EnAccountingZurichRoute
   EnAnnualAccountsRoute: typeof EnAnnualAccountsRoute
@@ -799,9 +959,13 @@ interface EnRouteChildren {
 
 const EnRouteChildren: EnRouteChildren = {
   EnAccountingRoute: EnAccountingRoute,
+  EnAccountingAargauRoute: EnAccountingAargauRoute,
   EnAccountingAusserschwyzRoute: EnAccountingAusserschwyzRoute,
+  EnAccountingBaselRoute: EnAccountingBaselRoute,
+  EnAccountingBernRoute: EnAccountingBernRoute,
   EnAccountingLucerneRoute: EnAccountingLucerneRoute,
   EnAccountingSchwyzRoute: EnAccountingSchwyzRoute,
+  EnAccountingStGallenRoute: EnAccountingStGallenRoute,
   EnAccountingZugRoute: EnAccountingZugRoute,
   EnAccountingZurichRoute: EnAccountingZurichRoute,
   EnAnnualAccountsRoute: EnAnnualAccountsRoute,
@@ -822,9 +986,13 @@ const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BuchhaltungAargauRoute: BuchhaltungAargauRoute,
   BuchhaltungAusserschwyzRoute: BuchhaltungAusserschwyzRoute,
+  BuchhaltungBaselRoute: BuchhaltungBaselRoute,
+  BuchhaltungBernRoute: BuchhaltungBernRoute,
   BuchhaltungLuzernRoute: BuchhaltungLuzernRoute,
   BuchhaltungSchwyzRoute: BuchhaltungSchwyzRoute,
+  BuchhaltungStGallenRoute: BuchhaltungStGallenRoute,
   BuchhaltungZuerichRoute: BuchhaltungZuerichRoute,
   BuchhaltungZugRoute: BuchhaltungZugRoute,
   DatenschutzRoute: DatenschutzRoute,

@@ -51,3 +51,6 @@
 - [ ] Neue Regionsseiten auf Vercel veröffentlichen – wartet auf den externen Deployment-Workflow der Betreiberin.
 
 - [x] Neue Fassungen für Zürich und Luzern (DE/EN) mit kantonalen Quellen und Luzerner Aufgabentabelle eingesetzt; 14 Tests sowie alle vier Seiten, FAQ, Ratgeber und Terminlinks auf drei Bildschirmgrössen geprüft. Veröffentlichung weiterhin über Vercel erforderlich.
+
+- [x] Aargau, St. Gallen, Bern und Basel aus gelieferten Texten (DE/EN) ergänzt: alle sieben offiziellen Quellen erreichbar, Tabelle und FAQ integriert, Regionslinks und Ratgeber-Verweise ergänzt; acht Seiten auf drei Bildschirmgrössen inkl. Sprachwechsel, Ratgeber und Termin geprüft. 30 Tests bestanden.
+- [ ] Vier zusätzliche Regionen auf Vercel veröffentlichen – wartet auf den externen Deployment-Workflow der Betreiberin.

@@ -2,7 +2,7 @@ import { shareMeta } from "@/components/structured-data";
 import type { Lang } from "@/components/home-copy";
 import { payrollCopy } from "@/components/payroll-page";
 
-export type ServiceSlug = "finanzbuchhaltung" | "lohnbuchhaltung" | "mwst" | "steuern" | "jahresabschluss" | "krypto" | "startups" | "schwyz" | "zug" | "hoefe" | "zuerich" | "luzern";
+export type ServiceSlug = "finanzbuchhaltung" | "lohnbuchhaltung" | "mwst" | "steuern" | "jahresabschluss" | "krypto" | "startups" | "schwyz" | "zug" | "hoefe" | "zuerich" | "luzern" | "aargau" | "st-gallen" | "bern" | "basel";
 export type Person = "sarah" | "audelia";
 
 export type ServiceCopy = {
@@ -42,11 +42,16 @@ export const servicePaths = {
   hoefe: { de: "/buchhaltung-ausserschwyz", en: "/en/accounting-ausserschwyz" },
   zuerich: { de: "/buchhaltung-zuerich", en: "/en/accounting-zurich" },
   luzern: { de: "/buchhaltung-luzern", en: "/en/accounting-lucerne" },
+  "aargau": { de: "/buchhaltung-aargau", en: "/en/accounting-aargau" },
+  "st-gallen": { de: "/buchhaltung-st-gallen", en: "/en/accounting-st-gallen" },
+  "bern": { de: "/buchhaltung-bern", en: "/en/accounting-bern" },
+  "basel": { de: "/buchhaltung-basel", en: "/en/accounting-basel" },
+
 } as const;
 
-export const serviceOrder: ServiceSlug[] = ["finanzbuchhaltung", "lohnbuchhaltung", "mwst", "steuern", "jahresabschluss", "krypto", "startups", "schwyz", "zug", "hoefe", "zuerich", "luzern"];
+export const serviceOrder: ServiceSlug[] = ["finanzbuchhaltung", "lohnbuchhaltung", "mwst", "steuern", "jahresabschluss", "krypto", "startups", "schwyz", "zug", "hoefe", "zuerich", "luzern", "aargau", "st-gallen", "bern", "basel"];
 /** Region pages: footer shows them as one compact line. */
-export const regionOrder: ServiceSlug[] = ["schwyz", "zug", "hoefe", "zuerich", "luzern"];
+export const regionOrder: ServiceSlug[] = ["schwyz", "zug", "hoefe", "zuerich", "luzern", "aargau", "st-gallen", "bern", "basel"];
 /** Header menu: core services only; start-up and region pages stay footer-only. */
 export const navOrder: ServiceSlug[] = serviceOrder.filter((s) => s !== "startups" && !regionOrder.includes(s));
 
@@ -1007,12 +1012,757 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
   }
 },
 
+  "aargau": {
+  "de": {
+    "menu": "Region Aargau",
+    "title": "Treuhänder im Aargau",
+    "titleAccent": "Buchhaltung auslagern oder wechseln.",
+    "sub": "Sie führen eine GmbH, ein KMU oder ein Start-up im Aargau und möchten Ihre Buchhaltung professionell betreuen lassen? StartSaldo unterstützt Aargauer Unternehmen bei der Finanzbuchhaltung, MWST, Lohnadministration und beim Jahresabschluss. Persönlich betreut und digital organisiert – auch wenn Sie Ihre bisherige Treuhandlösung wechseln möchten.",
+    "blocksTitle": "Treuhänder wechseln: Worauf sollten Sie achten?",
+    "blocks": [
+      {
+        "title": "Treuhänder wechseln: Worauf sollten Sie achten?",
+        "description": "Ein Treuhänderwechsel kann sinnvoll sein, wenn sich die Anforderungen Ihres Unternehmens verändern, Sie sich mehr persönliche Betreuung wünschen oder Ihre Buchhaltung effizienter organisieren möchten. Damit die Übernahme reibungslos gelingt, sollten die bisherigen Geschäftsfälle und bereits erledigten Arbeiten nachvollziehbar dokumentiert sein.",
+        "items": []
+      },
+      {
+        "title": "Checkliste für die Buchhaltungsübergabe",
+        "description": "Diese Unterlagen sind besonders wichtig: Klären Sie ausserdem, welche Arbeiten das bisherige Treuhandbüro noch abschliesst und ab wann die neue Betreuung beginnt.",
+        "items": [
+          "Letzter Jahresabschluss mit Bilanz und Erfolgsrechnung",
+          "Aktuelle Buchhaltungsdaten und Kontenblätter",
+          "Offene Kunden- und Lieferantenrechnungen",
+          "Bank- und Kontenabstimmungen",
+          "Bisherige MWST-Abrechnungen",
+          "Eingereichte Unternehmenssteuererklärungen",
+          "Lohn- und Sozialversicherungsunterlagen, sofern Mitarbeitende beschäftigt werden"
+        ]
+      },
+      {
+        "title": "Ist ein Treuhänderwechsel während des Jahres möglich?",
+        "description": "Ja, grundsätzlich kann die Buchhaltungsbetreuung auch während eines laufenden Geschäftsjahres gewechselt werden. Dabei müssen insbesondere die vertraglichen Bedingungen, der aktuelle Buchhaltungsstand und die Zuständigkeiten für offene Arbeiten geklärt werden. StartSaldo unterstützt Sie bei der Organisation der vereinbarten Übernahme und der weiteren Buchhaltungsbetreuung.",
+        "items": []
+      },
+      {
+        "title": "Digitale Zusammenarbeit mit geschützter Datenablage",
+        "description": "Für die Speicherung von Dokumenten und Daten nutzen wir Proton. Proton ist ein Schweizer Anbieter für datenschutzorientierte digitale Dienste. Sein Cloud-Speicher Proton Drive schützt Dateien durch Ende-zu-Ende-Verschlüsselung. So verbinden wir eine geschützte digitale Dokumentenablage mit persönlicher Buchhaltungsbetreuung. Unser Unternehmensstandort liegt im Kanton Schwyz. Wir unterstützen auch Unternehmen aus dem Aargau digital.",
+        "items": []
+      },
+      {
+        "title": "Jahresabschluss und Unternehmenssteuern",
+        "description": "Neben der laufenden Finanzbuchhaltung unterstützen wir Sie bei den Abschlussarbeiten und der Unternehmenssteuererklärung. Für juristische Personen stellt der Kanton Aargau eigene Möglichkeiten zur elektronischen Steuerdeklaration bereit. Eine vollständige und nachvollziehbare Buchhaltung bildet dafür eine wichtige Grundlage.",
+        "items": [],
+        "source": {
+          "label": "Kanton Aargau – Steuererklärung für juristische Personen",
+          "href": "https://www.ag.ch/de/themen/steuern-finanzen/steuern/steuererklaerung-einreichen/etax-aargau/etax-aargau-juristische-personen"
+        }
+      }
+    ],
+    "processTitle": "So starten wir die Zusammenarbeit",
+    "process": [
+      [
+        "Erstgespräch",
+        "Wir lernen uns kennen und klären Ihre Bedürfnisse – und wie wir Sie am besten entlasten können."
+      ],
+      [
+        "Aufgaben vereinbaren",
+        "Wir besprechen Ihre Unterlagen und legen Umfang und Zuständigkeiten gemeinsam fest."
+      ],
+      [
+        "Digitale Betreuung",
+        "Sie stellen Ihre Unterlagen digital bereit. Wir übernehmen die vereinbarten Arbeiten."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Ihre feste Ansprechpartnerin in Rothenthurm betreut KMU und Start-ups in Aargau digital und persönlich – mit klaren Zuständigkeiten und nachvollziehbaren Unterlagen.",
+    "faqTitle": "Häufige Fragen",
+    "faq": [
+      [
+        "Kann ich meine Buchhaltung während des Jahres an StartSaldo übergeben?",
+        "Grundsätzlich ja. Wir besprechen die vorhandenen Unterlagen, den gewünschten Übernahmezeitpunkt und die noch offenen Arbeiten."
+      ],
+      [
+        "Was passiert, wenn Buchhaltungsunterlagen fehlen?",
+        "Zunächst klären wir, welche Informationen fehlen und welche Abstimmungen oder Nachbuchungen notwendig sind. Der zusätzliche Aufwand wird vor der Übernahme besprochen."
+      ],
+      [
+        "Was kostet ein Treuhänder für meine GmbH?",
+        "Die Kosten hängen vom Umfang der Buchhaltung und den benötigten Dienstleistungen ab. Erste Richtwerte finden Sie in unserem Ratgeber zu Treuhandkosten für GmbHs."
+      ]
+    ],
+    "endTitle": "Persönliche Treuhandbetreuung für Ihr Unternehmen",
+    "endSub": "Sie möchten Ihre Buchhaltung auslagern oder Ihre bisherige Treuhandbetreuung wechseln? Wir besprechen gerne, wie sich Ihre Buchhaltung mit StartSaldo zuverlässig und digital organisieren lässt.",
+    "metaTitle": "Treuhänder im Aargau | StartSaldo",
+    "metaDesc": "Finanzbuchhaltung, MWST, Löhne und Jahresabschluss für KMU und Start-ups in Aargau. Digital und persönlich betreut aus Rothenthurm. Kostenloses Erstgespräch.",
+    "faqGuide": {
+      "question": "Was kostet ein Treuhänder für meine GmbH?",
+      "slug": "treuhaender-kosten-gmbh-schweiz",
+      "label": "Ratgeber zu Treuhandkosten für GmbHs"
+    }
+  },
+  "en": {
+    "menu": "Aargau region",
+    "title": "Accountant in Aargau",
+    "titleAccent": "Outsource accounting or change providers.",
+    "sub": "Do you run a GmbH, SME or start-up in Aargau and want professional accounting support? StartSaldo supports Aargau businesses with financial accounting, VAT, payroll and annual accounts. Personal support and digital organisation – including when you want to change your current accountant.",
+    "blocksTitle": "Changing accountants: what should you consider?",
+    "blocks": [
+      {
+        "title": "Changing accountants: what should you consider?",
+        "description": "A change can make sense if your business requirements change, you want more personal support or you want to organise accounting more efficiently. For a smooth handover, previous transactions and completed work should be clearly documented.",
+        "items": []
+      },
+      {
+        "title": "Accounting handover checklist",
+        "description": "These records are especially important. Also clarify which tasks your previous accountant will complete and when the new support starts.",
+        "items": [
+          "Latest annual accounts with balance sheet and income statement",
+          "Current accounting data and account ledgers",
+          "Outstanding customer and supplier invoices",
+          "Bank and account reconciliations",
+          "Previous VAT returns",
+          "Submitted corporate tax returns",
+          "Payroll and social insurance records if you have employees"
+        ]
+      },
+      {
+        "title": "Can you change accountants during the year?",
+        "description": "Yes, in principle you can change accounting support during an ongoing financial year. Contractual terms, the current state of the accounts and responsibilities for unfinished work must be clarified. StartSaldo helps organise the agreed handover and subsequent accounting support.",
+        "items": []
+      },
+      {
+        "title": "Digital cooperation with protected data storage",
+        "description": "We use Proton to store documents and data. Proton is a Swiss provider of privacy-focused digital services. Its Proton Drive cloud storage protects files with end-to-end encryption. This combines protected digital document storage with personal accounting support. We are based in the canton of Schwyz and also support businesses in Aargau digitally.",
+        "items": []
+      },
+      {
+        "title": "Annual accounts and corporate taxes",
+        "description": "Alongside ongoing financial accounting, we support closing work and corporate tax returns. The canton of Aargau provides electronic tax declaration options for legal entities. Complete and traceable accounting is an important foundation.",
+        "items": [],
+        "source": {
+          "label": "Kanton Aargau – Steuererklärung für juristische Personen (German)",
+          "href": "https://www.ag.ch/de/themen/steuern-finanzen/steuern/steuererklaerung-einreichen/etax-aargau/etax-aargau-juristische-personen"
+        }
+      }
+    ],
+    "processTitle": "Getting started together",
+    "process": [
+      [
+        "Initial consultation",
+        "We get to know each other, discuss your needs and how we can best support you."
+      ],
+      [
+        "Agree responsibilities",
+        "We discuss your records and agree on the scope and responsibilities together."
+      ],
+      [
+        "Digital support",
+        "You provide your documents digitally. We take over the agreed tasks."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Your fixed contact person in Rothenthurm supports SMEs and start-ups in Aargau digitally and personally, with clear responsibilities and traceable records.",
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      [
+        "Can I hand over my accounting to StartSaldo during the year?",
+        "In principle, yes. We discuss the available records, desired handover date and unfinished work."
+      ],
+      [
+        "What happens if accounting records are missing?",
+        "We first clarify which information is missing and which reconciliations or additional entries are needed. We discuss the additional work before the handover."
+      ],
+      [
+        "What does an accountant cost for my GmbH?",
+        "Costs depend on the scope of accounting and the services you need. We discuss your needs in a free initial consultation."
+      ]
+    ],
+    "endTitle": "Organise your accounting with personal support",
+    "endSub": "Would you like to reduce your administrative workload? We would be happy to discuss which tasks StartSaldo can take over for your business.",
+    "metaTitle": "Accountant in Aargau | StartSaldo",
+    "metaDesc": "Financial accounting, VAT, payroll and annual accounts for SMEs and start-ups in Aargau. Personal digital support from Rothenthurm. Free initial consultation."
+  }
+},
+  "st-gallen": {
+  "de": {
+    "menu": "Region St. Gallen",
+    "title": "Digitale Treuhand für KMU und Start-ups in St. Gallen",
+    "titleAccent": "Persönlich betreut.",
+    "sub": "Sie führen ein Unternehmen im Kanton St. Gallen und möchten Ihre Buchhaltung effizienter organisieren? StartSaldo unterstützt GmbHs, KMU und Start-ups bei der Finanzbuchhaltung, MWST, Lohnadministration und beim Jahresabschluss. Persönliche Betreuung und digitale Abläufe stehen dabei im Mittelpunkt.",
+    "blocksTitle": "Digitale Buchhaltung bedeutet nicht, alles selbst zu erledigen",
+    "blocks": [
+      {
+        "title": "Digitale Buchhaltung bedeutet nicht, alles selbst zu erledigen",
+        "description": "Belege digital abzulegen ist ein guter Anfang. Entscheidend ist aber, dass daraus eine vollständige und nachvollziehbare Buchhaltung entsteht. Gerade in kleineren Unternehmen fehlt im Tagesgeschäft oft die Zeit, sich zusätzlich um Kontenabstimmungen, MWST-Abrechnungen und Abschlussarbeiten zu kümmern. StartSaldo unterstützt Sie dabei, diese Aufgaben sinnvoll aufzuteilen.",
+        "items": []
+      },
+      {
+        "title": "Welche Arbeiten können Sie auslagern?",
+        "description": "Diese Aufteilung ist ein Beispiel und wird auf Ihre Bedürfnisse abgestimmt.",
+        "items": []
+      },
+      {
+        "title": "Dokumente und Daten geschützt speichern",
+        "description": "Bei der digitalen Buchhaltung spielt der sorgfältige Umgang mit Unternehmensdaten eine wichtige Rolle. Deshalb nutzen wir für die Speicherung von Dokumenten und Daten Proton. Der Schweizer Anbieter entwickelt datenschutzorientierte digitale Dienste. Sein Cloud-Speicher Proton Drive verwendet Ende-zu-Ende-Verschlüsselung, um gespeicherte Dateien zu schützen. Für Sie bedeutet die digitale Zusammenarbeit mit StartSaldo: klare Zuständigkeiten, eine organisierte Dokumentenablage und persönliche Ansprechpartner.",
+        "items": []
+      },
+      {
+        "title": "Jahresabschluss und Steuererklärung in St. Gallen",
+        "description": "Auch bei einer digital geführten Buchhaltung müssen die Abschlussunterlagen vollständig sein. Wichtig sind insbesondere abgestimmte Konten, nachvollziehbare Geschäftsfälle sowie die notwendigen Unterlagen für die Unternehmenssteuererklärung. Der Kanton St. Gallen stellt für juristische Personen elektronische Deklarationsmöglichkeiten bereit. Ab der Steuerperiode 2026 ist die vollständige digitale Einreichung über die neue kantonale Webanwendung vorgesehen.",
+        "items": [],
+        "source": {
+          "label": "Kanton St. Gallen – Elektronische Steuererklärung für juristische Personen",
+          "href": "https://www.sg.ch/steuern-finanzen/steuern/elektronische-steuererklaerung/etaxes-juristische-personen.html"
+        }
+      }
+    ],
+    "processTitle": "So starten wir die Zusammenarbeit",
+    "process": [
+      [
+        "Erstgespräch",
+        "Wir lernen uns kennen und klären Ihre Bedürfnisse – und wie wir Sie am besten entlasten können."
+      ],
+      [
+        "Aufgaben vereinbaren",
+        "Wir besprechen Ihre Unterlagen und legen Umfang und Zuständigkeiten gemeinsam fest."
+      ],
+      [
+        "Digitale Betreuung",
+        "Sie stellen Ihre Unterlagen digital bereit. Wir übernehmen die vereinbarten Arbeiten."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Ihre feste Ansprechpartnerin in Rothenthurm betreut KMU und Start-ups in St. Gallen digital und persönlich – mit klaren Zuständigkeiten und nachvollziehbaren Unterlagen.",
+    "faqTitle": "Häufige Fragen",
+    "faq": [
+      [
+        "Kann ich meine Buchhaltung vollständig auslagern?",
+        "Ja. Je nach vereinbartem Leistungsumfang können wir die laufende Buchhaltung und weitere administrative Aufgaben übernehmen."
+      ],
+      [
+        "Muss ich meine Belege persönlich vorbeibringen?",
+        "Nein. Die Zusammenarbeit kann digital organisiert werden. StartSaldo betreut Unternehmen von seinem Standort im Kanton Schwyz aus."
+      ],
+      [
+        "Kann ich bestimmte Arbeiten weiterhin selbst erledigen?",
+        "Ja. Eine teilweise Auslagerung ist möglich. Wichtig ist, dass die Aufgaben und Verantwortlichkeiten klar vereinbart werden."
+      ]
+    ],
+    "endTitle": "Ihre Buchhaltung digital organisieren",
+    "endSub": "Sie möchten weniger administrativen Aufwand und gleichzeitig eine persönliche Ansprechperson für Ihre Buchhaltung? Wir besprechen gerne, welche Arbeiten StartSaldo für Ihr Unternehmen übernehmen kann.",
+    "metaTitle": "Digitale Treuhand für KMU und Start-ups in St. Gallen | StartSaldo",
+    "metaDesc": "Finanzbuchhaltung, MWST, Löhne und Jahresabschluss für KMU und Start-ups in St. Gallen. Digital und persönlich betreut aus Rothenthurm. Kostenloses Erstgespräch.",
+    "taskTable": {
+      "title": "Welche Arbeiten können Sie auslagern?",
+      "headers": [
+        "Ihr Unternehmen",
+        "StartSaldo"
+      ],
+      "rows": [
+        [
+          "Geschäftliche Unterlagen bereitstellen",
+          "Laufende Finanzbuchhaltung"
+        ],
+        [
+          "Kundenrechnungen und Zahlungen im Blick behalten",
+          "Konten abstimmen"
+        ],
+        [
+          "Informationen zu Geschäftsfällen liefern",
+          "MWST-Abrechnungen"
+        ],
+        [
+          "Unternehmensentscheidungen treffen",
+          "Jahresabschluss und vereinbarte Auswertungen"
+        ]
+      ],
+      "note": "Diese Aufteilung ist ein Beispiel und wird auf Ihre Bedürfnisse abgestimmt."
+    }
+  },
+  "en": {
+    "menu": "St. Gallen region",
+    "title": "Digital accounting for SMEs and start-ups in St. Gallen",
+    "titleAccent": "Personal support, clear processes.",
+    "sub": "Do you run a business in the canton of St. Gallen and want to organise accounting more efficiently? StartSaldo supports GmbHs, SMEs and start-ups with financial accounting, VAT, payroll and annual accounts. Personal support and digital processes are at the heart of our work.",
+    "blocksTitle": "Digital accounting does not mean doing everything yourself",
+    "blocks": [
+      {
+        "title": "Digital accounting does not mean doing everything yourself",
+        "description": "Filing receipts digitally is a good start. What matters is turning them into complete, traceable accounts. Smaller companies often lack time for account reconciliations, VAT returns and closing work alongside day-to-day business. StartSaldo helps you divide these tasks sensibly.",
+        "items": []
+      },
+      {
+        "title": "Protected storage for documents and data",
+        "description": "Handling company data carefully matters in digital accounting. We therefore use Proton to store documents and data. This Swiss provider develops privacy-focused digital services. Proton Drive cloud storage uses end-to-end encryption to protect stored files. Working digitally with StartSaldo means clear responsibilities, organised document storage and personal contact persons.",
+        "items": []
+      },
+      {
+        "title": "Annual accounts and tax returns in St. Gallen",
+        "description": "Closing records must be complete even when accounting is digital. Reconciled accounts, traceable transactions and the necessary corporate tax return documents are particularly important. The canton provides electronic declaration options for legal entities. The new E-Tax SG web application is available for tax returns from 2026.",
+        "items": [],
+        "source": {
+          "label": "Kanton St. Gallen – Elektronische Steuererklärung für juristische Personen (German)",
+          "href": "https://www.sg.ch/steuern-finanzen/steuern/elektronische-steuererklaerung/etaxes-juristische-personen.html"
+        }
+      }
+    ],
+    "processTitle": "Getting started together",
+    "process": [
+      [
+        "Initial consultation",
+        "We get to know each other, discuss your needs and how we can best support you."
+      ],
+      [
+        "Agree responsibilities",
+        "We discuss your records and agree on the scope and responsibilities together."
+      ],
+      [
+        "Digital support",
+        "You provide your documents digitally. We take over the agreed tasks."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Your fixed contact person in Rothenthurm supports SMEs and start-ups in St. Gallen digitally and personally, with clear responsibilities and traceable records.",
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      [
+        "Can I outsource all my accounting?",
+        "Yes. Depending on the agreed scope, we can take over ongoing accounting and further administrative tasks."
+      ],
+      [
+        "Do I need to bring my receipts in person?",
+        "No. Cooperation can be organised digitally. StartSaldo supports businesses from its base in the canton of Schwyz."
+      ],
+      [
+        "Can I continue handling certain tasks myself?",
+        "Yes. Partial outsourcing is possible. Tasks and responsibilities must be clearly agreed."
+      ]
+    ],
+    "endTitle": "Organise your accounting with personal support",
+    "endSub": "Would you like to reduce your administrative workload? We would be happy to discuss which tasks StartSaldo can take over for your business.",
+    "metaTitle": "Digital accounting for SMEs and start-ups in St. Gallen | StartSaldo",
+    "metaDesc": "Financial accounting, VAT, payroll and annual accounts for SMEs and start-ups in St. Gallen. Personal digital support from Rothenthurm. Free initial consultation.",
+    "taskTable": {
+      "title": "Which tasks can you outsource?",
+      "headers": [
+        "Your company",
+        "StartSaldo"
+      ],
+      "rows": [
+        [
+          "Provide business records",
+          "Ongoing financial accounting"
+        ],
+        [
+          "Keep track of customer invoices and payments",
+          "Reconcile accounts"
+        ],
+        [
+          "Provide transaction details",
+          "VAT returns"
+        ],
+        [
+          "Make business decisions",
+          "Annual accounts and agreed reports"
+        ]
+      ],
+      "note": "This division is an example and is tailored to your needs."
+    }
+  }
+},
+  "bern": {
+  "de": {
+    "menu": "Region Bern",
+    "title": "Buchhaltung für KMU und Start-ups in Bern",
+    "titleAccent": "Persönlich und digital.",
+    "sub": "Ihr Unternehmen wächst und mit ihm der administrative Aufwand? StartSaldo unterstützt GmbHs, KMU und Start-ups im Kanton Bern bei der Finanzbuchhaltung, Lohnadministration, MWST und beim Jahresabschluss. Wir helfen Ihnen, Ihre Buchhaltung zuverlässig zu organisieren, damit Sie sich stärker auf Ihr Unternehmen konzentrieren können.",
+    "blocksTitle": "Wenn das Unternehmen wächst, wächst auch die Buchhaltung",
+    "blocks": [
+      {
+        "title": "Wenn das Unternehmen wächst, wächst auch die Buchhaltung",
+        "description": "Neue Mitarbeitende, zusätzliche Kunden und mehr Geschäftsfälle bringen häufig neue administrative Aufgaben mit sich. Was zu Beginn noch nebenbei erledigt werden konnte, benötigt zunehmend klare Abläufe und Verantwortlichkeiten. StartSaldo unterstützt Sie unter anderem bei: Sie können einzelne Aufgaben auslagern oder eine umfassendere Betreuung vereinbaren.",
+        "items": [
+          "Laufender Finanzbuchhaltung und Kontenabstimmungen",
+          "MWST-Abrechnungen",
+          "Lohnbuchhaltung und Sozialversicherungsadministration",
+          "Jahresabschluss und Unternehmenssteuererklärung"
+        ]
+      },
+      {
+        "title": "Den ersten Mitarbeiter einstellen: Was kommt dazu?",
+        "description": "Mit der Anstellung von Mitarbeitenden entstehen für eine GmbH zusätzliche Pflichten. Dazu gehören insbesondere: Ob und in welchem Umfang die berufliche Vorsorge obligatorisch ist, hängt von den gesetzlichen Voraussetzungen ab. StartSaldo unterstützt Sie bei der Organisation der Lohnbuchhaltung und der vereinbarten Sozialversicherungsadministration.",
+        "items": [
+          "Anmeldung und Abrechnung bei der zuständigen AHV-Ausgleichskasse",
+          "Abschluss der obligatorischen Unfallversicherung",
+          "Prüfung der Versicherungspflicht in der beruflichen Vorsorge",
+          "Laufende Lohnabrechnungen und jährliche Deklarationen"
+        ],
+        "source": {
+          "label": "ch.ch – Unfallversicherung",
+          "href": "https://www.ch.ch/de/unfallversicherung-uvg/"
+        }
+      },
+      {
+        "title": "Jahresabschluss und Steuererklärung im Kanton Bern",
+        "description": "Neben den laufenden Buchungen benötigen GmbHs eine ordnungsgemässe Jahresrechnung. Die Steuerverwaltung des Kantons Bern bietet eine elektronische Steuererklärung für juristische Personen an. Für die Vorbereitung sind unter anderem die Bilanz, Erfolgsrechnung und die steuerlich relevanten Unterlagen erforderlich.",
+        "items": [],
+        "source": {
+          "label": "Kanton Bern – Steuererklärung für juristische Personen",
+          "href": "https://www.sv.fin.be.ch/de/start/themen/steuererklaerung/steuererklaerung-ausfuellen-juristische-personen.html"
+        }
+      },
+      {
+        "title": "Digitale Zusammenarbeit und geschützte Dokumentenablage",
+        "description": "Wir speichern Dokumente und Daten über Proton, einen Schweizer Anbieter für datenschutzorientierte digitale Dienste. Der Cloud-Speicher Proton Drive nutzt Ende-zu-Ende-Verschlüsselung zum Schutz gespeicherter Dateien. Die Zusammenarbeit mit StartSaldo kann digital organisiert werden. Persönliche Betreuung bleibt dabei ein wichtiger Bestandteil. Unser Unternehmensstandort liegt im Kanton Schwyz. Wir betreuen auch Unternehmen im Kanton Bern.",
+        "items": []
+      }
+    ],
+    "processTitle": "So starten wir die Zusammenarbeit",
+    "process": [
+      [
+        "Erstgespräch",
+        "Wir lernen uns kennen und klären Ihre Bedürfnisse – und wie wir Sie am besten entlasten können."
+      ],
+      [
+        "Aufgaben vereinbaren",
+        "Wir besprechen Ihre Unterlagen und legen Umfang und Zuständigkeiten gemeinsam fest."
+      ],
+      [
+        "Digitale Betreuung",
+        "Sie stellen Ihre Unterlagen digital bereit. Wir übernehmen die vereinbarten Arbeiten."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Ihre feste Ansprechpartnerin in Rothenthurm betreut KMU und Start-ups in Bern digital und persönlich – mit klaren Zuständigkeiten und nachvollziehbaren Unterlagen.",
+    "faqTitle": "Häufige Fragen",
+    "faq": [
+      [
+        "Kann ich Finanz- und Lohnbuchhaltung gemeinsam auslagern?",
+        "Ja. Beide Bereiche können im Rahmen einer gemeinsamen Betreuung organisiert werden. Den genauen Leistungsumfang vereinbaren wir individuell."
+      ],
+      [
+        "Unterstützt StartSaldo auch kleine GmbHs mit wenigen Mitarbeitenden?",
+        "Ja. Unsere Dienstleistungen richten sich auch an kleine Unternehmen und neu gegründete GmbHs."
+      ],
+      [
+        "Welche Informationen werden für eine erste Offerte benötigt?",
+        "Hilfreich sind Angaben zur Unternehmensgrösse, der ungefähren Belegmenge, der Anzahl Mitarbeitenden und den gewünschten Leistungen."
+      ]
+    ],
+    "endTitle": "Buchhaltung und Löhne zuverlässig organisieren",
+    "endSub": "Sie möchten Ihre Finanz- und Lohnbuchhaltung professionell betreuen lassen? Wir besprechen gerne, welche Aufgaben StartSaldo für Ihr Unternehmen übernehmen kann.",
+    "metaTitle": "Buchhaltung für KMU und Start-ups in Bern | StartSaldo",
+    "metaDesc": "Finanzbuchhaltung, MWST, Löhne und Jahresabschluss für KMU und Start-ups in Bern. Digital und persönlich betreut aus Rothenthurm. Kostenloses Erstgespräch."
+  },
+  "en": {
+    "menu": "Bern region",
+    "title": "Accounting for SMEs and start-ups in Bern",
+    "titleAccent": "Personal and digital.",
+    "sub": "Is your business growing, along with its administrative workload? StartSaldo supports GmbHs, SMEs and start-ups in the canton of Bern with financial accounting, payroll, VAT and annual accounts. We help organise reliable accounts so you can focus more on your business.",
+    "blocksTitle": "As your business grows, so does your accounting",
+    "blocks": [
+      {
+        "title": "As your business grows, so does your accounting",
+        "description": "New employees, additional customers and more transactions often bring new administrative tasks. What you once handled on the side increasingly needs clear processes and responsibilities. You can outsource individual tasks or agree on more comprehensive support.",
+        "items": [
+          "Ongoing financial accounting and account reconciliations",
+          "VAT returns",
+          "Payroll and social insurance administration",
+          "Annual accounts and corporate tax returns"
+        ]
+      },
+      {
+        "title": "Hiring your first employee: what changes?",
+        "description": "Hiring employees brings additional obligations for a GmbH. Whether and to what extent occupational pension coverage is compulsory depends on the legal requirements. StartSaldo helps organise payroll and the agreed social insurance administration.",
+        "items": [
+          "Registration and contributions with the responsible AHV compensation fund",
+          "Taking out compulsory accident insurance",
+          "Checking compulsory occupational pension coverage",
+          "Ongoing payslips and annual declarations"
+        ],
+        "source": {
+          "label": "ch.ch – Unfallversicherung (German)",
+          "href": "https://www.ch.ch/de/unfallversicherung-uvg/"
+        }
+      },
+      {
+        "title": "Annual accounts and tax returns in the canton of Bern",
+        "description": "Alongside ongoing bookkeeping, GmbHs need proper annual financial statements. The canton of Bern tax administration offers an electronic tax return for legal entities. Preparation requires the balance sheet, income statement and tax-relevant records, among other documents.",
+        "items": [],
+        "source": {
+          "label": "Kanton Bern – Steuererklärung für juristische Personen (German)",
+          "href": "https://www.sv.fin.be.ch/de/start/themen/steuererklaerung/steuererklaerung-ausfuellen-juristische-personen.html"
+        }
+      },
+      {
+        "title": "Digital cooperation and protected document storage",
+        "description": "We store documents and data with Proton, a Swiss provider of privacy-focused digital services. Proton Drive cloud storage uses end-to-end encryption to protect stored files. Cooperation can be organised digitally, with personal support remaining an important part. We are based in the canton of Schwyz and also support businesses in the canton of Bern.",
+        "items": []
+      }
+    ],
+    "processTitle": "Getting started together",
+    "process": [
+      [
+        "Initial consultation",
+        "We get to know each other, discuss your needs and how we can best support you."
+      ],
+      [
+        "Agree responsibilities",
+        "We discuss your records and agree on the scope and responsibilities together."
+      ],
+      [
+        "Digital support",
+        "You provide your documents digitally. We take over the agreed tasks."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Your fixed contact person in Rothenthurm supports SMEs and start-ups in Bern digitally and personally, with clear responsibilities and traceable records.",
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      [
+        "Can I outsource financial accounting and payroll together?",
+        "Yes. Both areas can be organised within a shared support arrangement. We agree on the exact scope individually."
+      ],
+      [
+        "Does StartSaldo support small GmbHs with few employees?",
+        "Yes. Our services also support small businesses and newly founded GmbHs."
+      ],
+      [
+        "What information is needed for an initial quote?",
+        "Company size, approximate number of receipts, number of employees and the services required are helpful."
+      ]
+    ],
+    "endTitle": "Organise your accounting with personal support",
+    "endSub": "Would you like to reduce your administrative workload? We would be happy to discuss which tasks StartSaldo can take over for your business.",
+    "metaTitle": "Accounting for SMEs and start-ups in Bern | StartSaldo",
+    "metaDesc": "Financial accounting, VAT, payroll and annual accounts for SMEs and start-ups in Bern. Personal digital support from Rothenthurm. Free initial consultation."
+  }
+},
+  "basel": {
+  "de": {
+    "menu": "Region Basel",
+    "title": "Treuhand für KMU und Start-ups in Basel",
+    "titleAccent": "Buchhaltung und MWST.",
+    "sub": "Sie führen eine GmbH, ein KMU oder ein Start-up in Basel-Stadt oder Basel-Landschaft und möchten Ihre Buchhaltung professionell organisieren? StartSaldo unterstützt Unternehmen bei der Finanzbuchhaltung, MWST, Lohnadministration und beim Jahresabschluss. Auch bei Geschäftsfällen mit ausländischen Kunden oder Lieferanten ist eine nachvollziehbare Buchhaltung besonders wichtig.",
+    "blocksTitle": "Buchhaltung für Unternehmen mit Auslandgeschäften",
+    "blocks": [
+      {
+        "title": "Buchhaltung für Unternehmen mit Auslandgeschäften",
+        "description": "Rechnungen in Euro, Zahlungen in Fremdwährungen oder Dienstleistungen aus dem Ausland können zusätzliche buchhalterische Fragen aufwerfen. Dabei sind insbesondere diese Punkte wichtig: Welche Regeln anzuwenden sind, hängt vom konkreten Geschäftsvorfall ab.",
+        "items": [
+          "Vollständige Dokumentation der Geschäftsvorfälle",
+          "Korrekte Verbuchung von Fremdwährungsbeträgen",
+          "Nachvollziehbare Behandlung von Wechselkursdifferenzen",
+          "Prüfung der MWST-Behandlung bei grenzüberschreitenden Leistungen",
+          "Vollständige Unterlagen für den Jahresabschluss"
+        ]
+      },
+      {
+        "title": "Fremdwährungen und Schweizer MWST",
+        "description": "Eine Rechnung in Euro bedeutet nicht automatisch, dass sie mehrwertsteuerfrei ist. Bei Leistungen an ausländische Kunden oder beim Bezug ausländischer Dienstleistungen muss insbesondere geprüft werden, welche MWST-Regeln anwendbar sind. Für die Umrechnung von Fremdwährungsentgelten in der MWST-Abrechnung veröffentlicht die Eidgenössische Steuerverwaltung offizielle Wechselkurse und Vorgaben. Bei StartSaldo besprechen wir solche Geschäftsfälle individuell und klären den erforderlichen buchhalterischen Betreuungs- und Abklärungsumfang.",
+        "items": [],
+        "source": {
+          "label": "ESTV – Fremdwährungskurse für die MWST",
+          "href": "https://www.estv.admin.ch/de/mwst-fremdwaehrungskurse"
+        }
+      },
+      {
+        "title": "Finanzbuchhaltung, Löhne und Jahresabschluss",
+        "description": "Auch ohne internationale Geschäftsfälle benötigen KMU eine zuverlässige laufende Buchhaltung. Unsere Dienstleistungen umfassen: Die Betreuung kann vollständig oder für einzelne Aufgaben vereinbart werden.",
+        "items": [
+          "Finanzbuchhaltung und Kontenabstimmungen",
+          "MWST-Abrechnungen",
+          "Lohnbuchhaltung und Sozialversicherungsadministration",
+          "Jahresabschluss und Unternehmenssteuererklärung"
+        ]
+      },
+      {
+        "title": "Basel-Stadt und Basel-Landschaft: Steuererklärung für GmbHs",
+        "description": "Für Unternehmen mit Sitz in Basel-Stadt beziehungsweise Basel-Landschaft gelten die jeweiligen kantonalen Steuerverfahren. Eine vollständige Jahresrechnung und die erforderlichen steuerlichen Unterlagen bilden die Grundlage für die Unternehmenssteuererklärung. Offizielle Informationen:",
+        "items": [],
+        "source": {
+          "label": "Kanton Basel-Stadt – Steuererklärung für juristische Personen",
+          "href": "https://www.bs.ch/themen/arbeit-und-steuern/steuererklaerung/steuererklaerung-als-juristische-person-einreichen"
+        }
+      },
+      {
+        "title": "Kanton Basel-Landschaft – Steuererklärung für juristische Personen",
+        "description": "Offizielle Informationen zu den kantonalen Steuerverfahren.",
+        "items": [],
+        "source": {
+          "label": "Kanton Basel-Landschaft – Steuererklärung für juristische Personen",
+          "href": "https://konto.bl.ch/ExternalServices/EgovHubServicePage/EgovHubServicePage.aspx?externalId=626"
+        }
+      },
+      {
+        "title": "Digitale Zusammenarbeit mit geschützter Datenablage",
+        "description": "Für die Speicherung von Dokumenten und Daten nutzen wir Proton. Proton ist ein Schweizer Anbieter für datenschutzorientierte digitale Dienste. Der Cloud-Speicher Proton Drive schützt Dateien durch Ende-zu-Ende-Verschlüsselung. StartSaldo betreut Unternehmen digital von seinem Standort im Kanton Schwyz aus. Auch für Unternehmen in Basel-Stadt und Basel-Landschaft ist eine Zusammenarbeit möglich.",
+        "items": []
+      }
+    ],
+    "processTitle": "So starten wir die Zusammenarbeit",
+    "process": [
+      [
+        "Erstgespräch",
+        "Wir lernen uns kennen und klären Ihre Bedürfnisse – und wie wir Sie am besten entlasten können."
+      ],
+      [
+        "Aufgaben vereinbaren",
+        "Wir besprechen Ihre Unterlagen und legen Umfang und Zuständigkeiten gemeinsam fest."
+      ],
+      [
+        "Digitale Betreuung",
+        "Sie stellen Ihre Unterlagen digital bereit. Wir übernehmen die vereinbarten Arbeiten."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Ihre feste Ansprechpartnerin in Rothenthurm betreut KMU und Start-ups in Basel digital und persönlich – mit klaren Zuständigkeiten und nachvollziehbaren Unterlagen.",
+    "faqTitle": "Häufige Fragen",
+    "faq": [
+      [
+        "Kann StartSaldo Rechnungen in Fremdwährungen verbuchen?",
+        "Wir unterstützen bei der Finanzbuchhaltung und besprechen Geschäftsfälle mit Fremdwährungen individuell. Der erforderliche Aufwand richtet sich nach Art und Umfang der Transaktionen."
+      ],
+      [
+        "Ist eine Rechnung an einen ausländischen Kunden automatisch von der MWST befreit?",
+        "Nein. Die MWST-Behandlung hängt unter anderem von der Art der Leistung und dem anwendbaren Leistungsort ab. Jeder Sachverhalt muss entsprechend beurteilt werden."
+      ],
+      [
+        "Betreut StartSaldo sowohl Basel-Stadt als auch Basel-Landschaft?",
+        "Ja. Unsere digitalen Treuhanddienstleistungen richten sich an Unternehmen in beiden Kantonen."
+      ]
+    ],
+    "endTitle": "Ihre Buchhaltung professionell organisieren",
+    "endSub": "Sie suchen eine persönliche Treuhandbetreuung für Ihr Unternehmen in Basel? Wir besprechen gerne, wie StartSaldo Sie bei Ihrer Buchhaltung und Ihren administrativen Aufgaben unterstützen kann.",
+    "metaTitle": "Treuhand für KMU und Start-ups in Basel | StartSaldo",
+    "metaDesc": "Finanzbuchhaltung, MWST, Löhne und Jahresabschluss für KMU und Start-ups in Basel. Digital und persönlich betreut aus Rothenthurm. Kostenloses Erstgespräch."
+  },
+  "en": {
+    "menu": "Basel region",
+    "title": "Accounting for SMEs and start-ups in Basel",
+    "titleAccent": "Bookkeeping and VAT.",
+    "sub": "Do you run a GmbH, SME or start-up in Basel-Stadt or Basel-Landschaft and want to organise your accounting professionally? StartSaldo supports businesses with financial accounting, VAT, payroll and annual accounts. Traceable accounting is particularly important for transactions with foreign customers or suppliers.",
+    "blocksTitle": "Accounting for businesses with international transactions",
+    "blocks": [
+      {
+        "title": "Accounting for businesses with international transactions",
+        "description": "Euro invoices, foreign-currency payments and services from abroad can raise additional accounting questions. The applicable rules depend on the specific transaction.",
+        "items": [
+          "Complete documentation of business transactions",
+          "Correct recording of foreign-currency amounts",
+          "Traceable treatment of exchange-rate differences",
+          "Checking VAT treatment of cross-border services",
+          "Complete records for annual accounts"
+        ]
+      },
+      {
+        "title": "Foreign currencies and Swiss VAT",
+        "description": "An invoice in euros is not automatically exempt from VAT. For services to foreign customers or services purchased from abroad, the applicable VAT rules must be checked. The Federal Tax Administration publishes official exchange rates and requirements for converting foreign-currency amounts in VAT returns. At StartSaldo, we discuss these transactions individually and clarify the accounting support and assessment required.",
+        "items": [],
+        "source": {
+          "label": "ESTV – Fremdwährungskurse für die MWST (German)",
+          "href": "https://www.estv.admin.ch/de/mwst-fremdwaehrungskurse"
+        }
+      },
+      {
+        "title": "Financial accounting, payroll and annual accounts",
+        "description": "SMEs and start-ups need reliable ongoing accounting even without international transactions. Support can cover all or individual tasks.",
+        "items": [
+          "Financial accounting and account reconciliations",
+          "VAT returns",
+          "Payroll and social insurance administration",
+          "Annual accounts and corporate tax returns"
+        ]
+      },
+      {
+        "title": "Basel-Stadt and Basel-Landschaft: tax returns for GmbHs",
+        "description": "Companies based in Basel-Stadt or Basel-Landschaft follow the respective cantonal tax procedures. Complete annual accounts and the required tax records form the basis for the corporate tax return.",
+        "items": [],
+        "source": {
+          "label": "Kanton Basel-Stadt – Steuererklärung für juristische Personen (German)",
+          "href": "https://www.bs.ch/themen/arbeit-und-steuern/steuererklaerung/steuererklaerung-als-juristische-person-einreichen"
+        }
+      },
+      {
+        "title": "Basel-Landschaft corporate tax information",
+        "description": "Official information on the cantonal tax procedure.",
+        "items": [],
+        "source": {
+          "label": "Kanton Basel-Landschaft – Steuererklärung für juristische Personen (German)",
+          "href": "https://konto.bl.ch/ExternalServices/EgovHubServicePage/EgovHubServicePage.aspx?externalId=626"
+        }
+      },
+      {
+        "title": "Digital cooperation with protected data storage",
+        "description": "We use Proton to store documents and data. Proton is a Swiss provider of privacy-focused digital services. Proton Drive cloud storage protects files with end-to-end encryption. StartSaldo supports businesses digitally from its base in the canton of Schwyz. Cooperation is also possible for businesses in Basel-Stadt and Basel-Landschaft.",
+        "items": []
+      }
+    ],
+    "processTitle": "Getting started together",
+    "process": [
+      [
+        "Initial consultation",
+        "We get to know each other, discuss your needs and how we can best support you."
+      ],
+      [
+        "Agree responsibilities",
+        "We discuss your records and agree on the scope and responsibilities together."
+      ],
+      [
+        "Digital support",
+        "You provide your documents digitally. We take over the agreed tasks."
+      ]
+    ],
+    "people": [
+      "audelia"
+    ],
+    "personText": "Your fixed contact person in Rothenthurm supports SMEs and start-ups in Basel digitally and personally, with clear responsibilities and traceable records.",
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      [
+        "Can StartSaldo record foreign-currency invoices?",
+        "We support financial accounting and discuss foreign-currency transactions individually. The work required depends on the type and volume of transactions."
+      ],
+      [
+        "Is an invoice to a foreign customer automatically exempt from VAT?",
+        "No. VAT treatment depends on the type of service and applicable place of supply, among other factors. Each situation must be assessed accordingly."
+      ],
+      [
+        "Does StartSaldo support both Basel-Stadt and Basel-Landschaft?",
+        "Yes. Our digital accounting services support businesses in both cantons."
+      ]
+    ],
+    "endTitle": "Organise your accounting with personal support",
+    "endSub": "Would you like to reduce your administrative workload? We would be happy to discuss which tasks StartSaldo can take over for your business.",
+    "metaTitle": "Accounting for SMEs and start-ups in Basel | StartSaldo",
+    "metaDesc": "Financial accounting, VAT, payroll and annual accounts for SMEs and start-ups in Basel. Personal digital support from Rothenthurm. Free initial consultation."
+  }
+},
 };
 
 export const SITE = "https://www.startsaldo.ch";
 
 /** Region served, per page – used in the structured data of service pages. */
 const regionArea: Partial<Record<ServiceSlug, { de: string; en: string }>> = {
+  "aargau": { de: "Kanton Aargau", en: "Canton of Aargau" },
+  "st-gallen": { de: "Kanton St. Gallen", en: "Canton of St. Gallen" },
+  "bern": { de: "Kanton Bern", en: "Canton of Bern" },
+  "basel": { de: "Basel-Stadt und Basel-Landschaft", en: "Basel-Stadt and Basel-Landschaft" },
+
   zuerich: { de: "Kanton Zürich", en: "Canton of Zurich" },
   luzern: { de: "Kanton Luzern", en: "Canton of Lucerne" },
   schwyz: { de: "Kanton Schwyz", en: "Canton of Schwyz" },
