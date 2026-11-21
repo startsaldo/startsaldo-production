@@ -23,8 +23,8 @@ export function businessJsonLd(lang: Lang) {
       legalName: "Digital Trust Solutions GmbH",
       taxID: "CHE-147.018.858",
       knowsAbout: lang === "de"
-        ? ["Finanzbuchhaltung", "Lohnbuchhaltung", "Sozialversicherungen", "Mehrwertsteuer (MWST)", "Jahresabschluss nach OR", "Steuererklärung für KMU", "Firmengründung GmbH", "Krypto-Transaktionen in der Buchhaltung", "Banana", "Bexio"]
-        : ["Financial accounting", "Payroll", "Social insurance", "Value added tax (VAT)", "Annual accounts under the Swiss CO", "Tax returns for SMEs", "Company formation (GmbH)", "Crypto transactions in accounting", "Banana", "Bexio"],
+        ? ["Finanzbuchhaltung", "Lohnbuchhaltung", "Sozialversicherungen", "Mehrwertsteuer (MWST)", "Jahresabschluss nach OR", "Steuererklärung für KMU", "Firmengründung GmbH", "Krypto-Transaktionen in der Buchhaltung"]
+        : ["Financial accounting", "Payroll", "Social insurance", "Value added tax (VAT)", "Annual accounts under the Swiss CO", "Tax returns for SMEs", "Company formation (GmbH)", "Crypto transactions in accounting"],
       sameAs: ["https://maps.google.com/maps?cid=16541053202830517101"],
       hasMap: "https://www.google.com/maps/place/?q=place_id:ChIJYV3YuEtNhUcRbeOM7T-gjeU",
       founder: [{ "@type": "Person", name: "Audelia Babbev-Pittet" }, { "@type": "Person", name: "Sarah Mogel" }, { "@type": "Person", name: "Daniel Babbev" }],

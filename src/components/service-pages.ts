@@ -91,7 +91,6 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faq: [
         ["Wie übermittle ich meine Belege?", "Verschlüsselt über Proton – wir richten Ihnen den Zugang im Erstgespräch ein."],
         ["Kann ich nur einen Teil auslagern?", "Ja. Sie können die ganze Buchhaltung oder einzelne Aufgaben an uns übergeben."],
-        ["Arbeiten Sie mit meiner bestehenden Software?", "Wir arbeiten mit Banana und Bexio."],
       ],
       endTitle: "Bereit, die Buchhaltung abzugeben?",
       endSub: "Erzählen Sie uns in einem kostenlosen und unverbindlichen Gespräch, wie Ihr Unternehmen aufgestellt ist.",
@@ -117,7 +116,6 @@ export const services: Record<ServiceSlug, Record<Lang, ServiceCopy>> = {
       faq: [
         ["How do I send my receipts?", "Encrypted via Proton – we set up your access in the initial meeting."],
         ["Can I outsource only part of it?", "Yes. You can hand over all of your accounting or individual tasks."],
-        ["Do you work with my existing software?", "We work with Banana and Bexio."],
       ],
       endTitle: "Ready to hand over your accounting?",
       endSub: "Tell us about your business in a free, no-obligation conversation.",
