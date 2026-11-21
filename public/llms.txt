@@ -35,7 +35,8 @@ We are a small, personal team: Audelia Babbev-Pittet (financial accountant), Sar
 ## Guides
 
 - [Ratgeber](https://www.startsaldo.ch/ratgeber): Articles on formation, accounting and VAT for Swiss SMEs and start-ups.
+- [Treuhänder-Kosten für eine GmbH](https://www.startsaldo.ch/ratgeber/treuhaender-kosten-gmbh-schweiz): Swiss guide prices and factors for comparing accounting costs.
 - [GmbH oder Einzelfirma](https://www.startsaldo.ch/ratgeber/gmbh-oder-einzelfirma): Liability, capital, bookkeeping and tax compared.
 - [MWST-Pflicht Schweiz](https://www.startsaldo.ch/ratgeber/mwst-pflicht-schweiz): When Swiss VAT registration is required.
 - [Aufbewahrungspflicht](https://www.startsaldo.ch/ratgeber/aufbewahrungspflicht-geschaeftsunterlagen): Ten-year retention of business records.
-- [Guides (English)](https://www.startsaldo.ch/en/guides): English versions of all articles.
+- [Guides (English)](https://www.startsaldo.ch/en/guides): English versions of available articles.

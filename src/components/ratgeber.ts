@@ -1,15 +1,168 @@
 /** Ratgeber (blog) articles. Add an article by adding an entry here; routes, sitemap and llms.txt list it. */
-export type Article = {
-  slug: string;
+export type ArticleBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "table"; label: string; headers: [string, string]; rows: [string, string][] }
+  | { type: "list"; items: string[] }
+  | { type: "faq"; items: { question: string; answer: string }[] }
+  | { type: "cta"; label: string; to: "/termin" };
+
+export type ArticleSection = {
+  h: string;
+  p: string[];
+  blocks?: ArticleBlock[];
+};
+
+export type ArticleContent = {
   title: string;
   desc: string;
   category: string;
+  sections: ArticleSection[];
+  lead?: string[];
+  seoTitle?: string;
+  metaDescription?: string;
+  cta?: string;
+  defaultNote?: boolean;
+};
+
+export type Article = ArticleContent & {
+  slug: string;
   date: string; // ISO
-  sections: { h: string; p: string[] }[];
-  en: { title: string; desc: string; category: string; sections: { h: string; p: string[] }[] };
+  en?: ArticleContent;
 };
 
 export const articles: Article[] = [
+  {
+    slug: "treuhaender-kosten-gmbh-schweiz",
+    title: "Was kostet ein Treuhänder für eine GmbH in der Schweiz?",
+    desc: "Was kostet ein Treuhänder für eine GmbH? Schweizer Richtpreise und die wichtigsten Faktoren für einen fairen Kostenvergleich.",
+    seoTitle: "Treuhänder-Kosten für GmbHs in der Schweiz – StartSaldo",
+    metaDescription: "Was kostet ein Treuhänder für eine GmbH in der Schweiz? Aktuelle Richtpreise, Kostenfaktoren und Tipps für die Wahl des passenden Treuhänders.",
+    category: "Buchhaltung",
+    date: "2026-11-21",
+    cta: "Kostenloses Erstgespräch vereinbaren",
+    defaultNote: false,
+    lead: [
+      "**Was kostet die Buchhaltung einer GmbH?** Für eine kleine Schweizer GmbH liegen die Treuhandkosten gemäss einer Preisübersicht von Gryps bei rund **CHF 1'500 bis CHF 3'800 pro Jahr**.",
+      "Der tatsächliche Preis hängt davon ab, wie viele Geschäftsfälle anfallen und welche Arbeiten der Treuhänder übernimmt. Wir zeigen, welche Kosten üblich sind und worauf Sie bei einer Offerte achten sollten.",
+    ],
+    sections: [
+      {
+        h: "Treuhandkosten für eine GmbH im Überblick",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "Eine 2026 aktualisierte Erhebung von Gryps unter über 70 Treuhändern in der Deutschschweiz nennt folgende Richtwerte:" },
+          {
+            type: "table",
+            label: "Richtpreise für Treuhandkosten einer GmbH",
+            headers: ["Leistung", "Richtpreis"],
+            rows: [
+              ["Kleine GmbH, laufende Buchhaltung inklusive Jahresabschluss", "CHF 1'500–3'800 pro Jahr"],
+              ["Durchschnitt im untersuchten Beispiel", "CHF 2'400 pro Jahr"],
+              ["Einmalige Einrichtung", "CHF 300–500"],
+              ["Einfache Buchhaltungsarbeiten", "Ab ca. CHF 80 pro Stunde"],
+              ["Anspruchsvollere Abschluss- und Beratungsarbeiten", "Ca. CHF 120–250 pro Stunde"],
+            ],
+          },
+          { type: "paragraph", text: "Das Beispiel bezieht sich auf eine GmbH mit zwei Mitarbeitenden, 10–20 Belegen pro Monat, laufender Buchhaltung, Jahresabschluss, Steuererklärung und MWST-Abrechnung." },
+          { type: "paragraph", text: "**Wichtig:** Die vollständige Lohnadministration ist im Beispiel nicht ausdrücklich als enthaltene Leistung ausgewiesen. Die Zahlen sind Markt-Richtwerte und keine Preisangaben von StartSaldo." },
+          { type: "paragraph", text: "*Quelle: [Gryps – Treuhand-Preise in der Schweiz, aktualisiert im Mai 2026](https://www.gryps.ch/produkte/treuhaender-21/kosten-treuhaender/).*" },
+        ],
+      },
+      {
+        h: "Was beeinflusst die Kosten eines Treuhänders?",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "Nicht der Umsatz allein bestimmt die Buchhaltungskosten. Entscheidend ist vor allem der tatsächliche Arbeitsaufwand." },
+          { type: "paragraph", text: "**1. Anzahl der Belege**" },
+          { type: "paragraph", text: "Eine GmbH mit wenigen Rechnungen und übersichtlichen Bankbewegungen verursacht normalerweise weniger Aufwand als ein Unternehmen mit zahlreichen Transaktionen." },
+          { type: "paragraph", text: "**2. Umfang der Dienstleistungen**" },
+          { type: "paragraph", text: "Übernimmt der Treuhänder nur den Jahresabschluss oder die gesamte Finanzbuchhaltung? Sind die Steuererklärung und die [MWST-Abrechnungen](https://www.startsaldo.ch/mwst) ebenfalls enthalten?" },
+          { type: "paragraph", text: "**3. Mitarbeitende und Lohnbuchhaltung**" },
+          { type: "paragraph", text: "Lohnabrechnungen, Sozialversicherungsmeldungen und Ein- oder Austritte können zusätzliche Kosten verursachen. Diese Aufgaben sollten in der Offerte separat berücksichtigt werden." },
+          { type: "paragraph", text: "**4. Qualität der Buchhaltungsunterlagen**" },
+          { type: "paragraph", text: "Vollständige, geordnete und digital verfügbare Belege erleichtern die Zusammenarbeit. Fehlende Unterlagen und häufige Rückfragen erhöhen dagegen den Bearbeitungsaufwand." },
+          { type: "paragraph", text: "Auch internationale Geschäftsfälle oder Kryptowährungen können zusätzliche Abklärungen erfordern." },
+        ],
+      },
+      {
+        h: "Muss eine GmbH einen Treuhänder beauftragen?",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "Nein. Eine Schweizer GmbH ist gemäss Art. 957 ff. Obligationenrecht zur ordnungsgemässen Buchführung und Rechnungslegung verpflichtet. Sie muss dafür aber keinen externen Treuhänder beauftragen." },
+          { type: "paragraph", text: "Die Buchhaltung kann intern geführt, vollständig ausgelagert oder zwischen Unternehmen und Treuhandbüro aufgeteilt werden." },
+          { type: "paragraph", text: "Ob sich das Selbermachen lohnt, hängt insbesondere von den vorhandenen Fachkenntnissen und der verfügbaren Zeit ab." },
+          { type: "paragraph", text: "*Quelle: [SECO KMU-Portal – Buchhaltungspflicht für Handelsgesellschaften](https://www.kmu.admin.ch/de/buchhaltungspflicht-fuer-handelsgesellschaften).*" },
+        ],
+      },
+      {
+        h: "Pauschalpreis oder Stundenhonorar?",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "Beide Modelle haben Vorteile." },
+          { type: "paragraph", text: "Bei einer **Pauschale** lassen sich wiederkehrende Kosten besser planen. Wichtig ist, welche Leistungen tatsächlich eingeschlossen sind." },
+          { type: "paragraph", text: "Bei einer **Abrechnung nach Aufwand** bezahlen Sie die geleisteten Stunden. Dafür können die Gesamtkosten stärker schwanken." },
+          { type: "paragraph", text: "Manche Treuhandbüros kombinieren beide Modelle: Wiederkehrende Arbeiten werden pauschal verrechnet, ausserordentliche Aufgaben nach Stundenaufwand." },
+        ],
+      },
+      {
+        h: "Worauf sollten Sie bei einer Treuhandofferte achten?",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "Bevor Sie zwei Angebote vergleichen, sollten Sie diese fünf Fragen klären:" },
+          {
+            type: "list",
+            items: [
+              "Ist die laufende Finanzbuchhaltung enthalten?",
+              "Sind Jahresabschluss und Steuererklärung eingeschlossen?",
+              "Werden MWST und Lohnbuchhaltung separat verrechnet?",
+              "Sind Software, Einrichtung und Datenübernahme im Preis enthalten?",
+              "Welche Arbeiten verursachen zusätzliche Kosten?",
+            ],
+          },
+          { type: "paragraph", text: "**Tipp:** Vergleichen Sie möglichst die gesamten jährlichen Kosten und nicht nur die monatliche Pauschale." },
+        ],
+      },
+      {
+        h: "Häufige Fragen zu Treuhandkosten",
+        p: [],
+        blocks: [
+          {
+            type: "faq",
+            items: [
+              {
+                question: "Was kostet die Buchhaltung einer kleinen GmbH monatlich?",
+                answer: "Der von Gryps für das untersuchte Beispiel ermittelte Durchschnitt von CHF 2'400 jährlich entspricht rechnerisch CHF 200 pro Monat. Das ist jedoch kein allgemein gültiger Monatstarif. Leistungsumfang und Zusatzkosten können erheblich abweichen.",
+              },
+              {
+                question: "Ist der Jahresabschluss im Treuhandpreis enthalten?",
+                answer: "Nicht immer. Manche Treuhandbüros bieten ein Gesamtpaket an, andere verrechnen den [Jahresabschluss](https://www.startsaldo.ch/jahresabschluss) separat. Der genaue Umfang sollte vor Vertragsabschluss feststehen.",
+              },
+              {
+                question: "Kann ich mit digitaler Buchhaltung Geld sparen?",
+                answer: "Digitale Abläufe können die Belegverarbeitung vereinfachen und Rückfragen reduzieren. Ob dadurch tatsächlich Kosten eingespart werden, hängt von der Organisation und der vereinbarten Zusammenarbeit ab.",
+              },
+              {
+                question: "Kann ich nur einen Teil meiner Buchhaltung auslagern?",
+                answer: "Ja. Sie können beispielsweise Rechnungen und Belege selbst vorbereiten und weitere Aufgaben an einen Treuhänder übergeben. Wichtig ist eine klare Aufteilung der Verantwortlichkeiten.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        h: "Persönliche und digitale Buchhaltung mit StartSaldo",
+        p: [],
+        blocks: [
+          { type: "paragraph", text: "StartSaldo unterstützt Schweizer GmbHs, KMU und Start-ups bei der laufenden Finanzbuchhaltung, MWST, Lohnadministration und beim Jahresabschluss." },
+          { type: "paragraph", text: "Ihre Unterlagen werden bei Proton gespeichert. Proton ist ein Schweizer Anbieter für verschlüsselte E-Mail- und Cloud-Speicherdienste. Wir verbinden digitale Abläufe mit persönlichen Ansprechpartnerinnen. Unser Standort ist Rothenthurm im Kanton Schwyz. Wir betreuen auch Unternehmen aus Zug und der übrigen Schweiz." },
+          { type: "paragraph", text: "Ob Sie Ihre gesamte Buchhaltung auslagern oder nur einzelne Aufgaben abgeben möchten: Gemeinsam klären wir, welche Lösung zu Ihrem Unternehmen passt." },
+          { type: "paragraph", text: "**Möchten Sie die Buchhaltung Ihrer GmbH professionell organisieren und die Kosten besser einschätzen?**" },
+          { type: "cta", label: "Jetzt kostenloses Erstgespräch mit StartSaldo vereinbaren", to: "/termin" },
+          { type: "paragraph", text: "*Hinweis: Die genannten Preise sind unverbindliche Richtwerte eines externen Anbieters. Sie stellen keine StartSaldo-Offerte dar. Der Artikel dient der allgemeinen Information und ersetzt keine individuelle Beratung.*" },
+        ],
+      },
+    ],
+  },
   {
     slug: "gmbh-oder-einzelfirma",
     title: "GmbH oder Einzelfirma: Was passt zu Ihrem Start?",
@@ -89,5 +242,21 @@ export const articles: Article[] = [
 ];
 
 export type GuideLang = "de" | "en";
-export const localize = (a: Article, lang: GuideLang) => (lang === "de" ? { slug: a.slug, date: a.date, title: a.title, desc: a.desc, category: a.category, sections: a.sections } : { slug: a.slug, date: a.date, ...a.en });
-export const articleBySlug = (slug: string) => articles.find((a) => a.slug === slug);
+export const articlesForLang = (lang: GuideLang) => articles.filter((a) => lang === "de" || a.en);
+export const localize = (a: Article, lang: GuideLang) => {
+  const content = lang === "en" && a.en ? a.en : a;
+  return {
+    slug: a.slug,
+    date: a.date,
+    title: content.title,
+    desc: content.desc,
+    category: content.category,
+    sections: content.sections,
+    lead: content.lead,
+    seoTitle: content.seoTitle,
+    metaDescription: content.metaDescription,
+    cta: content.cta,
+    defaultNote: content.defaultNote,
+  };
+};
+export const articleBySlug = (slug: string, lang: GuideLang = "de") => articles.find((a) => a.slug === slug && (lang === "de" || a.en));

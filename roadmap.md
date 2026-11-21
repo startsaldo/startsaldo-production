@@ -36,8 +36,10 @@
 - [x] Punkt in der Finanzbuchhaltungs-Liste von «Spezialisiert auf Krypto-Transaktionen» auf «Krypto-Transaktionen» gekürzt (DE/EN).
 - [x] Hero-Foto blendet beim Öffnen der Seite sanft ein (wie die übrigen Hero-Elemente); Endposition auf Computer, Tablet und Handy geprüft, reduzierte Bewegung respektiert.
 
-- [x] Abacus überall entfernt: Software heisst nur noch «Banana und Bexio» (DE/EN, Startseite, Leistungsseiten, Impressum/Datenschutz, llms.txt); Datenspeicherung «über Proton oder im Bexio-Portal».
-- Ratgeber-Bereich (/ratgeber) mit 3 Beiträgen
+- [x] Frühere Software-Nennungen überall entfernt; Datenspeicherung ausschliesslich mit kurzer Proton-Beschreibung (DE/EN, Startseite, Leistungsseiten, Impressum/Datenschutz, llms.txt).
+- [x] Ratgeber-Bereich (/ratgeber) mit 4 Beiträgen: drei deutsch/englisch, Treuhandkosten vorerst nur deutsch.
+- [x] Freigegebenen deutschen Artikel «Treuhänder-Kosten für eine GmbH» mit Preistabelle, FAQ, Quellen, internen Links und SEO-Daten eingebunden; Desktop/Mobil, SSR und Links geprüft. Kein englischer Artikel ohne freigegebene Übersetzung.
+- [ ] Neuen Ratgeberartikel auf Vercel veröffentlichen – wartet auf den externen Deployment-Workflow der Betreiberin.
 - [x] SEO/KI-Optimierung: Startseiten-Titel/H1/Beschreibung, KI-Crawler in robots.txt, Ratgeber im Menü, Querverlinkung Leistungen↔Ratgeber, Sitemap-Sprachverweise, FAQ ohne JavaScript lesbar, Firmendaten erweitert.
 - [x] Abschliessende Produktionsprüfung auf www.startsaldo.ch: alle 36 Sitemap-URLs ohne JavaScript, FAQ, HTML-Links, Canonicals, Sprachverweise, Schema und /en/ (308) geprüft; Startseiten-Adresse vervollständigt; Ergebnisse in .lovable/reviews/live-seo-2026-11-21.md dokumentiert.
 - [ ] Adresskorrektur auf Vercel veröffentlichen – wartet auf den externen Deployment-Workflow der Betreiberin.

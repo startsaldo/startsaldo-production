@@ -5,7 +5,7 @@ import { SITE } from "@/components/service-pages";
 
 export const Route = createFileRoute("/en/guides/$slug")({
   loader: ({ params }) => {
-    const a = articleBySlug(params.slug);
+    const a = articleBySlug(params.slug, "en");
     if (!a) throw notFound();
     return a;
   },

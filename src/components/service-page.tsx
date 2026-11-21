@@ -12,7 +12,7 @@ import audeliaPhoto from "@/assets/audelia-photo.webp";
 
 /** Ratgeber articles linked from each service/region page (internal linking for search). */
 const relatedGuides: Record<ServiceSlug, string[]> = {
-  finanzbuchhaltung: ["aufbewahrungspflicht-geschaeftsunterlagen", "mwst-pflicht-schweiz"],
+  finanzbuchhaltung: ["treuhaender-kosten-gmbh-schweiz", "aufbewahrungspflicht-geschaeftsunterlagen", "mwst-pflicht-schweiz"],
   lohnbuchhaltung: ["aufbewahrungspflicht-geschaeftsunterlagen"],
   mwst: ["mwst-pflicht-schweiz"],
   steuern: ["gmbh-oder-einzelfirma", "aufbewahrungspflicht-geschaeftsunterlagen"],
@@ -176,7 +176,7 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
             <p className="font-semibold text-band-foreground">{lang === "de" ? "Passend dazu im Ratgeber:" : "Related guides:"}</p>
             <ul className="mt-2 space-y-1.5">
               {relatedGuides[slug].map((g) => {
-                const a = articleBySlug(g);
+                const a = articleBySlug(g, lang);
                 if (!a) return null;
                 const l = localize(a, lang);
                 return <li key={g}>{lang === "de"
