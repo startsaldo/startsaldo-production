@@ -92,22 +92,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon.png?v=20261121-full-logo" },
+      { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon.png?v=20261121-logo-v2" },
       {
         rel: "icon",
         type: "image/png",
         sizes: "96x96",
-        href: "/favicon-light.png?v=20261121-full-logo",
+        href: "/favicon-light.png?v=20261121-logo-v2",
         media: "(prefers-color-scheme: light)",
       },
       {
         rel: "icon",
         type: "image/png",
         sizes: "96x96",
-        href: "/favicon-dark.png?v=20261010-modes",
+        href: "/favicon-dark.png?v=20261121-logo-v2",
         media: "(prefers-color-scheme: dark)",
       },
-      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png?v=20261121-full-logo" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png?v=20261121-logo-v2" },
     ],
   }),
   shellComponent: RootShell,
@@ -143,8 +143,8 @@ function RootComponent() {
       const fallback = document.querySelector<HTMLLinkElement>('link[rel="icon"]:not([media])');
       if (!fallback) return;
       fallback.href = scheme.matches
-        ? "/favicon-dark.png?v=20261010-modes"
-        : "/favicon-light.png?v=20261121-full-logo";
+        ? "/favicon-dark.png?v=20261121-logo-v2"
+        : "/favicon-light.png?v=20261121-logo-v2";
     };
     updateTabIcon();
     scheme.addEventListener("change", updateTabIcon);
