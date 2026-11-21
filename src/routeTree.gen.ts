@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BuchhaltungAusserschwyzRouteImport } from './routes/buchhaltung-ausserschwyz'
+import { Route as BuchhaltungLuzernRouteImport } from './routes/buchhaltung-luzern'
 import { Route as BuchhaltungSchwyzRouteImport } from './routes/buchhaltung-schwyz'
+import { Route as BuchhaltungZuerichRouteImport } from './routes/buchhaltung-zuerich'
 import { Route as BuchhaltungZugRouteImport } from './routes/buchhaltung-zug'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as EnRouteImport } from './routes/en'
@@ -28,8 +30,10 @@ import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as EnAccountingRouteImport } from './routes/en.accounting'
 import { Route as EnAccountingAusserschwyzRouteImport } from './routes/en.accounting-ausserschwyz'
+import { Route as EnAccountingLucerneRouteImport } from './routes/en.accounting-lucerne'
 import { Route as EnAccountingSchwyzRouteImport } from './routes/en.accounting-schwyz'
 import { Route as EnAccountingZugRouteImport } from './routes/en.accounting-zug'
+import { Route as EnAccountingZurichRouteImport } from './routes/en.accounting-zurich'
 import { Route as EnAnnualAccountsRouteImport } from './routes/en.annual-accounts'
 import { Route as EnCryptoRouteImport } from './routes/en.crypto'
 import { Route as EnLegalNoticeRouteImport } from './routes/en.legal-notice'
@@ -54,9 +58,19 @@ const BuchhaltungAusserschwyzRoute = BuchhaltungAusserschwyzRouteImport.update({
   path: '/buchhaltung-ausserschwyz',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BuchhaltungLuzernRoute = BuchhaltungLuzernRouteImport.update({
+  id: '/buchhaltung-luzern',
+  path: '/buchhaltung-luzern',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BuchhaltungSchwyzRoute = BuchhaltungSchwyzRouteImport.update({
   id: '/buchhaltung-schwyz',
   path: '/buchhaltung-schwyz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuchhaltungZuerichRoute = BuchhaltungZuerichRouteImport.update({
+  id: '/buchhaltung-zuerich',
+  path: '/buchhaltung-zuerich',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuchhaltungZugRoute = BuchhaltungZugRouteImport.update({
@@ -140,6 +154,11 @@ const EnAccountingAusserschwyzRoute =
     path: '/accounting-ausserschwyz',
     getParentRoute: () => EnRoute,
   } as any)
+const EnAccountingLucerneRoute = EnAccountingLucerneRouteImport.update({
+  id: '/accounting-lucerne',
+  path: '/accounting-lucerne',
+  getParentRoute: () => EnRoute,
+} as any)
 const EnAccountingSchwyzRoute = EnAccountingSchwyzRouteImport.update({
   id: '/accounting-schwyz',
   path: '/accounting-schwyz',
@@ -148,6 +167,11 @@ const EnAccountingSchwyzRoute = EnAccountingSchwyzRouteImport.update({
 const EnAccountingZugRoute = EnAccountingZugRouteImport.update({
   id: '/accounting-zug',
   path: '/accounting-zug',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnAccountingZurichRoute = EnAccountingZurichRouteImport.update({
+  id: '/accounting-zurich',
+  path: '/accounting-zurich',
   getParentRoute: () => EnRoute,
 } as any)
 const EnAnnualAccountsRoute = EnAnnualAccountsRouteImport.update({
@@ -219,7 +243,9 @@ const EnGuidesSlugRoute = EnGuidesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/buchhaltung-ausserschwyz': typeof BuchhaltungAusserschwyzRoute
+  '/buchhaltung-luzern': typeof BuchhaltungLuzernRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
+  '/buchhaltung-zuerich': typeof BuchhaltungZuerichRoute
   '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/datenschutz': typeof DatenschutzRoute
   '/en': typeof EnRouteWithChildren
@@ -235,8 +261,10 @@ export interface FileRoutesByFullPath {
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
   '/en/accounting-ausserschwyz': typeof EnAccountingAusserschwyzRoute
+  '/en/accounting-lucerne': typeof EnAccountingLucerneRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
   '/en/accounting-zug': typeof EnAccountingZugRoute
+  '/en/accounting-zurich': typeof EnAccountingZurichRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
   '/en/crypto': typeof EnCryptoRoute
   '/en/legal-notice': typeof EnLegalNoticeRoute
@@ -255,7 +283,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/buchhaltung-ausserschwyz': typeof BuchhaltungAusserschwyzRoute
+  '/buchhaltung-luzern': typeof BuchhaltungLuzernRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
+  '/buchhaltung-zuerich': typeof BuchhaltungZuerichRoute
   '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/datenschutz': typeof DatenschutzRoute
   '/finanzbuchhaltung': typeof FinanzbuchhaltungRoute
@@ -270,8 +300,10 @@ export interface FileRoutesByTo {
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
   '/en/accounting-ausserschwyz': typeof EnAccountingAusserschwyzRoute
+  '/en/accounting-lucerne': typeof EnAccountingLucerneRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
   '/en/accounting-zug': typeof EnAccountingZugRoute
+  '/en/accounting-zurich': typeof EnAccountingZurichRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
   '/en/crypto': typeof EnCryptoRoute
   '/en/legal-notice': typeof EnLegalNoticeRoute
@@ -291,7 +323,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/buchhaltung-ausserschwyz': typeof BuchhaltungAusserschwyzRoute
+  '/buchhaltung-luzern': typeof BuchhaltungLuzernRoute
   '/buchhaltung-schwyz': typeof BuchhaltungSchwyzRoute
+  '/buchhaltung-zuerich': typeof BuchhaltungZuerichRoute
   '/buchhaltung-zug': typeof BuchhaltungZugRoute
   '/datenschutz': typeof DatenschutzRoute
   '/en': typeof EnRouteWithChildren
@@ -307,8 +341,10 @@ export interface FileRoutesById {
   '/api/contact': typeof ApiContactRoute
   '/en/accounting': typeof EnAccountingRoute
   '/en/accounting-ausserschwyz': typeof EnAccountingAusserschwyzRoute
+  '/en/accounting-lucerne': typeof EnAccountingLucerneRoute
   '/en/accounting-schwyz': typeof EnAccountingSchwyzRoute
   '/en/accounting-zug': typeof EnAccountingZugRoute
+  '/en/accounting-zurich': typeof EnAccountingZurichRoute
   '/en/annual-accounts': typeof EnAnnualAccountsRoute
   '/en/crypto': typeof EnCryptoRoute
   '/en/legal-notice': typeof EnLegalNoticeRoute
@@ -329,7 +365,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/buchhaltung-ausserschwyz'
+    | '/buchhaltung-luzern'
     | '/buchhaltung-schwyz'
+    | '/buchhaltung-zuerich'
     | '/buchhaltung-zug'
     | '/datenschutz'
     | '/en'
@@ -345,8 +383,10 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/en/accounting'
     | '/en/accounting-ausserschwyz'
+    | '/en/accounting-lucerne'
     | '/en/accounting-schwyz'
     | '/en/accounting-zug'
+    | '/en/accounting-zurich'
     | '/en/annual-accounts'
     | '/en/crypto'
     | '/en/legal-notice'
@@ -365,7 +405,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/buchhaltung-ausserschwyz'
+    | '/buchhaltung-luzern'
     | '/buchhaltung-schwyz'
+    | '/buchhaltung-zuerich'
     | '/buchhaltung-zug'
     | '/datenschutz'
     | '/finanzbuchhaltung'
@@ -380,8 +422,10 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/en/accounting'
     | '/en/accounting-ausserschwyz'
+    | '/en/accounting-lucerne'
     | '/en/accounting-schwyz'
     | '/en/accounting-zug'
+    | '/en/accounting-zurich'
     | '/en/annual-accounts'
     | '/en/crypto'
     | '/en/legal-notice'
@@ -400,7 +444,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/buchhaltung-ausserschwyz'
+    | '/buchhaltung-luzern'
     | '/buchhaltung-schwyz'
+    | '/buchhaltung-zuerich'
     | '/buchhaltung-zug'
     | '/datenschutz'
     | '/en'
@@ -416,8 +462,10 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/en/accounting'
     | '/en/accounting-ausserschwyz'
+    | '/en/accounting-lucerne'
     | '/en/accounting-schwyz'
     | '/en/accounting-zug'
+    | '/en/accounting-zurich'
     | '/en/annual-accounts'
     | '/en/crypto'
     | '/en/legal-notice'
@@ -437,7 +485,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BuchhaltungAusserschwyzRoute: typeof BuchhaltungAusserschwyzRoute
+  BuchhaltungLuzernRoute: typeof BuchhaltungLuzernRoute
   BuchhaltungSchwyzRoute: typeof BuchhaltungSchwyzRoute
+  BuchhaltungZuerichRoute: typeof BuchhaltungZuerichRoute
   BuchhaltungZugRoute: typeof BuchhaltungZugRoute
   DatenschutzRoute: typeof DatenschutzRoute
   EnRoute: typeof EnRouteWithChildren
@@ -471,11 +521,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuchhaltungAusserschwyzRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/buchhaltung-luzern': {
+      id: '/buchhaltung-luzern'
+      path: '/buchhaltung-luzern'
+      fullPath: '/buchhaltung-luzern'
+      preLoaderRoute: typeof BuchhaltungLuzernRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/buchhaltung-schwyz': {
       id: '/buchhaltung-schwyz'
       path: '/buchhaltung-schwyz'
       fullPath: '/buchhaltung-schwyz'
       preLoaderRoute: typeof BuchhaltungSchwyzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buchhaltung-zuerich': {
+      id: '/buchhaltung-zuerich'
+      path: '/buchhaltung-zuerich'
+      fullPath: '/buchhaltung-zuerich'
+      preLoaderRoute: typeof BuchhaltungZuerichRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/buchhaltung-zug': {
@@ -590,6 +654,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnAccountingAusserschwyzRouteImport
       parentRoute: typeof EnRoute
     }
+    '/en/accounting-lucerne': {
+      id: '/en/accounting-lucerne'
+      path: '/accounting-lucerne'
+      fullPath: '/en/accounting-lucerne'
+      preLoaderRoute: typeof EnAccountingLucerneRouteImport
+      parentRoute: typeof EnRoute
+    }
     '/en/accounting-schwyz': {
       id: '/en/accounting-schwyz'
       path: '/accounting-schwyz'
@@ -602,6 +673,13 @@ declare module '@tanstack/react-router' {
       path: '/accounting-zug'
       fullPath: '/en/accounting-zug'
       preLoaderRoute: typeof EnAccountingZugRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/accounting-zurich': {
+      id: '/en/accounting-zurich'
+      path: '/accounting-zurich'
+      fullPath: '/en/accounting-zurich'
+      preLoaderRoute: typeof EnAccountingZurichRouteImport
       parentRoute: typeof EnRoute
     }
     '/en/annual-accounts': {
@@ -701,8 +779,10 @@ declare module '@tanstack/react-router' {
 interface EnRouteChildren {
   EnAccountingRoute: typeof EnAccountingRoute
   EnAccountingAusserschwyzRoute: typeof EnAccountingAusserschwyzRoute
+  EnAccountingLucerneRoute: typeof EnAccountingLucerneRoute
   EnAccountingSchwyzRoute: typeof EnAccountingSchwyzRoute
   EnAccountingZugRoute: typeof EnAccountingZugRoute
+  EnAccountingZurichRoute: typeof EnAccountingZurichRoute
   EnAnnualAccountsRoute: typeof EnAnnualAccountsRoute
   EnCryptoRoute: typeof EnCryptoRoute
   EnLegalNoticeRoute: typeof EnLegalNoticeRoute
@@ -720,8 +800,10 @@ interface EnRouteChildren {
 const EnRouteChildren: EnRouteChildren = {
   EnAccountingRoute: EnAccountingRoute,
   EnAccountingAusserschwyzRoute: EnAccountingAusserschwyzRoute,
+  EnAccountingLucerneRoute: EnAccountingLucerneRoute,
   EnAccountingSchwyzRoute: EnAccountingSchwyzRoute,
   EnAccountingZugRoute: EnAccountingZugRoute,
+  EnAccountingZurichRoute: EnAccountingZurichRoute,
   EnAnnualAccountsRoute: EnAnnualAccountsRoute,
   EnCryptoRoute: EnCryptoRoute,
   EnLegalNoticeRoute: EnLegalNoticeRoute,
@@ -741,7 +823,9 @@ const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BuchhaltungAusserschwyzRoute: BuchhaltungAusserschwyzRoute,
+  BuchhaltungLuzernRoute: BuchhaltungLuzernRoute,
   BuchhaltungSchwyzRoute: BuchhaltungSchwyzRoute,
+  BuchhaltungZuerichRoute: BuchhaltungZuerichRoute,
   BuchhaltungZugRoute: BuchhaltungZugRoute,
   DatenschutzRoute: DatenschutzRoute,
   EnRoute: EnRouteWithChildren,

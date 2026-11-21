@@ -191,4 +191,28 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/guides/aufbewahrungspflicht-geschaeftsunterlagen"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/ratgeber/aufbewahrungspflicht-geschaeftsunterlagen"/>
   </url>
+  <url>
+    <loc>https://www.startsaldo.ch/buchhaltung-zuerich</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-zuerich"/>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/en/accounting-zurich</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-zuerich"/>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/buchhaltung-luzern</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-luzern"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-lucerne"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-luzern"/>
+  </url>
+  <url>
+    <loc>https://www.startsaldo.ch/en/accounting-lucerne</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.startsaldo.ch/buchhaltung-luzern"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.startsaldo.ch/en/accounting-lucerne"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.startsaldo.ch/buchhaltung-luzern"/>
+  </url>
 </urlset>

@@ -22,6 +22,9 @@ We are a small, personal team: Audelia Babbev-Pittet (financial accountant), Sar
 - [Canton Zug](https://www.startsaldo.ch/buchhaltung-zug): Accounting for companies in the canton of Zug.
 - [Ausserschwyz & Höfe](https://www.startsaldo.ch/buchhaltung-ausserschwyz): Accounting for Wollerau, Freienbach, Pfäffikon SZ, Bäch and the March district.
 
+- [Canton Zurich](https://www.startsaldo.ch/buchhaltung-zuerich): Personal, digital accounting for SMEs and start-ups in Zurich, supported from Rothenthurm. [English](https://www.startsaldo.ch/en/accounting-zurich).
+- [Canton Lucerne](https://www.startsaldo.ch/buchhaltung-luzern): Full or partial accounting outsourcing for SMEs and start-ups in Lucerne. [English](https://www.startsaldo.ch/en/accounting-lucerne).
+
 ## Pages
 
 - [Home](https://www.startsaldo.ch/): Overview of the company and services.

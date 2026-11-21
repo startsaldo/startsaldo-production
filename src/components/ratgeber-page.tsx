@@ -52,7 +52,7 @@ export function RatgeberIndex({ lang }: { lang: GuideLang }) {
 
 /** Service pages linked from each article (internal linking for search). */
 const relatedServices: Record<string, ServiceSlug[]> = {
-  "treuhaender-kosten-gmbh-schweiz": ["finanzbuchhaltung", "jahresabschluss", "mwst", "lohnbuchhaltung"],
+  "treuhaender-kosten-gmbh-schweiz": ["finanzbuchhaltung", "jahresabschluss", "mwst", "lohnbuchhaltung", "zuerich", "luzern"],
   "gmbh-oder-einzelfirma": ["startups", "steuern"],
   "mwst-pflicht-schweiz": ["mwst", "finanzbuchhaltung"],
   "aufbewahrungspflicht-geschaeftsunterlagen": ["finanzbuchhaltung", "jahresabschluss"],

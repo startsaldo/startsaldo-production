@@ -21,6 +21,8 @@ const relatedGuides: Record<ServiceSlug, string[]> = {
   startups: ["gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
   schwyz: ["gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
   zug: ["gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
+  zuerich: ["treuhaender-kosten-gmbh-schweiz", "gmbh-oder-einzelfirma", "mwst-pflicht-schweiz"],
+  luzern: ["treuhaender-kosten-gmbh-schweiz", "aufbewahrungspflicht-geschaeftsunterlagen", "mwst-pflicht-schweiz"],
   hoefe: ["gmbh-oder-einzelfirma", "aufbewahrungspflicht-geschaeftsunterlagen"],
 };
 
@@ -84,13 +86,14 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
           <Reveal><h2 className="heading-lg text-center">{p.blocksTitle}</h2></Reveal>
           <div className={`mt-10 grid items-stretch gap-5 md:mt-14 md:gap-6 ${blockCols}`}>
             {p.blocks.map((b, i) => (
-              <Reveal key={b.title} delay={i * 80} className="h-full">
+              <Reveal key={b.title} delay={i * 80} className="h-full min-w-0">
                 <article className="h-full min-w-0 rounded-[20px] bg-sage-soft p-6 md:rounded-[24px] md:p-10">
                   <h3 className="break-words text-[26px] font-semibold md:text-[30px]">{b.title}</h3>
+                  {b.description && <p className="mt-4 text-[15px] leading-7 text-muted-foreground">{b.description}</p>}
                   <div className="my-6 border-t border-border md:my-7" />
                   <ul className="space-y-3.5">
                     {b.items.map((it) => (
-                      <li key={it} className="flex gap-3 text-[15px] leading-6">
+                      <li key={it} className="flex gap-3 break-words text-[15px] leading-6">
                         <Check className="mt-1 size-4 shrink-0 text-success" />{it}
                       </li>
                     ))}
@@ -105,7 +108,7 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
       <section className="section-pad bg-sage-soft">
         <div className="section-shell">
           <Reveal><h2 className="heading-lg text-center">{p.processTitle}</h2></Reveal>
-          <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
+          <div className={`mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6 ${p.process.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"}`}>
             {p.process.map(([title, text], i) => (
               <Reveal key={title} delay={i * 80} className="h-full">
                 <div className="h-full rounded-[20px] border border-border bg-card p-6 md:rounded-[24px] md:p-8">
@@ -153,7 +156,7 @@ export function ServicePage({ lang, slug }: { lang: Lang; slug: ServiceSlug }) {
               {p.faq.map(([q, a]) => (
                 <AccordionItem key={q} value={q}>
                   <AccordionTrigger className="min-h-[72px] text-left text-base hover:no-underline">{q}</AccordionTrigger>
-                  <AccordionContent className="max-w-[600px] pb-6 leading-7 text-muted-foreground">{a}</AccordionContent>
+                  <AccordionContent className="max-w-[600px] pb-6 leading-7 text-muted-foreground">{a}{lang === "de" && p.faqGuide?.question === q && <Link to="/ratgeber/$slug" params={{ slug: p.faqGuide.slug }} className="mt-3 block font-medium text-primary underline underline-offset-4">{p.faqGuide.label}</Link>}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>

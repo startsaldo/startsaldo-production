@@ -46,3 +46,6 @@
 - [x] Kurze SS-Symbole im Hellmodus sowie Google-/Browser-Fallbacks durch das gelieferte vollständige StartSaldo-Logo ersetzt (9 PNG/ICO-Dateien inklusive Apple-Touch und Schema-Logo); HTTP-Auslieferung, DE/EN, Moduswechsel und initiales HTML geprüft; Dunkelmodus-Datei unverändert.
 - [ ] Neue Browser-/Google-Symbole auf Vercel veröffentlichen – wartet auf externen Deployment-Workflow; anschliessend müssen Browser und Google ihre gespeicherten Symbole aktualisieren.
 - [x] Neueste Hell-/Dunkelmodus-Logos in allen zehn Browser-/Google-/Touch-Symbolen eingesetzt; aktualisierte Verweise, HTTP-Auslieferung und Moduswechsel auf DE/EN/Leistungsseite geprüft. Veröffentlichung weiterhin über Vercel erforderlich.
+
+- [x] Zürich und Luzern mit gelieferten Texten (DE/EN), Proton statt Software-Namen, Regionslinks, Ratgeber-Verweisen und Suchmetadaten ergänzt; alle vier Seiten, Handyansicht und FAQ→Ratgeber→Termin geprüft.
+- [ ] Neue Regionsseiten auf Vercel veröffentlichen – wartet auf den externen Deployment-Workflow der Betreiberin.

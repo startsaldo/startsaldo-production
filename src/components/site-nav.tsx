@@ -96,7 +96,7 @@ export function SiteHeader({ lang, slug, altTo }: { lang: Lang; slug?: ServiceSl
 }
 
 const regionLabel: Record<Lang, string> = { de: "Regionen", en: "Regions" };
-const regionShort: Partial<Record<ServiceSlug, string>> = { schwyz: "Schwyz", zug: "Zug", hoefe: "Höfe" };
+const regionShort: Partial<Record<ServiceSlug, string>> = { schwyz: "Schwyz", zug: "Zug", hoefe: "Höfe", zuerich: "Zürich", luzern: "Luzern" };
 
 export function FooterServiceLinks({ lang }: { lang: Lang }) {
   return (

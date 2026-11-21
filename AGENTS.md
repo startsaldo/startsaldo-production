@@ -24,3 +24,5 @@
 - Ratgeber (blog) articles live as data in src/components/ratgeber.ts (de + en fields) rendered by /ratgeber[/$slug] and /en/guides[/$slug] — one place to add posts; add new slugs to sitemap.xml and llms.txt.
 - Accordion content is always rendered (forceMount, hidden when closed) so FAQ answers are in the server HTML for search and AI crawlers.
 - Service pages and Ratgeber articles cross-link via relatedGuides (service-page.tsx) and relatedServices (ratgeber-page.tsx); extend both maps when adding pages or articles.
+
+- Regional service blocks may include introductory paragraphs, and FAQs may link to an available guide; reuse the shared page layout to preserve the site design.
