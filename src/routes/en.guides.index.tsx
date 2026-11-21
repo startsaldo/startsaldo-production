@@ -13,7 +13,12 @@ export const Route = createFileRoute("/en/guides/")({
       { property: "og:type", content: "website" }, { property: "og:url", content: SITE + "/en/guides" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: SITE + "/en/guides" }, { rel: "alternate", hrefLang: "de", href: SITE + "/ratgeber" }],
+    links: [
+      { rel: "canonical", href: SITE + "/en/guides" },
+      { rel: "alternate", hrefLang: "de", href: SITE + "/ratgeber" },
+      { rel: "alternate", hrefLang: "en", href: SITE + "/en/guides" },
+      { rel: "alternate", hrefLang: "x-default", href: SITE + "/ratgeber" },
+    ],
   }),
   component: () => <RatgeberIndex lang="en" />,
 });

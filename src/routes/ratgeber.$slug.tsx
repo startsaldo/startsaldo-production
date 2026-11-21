@@ -21,7 +21,12 @@ export const Route = createFileRoute("/ratgeber/$slug")({
         { property: "og:type", content: "article" }, { property: "og:url", content: url },
         { name: "twitter:card", content: "summary_large_image" },
       ],
-      links: [{ rel: "canonical", href: url }, { rel: "alternate", hrefLang: "en", href: alt }],
+      links: [
+        { rel: "canonical", href: url },
+        { rel: "alternate", hrefLang: "de", href: url },
+        { rel: "alternate", hrefLang: "en", href: alt },
+        { rel: "alternate", hrefLang: "x-default", href: url },
+      ],
       scripts: [{
         type: "application/ld+json",
         children: JSON.stringify({
