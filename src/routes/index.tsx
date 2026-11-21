@@ -6,7 +6,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Buchhaltung & Treuhand in Schwyz | StartSaldo" },
-      { name: "description", content: "Finanz- und Lohnbuchhaltung, MWST und Jahresabschluss für KMU und Start-ups – persönlich betreut aus Rothenthurm im Kanton Schwyz. Kostenloses Erstgespräch." },
+      { name: "description", content: "Finanz- und Lohnbuchhaltung, MWST und Jahresabschluss für KMU und Start-ups – persönlich betreut aus Rothenthurm für Schwyz, Einsiedeln und Zug. Kostenloses Erstgespräch." },
       { property: "og:title", content: "Buchhaltung & Treuhand in Schwyz | StartSaldo" },
       { property: "og:description", content: "Finanz- und Lohnbuchhaltung, MWST und Jahresabschluss für KMU und Start-ups – persönlich betreut aus Rothenthurm im Kanton Schwyz." },
       { property: "og:type", content: "website" },
