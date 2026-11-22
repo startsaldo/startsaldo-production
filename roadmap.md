@@ -56,3 +56,4 @@
 
 - [x] Aargau, St. Gallen, Bern und Basel aus gelieferten Texten (DE/EN) ergänzt: alle sieben offiziellen Quellen erreichbar, Tabelle und FAQ integriert, Regionslinks und Ratgeber-Verweise ergänzt; acht Seiten auf drei Bildschirmgrössen inkl. Sprachwechsel, Ratgeber und Termin geprüft. 30 Tests bestanden.
 - [ ] Vier zusätzliche Regionen auf Vercel veröffentlichen – wartet auf den externen Deployment-Workflow der Betreiberin.
+- [x] Alle fünf Ratgeber mit den gelieferten Fassungen auf einen gemeinsamen Aufbau vereinheitlicht; DE/EN, Tabellen, Checklisten, Quellen und Darstellung bei 390, 623 und 1280 px geprüft.
